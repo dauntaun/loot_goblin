@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bo65quo5biq4q"]
+
+[ext_resource type="StyleBox" uid="uid://btcyr2t0synok" path="res://gui/resources/grid_unit_panel_stylebox.tres" id="1_dbk7s"]
+
+[node name="Panel" type="Panel" unique_id=843661989]
+custom_minimum_size = Vector2(36, 36)
+offset_right = 36.0
+offset_bottom = 36.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_dbk7s")

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://bwum16vn2cwnm"]
+
+[ext_resource type="Script" uid="uid://biawb4gh2xqm2" path="res://gui/transfer_history_panel.gd" id="1_8p7u7"]
+[ext_resource type="StyleBox" uid="uid://c2uhhbkieiwis" path="res://gui/resources/item_tooltip_panel_stylebox.tres" id="2_xrvkh"]
+[ext_resource type="FontFile" uid="uid://cen8snwgwauy1" path="res://gui/resources/droid-sans-mono.ttf" id="3_xr2ix"]
+
+[node name="ScrollContainer" type="ScrollContainer" unique_id=880519127]
+custom_minimum_size = Vector2(300, 512)
+offset_right = 300.0
+offset_bottom = 158.0
+vertical_scroll_mode = 4
+script = ExtResource("1_8p7u7")
+
+[node name="Control" type="PanelContainer" parent="." unique_id=1205291650]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_styles/panel = ExtResource("2_xrvkh")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1897068747]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=740730565]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1214943238]
+layout_mode = 2
+text = "Sent items"
+horizontal_alignment = 1
+
+[node name="AddContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1208896013]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/AddContainer" unique_id=2120341741]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer" unique_id=1284359003]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.25490198, 0.4117647, 0.88235295, 1)
+text = "Ruby Jewel Of Fervor"
+text_overrun_behavior = 3
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer" unique_id=1544301884]
+layout_mode = 2
+text = "PD2->Stash"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/AddContainer" unique_id=1189391533]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer2" unique_id=730894549]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+text = "Windforce"
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer2" unique_id=1796915470]
+layout_mode = 2
+text = "Stash->PD2"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/AddContainer" unique_id=332635147]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer3" unique_id=138899351]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+text = "Windforce"
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer3" unique_id=414537169]
+layout_mode = 2
+text = "Stash->PD2"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/AddContainer" unique_id=502163051]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer4" unique_id=896804735]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+text = "Windforce"
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer4" unique_id=2003347608]
+layout_mode = 2
+text = "Stash->PD2"
+horizontal_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/AddContainer" unique_id=1389295792]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer5" unique_id=78591209]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+text = "Windforce"
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/AddContainer/HBoxContainer5" unique_id=319625873]
+layout_mode = 2
+text = "Stash->PD2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=336205895]
+layout_mode = 2
+text = "Save to"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=25895215]
+layout_mode = 2
+
+[node name="GoblinFileLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1496933770]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_xr2ix")
+text = "goblin_stash.gstash"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1636865095]
+layout_mode = 2
+
+[node name="Pd2FileLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=154570969]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_xr2ix")
+text = "pd2_shared.stash"
+horizontal_alignment = 1
+text_overrun_behavior = 3

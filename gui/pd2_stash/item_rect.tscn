@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dmcf3j2822imo"]
+
+[ext_resource type="Script" uid="uid://dkf3t7ohpve2l" path="res://gui/pd2_stash/item_rect.gd" id="1_wbthd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uup3"]
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(0.14478481, 0.14478484, 0.14478472, 1)
+
+[sub_resource type="Gradient" id="Gradient_eaelu"]
+colors = PackedColorArray(0.427493, 0.42749307, 0.42749295, 1, 0.7063026, 0.7063026, 0.7063025, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cho05"]
+gradient = SubResource("Gradient_eaelu")
+width = 32
+height = 32
+fill_to = Vector2(0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbthd"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.13899964, 0.13899967, 0.13899961, 1)
+
+[node name="ItemRect" type="Panel" unique_id=1300969932]
+offset_right = 71.0
+offset_bottom = 71.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2uup3")
+script = ExtResource("1_wbthd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=853088512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1176329987]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("GradientTexture2D_cho05")
+
+[node name="Highlight" type="ColorRect" parent="MarginContainer" unique_id=1288105299]
+visible = false
+layout_mode = 2
+color = Color(1, 1, 1, 0.8235294)
+
+[node name="QuantityLabel" type="Label" parent="MarginContainer" unique_id=665132874]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 1
+text = "999 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1482123903]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_wbthd")

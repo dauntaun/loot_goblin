@@ -1,0 +1,2878 @@
+String Index	Text
+Cutthroat1	Bartuc's Cut-Throat
+ModStr5d	Maximum Stamina
+Mauler	Mauler
+StrSkill41	 damage
+D2bnetHelp13	/whisper <*accountname>, /w <*accountname>
+D2bnetHelp13b	/msg <*accountname>, /m <*accountname>
+D2bnetHelp15	/squelch <*accountname>
+D2bnetHelp15b	/ignore <*accountname>
+D2bnetHelp16	/unsquelch <*accountname>
+D2bnetHelp16b	/unignore <*accountname>
+D2bnetHelp21	/ban <*accountname>
+D2bnetHelp23	/designate <*accountname>
+D2bnetHelp24	/kick <*accountname>
+D2bnetHelp26	/whois <*accountname>, /where <*accountname>
+D2bnetHelp26b	/whereis <*accountname>
+D2bnetHelp32	/stats <*accountname> <programID>
+x	HELL
+x	NIGHTMARE
+x	NORMAL
+x	SELECT DIFFICULTY
+ModStr6e	Slower Stamina Drain
+xhm	Winged Helm
+Hsarus' Defense	Hsarus' Defense
+strModEnhancedDamage	Enhanced Damage\n
+strModAllResistances	All Resistances +%d
+strModAllSkillLevels	+%d to All Skill Levels
+strModFireDamage	+%d fire damage
+strModFireDamageRange	Adds %d-%d fire damage
+strModColdDamage	+%d cold damage
+strModColdDamageRange	Adds %d-%d cold damage
+strModLightningDamage	+%d lightning damage
+strModLightningDamageRange	Adds %d-%d lightning damage
+strModMagicDamage	+%d magic damage
+strModMagicDamageRange	Adds %d-%d magic damage
+strModPoisonDamage	+%d poison damage over %d seconds
+strModPoisonDamageRange	Adds %d-%d poison damage over %d seconds
+strModMinDamage	+%d damage
+strModMinDamageRange	Adds %d-%d damage
+strModEnhancedDamage	Enhanced damage
+ModStre9j	Fire Damage Reduced by
+ModStre9k	Cold Damage Reduced by
+ModStre9l	Lightning Damage Reduced by
+ModStre9m	Poison Damage Reduced by
+ModStre9n	Absorbs Magic Damage
+ModStre9o	Absorbs Fire Damage
+ModStre9p	Absorbs Cold Damage
+ModStre9q	Absorbs Lightning Damage
+ModStre9r	Absorbs Poison Damage
+of the Wraith	of the Wraith
+of Equilibrium	of Equilibrium
+Valkyrie's	Valkyrie's
+Maiden's	Maiden's
+Blank	Void
+strEskilllighttoattack	 to your attack
+StrSklTabItem1	+%d to Javelin and Spear Skills
+StrSklTabItem2	+%d to Passive and Magic Skills
+StrSklTabItem3	+%d to Bow and Crossbow Skills
+StrSklTabItem4	+%d to Defensive Auras
+StrSklTabItem5	+%d to Offensive Auras
+StrSklTabItem6	+%d to Combat Skills
+StrSklTabItem6	+%d to Summoning Skills
+StrSklTabItem7	+%d to Poison and Bone Skills
+StrSklTabItem8	+%d to Curses
+StrSklTabItem10	+%d to Warcries
+StrSklTabItem11	+%d to Combat Skills
+StrSklTabItem12	+%d to Masteries
+StrSklTabItem13	+%d to Cold Skills
+StrSklTabItem14	+%d to Lightning Skills
+StrSklTabItem15	+%d to Fire Skills
+StrSklTabItem16	+%d to Summoning Skills
+StrSklTabItem17	+%d to Shape Shifting Skills
+StrSklTabItem18	+%d to Elemental Skills
+StrSklTabItem19	+%d to Traps
+StrSklTabItem20	+%d to Shadow Disciplines
+StrSklTabItem21	+%d to Martial Arts
+x	The character '%s' has not been used for over 3 months and has expired.
+upgraderestrictEx	No Magic, Socketed, Rare, Unique, or Set Items. No Jewelry.
+UndeadDescriptX	Undead
+DemonID	Demon
+strScaryMonDescA	
+strScaryMonDescB	
+strScaryMonDesc1	Immune to Fire
+strScaryMonDesc2	Immune to Cold
+strScaryMonDesc3	Immune to Lightning
+strScaryMonDesc4	Immune to Poison
+strScaryMonDesc5	Immune to Physical
+strScaryMonDesc6	Immune to Magic
+PlayerNameOnItemstring	%s's
+PlayerNameOnItemstringX	%s'
+SetItemFormatX	%0
+x	EXPANSION LADDER
+x	EXPANSION HARDCORE LADDER
+D2bnetHelp47a	The EXPANSION LADDER displays the top characters, ranked by experience. The default setting displays overall rankings, but you can view sorted lists after selecting the By Class option.
+D2bnetHelp48a	The EXPANSION HARDCORE LADDER displays the top Hardcore characters, ranked by experience. The default setting displays overall rankings, but you can view sorted lists after selecting By Class option.
+x	Repair All
+x	Repair all equipment: %d
+x	No equipped items need repairing
+Druid	Druid
+Assassin	Assassin
+partychardru	Druid
+partycharass	Assassin
+x	Unable to enter game. A Diablo II character cannot join a game created by a Diablo II Expansion character.
+x	Unable to enter game. A Diablo II Expansion character cannot join a game created by a Diablo II character.
+charmonsterX	%s: %d%%
+charmontohit1X	Average chance %s will hit you: %d%%
+charmontohit2X	Chance to Block: %d%%\nAverage chance %s will hit you: %d%%
+Party1X	%s permits you to loot his corpse.
+Party2X	%s permits you to loot her corpse.
+Party10	%s no longer allows you to access his corpse.
+Party11	%s no longer allows you to access her corpse.
+Party12	You are hostile towards each other.
+Party13	%s is hostile to you, but you are friendly to him.
+Party14	%s is hostile to you, but you are friendly to her.
+Party 15	%s is friendly to you, but you are hostile to him.
+Party16	%s is friendly to you, but you are hostile to her.
+Party17	You are friendly to each other.
+Party18	You may loot each other's corpse.
+Party19	%s may loot your corpse, but you may not loot his.
+Party20	%s may loot your corpse, but you may not loot hers.
+Party21	%s may not loot your corpse, but you may loot his.
+Party22	%s may not loot your corpse, but you may loot hers.
+Party23	Neither of you may loot the other's corpse.
+Civerb's Ward	Civerb's Ward
+Civerb's Icon	Civerb's Icon
+Civerb's Cudgel	Civerb's Cudgel
+Hsarus' Iron Heel	Hsarus' Iron Heel
+Hsarus' Iron Fist	Hsarus' Iron Fist
+Hsarus' Iron Stay	Hsarus' Iron Stay
+Cleglaw's Tooth	Cleglaw's Tooth
+Cleglaw's Claw	Cleglaw's Claw
+Cleglaw's Pincers	Cleglaw's Pincers
+Iratha's Cord	Iratha's Cord
+Iratha's Coil	Iratha's Coil
+Iratha's Cuff	Iratha's Cuff
+Iratha's Collar	Iratha's Collar
+Isenhart's Horns	Isenhart's Horns
+Isenhart's Case	Isenhart's Case
+Isenhart's Parry	Isenhart's Parry
+Isenhart's Lightbrand	Isenhart's Lightbrand
+Vidala's Snare	Vidala's Snare
+Vidala's Ambush	Vidala's Ambush
+Vidala's Fetlock	Vidala's Fetlock
+Vidala's Barb	Vidala's Barb
+Milabrega's Robe	Milabrega's Robe
+Milabrega's Diadem	Milabrega's Diadem
+Milabrega's Rod	Milabrega's Rod
+Milabrega's Orb	Milabrega's Orb
+Cathan's Seal	Cathan's Seal
+Cathan's Sigil	Cathan's Sigil
+Cathan's Visage	Cathan's Visage
+Cathan's Mesh	Cathan's Mesh
+Cathan's Rule	Cathan's Rule
+Tancred's Crowbill	Tancred's Crowbill
+Tancred's Spine	Tancred's Spine
+Tancred's Hobnails	Tancred's Hobnails
+Tancred's Weird	Tancred's Weird
+Tancred's Skull	Tancred's Skull
+Sigon's Visor	Sigon's Visor
+Sigon's Shelter	Sigon's Shelter
+Sigon's Gage	Sigon's Gage
+Sigon's Sabot	Sigon's Sabot
+Sigon's Wrap	Sigon's Wrap
+Sigon's Guard	Sigon's Guard
+Infernal Cranium	Infernal Cranium
+Infernal Torch	Infernal Torch
+Infernal Sign	Infernal Sign
+Berserker's Headgear	Berserker's Headgear
+Berserker's Hauberk	Berserker's Hauberk
+Berserker's Hatchet	Berserker's Hatchet
+Death's Hand	Death's Hand
+Death's Guard	Death's Guard
+Death's Touch	Death's Touch
+Angelic Sickle	Angelic Sickle
+Angelic Mantle	Angelic Mantle
+Angelic Halo	Angelic Halo
+Angelic Wings	Angelic Wings
+Arctic Horn	Arctic Horn
+Arctic Furs	Arctic Furs
+Arctic Binding	Arctic Binding
+Arctic Mitts	Arctic Mitts
+Arcanna's Sign	Arcanna's Sign
+Arcanna's Deathwand	Arcanna's Deathwand
+Arcanna's Head	Arcanna's Head
+Arcanna's Flesh	Arcanna's Flesh
+skillxname0	 
+skillxsd0	 
+skillxld0	 
+skillxan0	 
+skillxname1	 
+skillxsd1	 
+skillxld1	 
+skillxan1	 
+skillxname2	 
+skillxsd2	 
+skillxld2	 
+skillxan2	 
+skillxname3	 
+skillxsd3	 
+skillxld3	 
+skillxan3	 
+skillxname4	 
+skillxsd4	 
+skillxld4	 
+skillxan4	 
+skillxname5	 
+skillxsd5	 
+skillxld5	 
+skillxan5	 
+skillxname6	 
+skillxsd6	 
+skillxld6	 
+skillxan6	 
+skillxname7	 
+skillxsd7	 
+skillxld7	or bolts with fire\nmagically enhances your arrows
+skillxan7	 
+skillxname8	 
+skillxsd8	 
+skillxld8	cold arrows only do half of their regular damage\nby adding cold damage and a slowing effect\nmagically enhances your arrows or bolts
+skillxan8	 
+skillxname9	 
+skillxsd9	 
+skillxld9	 
+skillxan9	 
+skillxname10	 
+skillxsd10	 
+skillxld10	 
+skillxan10	 
+skillxname11	 
+skillxsd11	 
+skillxld11	cold arrows only do half of their regular damage\nby adding cold damage and a slowing effect\nmagically enhances your arrows or bolts
+skillxan11	 
+skillxname12	 
+skillxsd12	 
+skillxld12	 
+skillxan12	 
+skillxname13	 
+skillxsd13	 
+skillxld13	 
+skillxan13	 
+skillxname14	 
+skillxsd14	 
+skillxld14	 
+skillxan14	 
+skillxname15	 
+skillxsd15	 
+skillxld15	 
+skillxan15	 
+skillxname16	 
+skillxsd16	 
+skillxld16	contact, damaging all nearby enemies\nenchants an arrow or bolt that explodes on
+skillxan16	 
+skillxname17	 
+skillxsd17	 
+skillxld17	 
+skillxan17	 
+skillxname18	 
+skillxsd18	 
+skillxld18	 
+skillxan18	 
+skillxname19	 
+skillxsd19	 
+skillxld19	 
+skillxan19	 
+skillxname20	 
+skillxsd20	 
+skillxld20	 
+skillxan20	 
+skillxname21	 
+skillxsd21	 
+skillxld21	to freeze your enemies\nmagically enhances your arrow or bolt
+skillxan21	 
+skillxname22	 
+skillxsd22	 
+skillxld22	 
+skillxan22	 
+skillxname23	 
+skillxsd23	 
+skillxld23	 
+skillxan23	 
+skillxname24	 
+skillxsd24	 
+skillxld24	 
+skillxan24	 
+skillxname25	 
+skillxsd25	 
+skillxld25	 
+skillxan25	 
+skillxname26	 
+skillxsd26	 
+skillxld26	 
+skillxan26	 
+skillxname27	 
+skillxsd27	 
+skillxld27	creates a pyre upon impact\ncause severe fire damage and\nenhances arrows or bolts to
+skillxan27	 
+skillxname28	 
+skillxsd28	 
+skillxld28	 
+skillxan28	 
+skillxname29	 
+skillxsd29	 
+skillxld29	 
+skillxan29	 
+skillxname30	 
+skillxsd30	 
+skillxld30	 
+skillxan30	 
+skillxname31	 
+skillxsd31	 
+skillxld31	to freeze entire groups of monsters\nmagically enhances an arrow or bolt
+skillxan31	 
+skillxname32	 
+skillxsd32	 
+skillxld32	 
+skillxan32	 
+skillxname33	 
+skillxsd33	 
+skillxld33	 
+skillxan33	 
+skillxname34	 
+skillxsd34	 
+skillxld34	 
+skillxan34	 
+skillxname35	 
+skillxsd35	 
+skillxld35	 
+skillxan35	 
+skillxname36	 
+skillxsd36	 
+skillxld36	 
+skillxan36	 
+skillxname37	 
+skillxsd37	 
+skillxld37	 
+skillxan37	 
+skillxname38	 
+skillxsd38	 
+skillxld38	 
+skillxan38	 
+skillxname39	 
+skillxsd39	 
+skillxld39	 
+skillxan39	 
+skillxname40	 
+skillxsd40	 
+skillxld40	 
+skillxan40	 
+skillxname41	 
+skillxsd41	 
+skillxld41	 
+skillxan41	 
+skillxname42	 
+skillxsd42	 
+skillxld42	lowers enemy lightning resistances for a short duration\nof all nearby enemies\ncreates an electrical field that reduces life
+skillxan42	 
+skillxname43	 
+skillxsd43	 
+skillxld43	 
+skillxan43	 
+skillxname44	 
+skillxsd44	 
+skillxld44	 
+skillxan44	 
+skillxname45	 
+skillxsd45	 
+skillxld45	 
+skillxan45	 
+skillxname46	 
+skillxsd46	 
+skillxld46	 
+skillxan46	 
+skillxname47	 
+skillxsd47	 
+skillxld47	 
+skillxan47	 
+skillxname48	 
+skillxsd48	 
+skillxld48	 
+skillxan48	 
+skillxname49	 
+skillxsd49	 
+skillxld49	 
+skillxan49	 
+skillxname50	 
+skillxsd50	 
+skillxld50	 
+skillxan50	 
+skillxname51	 
+skillxsd51	 
+skillxld51	 
+skillxan51	 
+skillxname52	 
+skillxsd52	 
+skillxld52	 
+skillxan52	 
+skillxname53	 
+skillxsd53	 
+skillxld53	 
+skillxan53	 
+skillxname54	 
+skillxsd54	 
+skillxld54	 
+skillxan54	 
+skillxname55	 
+skillxsd55	 
+skillxld55	 
+skillxan55	 
+skillxname56	 
+skillxsd56	 
+skillxld56	 
+skillxan56	 
+skillxname57	 
+skillxsd57	 
+skillxld57	 
+skillxan57	 
+skillxname58	 
+skillxsd58	 
+skillxld58	 
+skillxan58	 
+skillxname59	 
+skillxsd59	 
+skillxld59	 
+skillxan59	 
+skillxname60	 
+skillxsd60	 
+skillxld60	 
+skillxan60	 
+skillxsname61	 
+skillxsd61	 
+skillxld61	 
+skillxan61	 
+skillxname62	 
+skillxsd62	 
+skillxld62	 
+skillxan62	 
+skillxname63	 
+skillxsd63	passive - increases lightning damage
+skillxld63	passive - increases all damage caused by your lightning spells
+skillxan63	 
+skillxname64	 
+skillxsd64	 
+skillxld64	 
+skillxan64	 
+skillxname65	 
+skillxsd65	 
+skillxld65	 
+skillxan65	 
+skillxname66	 
+skillxsd66	 
+skillxld66	 
+skillxan66	 
+skillxname67	 
+skillxsd67	 
+skillxld67	 
+skillxan67	 
+skillxname68	 
+skillxsd68	 
+skillxld68	 
+skillxan68	 
+skillxname69	 
+skillxsd69	 
+skillxld69	 
+skillxan69	 
+skillxname70	 
+skillxsd70	 
+skillxld70	 
+skillxan70	 
+skillxname71	 
+skillxsd71	 
+skillxld71	 
+skillxan71	 
+skillxname72	 
+skillxsd72	 
+skillxld72	 
+skillxan72	 
+skillxname73	 
+skillxsd73	 
+skillxld73	 
+skillxan73	 
+skillxname74	 
+skillxsd74	 
+skillxld74	 
+skillxan74	 
+skillxname75	 
+skillxsd75	 
+skillxld75	 
+skillxan75	 
+skillxname76	 
+skillxsd76	 
+skillxld76	 
+skillxan76	 
+skillxname77	 
+skillxsd77	 
+skillxld77	 
+skillxan77	 
+skillxname78	 
+skillxsd78	 
+skillxld78	 
+skillxan78	 
+skillxname79	 
+skillxsd79	 
+skillxld79	 
+skillxan79	 
+skillxname80	 
+skillxsd80	 
+skillxld80	 
+skillxan80	 
+skillxname81	 
+skillxsd81	 
+skillxld81	 
+skillxan81	 
+skillxname82	 
+skillxsd82	 
+skillxld82	 
+skillxan82	 
+skillxname83	 
+skillxsd83	 
+skillxld83	 
+skillxan83	 
+skillxname84	 
+skillxsd84	 
+skillxld84	 
+skillxan84	 
+skillxname85	 
+skillxsd85	 
+skillxld85	 
+skillxan85	 
+skillxname86	 
+skillxsd86	 
+skillxld86	this curse may not be overridden by another curse\ntarget of all nearby monsters\ncurses a monster to become the
+skillxan86	 
+skillxname87	 
+skillxsd87	 
+skillxld87	 
+skillxan87	 
+skillxname88	 
+skillxsd88	 
+skillxld88	 
+skillxan88	 
+skillxname89	 
+skillxsd89	 
+skillxld89	 
+skillxan89	 
+skillxname90	 
+skillxsd90	 
+skillxld90	 
+skillxan90	 
+skillxname91	 
+skillxsd91	 
+skillxld91	 
+skillxan91	 
+skillxname92	 
+skillxsd92	 
+skillxld92	 
+skillxan92	 
+skillxname93	 
+skillxsd93	 
+skillxld93	 
+skillxan93	 
+skillxname94	 
+skillxsd94	 
+skillxld94	 
+skillxan94	 
+skillxname95	 
+skillxsd95	 
+skillxld95	 
+skillxan95	 
+skillxname96	 
+skillxsd96	 
+skillxld96	 
+skillxan96	 
+skillxname97	 
+skillxsd97	 
+skillxld97	 
+skillxan97	 
+skillxname98	 
+skillxsd98	 
+skillxld98	 
+skillxan98	 
+skillxname99	 
+skillxsd99	 
+skillxld99	 
+skillxan99	 
+skillxname100	 
+skillxsd100	 
+skillxld100	 
+skillxan100	 
+skillxname101	 
+skillxsd101	 
+skillxld101	 
+skillxan101	 
+skillxname102	 
+skillxsd102	 
+skillxld102	 
+skillxan102	 
+skillxname103	 
+skillxsd103	 
+skillxld103	 
+skillxan103	 
+skillxname104	 
+skillxsd104	 
+skillxld104	 
+skillxan104	 
+skillxname105	 
+skillxsd105	 
+skillxld105	 
+skillxan105	 
+skillxname106	 
+skillxsd106	 
+skillxld106	 
+skillxan106	 
+skillxname107	 
+skillxsd107	 
+skillxld107	 
+skillxan107	 
+skillxname108	 
+skillxsd108	 
+skillxld108	 
+skillxan108	 
+skillxname109	 
+skillxsd109	 
+skillxld109	 
+skillxan109	 
+skillxname110	 
+skillxsd110	 
+skillxld110	 
+skillxan110	 
+skillxname111	 
+skillxsd111	 
+skillxld111	 
+skillxan111	 
+skillxname112	 
+skillxsd112	 
+skillxld112	 
+skillxan112	 
+skillxname113	 
+skillxsd113	 
+skillxld113	 
+skillxan113	 
+skillxname114	 
+skillxsd114	 
+skillxld114	 
+skillxan114	 
+skillxname115	 
+skillxsd115	 
+skillxld115	 
+skillxan115	 
+skillxname116	 
+skillxsd116	 
+skillxld116	 
+skillxan116	 
+skillxname117	 
+skillxsd117	 
+skillxld117	 
+skillxan117	 
+skillxname118	 
+skillxsd118	 
+skillxld118	adds lightning damage to your attack\nto damage nearby enemies\nwhen active, aura causes pulses of electricity
+skillxan118	 
+skillxname119	 
+skillxsd119	 
+skillxld119	 
+skillxan119	 
+skillxname120	 
+skillxsd120	 
+skillxld120	 
+skillxan120	 
+skillxname121	 
+skillxsd121	 
+skillxld121	 
+skillxan121	 
+skillxname122	 
+skillxsd122	aura - increases attack speed and damage
+skillxld122	and attack rating for you and your party\nwhen active, aura increases damage, attack speed,
+skillxan122	 
+skillxname123	 
+skillxsd123	aura - weakens enemies
+skillxld123	 
+skillxan123	 
+skillxname124	 
+skillxsd124	 
+skillxld124	the souls of slain enemies to give you mana\nwhen active, aura attempts to redeem
+skillxan124	 
+skillxname125	 
+skillxsd125	 
+skillxld125	 
+skillxan125	 
+skillxname126	 
+skillxsd126	 
+skillxld126	 
+skillxan126	 
+skillxname127	 
+skillxsd127	 
+skillxld127	 
+skillxan127	 
+skillxname128	 
+skillxsd128	 
+skillxld128	 
+skillxan128	 
+skillxname129	 
+skillxsd129	 
+skillxld129	 
+skillxan129	 
+skillxname130	 
+skillxsd130	 
+skillxld130	 
+skillxan130	 
+skillxname131	 
+skillxsd131	 
+skillxld131	 
+skillxan131	 
+skillxname132	 
+skillxsd132	 
+skillxld132	 
+skillxan132	 
+skillxname133	 
+skillxsd133	 
+skillxld133	 
+skillxan133	 
+skillxname134	 
+skillxsd134	 
+skillxld134	 
+skillxan134	 
+skillxname135	 
+skillxsd135	 
+skillxld135	 
+skillxan135	 
+skillxname136	 
+skillxsd136	 
+skillxld136	 
+skillxan136	 
+skillxname137	 
+skillxsd137	 
+skillxld137	 
+skillxan137	 
+skillxname138	 
+skillxsd138	 
+skillxld138	 
+skillxan138	 
+skillxname139	 
+skillxsd139	 
+skillxld139	 
+skillxan139	 
+skillxname140	 
+skillxsd140	 
+skillxld140	 
+skillxan140	 
+skillxname141	 
+skillxsd141	 
+skillxld141	 
+skillxan141	 
+skillxname142	 
+skillxsd142	 
+skillxld142	 
+skillxan142	 
+skillxname143	 
+skillxsd143	 
+skillxld143	 
+skillxan143	 
+skillxname144	 
+skillxsd144	 
+skillxld144	 
+skillxan144	 
+skillxname145	 
+skillxsd145	 
+skillxld145	 
+skillxan145	 
+skillxname146	 
+skillxsd146	 
+skillxld146	 
+skillxan146	 
+skillxname147	 
+skillxsd147	 
+skillxld147	 
+skillxan147	 
+skillxname148	 
+skillxsd148	 
+skillxld148	 
+skillxan148	 
+skillxname149	 
+skillxsd149	 
+skillxld149	 
+skillxan149	 
+skillxname150	 
+skillxsd150	 
+skillxld150	 
+skillxan150	 
+skillxname151	 
+skillxsd151	 
+skillxld151	 
+skillxan151	 
+skillxname152	 
+skillxsd152	 
+skillxld152	 
+skillxan152	 
+skillxname153	 
+skillxsd153	 
+skillxld153	 
+skillxan153	 
+skillxname154	 
+skillxsd154	 
+skillxld154	 
+skillxan154	 
+skillxname155	 
+skillxsd155	 
+skillxld155	 
+skillxan155	 
+strHostileTimeout	You must wait a short time to declare hostility with that player.
+ShrId0	Null Shrine
+ShrId1	Refilling Shrine
+ShrId2	Health Shrine
+ShrId3	Mana Shrine
+ShrId4	Health Exchange Shrine
+ShrId5	Mana Exchange Shrine
+ShrId6	Armor Shrine
+ShrId7	Combat Shrine
+ShrId8	Resist Fire Shrine
+ShrId9	Resist Cold Shrine
+ShrId10	Resist Lightning Shrine
+ShrId11	Resist Poison Shrine
+ShrId12	Skill Shrine
+ShrId13	Mana Recharge Shrine
+ShrId14	Stamina Shrine
+ShrId15	Experience Shrine
+ShrId16	Enirhs Shrine
+ShrId17	Portal Shrine
+ShrId18	Gem Shrine
+ShrId19	Fire Shrine
+ShrId20	Monster Shrine
+ShrId21	Exploding Shrine
+ShrId22	Poison Shrine
+x	CREATE NEW
+CfgSkillPick	Skill Speed Bar
+x	Verify Password
+MercX101	Varaya
+MercX102	Khan
+MercX103	Klisk
+MercX104	Bors
+MercX105	Brom
+MercX106	Wiglaf
+MercX107	Hrothgar
+MercX108	Scyld
+MercX109	Healfdane
+MercX110	Heorogar
+MercX111	Halgaunt
+MercX112	Hygelac
+MercX113	Egtheow
+MercX114	Bohdan
+MercX115	Wulfgar
+MercX116	Hild
+MercX117	Heatholaf
+MercX118	Weder
+MercX119	Vikhyat
+MercX120	Unferth
+MercX121	Sigemund
+MercX122	Heremod
+MercX123	Hengest
+MercX124	Folcwald
+MercX125	Frisian
+MercX126	Hnaef
+MercX127	Guthlaf
+MercX128	Oslaf
+MercX129	Yrmenlaf
+MercX130	Garmund
+MercX131	Lanth
+MercX132	Eadgils
+MercX133	Onela
+MercX134	Damien
+MercX135	Tryneus
+MercX136	Klar
+MercX137	Wulf
+MercX138	Bulwye
+MercX139	Lief
+MercX140	Magnus
+MercX141	Klatu
+MercX142	Drus
+MercX143	Hoku
+MercX144	Kord
+MercX145	Uther
+MercX146	Ip
+MercX147	Ulf
+MercX148	Tharr
+MercX149	Kaelim
+MercX150	Ulric
+MercX151	Alaric
+MercX152	Ethelred
+MercX153	Caden
+MercX154	Elgifu
+MercX155	Tostig
+MercX156	Alcuin
+MercX157	Emund
+MercX158	Sigurd
+MercX159	Gorm
+MercX160	Hollis
+MercX161	Ragnar
+MercX162	Torkel
+MercX163	Wulfstan
+MercX164	Alban
+MercX165	Barloc
+MercX166	Bill
+MercX167	Theodoric
+r16	\orange;Io Rune
+r16L	Io
+r13	\orange;Shael Rune
+r13L	Shael
+r31	\orange;Jah Rune
+r31L	Jah
+DarkStalker	Dark Stalker
+VileArcher	Vile Archer
+Runeword22	Delirium
+Whichwild String	Witchwild String
+x	This application was installed using a Lord of Destruction CD Key which is not authorized for Battle.net use.
+x	The Lord of Destruction CD Key that you installed with has been disabled. Please contact Blizzard Entertainment Technical Support for further assistance.
+x	Your Lord of Destruction CD key is currently being used by:
+x	The Lord of Destruction CD key used to install this application was intended for another product. Please reinstall this application using the correct CD key.
+Playersubtitles29	Retreat!
+AmaOnly	(Amazon Only)
+SorOnly	(Sorceress Only)
+NecOnly	(Necromancer Only)
+PalOnly	(Paladin Only)
+BarOnly	(Barbarian Only)
+DruOnly	(Druid Only)
+AssOnly	(Assassin Only)
+Chatcaps	CHAT
+Newscaps	NEWS
+Laddercaps	LADDER
+LaddeCharacter	LADDER CHARACTER
+x	A Ladder Character can only be played with other Ladder characters during the Ladder Season when it was created. After the Ladder Season is over, then the Ladder character will become a Non-Ladder Character. Continue?
+x	Unable to enter game. A Non-Ladder character cannot join a game created by a Ladder character.
+x	Unable to enter game. A Ladder character cannot join a game created by a Non-Ladder character.
+Sksyn	%s Receives Bonuses From:
+Damplev	Damage per Level
+ElemDampLev	Elemental Damage per Level
+Firedplev	Fire Damage per Level
+Colddplev	Cold Damage per Level
+Ltngdplev	Lightning Damage per Level
+Poisdplev	Poison Damage per Level
+Magdplev	Magic Damage per Level
+Rangplev	Yards per Level
+RateFireplev	Rate of Fire per Level
+AttRateplev	Attack Rating per Level
+AttSpeedplev	Attack Speed per Level
+Defplev	Defense per Level
+Manacoredplev	Mana Cost per Level
+Missplev1	Missiles per Level
+Missplev2	+1 Missile per Level
+Missplev3	+1 Missile per %d Levels
+Boltplev1	Bolts per Level
+Boltplev2	+1 Bolt per Level
+Boltplev3	+1 Bolt per %d Levels
+Shotplev1	Shots per Level
+Shotplev2	+1 Shot per Level
+Shotplev3	+1 Shot per %d Levels
+Hpplev	Life per Level
+WRSpeedplev	Walk/Run Speed per Level
+Durateplev	Duration per Level
+CoLenplev	Cold Length per Level
+FrezLenplev	Freeze Length per Level
+PoisLenplev	Poison Length per Level
+Convphy2magplev	Converts %d%% Physical Damage to Magic Damage per Level
+Convphy2elemplev	Converts %d%% Physical Damage to Elemental Damage per Level
+Convphy2magalt	Converts %d%% Physical Damage to Elemental Damage
+Convphy2elemalt	Converts %d%% Physical Damage to Magic Damage
+Secplev1	Second per Level
+Secplev2	Seconds per Level
+Damabsplev	Damage Absorbed per Level
+WeapDamsk	Weapon Damage
+Hbdplev	Holy Bolt Damage per Level
+Healplev	Life Healed per Level
+Healplev2	Life Healed Every 2 Seconds
+FanYDam	Your Damage: 
+PartDam	Party Damage: 
+AFDImm	Average Fire Damage per Second per Level
+Cgslow	Slows Enemies: 
+Corexpdam	Corpse Explosion Damage: 
+ModitemAura	Level %d %s Aura When Equipped
+Moditem2allattrib	to all Attributes
+Moditem2ExpG	to Experience Gained
+ModitemHPaK	Life after each Kill
+ModitemRedVendP	Reduces all Vendor Prices
+ModitemSMRIP	Slain Monsters Rest in Peace
+ModitemAttratvsM	to Attack Rating versus
+Moditemdamvsm	to Damage versus
+Moditemslayat	Slaying:
+Moditemreanimas	Reanimate as:
+Moditemenrescoldsk	to Enemy Cold Resistance
+Moditemenresfiresk	to Enemy Fire Resistance
+Moditemenresltngsk	to Enemy Lightning Resistance
+Moditemenrespoissk	to Enemy Poison Resistance
+ModitemdamFiresk	to Fire Skill Damage
+ModitemdamColdsk	to Cold Skill Damage
+ModitemdamLtngsk	to Lightning Skill Damage
+ModitemdamPoissk	to Poison Skill Damage
+Moditemskondeath	%d%% Chance to cast level %d %s when you Die
+ModitemskonLevel	%d%% Chance to cast level %d %s when you Level-Up
+ModitemskonKill	%d%% Chance to cast level %d %s when you Kill an Enemy
+Skillname224	Werewolf
+Skillsd224	transform into a werewolf
+Skillld224	transform into a werewolf
+Skillan224	Werewolf
+StrSkill43a	 skeleton mage
+StrSkill44a	 skeleton magi
+StrSklTabItem9	+%d to Summoning Skills
+SOJSold	%d Stones of Jordan Sold to Merchants
+DiabloWalksEarth	Diablo Walks the Earth
+neg	Hellspawn Skull
+TrappDoor	Trap Door
+uhf	Legendary Mallet
+skillxld124P	your life and mana\nthe souls of slain enemies to give\nwhen active, aura attempts to redeem
+7wa	Berserker Axe
+skillld42	of all nearby enemies\ncreates an electrical field that reduces life
+xhg	War Gauntlets
+Fiendra	Fiend
+Wraithra	Wraith
+Fiend	Fiend
+Wraith	Wraith
+D2bnetHelp10	\blue;Blue Text\gold; represents actions that have been taken by people in the chat Channel.
+ItemStats1r	Chance to Block: 
+x	Server is Full
+x	No new games can be created right now, Please Join a game or try later.
+merca239	Jarulf
+StrSkill63Patch	over 
+x	Servers are busy. Please try again in a minute.
+X	Game Queue
+x	Servers are busy. Please try again in a minute, or await your turn in the Game Queue
+x	Your position in line is: 
+x	In the Game Queue
+9bl	Stiletto
+eats and spits corpses	Eats and Spits Corpses
+qstsa2q63f	Explore Tal Rasha's Tomb
+Shocking Hit	Shocking Hit
+ModStr1w	Extra Gold from Monsters
+ModStr1x	Better Chance of Getting Magic Items
+ModStr3u	Hit Causes Monster to Flee
+ModStr4c	Bonus to Attack Rating
+ModStr5r	Slows Target by
+ModStr6f	Chance to Reanimate Target
+ModStr6d	Hit Blinds Target
+x	Enter Host IP Address to Join Game
+StrSkill61	Multiple Hits
+D2bnetHelp13c	/reply
+D2bnethelp13d	Allows you to reply to a whisper without typing the account name
+D2bnetHelp52	/whisper, /msg, /reply
+D2bnetHelp10a	\yellow; Yellow Text\gold; represents special messages sent directly from battle.net
+BnetnewGameTime	Game Time:
+D2bnetHelp12c	When using advanced commands, you may also use character names for people in the same Realm, and character names @Realm for people in another Realm.
+D2bnetHelp12d	You must use *account names for anyone on battle.net including people in a different game such as Starcraft.
+D2bnetHelp12b	Wherever a command below calls for the use of <accountname>, please use either <charactername>, <charactername@Realm>, or <*accountname>.
+x	GATEWAY: %s
+x	CHANGE PASSWORD
+x	Change Password
+x	Current Password
+x	New Password
+x	Verify New Password
+x	SELECT GATEWAY
+x	If the current gateway does not best represent your location, select another Battle.net gateway connection.
+x	CHANGE REALM
+x	Current Realm
+x	A character named '%s' already exists in this Realm.
+D2bnetHelp6a	\dgrey;Gray Text\gold; also represents actions that have been taken by people in the chat Channel.
+D2bnetHelp10aPatch	\blue;Blue Text\gold; represents special messages sent directly from battle.net or messages from a Blizzard Representative.
+x	SEND
+x	PASSWORD WARNING
+x	You cannot send your password to another user on Battle.net. Blizzard will never ask you for your password for any reason.
+x	CONNECTING...
+x	Diablo II was unable to connect to the realm server. The realm you selected may be unavailable or you may be encountering connection issues. Please make sure your internet connection is working properly and/or your firewall has port 6112 opened.
+x	More...
+x	You have more than 8 characters on this Diablo II Realm. Only 8 characters can be displayed at a time.
+x	To see more characters, you must delete one of your existing characters. This deletion is permanent. You will not be able to recover the deleted character.
+X	Terms of Service
+X	By logging on to Battle.net, you are certifying that you have read and agree to its current Terms of Service
+x	%0 %1
+GemXp1	Helms:
+GemXp2	Shields:
+GemXp3	Weapons:
+GemXp4	Armor:
+expansionchar2x	EXPANSION CHARACTER
+x	Missing string
+EskillLowersResistX	Lowers Resistance 
+ExInsertSocketsX	Can be Inserted into Socketed Items
+EskillToMeleeX	 to melee attacks
+eskillincasemasteryX	%d Percent Chance of Critical Strike
+CfgSay7X	Say 'Retreat'
+champghostlyX	Ghostly
+champfanaticX	Fanatic
+champpossessedX	Possessed
+champberserkX	Berserker
+PalMercExST1X	Defensive
+PalMercEXST3X	Offensive
+PalMercEXST4X	Combat
+increaseswithplaylevelX	(Based on Character Level)
+RankX	Rank
+x	Enter a valid email address.
+x	Entering your email address will enable extra features, such as the ability to recover your account should you forget your password. Visit www.battle.net/email-address for more information.
+x	Email Address:
+x	Verify Email Address:
+x	REGISTER
+x	DON'T REGISTER
+x	Please make sure that the two email addresses match.
+x	Invalid Email Address
+x	The email address you entered does not appear to be valid.  Please enter a valid email address.
+x	Without a registered email address, you will not be able to recover your account should you forget your password. You will not have another opportunity to register an email address with this account.
+x	If you have forgotten your password and you registered your email address with us for this account, you can request that a new password be sent to you by clicking Send.  Make sure to enter the email address that you registered for this account.
+x	Your request for a new password has been received. If you registered an email address for this account you will receive an email with instructions on how to complete your password change.
+x	CONTINUE
+x	Forgot your password? Click 'Account Settings'.
+x	The password you entered is incorrect.  You can get a new password by clicking 'Account Settings'.
+x	ACCOUNT SETTINGS
+x	Account Settings
+x	If you know your password and want to change it, click here.
+x	If you have forgotten your password or your password doesn't work, click here.
+x	If you need to change your registered email address, click here.
+x	GET NEW PASSWORD
+x	Get New Password
+x	CHANGE EMAIL
+x	Change Email
+x	Old Email Address:
+x	New Email Address:
+x	Verify New Email Address:
+x	If you registered an email address for this account then you can change it here. Note that both email addresses need to be active for you to make this change.
+x	The old and new email addresses you have entered are the same.  Please enter a different email address.
+x	Please make sure that the two new email addresses match.
+x	Battle.net News Updates
+x	Last Difficulty Setting Completed:
+x	None
+x	ENTER CHAT
+x	PLEASE WRITE DOWN YOUR PASSWORD.
+x	Unsafe Password
+x	The password you've chosen is unsafe. Please choose a new one.
+x	CDKEY WARNING
+x	You cannot send your cdkey to another user on Battle.net. Blizzard will never ask you for your cdkey for any reason.
+x	Expires Today
+x	Expires in %d days
+x	Character Expired
+x	
+x	
+x	
+x	
+x	
+x	
+x	
+x	
+x	A Diablo II character must be played in a game, or it will eventually expire. When you first create a character, it expires 10 days after the last time it was played. Once that character has been played for two hours or more, it will not expire until three months from the time it was last played.
+x	A character that expires is deleted from the realm.
+x	The character '%s' has not been used enough and has expired.
+pk1	Key of Terror
+pk2	Key of Hate
+pk3	Key of Destruction
+dhn	Diablo's Horn
+bey	Baal's Eye
+mbr	Mephisto's Brain
+std	\gold;Standard of Heroes
+Hellfire Torch	Hellfire Torch
+Lilith	Lilith
+Pandemonium Run 1	Matron's Den
+Pandemonium Run 2	Forgotten Sands
+Pandemonium Run 3	Furnace of Pain
+ModStre8b	to Assassin Skills
+skillld146	enemies defense rating and physical damage resistance\nfearsome cry that decreases
+skillld65	by piercing enemies' resistances to cold\npassive - increases the damage of your cold attacks
+x	The CD-Key you are currently using is disabled from playing realm games. You may continue playing the game in Single Player and Open Battle.net.
+x	Your connection has been temporarily restricted from this realm. Please try to log in at another time.
+toa	Right-click to reset Stat/Skill Points\nToken of Absolution
+tes	Twisted Essence of Suffering
+ceh	Charged Essence of Hatred
+bet	Burning Essence of Terror
+fed	Festering Essence of Destruction
+respec	Reset Stat/Skill Points
+x	Persistent ignoring is now enabled.
+x	Persistent ignoring is now disabled.
+x	%s has been ignored.
+x	Unable to ignore %s
+x	%s has been unignored.
+x	%s is not currently ignored.
+x	Message filter added.
+x	Unable to add message filter.
+x	Message filter removed.
+x	Unable to remove message filter.
+StartIndexBlock	(DontTranslate) These are hardcoded indexes and should not be moved. Only add to the end of this block
+Bnet_AccountExists	Login to www.projectdiablo2.com and go to Account -> Manage PD2 Account to create an in-game account.
+Bnet_CreateGameDesc	Description (Optional)
+VerifyTransaction9_PD2	Your Mercenary will be replaced. Their equipment will be dropped.
+Charmdes_PD2	Active in Charm Inventory
+Bnet_Bad16DigitKey_Title	Legacy CD Keys Disabled
+Bnet_Bad16DigitKey_Desc1	The game was installed using legacy 16-digit CD keys.
+Bnet_Bad16DigitKey_Desc2	Please log into your Battle.net account or visit battle.net/account/management/claim-code.html to redeem your 16-digit CD keys. And then visit battle.net/support/article/13867 to download and reinstall the game using your new 26-digit keys
+HOTKEY_D2GLScreen	D2GL Screen
+HOTKEY_ItemQuantity	Show Item Quantity
+HOTKEY_QuickCast	Quick Cast
+HOTKEY_SkillBar	Skill Bar
+HOTKEY_DpsCounter	DPS Counter
+HOTKEY_BuffTimers	Buff Timers
+HOTKEY_AlwaysShowItems	Always Show Items
+HOTKEY_ShowPlayersGear	Show Player's Gear
+HOTKEY_Resync	Resync
+HOTKEY_AdvancedStatsDisplay	Advanced Stat Display
+HOTKEY_ReloadConfig	Reload Loot Filter
+HOTKEY_ExperienceMeter	Experience Meter
+HOTKEY_ShowItemLevel	Show Item Level
+HOTKEY_ShowStatRanges	Always Show Stat Ranges
+HOTKEY_IncreaseFilterLevel	Increase Filter Level
+HOTKEY_DecreaseFilterLevel	Decrease Filter Level
+HOTKEY_RestorePreviousLevel	Restore Previous Level
+HOTKEY_FilterLevel0	Filter Level 0
+HOTKEY_FilterLevel1	Filter Level 1
+HOTKEY_FilterLevel2	Filter Level 2
+HOTKEY_FilterLevel3	Filter Level 3
+HOTKEY_FilterLevel4	Filter Level 4
+HOTKEY_FilterLevel5	Filter Level 5
+HOTKEY_FilterLevel6	Filter Level 6
+HOTKEY_FilterLevel7	Filter Level 7
+HOTKEY_FilterLevel8	Filter Level 8
+HOTKEY_FilterLevel9	Filter Level 9
+HOTKEY_FilterLevel10	Filter Level 10
+HOTKEY_FilterLevel11	Filter Level 11
+HOTKEY_FilterLevel12	Filter Level 12
+HOTKEY_ToggleLootfilter	Toggle Loot Filter
+HOTKEY_GambleRefresh	Gamble Refresh
+HOTKEY_HoldShowStatRanges	Show Stat Ranges
+HOTKEY_TooltipScreenShot	Tooltip Screen Shot
+HOTKEY_CubeTransmute	Cube Transmute
+HOTKEY_ChatNotifications	Chat Notifications
+HOTKEY_Move_Up	Move Up
+HOTKEY_Move_Down	Move Down
+HOTKEY_Move_Left	Move Left
+HOTKEY_Move_Right	Move Right
+HOTKEY_Enable_Auto_Attack	Toggle Auto Attack
+HOTKEY_OpenCurrencyTab	Materials Tab
+HOTKEY_OpenPersonalTab	Personal Tab
+HOTKEY_OpenPersonalShared1	Shared Tab 1
+HOTKEY_OpenPersonalShared2	Shared Tab 2
+HOTKEY_OpenPersonalShared3	Shared Tab 3
+HOTKEY_OpenPersonalShared4	Shared Tab 4
+HOTKEY_OpenPersonalShared5	Shared Tab 5
+HOTKEY_OpenPersonalShared6	Shared Tab 6
+HOTKEY_OpenPersonalShared7	Shared Tab 7
+HOTKEY_OpenPersonalShared8	Shared Tab 8
+HOTKEY_OpenPersonalShared9	Shared Tab 9
+PD2_MainMenu_Bnet	PD2 ONLINE
+PD2_MainMenu_ConnectingToBnet	Connecting to Project Diablo 2
+PD2_MainMenu_UnableToConnectToBnet	Unable to connect to Project Diablo 2.
+PD2_MainMenu_LoginScreenDescription	To use an existing Project Diablo 2 account, enter the information below and click 'Log In'. Otherwise, click 'Create New Account'.
+PD2_MainMenu_CreateAccountScreenDescription	Create a Project Diablo 2 account on our website https://www.projectdiablo2.com, and set up a Game Account there.
+EndIndexBlock	(DontTranslate)==================================================
+LabelMiscStart	(DontTranslate)==================================================
+stdDesc	+20% Magic and Gold Find\n+20% Monster Density\n+10% Experience\nCube with a map to add Heroic bonuses
+wss	\red;Worldstone Shard
+wssDesc	to corrupt it unpredictably\nCube with a map or an item
+imma	\gold;Arcane Orb
+immaDesc	to upgrade it to a \blue;Magic Map\grey;\nCube with a Normal Map and a jewel\nCube with a \blue;Magic Map\grey; to reroll it or
+imrn	\gold;Demonic Cube
+imrnDesc	to reroll the stats\nCube with a Unique or Set item
+imra	\gold;Zakarum Orb
+imraDesc	Rune to upgrade it to a \yellow;Rare Map\grey;\nCube with a Normal Map, a jewel, and a
+rera	\gold;Horadrim Orb
+reraDesc	Rune to reroll its affixes\nCube with a \yellow;Rare Map\grey;, a Perfect Gem, and a
+upma	\gold;Angelic Orb
+upmaDesc	Rune to upgrade it to a \yellow;Rare Map\grey;\nCube with a \blue;Magic Map\grey;, a Perfect Gem, and a
+irma	\gold;Infused Arcane Orb
+irmaDesc	upgrade it to a \blue;Magic Map\grey;\nCube with a Normal Map to\nCube with a \blue;Magic Map\grey; to reroll it or
+irrn	\gold;Infused Demonic Cube
+irrnDesc	
+irra	\gold;Infused Zakarum Orb
+irraDesc	to upgrade it to a \yellow;Rare Map\grey;\nCube with a Normal Map
+rrra	\gold;Infused Horadrim Orb
+rrraDesc	to reroll its affixes\nCube with a \yellow;Rare Map\grey;
+urma	\gold;Infused Angelic Orb
+urmaDesc	to upgrade it to a \yellow;Rare Map\grey;\nCube with a \blue;Magic Map\grey;
+scou	\gold;Orb of Destruction
+scouDesc	to downgrade it to a Normal Map\nCube with a \blue;Magic Map\grey; or \yellow;Rare Map\grey;
+upmp	\gold;Cartographer's Orb
+upmpDesc	to create 1 map of the next tier\nCube with 3 maps of the same tier
+fort	\gold;Orb of Fortification
+fortDesc	Monsters grant 2x experience and drop 2x loot\nMonsters have 2x health and deal 20% more damage\nBase monster density is reduced by half\nCube with a map to fortify it
+scrb	\gold;Horadrim Scarab
+scrbDesc	\red;Dangerous Group Content\n\grey;Cube with a Tier 3 map to create a Dungeon
+iwss	\purple;Catalyst Shard\white;
+iwssDesc	to add a random event to it\nCube with a map
+lbox	\gold;Larzuk's Puzzlebox
+lboxDesc	Cube with an item to add sockets
+lpp	\gold;Larzuk's Puzzlepiece
+lppDesc	\red;Does not work with uniques and sets\n\grey;Cube with an item to add sockets
+lmal	Larzuk's Malus
+lmalDesc	Adds one socket to an item
+ubtm	\orange;Pandemonium Talisman
+UberTristDesc	\red;Recommended level 80\n\grey;Use at the blood fountain in Harrogath
+dcma	\orange;Vision of Terror
+DCloneDesc	\red;Recommended level 80\n\grey;Cube to cycle difficulty tiers\n\grey;Use at the blood fountain in Harrogath
+dcho	\orange;Black Soulstone
+dcbl	\orange;Pure Demonic Essence
+dcso	\orange;Prime Evil Soul
+dcxxDesc	One of the three souls of Terror
+cwss	\purple;Tainted Worldstone Shard\white;
+cwssDesc	to corrupt it unpredictably\nCube with Annihilus
+rtmo	\orange;Trang-Oul's Jawbone
+rtmv	\orange;Splinter of the Void
+rtmxDesc	One of the three fragments of the Void
+rtma	\orange;Voidstone
+rtmaDesc	\red;Recommended level 80\n\grey;Cube to cycle difficulty tiers\n\grey;Use at the blood fountain in Harrogath
+rrbk	\gold;Horadric Almanac
+rbbk	\gold;Horadric Navigator
+luca	\orange;Shadow of Hatred
+lucaDesc	\red;Recommended level 80\n\grey;Cube to cycle difficulty tiers\n\grey;Use at the blood fountain in Harrogath
+lucb	\orange;Demonic Insignia
+lucc	\orange;Talisman of Transgression
+lucd	\orange;Flesh of Malic
+lucxDesc	One of the three marks of sinful devotion
+UnlimitedTPBook	Unlimited quantity\n\gold;Tome of Town Portal
+UnlimitedTPSkillName	Create Townportal
+UnlimitedTPSkillDesc	Creates a magic portal to the nearest town
+UnlimitedTPSkillAlt	Town Portal
+UnlimitedIDBook	Unlimited quantity\nIdentifies all items at once\n\gold;Tome of Identify
+UnlimitedIDSkillName	Identify All
+UnlimitedIDSkillDesc	Identify all magic items' properties
+UnlimitedIDSkillAlt	Identify All
+UnlimitedQuantity	Unlimited Quantity
+rtmf	\orange;Ancient Bone Fragments
+llmr	\purple;Lilith's Mirror
+llmrDesc	Cube with an item to permanently mirror it
+lsvl	\purple;Vial of Lightsong
+lsvlDesc	Cube with an item to make it ethereal
+uba	\orange;Relic of the Ancients
+ubaDesc	\red;Recommended level 80\n\grey;Use at the blood fountain in Harrogath
+ubaa	\orange;Sigil of Madawc
+ubab	\orange;Sigil of Talic
+ubac	\orange;Sigil of Korlic
+ubaxDesc	One of the three sigils of the Ancients
+rkey	\gold;Skeleton Key
+rkeyDesc	Unlimited use
+pvpp	Dueling Mana Potion
+PvpPotionDesc	\red;Only effective in duel arenas
+cm2f	\orange;Hellfire Ashes
+cm2fDesc	but can still be used for crafting.\nNo longer holds magical properties
+cps	Chilling Potion
+cpm	Frost Potion
+cpl	Freezing Potion
+lps	Charged Potion
+lpm	Static Potion
+lpl	Shock Potion
+TPotDescFireS	Enemy fire resistances:\red; -3%\grey;
+TPotDescFireM	Enemy fire resistances:\red; -6%\grey;
+TPotDescFireL	Enemy fire resistances:\red; -10%\grey;
+TPotDescPoisonS	Enemy poison resistances:\green; -3%\grey;
+TPotDescPoisonM	Enemy poison resistances:\green; -6%\grey;
+TPotDescPoisonL	Enemy poison resistances:\green; -10%\grey;
+TPotDescColdS	Enemy cold resistances:\blue; -3%\grey;
+TPotDescColdM	Enemy cold resistances:\blue; -6%\grey;
+TPotDescColdL	Enemy cold resistances:\blue; -10%\grey;
+TPotDescLightningS	Enemy lightning resistances:\yellow; -3%\grey;
+TPotDescLightningM	Enemy lightning resistances:\yellow; -6%\grey;
+TPotDescLightningL	Enemy lightning resistances:\yellow; -10%\grey;
+crfh	\gold;Hitpower Craft Infusion
+crfhDesc	Cube with a magic or rare item to craft
+crfb	\gold;Blood Craft Infusion
+crfbDesc	Cube with a magic or rare item to craft
+crfc	\gold;Caster Craft Infusion
+crfcDesc	Cube with a magic or rare item to craft
+crfs	\gold;Safety Craft Infusion
+crfsDesc	Cube with a magic or rare item to craft
+crfv	\gold;Vampiric Craft Infusion
+crfvDesc	Cube with a magic or rare item to craft
+crfu	\gold;Bountiful Craft Infusion
+crfuDesc	Cube with a magic or rare item to craft
+crfp	\gold;Brilliant Craft Infusion
+crfpDesc	Cube with a magic or rare item to craft
+jewf	Jewel Fragments
+r33	\orange;Zod Rune
+r32	\orange;Cham Rune
+r30	\orange;Ber Rune
+r29	\orange;Sur Rune
+r28	\orange;Lo Rune
+r27	\orange;Ohm Rune
+r26	\orange;Vex Rune
+r25	\orange;Gul Rune
+r24	\orange;Ist Rune
+r23	\orange;Mal Rune
+r22	\orange;Um Rune
+r21	\orange;Pul Rune
+r20	\orange;Lem Rune
+r19	\orange;Fal Rune
+r18	\orange;Ko Rune
+r17	\orange;Lum Rune
+r15	\orange;Hel Rune
+r14	\orange;Dol Rune
+r12	\orange;Sol Rune
+r11	\orange;Amn Rune
+r10	\orange;Thul Rune
+r09	\orange;Ort Rune
+r08	\orange;Ral Rune
+r07	\orange;Tal Rune
+r06	\orange;Ith Rune
+r05	\orange;Eth Rune
+r04	\orange;Nef Rune
+r03	\orange;Tir Rune
+r02	\orange;Eld Rune
+r01	\orange;El Rune
+toaName	Token of Absolution
+toaDesc	Right-click to reset Stat/Skill Points
+LabelSetStart	(DontTranslate)==================================================
+Bul-Kathos' Death Band	Bul-Kathos' Death Band
+Infernal Spire	Infernal Spire
+LabelUniqueStart	(DontTranslate)==================================================
+EaglehornRaven	Your Ravens Deal
+Uldyssian's Awakening	Uldyssian's Awakening
+Leoric's Mithril Blade	Leoric's Mithril Bane
+Occultist	Occultist
+Brimstone Rain	Brimstone Rain
+Stalkers Cull	Stalker's Cull
+Itheraels Path	Itherael's Path
+Overlords Helm	Overlord's Helm
+Dark Abyss	Dark Abyss
+Aidans Scar	Aidan's Scar
+Hadriels Hand	Hadriel's Hand
+Band of Skulls	Band of Skulls
+Cage of the Unsullied	Cage of the Unsullied
+The Third Eye	The Third Eye
+Zeraes Resolve	Zerae's Resolve
+Martyr	Martyrdom
+Stalkers Cull	Stalker's Cull
+Akarats Devotion	Akarat's Devotion
+Purgatory	Purgatory
+Raekors Virtue	Raekor's Virtue
+Nightmares Feast	Ursa's Nightmare
+Nethercrow	Kadala's Heirloom
+Mirror Shield	Twilight's Reflection
+Shatterblade	Shatterblade
+Denmother	Denmother
+Titangrip	Titan's Grip
+Wraithskin	Wraithskin
+Ebonbane	Ebonbane
+Armageddon Blade	Armageddon's Blade
+Balefire	Balefire
+Swiftwind Needle	Swiftwind Needle
+Tombsong	Tombsong
+Stormbrand	Stormbrand
+Basilisk's Quill	Basilisk's Quill
+Ramfodder	Ramfodder
+Anvilguard Strap	Anvilguard Strap
+Shatterhead	Shatterhead
+Abyssal Ward	Abyssal Ward
+Frozen Sorrow	Frozen Sorrow
+Doom's Finger	Doom's Finger
+Bannerlord's Call	Bannerlord's Call
+LabelRunewordStart	(DontTranslate)==================================================
+Ferocity	Ferocity
+Zenith	Zenith
+Rampage	Rampage
+Neophyte	Neophyte
+Neophyte2	Neophyte
+Wind Staff	Wind
+Phoenix Staff	Phoenix
+Hustle	Hustle
+Purity	Purity
+Rapture	Rapture
+Runeword40	Flickering Flame
+Runeword97	Pattern
+Runeword171	Dominion
+Shattered Wall	Shattered Wall
+Asylum	Asylum
+Asylum Staff	Asylum
+Revenge	Revenge
+LabelAffixStart	(DontTranslate)==================================================
+Champion's	Champion's
+Magic	Magic
+Arcane	Arcane
+Ancient	Ancient
+Silver	Silver
+Shining	Shining
+Opulent	Opulent
+Fast	Fast
+Speedy	Speedy
+Ludicrous	Ludicrous
+Large	Large
+Huge	Huge
+Colossal	Colossal
+Strong	Strong
+Mighty	Mighty
+Formidable	Formidable
+Splashing	Splashing
+Bloody	Bloody
+Gory	Gory
+Sanguinary	Sanguinary
+Unhealthy	Unhealthy
+Sickly	Sickly
+Diseased	Diseased
+Crushing	Crushing
+Smashing	Smashing
+Promoted	Promoted
+Elevated	Elevated
+Ascended	Ascended
+Obliterating	Obliterating
+Sparking	Sparking
+Thunderous	Thunderous
+Chilling	Chilling
+Glacial	Glacial
+Molten	Molten
+Volcanic	Volcanic
+Poisonous	Poisonous
+Plagued	Plagued
+Runic	Runic
+Taboo	Taboo
+Occult	Occult
+Stygian	Stygian
+Lustful	Lustful
+Vampiric	Vampiric
+Bovine	Bovine
+Reanimated	Reanimated
+Ghastly	Ghastly
+GuardianOfFate	\gold;Guardian of Fate
+Cultist's	Cultist's
+Bloodthirster's	Bloodthirster's
+Gorelust's	Gorelust's
+Blood Letting	Blood Letting
+Murderous	Murderous
+Blood Sucking	Blood Sucking
+Channeling	Channeling
+Cold	Cold
+Cinder	Cinder
+Morbid	Morbid
+Sparkling	Sparkling
+Discharging	Discharging
+Frigid	Frigid
+Wildfire	Wildfire
+Malicious	Malicious
+Effervescent	Effervescent
+Conduit	Conduit
+Numbing	Numbing
+Inferno	Inferno
+Infectious	Infectious
+Shining	Shining
+Visceral	Visceral
+True Silver	True Silver
+Quetzalcoatl	Quetzalcoatl
+Cyclopean Roar	Cyclopean Roar
+Sankekur's Fall	Sankekur's Fall
+Mage Slayer	Mage Slayer
+Kalans Legacy	Kalan's Legacy
+Tempest	Tempest
+Supporting	Supporting
+Reinforcing	Reinforcing
+Empowering	Empowering
+Bolstering	Bolstering
+Fortifying	Fortifying
+Devout	Devout
+Plague	Plague
+Cardinal	Cardinal
+Penetrating	Penetrating
+Puncturing	Puncturing
+Piercing	Piercing
+Impaling	Impaling
+Embattled	Embattled
+Rampaging	Rampaging
+Rampant	Rampant
+Cleaving	Cleaving
+Desolating	Desolating
+Virulent	Virulent
+of Warding	of Warding
+of Guarding	of Guarding
+of Preservation	of Preservation
+of Cracking	of Cracking
+of Crumbling	of Crumbling
+of Disintegration	of Disintegration
+of Resilience	of Resilience
+of Hardiness	of Hardiness
+of Fortitude	of Fortitude
+of Imbalance	of Imbalance
+of Inequality	of Inequality
+of Uneveness	of Uneveness
+of Fumbling	of Fumbling
+of Bumbling	of Bumbling
+of Blundering	of Blundering
+of Sturdiness	of Sturdiness
+of Stability	of Stability
+of Vigor	of Vigor
+of Crimson	of Crimson
+of Tangerine	of Tangerine
+of Opal	of Opal
+of Azure	of Azure
+of Protection	of Protection
+of Security	of Security
+of Safety	of Safety
+of Swiftness	of Swiftness
+of Quickness	of Quickness
+of Velocity	of Velocity
+of Regeneration	of Regeneration
+of Renewal	of Renewal
+of Rebirth	of Rebirth
+of the Leech	of the Leech
+of the Parasite	of the Parasite
+of the Bloodsucker	of the Bloodsucker
+of Health	of Health
+of Vitality	of Vitality
+of Vim	of Vim
+of Hindrance	of Hindrance
+of Aversion	of Aversion
+of Permeability	of Permeability
+of the Dawn	of the Dawn
+of Fireball	of Fireball
+of Lightning	of Lightning
+of Chain Lightning	of Chain Lightning
+of Nova	of Nova
+of Charged Bolt	of Charged Bolt
+of Frost Nova	of Frost Nova
+of Ice Barrage	of Ice Barrage
+of Blades	of Blades
+of Clarity	of Clarity
+of Divinity	of Divinity
+of the Dawn	of the Dawn
+of Darkness	of Darkness
+of Defending	of Defending
+of Protecting	of Protecting
+of Guardianship	of Guardianship
+of Savagery	of Savagery
+of Devastation	of Devastation
+of Havoc	of Havoc
+of Destruction	of Destruction
+of Desolation	of Desolation
+of Bleeding	of Bleeding
+of Siphoning	of Siphoning
+of Gory	of Gory
+of Sanguinary	of Sanguinary
+of Hematic	of Hematic
+of Chipping	of Chipping
+of Crumbling	of Crumbling
+of Breaking	of Breaking
+of Crushing	of Crushing
+of Pulverizing	of Pulverizing
+of Evisceration	of Evisceration
+of Lower Resist	of Lower Resist
+of Hypothermia	of Hypothermia
+of Maelstrom	of Maelstrom
+of Decay	of Decay
+of Ashes	of Ashes
+LabelMapModsStart	(DontTranslate)==================================================
+MapPlayHave	Players have
+MapMonHave	Monsters have
+MapGlobHas	Map has
+MapGlobLevel	to Area Level
+MapGlobDensity	\grey;Monster Density:\blue;
+MapGlobMonRarity	\grey;Monster Rarity:\blue;
+MapMonVelocity	increased Velocity
+MapMonCurse	Curse Duration Reduction
+MapGlobMF	\grey;Magic Find:\blue;
+MapGlobExp	\grey;Experience:\blue;
+MapGlobGF	\grey;Gold Find:\blue;
+MapGlobMFGF	\grey;Magic and Gold Find:\blue;
+MapMon	Monster's
+MapMonSplash	Melee Attacks Deal Splash Damage
+MapEnhancedDmg	Enhanced Physical Damage
+MapMonTake	Monsters take
+MapPlayAllRes	to All Resistances
+MapPlayBlock	Chance to Block
+MapFlatPhysRed	Reduced Physical Damage
+MapAtkCastRate	Increased Cast and Attack Speed
+MapMaxHP	Increased Maximum Life
+MapPierceAR	Attack Rating and Chance to Pierce
+MapPhysExtraLtng	of Physical Damage as Extra Lightning Damage
+MapPhysExtraCold	of Physical Damage as Extra Cold Damage
+MapPhysExtraFire	of Physical Damage as Extra Fire Damage
+MapPhysExtraPois	of Physical Damage as Extra Poison Damage over 5 Seconds
+MapPhysExtraMag	of Physical Damage as Extra Magic Damage
+MapAddMonDoll	Map contains Stygian Dolls
+MapAddMonSucc	Map contains Succubus Witches
+MapAddMonVamp	Map contains Vampire Lords
+MapAddMonCow	Map contains Hell Bovines
+MapAddMonHorde	Map contains Reanimated Horde
+MapAddMonGhost	Map contains Ghosts
+MapMonIgnore	Monsters ignore
+MapMonFirePierce	of Enemy Fire Resistance
+MapMonLtngPierce	of Enemy Lightning Resistance
+MapMonColdPierce	of Enemy Cold Resistance
+MapMonPoisPierce	of Enemy Poison Resistance
+MapAtkCastSpeed	Attack and Cast Speed
+MapAddMonSouls	Map contains Burning Souls
+MapAddMonFetish	Map contains Fetishes
+MapGlobSkirmishMode	\orange;Fortified\white;
+MapMonIncreasedJewelry	chance of dropping additional jewelry and charms
+MapMonIncreasedWeapons	chance of dropping additional weapons
+MapMonIncreasedArmor	chance of dropping additional armor
+MapMonIncreasedCrafting	chance of dropping additional crafting materials
+MapGlobExtraBoss	Map contains an additional boss
+MapPlayMaxAllRes	to All Maximum Resistances
+MapAddMonShriek	Map contains Minions of Destruction
+MapMonIncreasedCharms	chance of dropping additional charms
+MapMonIncreasedCorrupted	chance of dropping corrupted items
+MapBossSkillers	Map boss drops a skill charm
+MapBossCorruptedUnique	Map boss drops a corrupted unique
+MapBossFacet	Map boss drops a Rainbow Facet
+MapMonIncreasedJewels	chance of dropping additional jewels
+StrMapLightRadius	reduced light radius
+MapGlobSunderMonsters	Monsters have sundered resistances
+MapGlobDropSockets	Monsters have +%d%% chance to drop socketed items\nMap boss drops a socketed unique
+LabelMapStart	(DontTranslate)==================================================
+MapTier	Tier:
+t11	Ruins of Viz-Jun Map
+t12	Horazon's Memory Map
+t13	Bastion Keep Map
+t14	Sanatorium Map
+t15	Royal Crypts Map
+t16	Ruined Cistern Map
+t21	Phlegethon Map
+t22	Torajan Jungle Map
+t23	Arreat Battlefield Map
+t24	Tomb of Zoltun Kulle Map
+t25	Sewers of Harrogath Map
+t26	Shadows of Westmarch Map
+t27	Demon Road Map
+t28	Skovos Stronghold Map
+t31	River of Blood Map
+t32	Throne of Insanity Map
+t33	Lost Temple Map
+t34	Ancestral Trial Map
+t35	Blood Moon Map
+t36	Fall of Caldeum Map
+t37	Pandemonium Citadel Map
+t37	Pandemonium Citadel Map
+t38	Canyon of Sescheron Map
+t39	Kehjistan Marketplace Map
+t3a	Ashen Plains Map
+t41	Cathedral of Light Map
+t42	Plains of Torment Map
+t43	Sanctuary of Sin Map
+t44	Steppes of Daken-Shar Map
+t51	Map
+t52	Map
+t53	Map
+t54	Map
+t55	Map
+t56	Map
+t61	Desert Duel Arena
+t62	Moor Duel Arena
+Kurast	Ruins of Viz-Jun
+ArcaneMap	Horazon's Memory
+Fortress Map	Bastion Keep
+LibraryMap	The Sanatorium
+CryptsMap	Royal Crypts
+Ruined Cistern	The Ruined Cistern
+Lava	Phlegethon
+Jungle Map	Torajan Jungle
+Siege Map	Arreat Battlefield
+Tomb Map	Tomb of Zoltun Kulle
+Sewers	Sewers of Harrogath
+WestmarchMap	Shadows of Westmarch
+River Of Blood	River Of Blood
+Throne Map	Throne of Insanity
+Lost Temple	The Lost Temple
+Ice Map	Ancestral Trial
+Graveyard Map	Blood Moon
+Fall of Caldeum Map	Fall of Caldeum
+Fall of Caldeum	The Fall of Caldeum
+Pandemonium Citadel	The Pandemonium Citadel
+Canyon Map	The Canyon of Sescheron
+Desert Map	Kehjistan Marketplace
+Ashen Plains	The Ashen Plains
+Demon Road	The Demon Road
+Skovos Stronghold	The Skovos Stronghold
+ToSkovosStronghold	To The Skovos Stronghold
+ToDemonRoad	To The Demon Road
+Demon Road Map	Demon Road
+Skovos Stronghold Map	Skovos Stronghold
+Monastery Map Basement	Cathedral Basement
+Monastery Map	Cathedral of Light
+To The Cathedral Basement	To The Cathedral Basement
+Mesa	Plains of Torment
+Torment Map	The Plains Of Torment
+To The Plains Of Torment	To The Plains Of Torment
+SanctuaryOfSinMap	Sanctuary of Sin
+To SanctuaryOfSinMap	To Sanctuary of Sin
+KanemithMap	Steppes of Daken-Shar
+ToKanemithOutside	To The Steppes of Daken-Shar
+KanemithOutside	Steppes of Daken-Shar
+ToKanemithDungeon	To The Tombs of Kanemith
+KanemithDungeon	The Tombs of Kanemith
+Pvp Map	Desert Duel Arena
+Pvp Map 2	Moor Duel Arena
+pvp healer	pvp healer
+RathmaMap1	Decaying Swamplands
+RathmaMap2	Ruins of Necropolis
+RathmaMap3	The Void
+Rathma Map	The Void
+BlackAbyssMap	Black Abyss
+To BlackAbyssMap	To Black Abyss
+ToZharKurastMap	To Counselor's Causeway
+ZharKurastMap	Counselor's Causeway
+ToZharIceMap	To Colonnades of Madness
+ZharIceMap	Colonnades of Madness
+ToZharRiversMap	To the Hidden Waterways
+ZharRiversMap	Hidden Waterways
+ToZharLibraryMap	To Zhar's Sanctum
+ZharLibraryMap	Zhar's Sanctum
+Zhar the Mad Map	Zhar's Sanctum
+zharportal_blue	Portal
+zharportal_red	Inner Sanctum
+ToHellcavesMap	To the Stygian Caverns
+HellcavesMap	Stygian Caverns
+ToHellcavesFortressMap	To Stronghold of Acheron
+HellcavesFortressMap	Stronghold of Acheron
+Warlord of Blood Map	Warlord of Blood
+WarlordOfBlood	\gold;Warlord of Blood
+ToA4DepthsMap	To the Forgotten Depths
+A4DepthsMap	Forgotten Depths
+ToFallenGardensMap	To the Fallen Gardens
+FallenGardensMap	The Fallen Gardens
+Fallen Gardens Map	Fallen Gardens
+ToDiamondGateMap	To the Diamond Gate
+DiamondGateMap	The Diamond Gate
+Hole Map	The Pit Of Despair
+Hole of Terror	Pit Of Despair
+To The Pit Of Despair	To The Pit Of Despair
+ToUrehCityMap	To the City of Ureh
+UrehCityMap	The City of Ureh
+Ureh City Map	City of Ureh
+ToNemyrMonasteryMap	To Nemyr Monastery
+NemyrMonasteryMap	Nemyr Monastery
+Palace	Horadrim Tower
+MapEventButcher	\gold;The Butcher
+Imperial Palace Map	Imperial Palace
+ToImperialPalaceMap	To the Imperial Palace
+ImperialPalaceMap	The Imperial Palace
+Outer Void Map	Outer Void
+ToOuterVoidMap	To the Outer Void
+OuterVoidMap	The Outer Void
+ToLucionArenaMap	To Veiled Realm
+LucionArenaMap	Veiled Realm
+ToLucionVaultMap	To Temple of the Triune
+LucionVaultMap	Temple of the Triune
+MapEventButcherDesc	Invulnerable. Increases nearby Gold and Magic Find.
+TaintedSunMapEventAltar	Spire of Darkness
+ForceShardAltar	Altar of the Catalyst
+StrForceMapEvent	Map contains a random event
+LabelMonsterStart	(DontTranslate)==================================================
+SummonerMap	\gold;Horazon
+ArcaneBoss	\gold;Deathmaiden Madinsane
+BastionBoss	\gold;Johnathan The Damned
+CowBoss	\gold;The Cow Queen
+IceBoss	\gold;Nathkill The Numb
+TombBoss	\gold;Toadflax the Tainted
+SewerBoss	\gold;The Mad Philosopher
+SiegeBoss	\gold;Armorsmith Equality
+ThroneBoss	\gold;Indio The Insane
+torajanBoss	\gold;The Great Worm
+Wisp Boss	\gold;Canight The Corrupted
+Megademon Boss	\gold;Lieutenant of Sin
+Fingermage Boss	\gold;The Synthetic One
+immune minion	Immune while Boss is Alive
+Unraveler Boss	\gold;Karvarousku the Cartographer
+StrAvunaos	\gold;Avunaos the Rotten
+StrBelial	\gold;Belial Lord of Lies
+act2hireTraitorBoss	\gold;Waheed The Traitor
+PandemoniumBoss	\gold;Dark Commander Alma
+spiderboss	\gold;Khalim's Corrupted Body
+CanyonBoss	\gold;Shattered Soul
+MarketBoss	\gold;Overlord Aerlynn
+DevilkinSlave	\gold;Devilkin Slave
+LibraryBoss	\gold;The Guardian
+LeoricBoss	\gold;King Leoric
+LeoricGuards	Decaying Guard
+WestmarchBoss	\gold;Urzael Harbringer of Death
+SiegebeastMapBoss	\gold;The Stygian Beast
+SiegebeastMapBossFallen	Stygian Horde
+ZharMiniBossBigHead	\gold;Ztaziz the Fragile
+ZharMiniBossBaboon	\gold;Infernal Alien
+ZharMiniBossCantor	\gold;Efreet Sajber
+WarlordOfBloodMiniBoss	\gold;Onion the Accused
+DamnedCavesMiniBoss	\gold;Cory the Imp
+CisternBoss	\gold;Ancient Cistern Hydra
+AshenBoss	\gold;Borq the Consumed
+KanemithBoss	\gold;Naz the Cursed King
+RadamentBoss	\gold;Elmegaard the Unholy
+SharpToothBoss	\gold;Skullsplitter Cyrus
+SharpToothMinion	Anburian Slayer
+uberdiablonew	\gold;Diablo Clone
+Wisp Minion1	\gold;Madness
+Wisp Minion2	\gold;Hysteria
+Rathma	\gold;Rathma
+Mendeln	\gold;Mendeln
+RathmaVoidGolem	Void Walker
+RathmaBloodGolem	Sanguine Bearer
+RathmaTotem	Conjured Soul
+BonePrison	Bone Prison
+VoidBeast	Nightmare
+Voidling	Voidling
+VoidWatcher	Dream Eater
+VoidFrog	Abhorrent
+ShadowRathma	Shadow of Mendeln
+VoidKnight	Void Knight
+MendelnSpire	Ancient Spire
+TreasureFallen	\gold;Treasure Fallen
+UberAncientStatue1	\gold;Talic the Abjuror
+UberAncientStatue2	\gold;Madawc the Mad
+UberAncientStatue3	\gold;Korlic the Stalker
+UberAncientAltar	Altar of the Damned
+UberAncient1	\gold;Talic
+UberAncient2	\gold;Madawc
+UberAncient3	\gold;Korlic
+ShadowOfHate	\orange;Shadow of Hate
+ShadowOfTerror	\orange;Shadow of Terror
+ShadowOfDestruction	\orange;Shadow of Destruction
+ShriekingTerror	Shrieking Terror
+BloodRavenZombie	Revived Dead
+TargetDummy	Target Dummy
+Iskatu	\gold;Iskatu
+IskatuVermin	\gold;Shadow Vermin
+Rakanoth	\gold;Rakanoth
+DemonPillar	Demonic Sentinel
+ZharTheMad	\gold;Zhar The Mad
+ZharTomeObject	Tome of Insanity
+Lucion	\gold;Lucion
+LucionChest	Treasure Chest
+LabelMercStart	(DontTranslate)==================================================
+MercX401	Anarel
+MercX402	Beradon
+MercX403	Erelune
+MercX404	Halleborn
+MercX405	Magoul
+MercX406	Vanoxet
+MercX407	Anuliath
+MercX408	Nys
+MercX409	Vextis
+MercX410	Aburaxen
+MercX411	Moradan
+MercX412	Balamir
+MercX413	Zarekoth
+MercX414	Nethysia
+MercX415	Maraxion
+MercX416	Raumeth
+MercX417	Aamoneth
+MercX418	Xaphanis
+MercX419	Tenebrisia
+MercX420	Malphasus
+MercDescfarw	Fire Arrow (Vigor)
+MercDesccarw	Cold Arrow (Meditation)
+MercDescparw	Physical Arrow (Slow Movement)
+MercDescdef 	Defensive (Defiance)
+MercDescoff 	Offensive (Blessed Aim)
+MercDesccomb	Combat (Thorns)
+MercDescfire	Fire (Cleansing)
+MercDesccold	Cold (Prayer)
+MercDescltng	Lightning (Holy Shock)
+MercDescascd	Ascendant (Dark)
+MercDescascl	Ascendant (Light)
+MercDescmght	Concentrate (Might)
+MercDescfrnz	Frenzy (Battle Cry)
+MercDescwwnd	Whirlwind (Battle Orders)
+LabelUnusedStart	(DontTranslate)==================================================
+DcloneClout	Top Three Diablo Clone Killer (Class Specific)
+MaxlevelClout	Top Three To Reach Level 99 (Class Specific)
+DevClout	Untold Power Is Contained Within
+RathmaClout	Top Three Rathma Killer (Class Specific)
+Dclone Clout	of Clout
+Maxlevel Clout	of Clout
+Dclone Trophy	Diablo Clone Trophy Season 4 Enlightenment
+Maxlevel Trophy	Level 99 Trophy Season 4 Enlightenment
+Rathma Trophy	Rathma Trophy Season 4 Enlightenment
+Dev Charm	Developers Bag Of Tricks
+skill charm	skills
+exp charm	exp charm
+frw charm	gotta go fast
+StrNearbyEnemies	Nearby Enemies: 
+StrFirstHitBonus	First Hit Bonus Damage: 
+Findplev	Chance to Find Item per Level
+StrLevels	 levels
+PercWeapDamsk	% Weapon Damage
+StrDeals	Deals 
+StrPercWepDmg	% Weapon Damage
+LabelItemStatsStart	(DontTranslate)==================================================
+splash3	Melee Attacks Deal Splash Damage
+StrSplashRadius	Increased Melee Splash Radius: 
+ModStrIncSplashRadius	Increased Splash Radius
+incsplashwithmissinghp	(based on missing life)
+SplashSeqBonus	% Melee Splash Radius
+IncSplash	Melee Splash Radius Increased by 20%
+StrCorrupted	\red;Corrupted
+StrHeroic	\dgreen;Heroic
+StrCorruptNum	Corrupt
+StrEndless	\grey;Quiver
+ModStrRepCharge1	Replenish 1 Charge in 3 Seconds
+ModStrRepCharge2	Charges per 100 seconds (do math)
+ModStrFireskills	to Fire Skills
+ModStrColdskills	to Cold Skills
+ModStrLightningskills	to Lightning Skills
+ModStrPoisonskills	to Poison Skills
+ModStrMagicskills	to Magic Skills
+ModPierceChance	Chance to Pierce
+ModLeapSpeed	to Leap and Leap Attack Movement Speed
+ModReduceCurseDuration	Reduced Curse Duration
+ModItemHPaH	Life after each Hit
+ModPhysPierce	to Enemy Physical Resistance
+ModVelocity	to Velocity
+StrExtraBonespear	Bonespear Now Fires
+StrExtraBonespear2	Additional Spears
+YouMaySummon	You May Summon
+StrExtraRevives	You May Summon
+StrExtraRevives2	Additional Revives
+StrExtraSpirits	Additional Spirit
+StrNoWolves	You May No Longer Summon Wolves
+ExtraGrizzly	Additional Grizzlies
+ExtraSkeleWar	Additional Skeleton Warriors
+ExtraSkeleMage	Additional Skeleton Mages
+ExtraSkeleArcher	Additional Skeleton Archers
+ExtraGolem	Additional Golem
+ExtraHydra	Additional Hydra
+ExtraValk	Additional Valkyrie
+GustReduction	Gust Cooldown Reduced By 2 Seconds
+joustreduction	Joust Cooldown Reduced By 0.5 Seconds
+ExtraSkeleMageGrim	You May Summon 6 Additional Skeleton Mages
+ModitemdamMagisk	To Magic Skill Damage
+bloodwarplifereduction	Bloodwarp Costs 2% Less Health
+SocketedTextOnly	Socketed [1]
+ModItemSkOnCast	%d%% Chance to cast level %d %s on casting
+ModItemSkOnBlock	%d%% Chance to cast level %d %s on block
+ModItemSkOnCrit	%d%% Chance to cast level %d %s on critical hit
+ModItemSkOnPierce	%d%% Chance to cast level %d %s on pierce
+dragonflightreduction	Dragon Flight Cooldown Reduced By 0.5 Seconds
+ModStrEnhancedDamage	Enhanced Damage
+increaseswithequippedeth	(based on Equipped Ethereals)\nGains +60% Enhanced Damage per equipped ethereal item
+increaseswithmissinghp	(based on missing life)\nGains +2% Enhanced Damage per missing life percentage
+ModStrLifeStealCap	You cannot life steal when above
+ofmaximumhp	maximum life
+corpseexplosionradius	Corpse Explosion Radius Increased by 2 Yards
+StrMirrored	\purple;Mirrored
+strModAllResistancesNeg	All Resistances %d
+StrCurseEffectiveness	Curse Resistance
+StrCurseEffectivenessI	Curse Resistance: 
+ModitemSkillOnEquip	Level %d %s When Equipped
+increaseswithenergy	(Based on Energy)
+ModStr2t_PD2	Magic Damage Taken Reduced by
+ModStr2u_PD2	Physical Damage Taken Reduced by
+ModStr3w_PD2	Damage Taken Gained as Mana when Hit
+ModStre8a_PD2	to Druid Skill Levels
+ModStre8b_PD2	to Assassin Skill Levels
+StrAnniversaryEdition	\orange; %dth Anniversary Edition
+LabelSkillsStart	(DontTranslate)==================================================
+Blink	Blink
+BlinkDesc	instantly moves to a destination
+BlinkShortDesc	instantly moves to destination
+BlinkLongDesc	instantly moves to a destination
+StrUIArcher	Archer
+NecroArcher	Necroarcher
+ChainLtngSentry	Chain Lightning Sentry
+ChainLtngSentrySD	a trap that emits chain lightning
+ChainLtngSentryLD	to scorch passing enemies\na trap that shoots chain lightning
+ChainLtngSentryS	Chain Ltng. Sent.
+StrPhysPierce	Physical Pierce: 
+ForceMove	Move Only
+ForceMoveShort	Move to target location
+ForceMoveLong	Move to target location
+StrBolts	Bolts Fired: 
+StrLifeHeal	Life Recovered: 
+StrHolyFireDmg	Holy Fire: 
+StrFireDamage	Fire Damage: 
+Eskillpoison1	Charge 1 - poison bolt damage: 
+Eoveronesecond	 over 1 second
+Eskillpoison3	Charge 3 - poison cloud damage: 
+ChargeUpSkillDesc	can only be used with claw and dagger class weapons\nof charges you have available and deplete on the third attack\nconsecutive hits add bonuses based on the amount\n\nCharge-up Skill
+AddFireDmg	Added Fire Damage: 
+AddColdDmg	Added Cold Damage: 
+AddLtngDmg	Added Lightning Damage: 
+StrEnemyPoisonRes	Enemy Poison Resistance: 
+ChargeUpSkillDesc2	can only be used with claw and dagger class weapons\nof charges you have available and deplete on the third attack\nconsecutive hits add bonuses based on the amount\n\nCharge-up Skill
+ThornsATD	Attacker Takes Damage of 
+StrJoustReducedCd	Cooldown reduced by 0.1 per base point
+StrMultishotPierce	damage every time they pierce\nArrows deal 20% reduced
+SummSkeleArcher	Raise Skeleton Archer
+SummSkeleArcherShortDesc	reanimate skeleton archer from target corpse
+SummSkeleArcherLongDesc	fights for you\nthis raises a skeleton archer that\ncast on the corpse of a slain monster,
+StrSkeleArcher	 Skeleton Archer
+StrSkeleArchers	 Skeleton Archers
+StrSkeleArchersShort	Archers: 
+StrSkeleAll	Warriors, Archers, Magi: 
+StrSkeleAllPhys	Warriors: 
+DopplezonNew	Decoy
+DopplezonNewSD	fires arrows at nearby enemies\nCreates a duplicate of yourself that
+DopplezonNewLD	fires arrows at nearby enemies\nCreates a duplicate of yourself that
+StrExtraDecoy	at base levels 10 and 20\ncan summon an additional decoy
+StrMinLifeCost	Minimum Life Cost: 
+StrMonSkillLevels	Monster Skill Levels: 
+StrVengChain	Chance to Chain: 
+Holylightheal	Prayer: +5-10 Life Healed per Level
+EnergyAbsorb	Gains +3 Additional Absorb per Energy
+BladeDance	Blade Dance
+StrEnemyFireRes	Enemy Fire Resistances: 
+StrEnemyColdRes	Enemy Cold Resistances: 
+Convphy2fire	Converts %d%% Physical Damage to Fire Damage
+SacrificeLongDesc	as half physical and half magic\noverkill damage plus 5 percent of corpse life\nslain monsters explode dealing\na deadly attack at the cost of life
+ChargeLongDesc	based on distance travelled\ngains increased splash radius\ncharge into battle and attack an enemy
+Deep Wounds	Deep Wounds
+DeepWoundsDesc	passive - increases open wounds damage
+OpenWoundsDamage	Open Wounds Damage: 
+OpenWoundsDesc	 percent chance of open wounds
+Attack1	 Attack 2: 
+Attack2	 Attack 3: 
+AssassinTrapUI	Trap
+Holy Sword	Holy Sword
+Holy Sword SD	to parry attacks and deal extra damage to demons and undead\nimbues a two-handed sword with holy energy
+Holy Sword LD	and deal extra damage to demons and undead\nallowing the user to parry attacks and spells\nimbues a two-handed sword with holy energy
+StrDmgToDemUnd	Damage to Demons/Undead: 
+StrParryDesc	Chance to parry increases by 1% per base level
+StrChanceToParry	Chance to Parry: 
+StrBladeShieldAttackRate	Increases attack rate by 1 frame every 2 base levels
+StrSecondsPerAttack	Deals Damage Every: 
+StrJavMastAtkSpd	Increases attack speed by 1% per base level
+StrJavMastAtkSpd2	Currently: 
+StrPowerStrikeNova	lightning damage in an area\nCasts a small nova that deals
+HolyNova	Holy Nova
+HolyNovaShortDesc	Creates a Nova of Holy Light
+HolyNovaLongDesc	that damages enemies or heals allies\nCreates an expanding ring of holy energy
+Physdplev	Physical Damage per Level
+HolyLight	Holy Light
+HolyLightShortDesc	Heals allies and damages enemies in an area
+HolyLightLongDesc	When cast on an enemy heals for half but deals full damage\nWhen cast on an ally deals half damage but heals for full\nhealing allies and damaging enemies in an area\nCalls down light from the heavens
+NovaDmgStr	Nova Lightning Damage: 
+NovaLtngdplev	Nova Lightning Damage per Level
+EnemyAtkRateStr	Enemy Attack Rating: 
+SlowMoveStr	Slows Movement by: 
+StrPowerStrikeLevel	Powerstrike Level: 
+StrValkPowerStrikeSyn	Power Strike: +20% Lightning Damage per Level
+StrExtraValk	at levels 20 and 30\nCan summon an additional valkyrie
+StrPercentMoveSpeed	% Movement Speed
+StrPercentFHR	% faster hit recovery
+StrDodgeFHR	Grants +1% faster hit recovery per base level
+MagdConvplev	Percent Magic Damage Conversion per Level
+IceBarrage	Ice Barrage
+IceBarrageShortDesc	Creates a barrage of ice lances that slow enemies
+IceBarrageLongDesc	that damage and slow nearby enemies\nCreates a barrage of magical ice lances
+IceLances	 Ice Lances
+Ltngprcplev	Lightning Pierce per Level
+StrWeaponDmg	Weapon Damage: 
+StrFlatLife	 life
+StrFlatMana	 mana
+AddedPhysdplev	Added Damage per Level
+StrBounces	bounces: 
+StrPercentDamage	% Damage
+Gust	Gust
+GustShortDesc	Instantly moves to a destination and chills enemies
+GustLongDesc	enemies upon arrival for .5 seconds\nInstantly moves to a destination chilling
+StrCooldown	Cooldown: 
+BloodWarp	Blood Warp
+BloodWarpShortDesc	Instantly moves to a destination and drains life
+BloodWarpLongDesc	Health lost regenerates over 5 seconds\nof a percentage of your current Health\nInstantly moves to a destination at the cost
+StrLifeCost	Costs 
+StrPercentMaxHP	% of Your Current Health
+StrIncLeapSpeed	Leap speed is increased with each base level
+StrPercIncLeapSpeed	% Increased Leap Speed
+StrColdPierce	Cold Pierce: 
+ColdEnchant	Cold Enchant
+ColdEnchantShortDesc	enchants melee or ranged weapons with cold
+ColdEnchantLongDesc	half efficiency for all allies\nenchants nearby allies weapons with cold damage
+StrDelay	Delay: 
+StrReducedDelay	Reduced Delay
+StrAttackRating	 Attack Rating
+StrPhysDmgResist	Physical Damage Resistance: 
+StrBonusSkills	Bonus All Skills: +
+StrIncPhysDmgRed	By 1% Every 2 Base Levels\nIncreases Physical Damage Reduction
+StrPhysDmgRed	Physical Damage Reduction: 
+StrIncFlatLife	Increases Max HP By 20 Every Base Level
+StrPierce	Pierce: 
+Combustion	Combustion
+CombustionShortDesc	Creates an expanding ring of fire balls to engulf your enemies
+CombustionLongDesc	Creates an expanding ring of fire balls to engulf your enemies
+StrFirePierce	Fire Pierce: 
+LesserHydra	Lesser Hydra
+LesserHydraShortDesc	summons multi-headed fire beast
+LesserHydraLongDesc	firebolt to reduce your enemies to ashes\nsummons a multi-headed beast of flame that casts
+StrGainDRPassiveBonus	Gain 1% Active Damage Reduction with every 2 Base Level\n
+StrPassiveHPRegen	Health Regeneration: 
+StrGainRegenPassiveBonus	Grants +1 Passive Health Regeneration per Base Level
+StrEnemyLtngRes	Enemy Lightning Resistances: -
+StrLtngMasterySynergy	seconds increased duration
+StrSkillBombs	Bombs: 
+StrSecondaryExplosions	 seconday explosions
+StrIncreasedBombs	Gains an Extra Bomb Every 3 Base Levels
+StrAddBoneSpear	Fires an Additional Bone Spear at Levels 15 and 25
+StrSkillBoneSpears	Bone Spears: 
+StrIncVelocity	Velocity: 
+StrTwisters	Twisters: 
+StrManaHeal	Mana Recovered: 
+StrOakSynergy	Oak Sage: 
+StrCarrionSynergy	Carrion Vine: 
+StrSolarSynergy	Solar Creeper: 
+StrLifeHealed	 Life Healed per Level
+StrManaHealed	 Mana Recovered per Level
+StrExtraGolems	Can Summon an Extra Golem Every 5 Base Levels
+StrGolems	Golems: 
+StrExtraRaven	Summon an Additional Raven per Cast every 10 Base Levels
+StrHPRegenPerLevel	Health Regeneration per Level
+StrReturns	Returns 
+StrDmgToAtt	 Damage to Attackers
+StrMagDmgRed	Magic Damage Reduction: 
+CurseMastery	Curse Mastery
+CurseMasteryShortDesc	increases the max number of curses
+CurseMasteryLongDesc	you to apply an additional curse for every 10 base levels\npassive - provides benefits to your curses and allows
+StrMaxCurses	Maximum Curses: 
+StrCurseDuration	Curse Duration: 
+StrCurseRadius	Curse Radius: 
+StrLowerResDesc	Lowers Resistances by 2% per Base Level
+Desecrate	Desecrate
+DesecrateShortDesc	summons 5 corpses and releases a deadly cloud of poison\n
+DesecrateLongDesc	summons 5 corpses and releases a deadly cloud of poison
+StrAmpDmgPhysRes	Reduced Physical Damage Resistance Increased by 2% per Base Level
+StrAttCastRateplev	Reduced Attack and Cast Rate per Level
+StrAttCastRate	Attack and Cast Rate: 
+StrMoveSpeed	Movement Speed: 
+StrRedPhysDmgResplev	Reduced Physical Resistance Per Two Levels
+StrDecrepRedDesc	Reduces Movement Speed by 1% per Base Level
+StrRedARplev	Reduced Attack Rating per Level
+StrIncLLplev	Increased Life Steal per Two Levels
+StrLifeTapInc	Percent Life Steal Increases by 2% per Base Level
+StrLifeSteal	Life Steal: 
+StrRedDmgplev	Reduced Damage per Two Levels
+StrConfuseAttSpd	Increases Monster Attack Speed by 10% per Base Level
+StrAttSpdplev	Increased Attack Speed per Level
+StrRedEneDefplev	Reduced Enemy Defense per Level
+StrRedMoveSpdplev	Reduced Movement Speed per Level
+StrLowResRedplev	Lowered Resistances per Two Levels
+StrIncDmgRet	Increased Damage Returned to Enemies per Level
+StrTerrorMoveSpdDesc	Reduces Movement Speed by 2% per Base Level
+StrIncRadiusplev	Radius per Three Levels
+DarkPact	Dark Pact
+DarkPactShortDesc	consumes curses to deal magic damage around the enemy
+DarkPactLongDesc	the enemy for each curse devoured\nsealing a dark pact and dealing damage around\nconsumes the curses on enemies within an area
+StrAllCurses	All Curses
+StrMagDmg	Magic Damage
+StrPerCurse	 per Curse: 
+Joust	Joust
+JoustShortDesc	teleport and strike enemies
+JoustLongDesc	strike gaining increased movement speed for 2 seconds\nteleport to your enemies and impale them with a deadly
+StrJoustIncMS	Increases Movement Speed by 2% per Base Level
+StrCritStrike	Critical Strike: 
+LesserFade	Lesser Fade
+StrToMaxCurses	You May Apply An Additional Curse
+StrConcMagConvert	Converts 2% of Physical Damage to Magic Damage per Base Level
+StrLeapDist	Leap Distance: 
+StrLeapKBDist	Knockback Radius: 
+StrPercTargetDef	% to Target Defense
+StrPenTgtDef	Reduces Target Defense by 1% per Base Level
+StrPercPoisRes	% Poison Resistance
+StrPierces	Pierces 
+StrBOSAtkSpd	Increases Attack Speed with Base Levels
+StrVelocity	Velocity: 
+StrElemDmg	Elemental Damage: 
+StrLGOH	 Life Gained On Hit
+StrNecroMagePsn	 Over 0.5 Seconds
+StrBCSkills	Grants an Additional Skill Level every 10 Base Levels
+StrMaxFireResPassive	Grants 1% Passive Maximum Fire Resistance per 2 Base Levels
+StrMaxColdResPassive	Grants 1% Passive Maximum Cold Resistance per 2 Base Levels
+StrMaxLtngResPassive	Grants 1% Passive Maximum Lightning Resistance per 2 Base Levels
+StrToMaxFireRes	Maximum Resist Fire: 
+StrToMaxColdRes	Maximum Resist Cold: 
+StrToMaxLtngRes	Maximum Resist Lightning: 
+StrPassiveDR	Passive Physical Damage Reduction: 
+StrActiveDR	Physical Damage Reduction: 
+StrPassiveMoveSpeed	Grants +1% Passive Faster Run/Walk per Base Level
+StrFRW	Faster Run/Walk: 
+StrPoisDurRed	Reduces poison duration by 
+StrDurRedPassive	Grants 1% Passive Poison and Curse Duration Reduction per Base Level
+StrMedMPK	Grants +1 Passive Mana After Each Kill every 2 Base Levels
+StrMPK	 to Mana after each Kill
+StrPassiveBlessAim	Grants +10% Passive Attack Rating per Base Level
+StrHungerBuffs	Gains +2 Second Duration per Base Level
+StrCritStrikeChance	 percent chance of Critical Strike
+StrLightFuryBolts	Releases An Additional Bolt Every 5 Levels
+ExtraPlaguePoppy	\nPoison Creeper Every 10 Base Levels\nYou May Summon An Additional
+lethal damage	Deals Lethal Damage
+FingermageBossNova	Bone Nova
+ShockWaves	 Shock Waves
+StrExtraShockWave	Gains an Additional Shock Wave every 5 Levels
+StrHungerLifeSteal	Gains +1% Life Steal every 4 Base Levels
+ExtraMagicArrow	Gains an additional arrow every 5 base levels
+TauntDuration	Duration Increases with Base Levels
+DpBonus	Damage bonus per curse: 
+DpBonus2	Explosion radius bonus per curse: 
+CombatReflexesFHR	Increases Faster Hit Recovery by 2% per Base Level
+IncreasedSpeedIAS	Increases Attack Speed by 2% per Base Level
+StrFHR	Faster Hit Recovery: 
+WeakenDef	Targets Defense: 
+Deadlystrike	Deadly Strike: 
+OpenWoundsItem	Open Wounds Damage Per Second
+Eskillsplash3	 percent damage and +40% melee splash radius
+Eskillsplash2	 percent damage and +20% melee splash radius
+MinusMagicRes	Magic Resistance: 
+Carrion	Carrion
+Solar	Solar
+Creeper	Creeper
+Meteordmg	Meteor Damage per Level
+Strboltstrap	Releases An Additional Bolt Every 4 Base Levels
+StrBlockRate	Grants bonus +1% faster block rate per base level
+StrPercentBlockRate	% faster block rate
+StrFBR	Faster Block Rate: 
+StrTStormDelay	Delay reduced by 0.1 per 2 base levels
+StrBoneArmorDefense	Grants +10% defense per base level
+StrTeleportDebuff	damage reduction debuff reduced by 2% per base level
+Eskillfistsoffire1_PD2	fire damage per second: 
+Eskillfistsoffire2_PD2	fire nova damage: 
+Eskillfistsoffire3_PD2	meteor damage: 
+skillsd9_PD2	passive - chance of dealing 1.5x damage
+skillld9_PD2	passive - your attacks have a chance to deal 1.5x damage
+skillsd13_PD2	also grants bonus faster hit recovery\npassive - dodges melee and ranged attacks
+skillsd14_PD2	adds lightning damage and casts a small nova
+skillname17_PD2	Slow Movement
+skillsd17_PD2	slows ranged attacks and movement of enemies
+skillld17_PD2	their ranged attacks and movement\nilluminates nearby enemies and slows
+skillan17_PD2	Slow Movement
+skillname19_PD2	Javelin and Spear Mastery
+skillsd19_PD2	passively increases damage and attack speed
+skillld19_PD2	javelin and spear class weapons\nincreases damage and critical hit chance with
+skillld23_PD2	passive - increases your attack rating and lowers target defense
+skillld29_PD2	a melee or missile attack when walking or running\npassive - you have a chance to dodge
+skillld37_PD2	and grants passive attack rating\npassive - increases the rate at which you recover mana
+skillxld42_PD2	lowers enemy lightning resistances for a short duration\nof all nearby enemies\ncreates an electrical field that reduces life
+skillsd46_PD2	explode and ignite the ground in your wake
+skillld46_PD2	while affected you cannot be frozen\nleaving a wall of fire in your wake\nexplode and dash towards your enemies
+skillname52_PD2	Enchant Fire
+skillld52_PD2	half efficiency for all allies\nenchants nearby allies weapons with fire damage
+skillan52_PD2	Enchant Fire
+skillsd54_PD2	instantly moves to destination and reduces damage dealt
+skillld54_PD2	and reduces the spell damage you deal for 1 second\ninstantly moves to a destination within your line of sight
+skillld56_PD2	from sources of fire mastery\nmeteor's physical damage benefits \nto crush and incinerate your enemies\nsummons a meteor from the heavens
+skillsd60_PD2	retaliates against ranged and melee attackers
+skillld60_PD2	damages melee attackers if you are hit\nin retaliation against ranged attackers\nincreases defense and discharges a blizzard spike
+skillan60_PD2	Chilling Armor
+skillld62_PD2	fireball to reduce your enemies to ashes\nsummons a multi-headed beast of flame that casts
+skillld65_PD2	and pierces enemies resistances to cold\npassive - increases the damage of your cold attacks
+skillsd69_PD2	passive - better skeletons
+skillld69_PD2	velocity of raised skeletons\npassive - increases life, damage, and
+skillname70_PD2	Raise Skeleton Warrior
+skillan70_PD2	Skeleton Warrior
+skillld71_PD2	reducing their vision radius and attack rating\ncurses a group of monsters,
+skillname73_PD2	Poison Strike
+skillsd73_PD2	next dagger or scythe attack poisons target
+skillld73_PD2	adds poison to your dagger or scythe attacks
+skillan73_PD2	Poison Strike
+skillsd79_PD2	Enhances Speed, Life, and Number of Golems
+skillsd84_PD2	summons deadly spikes of bone
+skillld84_PD2	summons deadly spikes of bone to impale your enemies
+skillsd85_PD2	a golem that shares life
+skillld85_PD2	will be inflicted with open wounds\nenemies damaged by the blood golem\nwith you the life it steals.\ncreates a golem that shares
+skillld87_PD2	movement speed, attack rate, and cast rate\ncurses a group of enemies to slow their
+skillld99_PD2	them life from melee attacks\nthe life of you and your party and grants\nwhen active, aura slowly regenerates
+skillsd100_PD2	fire damage dealt\naura - protects against fire damage and increases
+skillld100_PD2	for you and your party\nreceived and increases fire damage dealt\nwhen active, aura decreases fire damage
+skillsd101_PD2	divine energy that damages enemies and heals allies
+skillld101_PD2	fires an additional holy bolt at levels 15 and 25\nthat damages enemies or heals allies\na bolt of divine energy
+skillld103_PD2	back at your attacker\nwhen active, aura reflects physical damage
+skillld104_PD2	physical damage reduction of you and your party\nwhen active, aura increases the defense rating and
+skillsd105_PD2	cold damage dealt\naura - protects against cold damage and increases
+skillld105_PD2	for you and your party\nreceived and increases cold damage dealt\nwhen active, aura decreases cold damage
+skillld107_PD2	based on the distance traveled\ngains up to 60% Increased melee splash radius\ncharge into battle and attack an enemy
+skillsd110_PD2	lightning damage dealt\naura - protects against lightning damage and increases
+skillld110_PD2	for you and your party\nreceived and increases lightning damage dealt\nwhen active, aura decreases lightning damage
+skillld111_PD2	damage from items\nthis effect also carries and increases elemental\ndeals fire, lightning, and cold damage in an area
+skillld112_PD2	spirals outwards damaging enemies it hits\nsummons an ethereal hammer that
+skillsd119_PD2	their magic resistances\naura - damages enemies with magic and reduces 
+skillld119_PD2	damage and reduces enemy magic resistances\nwhen active, aura damages nearby enemies with magic
+skillsd124_PD2	aura - redeems the dead for mana
+skillxld124_PD2	the souls of slain enemies to give you mana\nwhen active, aura attempts to redeem
+skillsd125_PD2	aura - protects against and increases elemental damage
+skillld125_PD2	for you and your party\nreceived and increases fire, cold, and lightning damage dealt\nwhen active, aura decreases fire, cold, and lightning damage
+skillld126_PD2	powerful blow that has a chance to knock back enemies
+skillname128_PD2	General Mastery
+skillsd128_PD2	passive - improves sword, axe, dagger, and mace fighting skill
+skillld128_PD2	passive - improves sword, axe, dagger, and mace fighting skill
+skillan128_PD2	General Mastery
+skillname134_PD2	Polearm And Spear Mastery
+skillsd134_PD2	passive - improves polearm and spear skill
+skillld134_PD2	passive - improves polearm and spear skill
+skillan134_PD2	Polearm And Spear Mastery
+skillname135_PD2	Ranged Mastery
+skillsd135_PD2	passive - improves thrown weapon skill
+skilld135_PD2	passive - improves thrown weapon skill
+skillan135_PD2	Ranged Mastery
+skillld139_PD2	and increasing your attack rating\nshort time dealing bonus damage\nstuns enemies in an area for a
+skillsd140_PD2	throw two weapons that bounce to nearby enemies
+skillld140_PD2	weapons bounce to nearby enemies\nthrowing weapons at the same time\nallows you to throw two different
+skillname141_PD2	Combat Reflexes
+skillsd141_PD2	passive - increases stamina, hit recovery, and life
+skillld141_PD2	passive - increases stamina, hit recovery, and life
+skillan141_PD2	Combat Reflexes
+skillsd143_PD2	leaps and attacks enemies
+skillld143_PD2	in a radius upon landing\nleaps to and attacks enemies
+skillld144_PD2	converts physical damage to magic damage\nimproves attack and defense rating and\nattack that is not interruptible and
+skillld146_PD2	enemies defense rating and physical damage resistance\nfearsome cry that decreases
+skillsd148_PD2	passive - increases attack, walk and run speed
+skillld148_PD2	passive - increases attack, walk and run speed
+skillsd150_PD2	creates a frightening totem that buffs allies
+skillld150_PD2	for you and your party\nthat increases damage and attack rating\nto create a frightening totem\nuse on the corpse of a slain monster
+skillld152_PD2	requires you to equip two weapons\ndefense rating and physical damage resistance\nincreases damage and attack rating but decreases\na powerful but reckless attack that
+Skillld223_PD2	contacts and reduces their poison resistance\nsummon a vine that spreads disease to all it
+Skillld226_PD2	fire speed and range increase per level\nunleash fiery chaos to burn your enemies
+Skillld227_PD2	grants health regeneration for you and your party\nsummon a spirit pet that increases life and
+Skillld230_PD2	boulder speed increases per level\nthat knocks back your enemies\nlaunch a boulder of flaming hot magma
+Skillld232_PD2	and replenishes life for you and your party\nsummon a vine that eats corpses
+Skillld242_PD2	and recovers mana for you and your party\nsummon a vine that eats corpses
+Skillsd243_PD2	consume a corpse to gain temporary bonuses
+Skillld243_PD2	gain movement speed, open wounds and life steal\nwhile in werebear form, consume a corpse to temporarily
+Skillld248_PD2	can summon an additional grizzly bear at base level 20\nsummon a ferocious grizzly bear
+Skillname253_PD2	Claw and Dagger Mastery
+Skillsd253_PD2	passive - improves claw and dagger weapons ability
+Skillld253_PD2	with claw and dagger weapons\npassive - improves your skill
+Skillan253_PD2	Claw and Dagger Mastery
+Skillld254_PD2	deals 20% less damage per bounce\nto crush and knock back your enemies.\nuse the power of your mind to create a psychic blast
+Skillan254_PD2	Psychic Hammer
+Skillsd264_PD2	passive - parry with two claw-class weapons
+Skillld264_PD2	you are using dual claw-class weapons\npassive - chance to parry when
+Skillld271_PD2	adds charged-up bonuses to the kick\ndeals damage to your enemies with an explosive kick\n\nFinishing Move\n
+Skillld274_PD2	using the power of your mind\nstun a group of enemies
+Skillld277_PD2	laying waste to enemies\ntrap that explodes nearby corpses
+IncESEfficiency	Energy Shield has increased absorption efficiency
+StrESSkillEfficiency	 percent damage taken from mana
+ArcticNova	Shatter Cold Damage
+LabelEverythingElseStart	(DontTranslate)==================================================
+inflictsfear	Inflicts Fear
+DummyDps	Target Dummy damage per second: 
+ChatLog	-------------- Chat Log --------------
+InventoryLock	Charm Inventory\nLock Equipment &
+StashTabShared	Shared Tab
+StashTabPrivate	Personal Tab
+StashTabCurrency	Materials Tab
+StashGoldAmount	Personal Bank
+SharedStashGoldAmount	Shared Bank
+NPCRefresh	Refresh
+PlayerDpsDisplay	DPS: %d
+NewHelpTitle	Project Diablo II Help
+NewHelpShortcuts1	New Shortcuts
+NewHelpShortcuts2	While hovering over an item
+NewHelpShortcuts3	Shift+Left Click
+NewHelpShortcuts4	Identify item
+NewHelpShortcuts5	Shift+Right Click
+NewHelpShortcuts6	Move between inventories
+NewHelpShortcuts7	Ctrl+Right Click
+NewHelpShortcuts8	Move to ground
+NewHelpShortcuts9	Ctrl+Shift+Right Click
+NewHelpShortcuts10	Move to closed cube
+NewHelpShortcuts11	Ctrl+Shift+Left Click
+NewHelpShortcuts12	Toggle stacked/unstacked
+NewHelpShortcuts13	While holding an item on your cursor
+NewHelpShortcuts14	Ctrl+Left Click
+NewHelpShortcuts15	Place 1 stacked item
+NewHelpShortcuts16	Place 1 unstacked item
+NewHelpCharm1	Charm Inventory
+NewHelpCharm2	Charms are only active while they are
+NewHelpCharm3	completely inside of the charm inventory
+NewHelpStats1	Stat and Skill point allocation
+NewHelpStats2	Ctrl+Left Click
+NewHelpStats3	+5 Points
+NewHelpStats4	Shift+Left Click
+NewHelpStats5	+20 Points
+NewHelpStats6	Ctrl+Shift+Left Click
+NewHelpStats7	+All Points
+NewHelpRecipes1	Common Recipes
+NewHelpRecipes2	3   |   |    (same type) = 1 gem of next quality
+NewHelpRecipes3	3      (same type) +      = 1      (same type)
+NewHelpRecipes4	3 [       -       ] +      = 1 rune of next quality
+NewHelpRecipes5	2 [       -       ] +      = 1 rune of next quality
+NewHelpRecipes6	1-15        +      = 1-15        (used for crafting)
+NewHelpRecipes7	      + Equipment (any quality) = Adds 1-4* sockets
+NewHelpRecipes8	      + Equipment (non-unique/set) = Adds 1-4* sockets
+NewHelpRecipes9	*The maximum number of sockets
+NewHelpRecipes10	  will depend on the item type that was used
+NewHelpRecipes11	      + Equipment/Map = corrupted item
+NewHelpRecipes12	Be sure to check out the Project Diablo 2 wiki
+NewHelpRecipes13	for a complete list of cube recipes and
+NewHelpRecipes14	additional details about item corruptions
+NewHelpSettings1	Game Settings
+NewHelpSettings2	Ctrl+o will open the D2GL menu,
+NewHelpSettings3	which will allow you to change
+NewHelpSettings4	various graphic settings
+NewHelpSettings5	(Only available when using 3dfx)
+NewHelpSettings6	PD2 settings can be changed by
+NewHelpSettings7	hovering over the Settings button
+NewHelpSettings8	and pressing Ctrl+Left Click
+NewHelpChat1	\gold;Type \grey;.help \gold;in the chat box to see additional commands
+BNETHomeTooLong	Specified channel name was too long. Max length: 31
+BNETHomeSetChannel	Successfully set default channel to: \dgrey;%s
+D2GLNotLoaded	The "%s" hotkey requires D2GL
+BHNotifyLevel0	Chat Notifications: \red;Disabled
+BHNotifyLevel1	Chat Notifications: \green;Enabled
+BHNotifyLevel2	Chat Notifications: \blue;New Items Only
+TeleportBlocked	This area is cursed, you cannot use teleport skills here.
+MapEventNotifyHorazon	An alternate dimension radiates dark energy...
+MapEventNotifyDarkWanderer	Darkness itself wanders these lands...
+MapEventNotifyMendeln	Evil beckons you from the Void...
+MapEventNotifyButcher1	The stench fresh meat fills the air...
+MapEventNotifyButcher2	You have 30 seconds before the Butcher's Lair is sealed forever...
+MapEventNotifyTreasure	Shrieking, mischievous laughter pierces your ears...
+MapEventNotifyTainted	A faint humming keeps the dark at bay...
+MapEventNotifyVoid	The deafening silence of an alternate dimension calls for you...
+MapEventNotifyGheed	You hear coins being counted nearby...
+MapEventNotifyShard	A mysterious altar vibrates with potential...
+MapEventNotifyTimer	 seconds remaining...
+BRNotifyBegin	Match has begun! Loot phase will last 5 minutes before crafting begins in the center area
+BRNotifyCraft1	2 minutes until crafting phase begins
+BRNotifyCraft2	1 minute until crafting phase begins
+BRNotifyCraft3	30 seconds until crafting phase begins
+BRNotifyCraft4	10 seconds until crafting phase begins
+BRNotifyCraft5	5 seconds until crafting phase begins
+BRNotifyCraft6	Crafting phase has begun! You have 3 minutes until PVP begins. Entering the fire outside of the arena will kill you!
+BRNotifyPVP1	2 minutes until PVP phase begins!
+BRNotifyPVP2	1 minute until PVP phase begins!
+BRNotifyPVP3	30 seconds until PVP phase begins!
+BRNotifyPVP4	10 seconds until PVP phase begins!
+BRNotifyPVP5	5 seconds until PVP phase begins!
+BRNotifyPVP6	PVP phase has begun! You have 5 minutes until sudden death
+BRNotifySudden1	30 seconds until sudden death, get inside the center square
+BRNotifySudden2	10 seconds until sudden death, get inside the center square
+BRNotifySudden3	5 seconds until sudden death, get inside the center square
+BRNotifySudden4	Sudden death has begun! Anyone outside of the center square will be eliminated
+CorruptedZoneNotify	Corruption spreads in 
+BRLevelCheck	To enter, you must join as a fresh character, level 1, with no experience gained.
+BRGearCheck	To enter, you need to drop all gear and empty your inventory, including potions in your belt. No items allowed.
+WrongGameVersion	Wrong game version. Update the game with the launcher
+PerfectShrine	Perfect Gem Shrine activated
+ItemStatsrejuv2_PD2	Heals 65% Life and Mana
+CreateGameGS1	US West
+CreateGameGS2	US Central
+CreateGameGS3	US East
+CreateGameGS4	Europe West
+CreateGameGS5	Europe North
+CreateGameGS6	Asia Northeast
+CreateGameGS7	Asia Southeast
+CreateGameGS8	South America
+CreateGameGS9	Australia
+CreateGameGS10	The Moon
+GameServerTitle	Game Server
+FrenzyDurationDesc	Duration increased by 1 second every base level
+LootAllocationTitle	Allocated Loot
+PvpCharmDesc	\red;Only active in duel arenas
+cm1p	Dueling Small Charm
+cm2p	Dueling Large Charm
+cm3p	Dueling Grand Charm
+StrBOI2DamDesc	cold wave damage: 
+StrBOI3DamDesc	ice bolt damage: 
+PVPTome1	PvP Arena Skill Modifiers
+NormalPVPModifiers	\gold;Normal PVP Skill Modifiers
+NormalBasePVPModifier	Base Modifier: 16%
+NormalAmazonPVPModifiers	Jab: \gold;50\grey;%\nCharged Strike: \yellow;130\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;80\grey;%\nPoison Javelin: \green;85\grey;%\nPlague Javelin: \green;90\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;114\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;40\grey;%\n\gold;Amazon
+NormalAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;60\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;45\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;70\grey;%\nDragon Talon: \grey;80\grey;%\nDeath Sentry: \grey;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+NormalBarbarianPVPModifiers	Concentrate: \orange;50\grey;%\nWhirlwind: \gold;63\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+NormalDruidPVPModifiers	Fire Storm: \red;150\grey;%\nArctic Blast: \blue;200\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;150\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+NormalNecromancerPVPModifiers	Bone Spear: \orange;35\grey;%\nBone Spirit: \orange;30\grey;%\nTeeth: \orange;20\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;85\grey;%\nCorpse Explosion: \grey;65\grey;%\nPoison Nova: \green;150\grey;%\nPoison Dagger: \green;150\grey;%\n\gold;Necromancer
+NormalPaladinPVPModifiers	Holy Bolt: \orange;40\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;85\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
+NormalSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;130\grey;%\nIce Bolt: \blue;110\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;190\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;130\grey;%\nFire Wall: \red;90\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;140\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
+NightmarePVPModifiers	\gold;Nightmare PVP Skill Modifiers
+NightmareBasePVPModifier	Base Modifier: 12%
+NightmareAmazonPVPModifiers	Jab: \gold;50\grey;%\nCharged Strike: \yellow;130\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;80\grey;%\nPoison Javelin: \green;85\grey;%\nPlague Javelin: \green;90\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;114\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;40\grey;%\n\gold;Amazon
+NightmareAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;60\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;45\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;70\grey;%\nDragon Talon: \grey;80\grey;%\nDeath Sentry: \grey;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+NightmareBarbarianPVPModifiers	Concentrate: \orange;50\grey;%\nWhirlwind: \gold;63\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+NightmareDruidPVPModifiers	Fire Storm: \red;150\grey;%\nArctic Blast: \blue;200\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;150\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+NightmareNecromancerPVPModifiers	Bone Spear: \orange;35\grey;%\nBone Spirit: \orange;30\grey;%\nTeeth: \orange;20\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;85\grey;%\nCorpse Explosion: \grey;65\grey;%\nPoison Nova: \green;150\grey;%\nPoison Dagger: \green;150\grey;%\n\gold;Necromancer
+NightmarePaladinPVPModifiers	Holy Bolt: \orange;40\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;85\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
+NightmareSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;130\grey;%\nIce Bolt: \blue;110\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;190\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;130\grey;%\nFire Wall: \red;90\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;140\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
+HellPVPModifiers	\gold;Hell PVP Skill Modifiers
+HellBasePVPModifier	Base Modifier: 6%
+HellAmazonPVPModifiers	Jab: \gold;80\grey;%\nPoison Javelin: \green;80\grey;%\nPlague Javelin: \green;55\grey;%\nMagic Arrow: \orange;130\grey;%\nGuided Arrow: \grey;120\grey;%\nIce Arrow: \blue;150\grey;%\nFire Arrow: \red;125\grey;%\nCold Arrow: \blue;125\grey;%\nFreezing Arrow: \blue;160\grey;%\nImmo. Arrow: \red;155\grey;%\n\gold;Amazon
+HellAssassinPVPModifiers	Mind Blast: \gold;35\grey;%\nPsychic Hammer: \orange;10\grey;%\nBlade Sentinel: \gold;60\grey;%\nBlade Fury: \gold;75\grey;%\nChain Ltng. Sent.: \yellow;40\grey;%\nLtng. Sentry: \yellow;40\grey;%\nWake Of Fire: \red;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+HellBarbarianPVPModifiers	Double Throw: \gold;114\grey;%\nFrenzy: \gold;125\grey;%\nWhirlwind: \gold;88\grey;%\nWarcry: \gold;105\grey;%\nLeap Attack: \gold;12\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+HellDruidPVPModifiers	Fire Storm: \red;120\grey;%\nRabies: \green;125\grey;%\nMolten Boulder: \grey;80\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;35\grey;%\nArmageddon: \red;35\grey;%\nTornado: \gold;35\grey;%\nTwister: \gold;80\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+HellNecromancerPVPModifiers	Bone Spear: \orange;40\grey;%\nBone Spirit: \orange;15\grey;%\nTeeth: \orange;30\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;60\grey;%\nPoison Nova: \green;125\grey;%\nPoison Dagger: \green;125\grey;%\n\gold;Necromancer
+HellPaladinPVPModifiers	Holy Bolt: \orange;65\grey;%\nHoly Fire: \red;50\grey;%\nHeaven's Fist: \grey;65\grey;%\nHoly Light: \orange;15\grey;%\nSmite: \gold;75\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;40\grey;%\nZeal: \gold;85\grey;%\nCharge: \gold;70\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
+HellSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;35\grey;%\nCharged Bolt: \yellow;75\grey;%\nIce Bolt: \blue;145\grey;%\nIce Blast: \blue;145\grey;%\nGlacial Spike: \blue;145\grey;%\nIce Barrage: \blue;140\grey;%\nFrost Nova: \blue;140\grey;%\nFrozen Orb: \blue;130\grey;%\nFire Wall: \red;120\grey;%\nFire Bolt: \red;135\grey;%\nFire Ball: \red;130\grey;%\nMeteor: \grey;90\grey;%\nNova: \yellow;150\grey;%\nLesser Hydra: \red;80\grey;%\nHydra: \red;80\grey;%\nBlizzard: \blue;130\grey;%\nLightning: \yellow;200\grey;%\nCombustion: \red;90\grey;%\n\gold;Sorceress
+Sacrifice Altar	Sacrificial Altar
+StrDesecrated	\gold;Desecrated
+StrCBEffect	Crushing Blow Effectiveness: 
+StrCBChance	% Chance of Crushing Blow
+splash4	Melee Attacks Deal Lesser Splash Damage
+StrMaxDeadlyStrike	Maximum Deadly Strike
+merca201	Hazade
+merca202	Alhizeer
+merca203	Azrael
+merca204	Ahsab
+merca205	Chalan
+merca206	Haseen
+merca207	Razan
+merca208	Emilio
+merca209	Pratham
+merca210	Fazel
+merca211	Jemali
+merca212	Kasim
+merca213	Gulzar
+merca214	Mizan
+merca215	Leharas
+merca216	Durga
+merca217	Neeraj
+merca218	Ilzan
+merca219	Zanarhi
+merca220	Waheed
+merca221	Vikhyat
+merca222	Jelani
+merca223	Barani
+merca224	Jabari
+merca225	Devak
+merca226	Raldin
+merca227	Telash
+merca228	Ajheed
+merca229	Narphet
+merca230	Khaleel
+merca231	Phaet
+merca232	Geshef
+merca233	Vanji
+merca234	Haphet
+merca235	Thadar
+merca236	\gold;Zinthros\grey;
+merca237	Rhadge
+merca238	Yashied
+merca239	Lharhad
+merca240	Flux
+merca241	Scorch
+Armageddon's Blade	Armageddon's Blade
+DemonRoadBoss	\gold;Thonos the Many-Limbed
+SkovosBoss	\gold;Incarnation of Akarat
+ThornsOpenWoundsDamage	Your Open Wounds Damage: 
+PartyOpenWoundsDamage	Party Open Wounds Damage: 
+Sizzling	Sizzling
+Singeing	Singeing
+Infernal	Infernal
+Frigid	Frigid
+Frostbitten	Frostbitten
+Subzero	Subzero
+Crackling	Crackling
+Jolting	Jolting
+Surging	Surging
+Decaying	Decaying
+Festering	Festering
+Necrotic	Necrotic
+DungeonTier	\red;Group Dungeon
+LucionSpawnName	Shivering Child
+LucionSpawnRangeName	Smouldering Defiler
+LucionSpawnTankName	Anguished Mother
+LucionSpawnerName	Veiled Portal
+LucionControlName	Lucion
+PVPTome2	PvP Arena Rules
+PVPTome2Title	\gold;PvP Arena Rules
+PVPTome2Paragraph1	- Life replenish is capped at +30\n- Flat magic and physical damage reduction is capped at +25\n- Slow, Knockback (from items), Absorb, Attackers Take Damage, Life Leech, and Melee Splash are disabled\n- Regenerating charges (e.g. Blink on Enigma) regenerate 200% faster\n- Stun cannot be reapplied and the duration is reduced by 2 frames when hit\n- Passive Elemental and Physical resistance pierce is disabled (debuffs work normally)\n- Open Wounds deals 8%/6%/4% of it's normal damage in Normal/Nightmare/Hell\n- Maximum Resistance is capped at 75%/80%/85% for Normal/Nightmare/Hell\n- Only dueling mana potions (purchased from Akara in the arena) can be used\n- PvP only charms can be purchased from Akara in the arena\n- Type .spec to enter spectator mode\n- There is no level cap for High Level Dueling\n- Low Level Dueling is level 30 and below
+PVPTome2Title2	\gold;Skill Specific Changes
+PVPTome2Paragraph2	- Mind Blast stun duration reduced to 1.5 seconds\n- Mind Blast does not gain radius per cast\n- Smite stun duration reduced to 2.5 seconds\n- Whirlwind dual wield frame penalty removed\n- Whirlwind weapon range capped at 3\n- Charge has normal attack speed frames in melee range\n- Oak Sage does not replenish life\n- Bone Spear capped to 1 projectile\n- Bone Spear hit box size reduced by 33%\n- Lightning hit box size reduced by 33%\n- Holy Bolt capped to 1 projectile
+PVPTome2Paragraph3	- Dodge, Avoid, Evade, Parry, and Weapon block reduced by 50%\n- Healing skills do not heal allies (Holy Bolt, Holy Nova, Holy Light)\n- Movement skills do not name-lock (Whirlwind, Leap, Leap Attack, Charge)\n- Dragon Flight does not auto-aim\n- Fist of the Heavens does not auto-aim or name lock\n- Joust does not auto-aim\n- Battle Cry duration is increased by 5 seconds\n- Double throw does not bounce between targets\n- Meteor explosion radius reduced by 30%
+Epiphany	Epiphany
+Constricting Ring	Constricting Loop
+Aetherwing	Aetherwing
+Skywarden	Skywarden
+Achilles Strike	Achilles Strike
+Skorn	Skorn
+Winterthorn	Winterthorn
+ExtraShadow	Additional Shadow
+Whispering Mirage	Whispering Mirage
+Sigurd's Staunch	Siggard's Staunch
+Loyalty Spear	Loyalty
+Loyalty Bow	Loyalty
+Fenris	Fenris
+ExtraSpiritWolf	Additional Spirit Wolves
+Wildspeaker	Wildspeaker
+ColdDamage	Cold Damage
+VampireForm	Vampire Form
+VampireFormd	 gaining power but casting slower\ntransform into a vampire
+FasterCastRate	% Faster Cast Rate
+StrMagicDamage	Magic Damage: 
+Bonewallplev	Life and Damage per Level
+skillld78	and debris that attracts nearby enemies\ncreates an impassable barrier of bone
+UberDiablo	\gold;Uber Diablo
+UberMephisto	\gold;Uber Mephisto
+UberIzual	\gold;Uber Izual
+UberDuriel	\gold;Uber Duriel
+SpellDescStrR01S	 \n+1 to Light Radius\nShields: +15 Defense,\n+1 to Light Radius\nHelms: +15 Defense,\n+1 to Light Radius\nArmor: +15 Defense,\n+1 to Light Radius\nWeapons: +50 to Attack Rating,\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR02S	 \nShields: 7% Increased Chance of Blocking\nHelms: 15% Slower Stamina Drain\nArmor: 15% Slower Stamina Drain\n+50 to Attack Rating against Undead\nWeapons: +75% Damage to Undead,\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR03S	 \nShields: +2 to Mana after each Kill\nHelms: +2 to Mana after each Kill\nArmor: +2 to Mana after each Kill\nWeapons: +2 to Mana after each Kill\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR04S	 \nShields: +50 Defense vs. Missile\nHelms: +30 Defense vs. Missile\nArmor: +30 Defense vs. Missile\nWeapons: Knockback\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR05S	 \nShields: Regenerate Mana 15%\nHelms: Regenerate Mana 15%\nArmor: Regenerate Mana 15%\nWeapons: -25% Target Defense\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR06S	 \nShields: 15% Damage Taken Gained as Mana when Hit\nHelms: 15% Damage Taken Gained as Mana when Hit\nArmor: 15% Damage Taken Gained as Mana when Hit\nWeapons: +9 to Maximum Damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR07S	 \nShields: Poison Resist +35%\nHelms: Poison Resist +30%\nArmor: Poison Resist +30%\nWeapons: +75 poison damage over 5 seconds\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR08S	 \nShields: Fire Resist +35%\nHelms: Fire Resist +30%\nArmor: Fire Resist +30%\nWeapons: Adds 5-30 fire damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR09S	 \nShields: Lightning Resist +35%\nHelms: Lightning Resist +30%\nArmor: Lightning Resist +30%\nWeapons: Adds 1-50 lightning damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR10S	 \nShields: Cold Resist +35%\nHelms: Cold Resist +30%\nArmor: Cold Resist +30%\nWeapons: Adds 3-14 cold damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR11S	 \nShields: Attacker Takes Damage of 24\nHelms: Attacker Takes Damage of 20\nArmor: Attacker Takes Damage of 20\nWeapons: 7% life stolen per hit\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR12S	 \nShields: Physical Damage Taken Reduced by 9\nHelms: Physical Damage Taken Reduced by 7\nArmor: Physical Damage Taken Reduced by 7\nWeapons: +9 to Minimum Damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR13S	 \nShields: +20% Faster Block Rate\nHelms: +20% Faster Hit Recovery\nArmor: +20% Faster Hit Recovery\nWeapons: +20% Increased Attack Speed\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR14S	 \nShields: Replenish Life +30\nHelms: Replenish Life +20\nArmor: Replenish Life +20\nWeapons: +20% Enhanced Damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR15S	 \nShields: Requirements -15%\nHelms: Requirements -15%\nArmor: Requirements -15%\nWeapons: Requirements -20%\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR16S	 \nShields: +10 to Vitality\nHelms: +10 to Vitality\nArmor: +10 to Vitality\nWeapons: +10 to Vitality\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR17S	 \nShields: +10 to Energy\nHelms: +10 to Energy\nArmor: +10 to Energy\nWeapons: +10 to Energy\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR18S	 \nShields: +10 to Dexterity\nHelms: +10 to Dexterity\nArmor: +10 to Dexterity\nWeapons: +10 to Dexterity\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR19S	 \nShields: +10 to Strength\nHelms: +10 to Strength\nArmor: +10 to Strength\nWeapons: +10 to Strength\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR20S	 \nShields: +50% Extra Gold from Monsters\nHelms: +50% Extra Gold from Monsters\nArmor: +50% Extra Gold from Monsters\nWeapons: +75% Extra Gold from Monsters\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR21S	 \nShields: +50% Enhanced Defense\nHelms: +50% Enhanced Defense\nArmor: +50% Enhanced Defense\n+100 to Attack Rating against Demons\nWeapons: +75% Damage to Demons,\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR22S	 \nShields: All Resistances +22\nHelms: All Resistances +15\nArmor: All Resistances +15\n+120 Open Wounds Damage Per Second\nWeapons: 10% Chance of Open Wounds,\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR23S	 \nShields: Magic Damage Taken Reduced by 9\nHelms: Magic Damage Taken Reduced by 7\nArmor: Magic Damage Taken Reduced by 7\nWeapons: Prevent Monster Heal\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR24S	 \nShields: 30% Better Chance of Getting Magic Items\nHelms: 30% Better Chance of Getting Magic Items\nArmor: 30% Better Chance of Getting Magic Items\nWeapons: 30% Better Chance of Getting Magic Items\n \nCan be inserted into socketed items
+SpellDescStrR25S	 \nShields: +4% to Maximum Poison Resist\nHelms: +4% to Maximum Poison Resist\nArmor: +4% to Maximum Poison Resist\nWeapons: 50% Bonus to Attack Rating\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR26S	 \nShields: +4% to Maximum Fire Resist\nHelms: +4% to Maximum Fire Resist\nArmor: +4% to Maximum Fire Resist\nWeapons: 7% Mana stolen per hit\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR27S	 \nShields: +4% to Maximum Cold Resist\nHelms: +4% to Maximum Cold Resist\nArmor: +4% to Maximum Cold Resist\nWeapons: +45% Enhanced Damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR28S	 \nShields: +4% to Maximum Lightning Resist\nHelms: +4% to Maximum Lightning Resist\nArmor: +4% to Maximum Lightning Resist\nWeapons: 20% Deadly Strike\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR29S	 \nShields: +75 to Mana\nHelms: Increase Maximum Mana 5%\nArmor: Increase Maximum Mana 5%\nWeapons: +4 Life after each Kill\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR30S	 \nShields: Physical Damage Taken Reduced by 6%\nHelms: Physical Damage Taken Reduced by 6%\nArmor: Physical Damage Taken Reduced by 6%\nWeapons: 20% Chance of Crushing Blow\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR31S	 \nShields: +75 to Life\nHelms: Increase Maximum Life 5%\nArmor: Increase Maximum Life 5%\nWeapons: Ignore Target's Defense\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR32S	 \nShields: Cannot Be Frozen\nHelms: Cannot Be Frozen\nArmor: Cannot Be Frozen\nWeapons: Freezes Target +3\n \nCan be inserted into socketed items when unstacked
+SpellDescStrR33S	 \nShields: Indestructible\nHelms: Indestructible\nArmor: Indestructible\nWeapons: Indestructible\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgzvs	 \nShields: +24 to Defense\nHelms: +8 to Strength\nArmor: +8 to Strength\nWeapons: +100 to Attack Rating\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgpvs	 \nShields: +30 to Defense\nHelms: +10 to Strength\nArmor: +10 to Strength\nWeapons: +150 to Attack Rating\n \nCan be inserted into socketed items when unstacked
+SpellDescStrglys	 \nShields: Lightning Resist +28%\nHelms: 20% Better Chance of Getting Magic Items\nArmor: 20% Better Chance of Getting Magic Items\nWeapons: Adds 1-30 lightning damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgpys	 \nShields: Lightning Resist +40%\nHelms: 24% Better Chance of Getting Magic Items\nArmor: 24% Better Chance of Getting Magic Items\nWeapons: Adds 1-40 lightning damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrglbs	 \nShields: Cold Resist +28%\nHelms: +31 to Mana\nArmor: +31 to Mana\nWeapons: Adds 6-10 cold damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgpbs	 \nShields: Cold Resist +40%\nHelms: +38 to Mana\nArmor: +38 to Mana\nWeapons: Adds 10-14 cold damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrglgs	 \nShields: Poison Resist +28%\nHelms: +8 to Dexterity\nArmor: +8 to Dexterity\nWeapons: +60 poison damage over 6 seconds\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgpgs	 \nShields: Poison Resist +40%\nHelms: +10 to Dexterity\nArmor: +10 to Dexterity\nWeapons: +100 poison damage over 7 seconds\n \nCan be inserted into socketed items when unstacked
+SpellDescStrglrs	 \nShields: Fire Resist +28%\nHelms: +31 to Life\nArmor: +31 to Life\nWeapons: Adds 10-16 fire damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgprs	 \nShields: Fire Resist +40%\nHelms: +38 to Life\nArmor: +38 to Life\nWeapons: Adds 15-20 fire damage\n \nCan be inserted into socketed items when unstacked
+SpellDescStrglws	 \nShields: All Resistances +14\nHelms: +80 to Attack Rating\nArmor: +80 to Attack Rating\nWeapons: +54% Damage to Undead\n \nCan be inserted into socketed items when unstacked
+SpellDescStrgpws	 \nShields: All Resistances +19\nHelms: +100 to Attack Rating\nArmor: +100 to Attack Rating\nWeapons: +68% Damage to Undead\n \nCan be inserted into socketed items when unstacked
+SpellDescStrskls	 \nShields: Attacker Takes Damage of 16\nHelms: Regenerate Mana 12%, Replenish Life +4\nArmor: Regenerate Mana 12%, Replenish Life +4\nWeapons: 3% Life stolen per hit, 3% Mana stolen per hit\n \nCan be inserted into socketed items when unstacked
+SpellDescStrskzs	 \nShields: Attacker Takes Damage of 20\nHelms: Regenerate Mana 19%, Replenish Life +5\nArmor: Regenerate Mana 19%, Replenish Life +5\nWeapons: 4% Life stolen per hit, 3% Mana stolen per hit\n \nCan be inserted into socketed items when unstacked
+StrPenPhysPierce	Grants -1% to enemy Physical Resistance per 2 Base Levels
+Sacred Totem	Sacred Totem
+ControllerHelpInventoryPrimary	Left Click
+ControllerHelpInventorySecondary	Close
+ControllerHelpInventoryThird	Open Cube
+ControllerHelpInventoryThirdRepairAll	Repair All
+ControllerHelpInventoryThirdGambleRefresh	Refresh
+ControllerHelpInventoryThirdAdvancedStats	Adv. Stats
+ControllerHelpInventoryFourth	Right Click
+ControllerHelpInventoryLeftTrigger	Shift
+ControllerHelpInventoryRightTrigger	Control
+ControllerMenuNavigationParty	Party
+ControllerMenuNavigationQuest	Quest
+ControllerMenuNavigationCharacter	Character
+ControllerMenuNavigationInventory	Inventory
+ControllerMenuNavigationSkills	Skills
+ControllerMenuNavigationHireling	Hireling
+ControllerMenuNavigationHotkeys	Hotkeys
+ControllerKeybindLeftTriggerPress	Automap
+ControllerKeybindRightTriggerPress	Weapon Swap
+ControllerKeybindLeftBumperPress	Show Loot
+ControllerKeybindRightTriggerAttackPress	Attack
+JoustreductionZeraes	Joust Cooldown Reduced By 1.5 Seconds
+ImperialPalaceBoss	\gold;Emperor Hakan
+TortureHallsBoss	\gold;Gimli the Summoned One
+StrColdEnchantSelf	Self Cold Damage: 
+StrColdEnchantParty	Party Cold Damage: 
+StrFireEnchantSelf	Self Fire Damage: 
+StrFireEnchantParty	Party Fire Damage: 
+EskillEnhancedDamage	 percent enhanced damage
+of the Smith	of the Smith
+of the Crafter	of the Crafter
+of the Armorer	of the Armorer
+Halls of Torture Map	Halls of Torture
+ToHallsOfTortureMap	To the Halls of Torture
+HallsOfTortureMap	The Halls of Torture
+t17	Halls of Torture Map
+MapBossUberMats	Map bosses drop an Uber Material
+StrVampireLPK	+10 Life after each Kill
+HotkeyItemShiftRight	Shift+Right: Transfer
+HotkeyItemCtrlRight	Ctrl+Right: Drop
+HotkeyItemShiftLeft	Shift+Left: Identify
+HotkeyItemRight	Right: Use
+HotkeyItemCtrlShiftLeft	Ctrl+Shift+Left: Toggle Stacked
+HotkeyItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Cube
+HotkeyItemShopCtrlLeft	Ctrl+Left: Sell
+HotkeyItemShopRight	Right: Buy
+HotkeyItemShopShiftRight	Shift+Right: Multi-Buy
+HotkeyCurrencyTabItemCtrlShiftLeft	Ctrl+Shift+Left: Transfer 1 to Cube
+HotkeyCurrencyTabItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Stack to Cube
+HotkeyCurrencyTabItemCtrl	Ctrl: Transfer 5
+HotkeyCurrencyTabItemShift	Shift: Transfer stack
+XboxHotkeyItemShiftRight	LT+X: Transfer
+XboxHotkeyItemCtrlRight	RT+X: Drop
+XboxHotkeyItemShiftLeft	LT+A: Identify
+XboxHotkeyItemRight	X: Use
+XboxHotkeyItemCtrlShiftLeft	RT+LT+A: Toggle Stacked
+XboxHotkeyItemCtrlShiftRight	RT+LT+X: Transfer Cube
+XboxHotkeyItemShopCtrlLeft	RT+A: Sell
+XboxHotkeyItemShopRight	X: Buy
+XboxHotkeyItemShopShiftRight	LT+X: Multi-Buy
+XboxHotkeyCurrencyTabItemCtrlShiftLeft	Ctrl+Shift+Left: Transfer 1 to Cube
+XboxHotkeyCurrencyTabItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Stack to Cube
+XboxHotkeyCurrencyTabItemCtrl	Ctrl: Transfer 5
+XboxHotkeyCurrencyTabItemShift	Shift: Transfer stack
+DS4HotkeyItemShiftRight	L2+Square: Transfer
+DS4HotkeyItemCtrlRight	R2+Square: Drop
+DS4HotkeyItemShiftLeft	L2+X: Identify
+DS4HotkeyItemRight	Square: Use
+DS4HotkeyItemCtrlShiftLeft	R2+L2+X: Toggle Stacked
+DS4HotkeyItemCtrlShiftRight	R2+L2+Square: Transfer Cube
+DS4HotkeyItemShopCtrlLeft	R2+X: Sell
+DS4HotkeyItemShopRight	Square: Buy
+DS4HotkeyItemShopShiftRight	L2+Square: Multi-Buy
+DS4HotkeyCurrencyTabItemCtrlShiftLeft	Ctrl+Shift+Left: Transfer 1 to Cube
+DS4HotkeyCurrencyTabItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Stack to Cube
+DS4HotkeyCurrencyTabItemCtrl	Ctrl: Transfer 5
+DS4HotkeyCurrencyTabItemShift	Shift: Transfer stack
+StrWeaponDmgPercent	% Weapon Damage
+Wind Throwable	Wind
+Skillld267	50% chance to split when hitting enemies\nblades will split when impacting with walls\nthrow spinning blades to slice up your enemies
+WrithingDeceiver	Writhing Deceiver
+ImperialAssassin	\gold;Imperial Assassin
+ImperialAdvisor	\gold;Imperial Advisor
+Kamyr	\gold;Kamyr the Usurper
+UrehMiniBoss	\gold;Zayl the Merciful
+UrehBoss	\gold;Gregus Mazi
+HotkeyAssignStatsShift	Shift: Assign +20
+HotkeyAssignStatsCtrl	Ctrl: Assign +5
+ControllerSkillSelect1	Hover a skill and press a bind to assign
+ControllerSkillSelect2	Hover a skill and press 
+ControllerSkillSelect3	 to assign right skill
+ControllerSkillSelect4	Available binds:
+ControllerSkillSelect5	Toggle minimap: 
+ControllerSkillSelect6	Swap weapons: 
+ControllerSkillSelect7	Attack with right skill: 
+ControllerSkillSelect8	Show loot: 
+ControllerSkillSelect9	Toggle always show loot: 
+ControllerSkillSelect10	Give potion to mercenary: 
+ControllerSkillSelect11	Toggle run/walk: 
+ControllerSkillSelect12	Resync: 
+ToImperialPalaceBoss	To the Imperial Cellar
+ImperialPalaceBossMap	The Imperial Cellar
+MapBossPuzzlebox	Map boss drops a Larzuk's Puzzlebox
+HelpTextStatHoverBase	Base Stat: 
+HelpTextStatHoverItem	Item Bonus: 
+ModStrMapPlayerPDR	Reduced Physical Damage Reduction
+Devious	Devious
+Tricky	Tricky
+of the Archmage	of the Archmage
+of Fortification	of Fortification
+StrPartyAttackBonus	Party Attack Bonus: 
+StrSmiteCbBonus	Gains +1% Crushing Blow per Base Level
+StrDodgeCooldown	0.16 Second Cooldown on Successful Dodge
+StrParryCooldown	0.16 Second Cooldown on Successful Parry
+StrEsBaseEfficiency	damage taken from mana is reduced with base levels
+StashSearchHover	Search item names and stats
+aqv	Blunt Arrows
+aqv2	Sharp Arrows
+aqv3	Razor Arrows
+cqv	Light Bolts
+cqv2	Heavy Bolts
+cqv3	War Bolts
+CrushEfficiency	Crushing Blow Efficiency
+StrShiverBlock	Grants +2% Faster Block Rate per base level
+StrChillingBlock	Grants +1% Block Chance per base level
+StrSkill110	Succesful Block Chance: 
+Swift	Swift
+Quick	Quick
+Arcane	Arcane
+Mystic	Mystic
+ColdArrowFires	Cold Arrow fires
+AdditionalArrows	additional arrows
+CurrencyTransmuteTooltip	\dgrey;Left+Shift: Upgrade 150 to 50\n\dgrey;Left+Ctrl: Upgrade 15 to 5\n\dgrey;Left: Upgrade 3 to 1\n\grey;Upgrade material
+Crackleshot	Crackleshot
+Skillld258_PD2	releases a small explosion at each endpoint\nbetween you and target point\nset a spinning blade to patrol
+Skillsd258_PD2	that explodes at each endpoint\nset a spinning blade
+GustCdReductionCast	Reduces gust cooldown by 0.25 seconds on cast
+skillld81	with increased attack speed\ncurses a monster to force it to attack random targets
+skillsd81	with increased attack speed\ncurse - monster attacks random targets
+Siphoning	Siphoning
+Lifeforged	Lifeforged
+of Overcharge	of Overcharge
+of Conductivity	of Conductivity
+of the Maelstrom	of the Maelstrom
+of Icewind	of Icewind
+of Deepfreeze	of Deepfreeze
+of Hoarfrost	of Hoarfrost
+of Ashes	of Ashes
+of Searing	of Searing
+of Hellfire	of Hellfire
+of Disease	of Disease
+of Contagion	of Contagion
+of Pox	of Pox
+of the Oracle	of the Oracle
+of the Warlock	of the Warlock
+of the Eldritch	of the Eldritch
+of Insight	of Insight
+of Focus	of Focus
+of Tranquility	of Tranquility
+Ancient's Foresight	Ancient's Foresight
+Ancient's Scripture	Ancient's Scripture
+Echo Weapon	Echo
+Echo Quiver	Echo
+CantorUreh	Priest of Rathma
+ZealotUreh	Disciple of Rathma
+joustreductionleorics	Joust Cooldown Reduced By 0.75 Seconds

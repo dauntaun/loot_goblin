@@ -1,0 +1,743 @@
+[gd_scene format=3 uid="uid://bbcte44thiwyw"]
+
+[ext_resource type="Script" uid="uid://cwxaly3op48vf" path="res://gui/settings/settings_gui.gd" id="1_ag4o2"]
+[ext_resource type="FontFile" uid="uid://cen8snwgwauy1" path="res://gui/resources/droid-sans-mono.ttf" id="2_6lqv6"]
+[ext_resource type="Script" uid="uid://hctqsv57gl1u" path="res://gui/settings/plugy_importer.gd" id="2_vgxye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag4o2"]
+bg_color = Color(0.15631491, 0.15631491, 0.15631485, 1)
+
+[sub_resource type="DPITexture" id="DPITexture_074og"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+base_scale = 1.5
+
+[sub_resource type="DPITexture" id="DPITexture_cegan"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+base_scale = 1.5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lswn8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0odxb"]
+
+[sub_resource type="Theme" id="Theme_82xsv"]
+CheckBox/icons/checked = SubResource("DPITexture_074og")
+CheckBox/icons/unchecked = SubResource("DPITexture_cegan")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_lswn8")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_a6jrf")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_0odxb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u8w0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cegan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_82xsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
+
+[sub_resource type="Theme" id="Theme_074og"]
+LineEdit/constants/minimum_character_width = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
+bg_color = Color(1, 1, 1, 0)
+border_width_top = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgxye"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Settings" type="PanelContainer" unique_id=93658966]
+custom_minimum_size = Vector2(0, 612)
+offset_right = 842.0
+offset_bottom = 236.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ag4o2")
+script = ExtResource("1_ag4o2")
+metadata/_tab_index = 3
+
+[node name="PlugyPicker" type="FileDialog" parent="." unique_id=1194971859]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+file_mode = 0
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.sss,*.d2x")
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="PlugyFolderPicker" type="FileDialog" parent="." unique_id=2100129613]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a Directory"
+file_mode = 2
+display_mode = 1
+access = 2
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="DefaultPD2StashPicker" type="FileDialog" parent="." unique_id=816823831]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a Directory"
+file_mode = 2
+display_mode = 1
+access = 2
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=543111168]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1014452315]
+layout_mode = 2
+
+[node name="SettingsList" type="ItemList" parent="MarginContainer/HBoxContainer" unique_id=190129144]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(326, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+allow_search = false
+item_count = 4
+item_0/text = "Global Settings"
+item_1/text = "PD2 Settings"
+item_2/text = "PlugY Import"
+item_3/text = "Import/Export"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=528426440]
+layout_mode = 2
+theme_override_constants/margin_top = 2
+
+[node name="SettingsTabs" type="TabContainer" parent="MarginContainer/HBoxContainer/MarginContainer" unique_id=448013332]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_behavior_recursive = 2
+theme = SubResource("Theme_82xsv")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1u8w0")
+current_tab = 0
+tabs_visible = false
+
+[node name="Global" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1995137241]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Hardcore" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=862096908]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Hardcore" unique_id=2012712482]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Softcore and hardcore files are stored separately. This will change which PD2 shared stash to load appropriately. Cannot be changed if there are pending transfers."
+mouse_filter = 0
+text = "Main stash"
+
+[node name="HardcoreSelect" type="OptionButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Hardcore" unique_id=1457260485]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+selected = 0
+item_count = 2
+popup/item_0/text = "Softcore"
+popup/item_0/id = 0
+popup/item_1/text = "Hardcore"
+popup/item_1/id = 1
+
+[node name="Characters" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1258294559]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters" unique_id=791116673]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Toggles live searching, search is submitted on enter if disabled"
+mouse_filter = 0
+text = "Instant item search"
+
+[node name="InstantSearch" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters" unique_id=274816361]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="Characters2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1729322351]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters2" unique_id=730623227]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Hover item tooltips in Stash"
+
+[node name="StashTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters2" unique_id=1245193189]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="Characters3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=12618795]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters3" unique_id=1811942018]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Hover item tooltips in PD2"
+
+[node name="PD2Tooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters3" unique_id=635132309]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="Characters4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=932767167]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters4" unique_id=1822473160]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Number of backups to keep"
+
+[node name="BackupNumber" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters4" unique_id=1381430570]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+max_value = 10.0
+value = 5.0
+
+[node name="Characters5" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=236951473]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5" unique_id=692337895]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5/HBoxContainer" unique_id=1551964771]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Background color"
+
+[node name="UndoColor" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5/HBoxContainer" unique_id=16660887]
+unique_name_in_owner = true
+layout_mode = 2
+text = "↶"
+
+[node name="ChooseColor" type="ColorPickerButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5" unique_id=497939309]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+edit_alpha = false
+edit_intensity = false
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1714579810]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=839323214]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=168437268]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer2" unique_id=1366237890]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Goblin data directory"
+
+[node name="OpenBackups" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer2" unique_id=367362200]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Open folder"
+
+[node name="GoblinDebug3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=59938092]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug3" unique_id=1956971787]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loaded Goblin file"
+
+[node name="LoadedGoblinLabel" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug3" unique_id=419439766]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lqv6")
+editable = false
+
+[node name="GoblinDebug4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=845691418]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=2031058211]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loaded PD2 file"
+
+[node name="LoadedPD2Label" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=986302582]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lqv6")
+editable = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=285794230]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer" unique_id=79667466]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_6lqv6")
+text = "v1.0"
+
+[node name="PD2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1903321314]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SaveFolderLocation" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=816674514]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/SaveFolderLocation" unique_id=258402311]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Diablo II save folder location"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/SaveFolderLocation" unique_id=204888311]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChooseDefaultFolder" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/SaveFolderLocation/VBoxContainer" unique_id=1147291115]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Browse folder..."
+
+[node name="DefaultFolderLine" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/SaveFolderLocation/VBoxContainer" unique_id=2025551561]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_6lqv6")
+text = "C:\\Program Files (x86)\\Diablo II\\Save"
+editable = false
+
+[node name="Characters" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=995249807]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/Characters" unique_id=709616421]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Load characters"
+
+[node name="LoadCharacters" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/Characters" unique_id=697381657]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="DefaultOpenStashPage" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=339212619]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/DefaultOpenStashPage" unique_id=97217416]
+editor_description = "Items will be moved to/from this page by default"
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Items will be moved to/from this page"
+mouse_filter = 0
+text = "Default stash page"
+
+[node name="DefaultStashPage" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/DefaultOpenStashPage" unique_id=1124502314]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_074og")
+min_value = 1.0
+max_value = 9.0
+value = 9.0
+
+[node name="AutoStoreItems" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=1441190570]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/AutoStoreItems" unique_id=92484158]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Sends all items from the default stash page to the main Stash on start"
+mouse_filter = 0
+text = "Auto-store items on start"
+
+[node name="AutoRetrieve" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/AutoStoreItems" unique_id=317601831]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="PD2FileShower" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=630711420]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower" unique_id=1682564980]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/PanelContainer" unique_id=1265597239]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/PanelContainer/HBoxContainer" unique_id=795433784]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loaded files:"
+horizontal_alignment = 1
+
+[node name="LoadedPD2Files" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower" unique_id=1805604376]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/LoadedPD2Files" unique_id=1834136518]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lqv6")
+text = "pd2_shared.stash"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/LoadedPD2Files" unique_id=1478083951]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lqv6")
+text = "MyCharacter.d2s"
+horizontal_alignment = 1
+
+[node name="PlugyImporter" type="ScrollContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1861689478]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("2_vgxye")
+metadata/_tab_index = 2
+
+[node name="PlugyContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter" unique_id=1078607308]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer" unique_id=492852445]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vgxye")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PanelContainer2" unique_id=1646769324]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PanelContainer2/MarginContainer" unique_id=1050243967]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+theme_override_constants/line_separation = 4
+bbcode_enabled = true
+text = "Supports personal ([color=orange].d2x[/color]) and shared ([color=orange].sss[/color]) PlugY files. Imported items will not be deleted from PlugY after import. It's not possible to export items within Loot Goblin back to PlugY."
+fit_content = true
+
+[node name="ChoosePlugyImport" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer" unique_id=1224617689]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/ChoosePlugyImport" unique_id=2072315397]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Import"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/ChoosePlugyImport" unique_id=509796892]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChoosePlugyStash" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/ChoosePlugyImport/HBoxContainer" unique_id=1533536092]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Single file"
+
+[node name="ChoosePlugyFolder" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/ChoosePlugyImport/HBoxContainer" unique_id=516993081]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Folder"
+
+[node name="PlugyImport" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer" unique_id=1880450303]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport" unique_id=1710622341]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer" unique_id=631398472]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer/HBoxContainer" unique_id=1125039764]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "File"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer/HBoxContainer" unique_id=1867905359]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Items"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer/HBoxContainer" unique_id=106047511]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pages"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer/HBoxContainer" unique_id=125177118]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Include"
+horizontal_alignment = 1
+
+[node name="PlugyFiles" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport" unique_id=495237252]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_82xsv")
+columns = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=2058819590]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_LODShared.sss"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=812971884]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3000"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=169295599]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "500"
+horizontal_alignment = 1
+
+[node name="Label7" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=561280697]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+button_pressed = true
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=824835994]
+layout_mode = 2
+text = "Personal.d2x"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=179529280]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9999"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=2121750559]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "17"
+horizontal_alignment = 1
+
+[node name="Label8" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PlugyFiles" unique_id=1496514637]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_pressed = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport" unique_id=793651677]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer2" unique_id=921258392]
+layout_mode = 2
+
+[node name="PlugyItemCount" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/PanelContainer2/HBoxContainer" unique_id=1870107640]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Items found: 19999"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport" unique_id=313524832]
+layout_mode = 2
+
+[node name="ImportPlugy" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/HBoxContainer" unique_id=1123591107]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Copy items to Stash"
+
+[node name="ResetPlugy" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PlugyImporter/PlugyContainer/PlugyImport/HBoxContainer" unique_id=978269028]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cancel"
+
+[node name="Debug" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1141565208]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=2117007141]
+layout_mode = 2
+text = "Load"
+
+[node name="GoblinDebug2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=1235595272]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug2" unique_id=1626873049]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Import stash file"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug2" unique_id=1652675860]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoadStashButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug2/HBoxContainer" unique_id=831499037]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Browse file..."
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=1358173962]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=404738064]
+layout_mode = 2
+text = "Save"
+
+[node name="GoblinDebug" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=1784969503]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug" unique_id=535623997]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export Goblin"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug" unique_id=178975833]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SaveGoblinButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/GoblinDebug/HBoxContainer" unique_id=1460972581]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Save as..."
+
+[node name="PD2Debug" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=1828758150]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug" unique_id=1486358917]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Export PD2 shared"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug" unique_id=1620035401]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SavePD2Button" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug/HBoxContainer" unique_id=397714474]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+disabled = true
+text = "Save as..."
+
+[node name="PD2Debug2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=246580541]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug2" unique_id=323247470]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset Goblin stash"
+
+[node name="ResetStashButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug2" unique_id=2020621324]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+text = "Reset"

@@ -1,0 +1,1464 @@
+[gd_scene format=3 uid="uid://ckmt0c6qmydh5"]
+
+[ext_resource type="Script" uid="uid://bwbd8iq0upju4" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dl1pv4iau14n7" path="res://gui/pd2_stash/pd2_stash_gui.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://c843smgp8yew0" path="res://gui/goblin_stash/quick_filters.gd" id="2_4c57u"]
+[ext_resource type="StyleBox" uid="uid://cou8mxx8ie4ac" path="res://gui/resources/custom_theme/panel_stylebox.tres" id="2_efxa6"]
+[ext_resource type="PackedScene" uid="uid://cqpmew5ljytmu" path="res://gui/pd2_stash/stash_page/stash_page_gui.tscn" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://dfm6vioi2haa5" path="res://gui/save_tracker.gd" id="3_074og"]
+[ext_resource type="Script" uid="uid://c8hutruosfcfy" path="res://gui/goblin_stash/stash_tree_view.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://w5yasfxrxrv0" path="res://gui/reload_warning.gd" id="4_1u8w0"]
+[ext_resource type="Script" uid="uid://dhj51n3tix73q" path="res://gui/item_transfer_gui.gd" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
+[ext_resource type="StyleBox" uid="uid://b8ij3n1qpkg5o" path="res://gui/resources/custom_theme/tree_title_normal_stylebox.tres" id="4_272bh"]
+[ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
+[ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_info.tscn" id="5_kek77"]
+[ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
+[ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="6_getpj"]
+[ext_resource type="PackedScene" uid="uid://tgixuggfwchr" path="res://gui/pd2_stash/character_select/character_button.tscn" id="7_2cqfq"]
+[ext_resource type="Script" uid="uid://bkfjnit6hsnbl" path="res://gui/pd2_stash/character_select/character_select.gd" id="7_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cbtd6ejojofhq" path="res://gui/pd2_stash/character_equip.tscn" id="8_vivmo"]
+[ext_resource type="PackedScene" uid="uid://bm5acbi6py5c4" path="res://gui/pd2_stash/stash_page/materials_page_gui.tscn" id="10_yaehf"]
+[ext_resource type="Script" uid="uid://cl6xvv1804apr" path="res://gui/view_selector.gd" id="11_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bbcte44thiwyw" path="res://gui/settings/settings_gui.tscn" id="16_82xsv"]
+[ext_resource type="Script" uid="uid://dpqi1rpd66eif" path="res://gui/item_debug.gd" id="19_d13ii"]
+[ext_resource type="FontFile" uid="uid://cen8snwgwauy1" path="res://gui/resources/droid-sans-mono.ttf" id="19_ryguw"]
+[ext_resource type="Script" uid="uid://bdj20u42kbbfv" path="res://gui/settings_shower.gd" id="20_getpj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2cqfq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rl1p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
+border_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k2k6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycdy4"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.20254165, 0.5143416, 0.74628544, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_kek77"]
+device = -1
+ctrl_pressed = true
+keycode = 70
+
+[sub_resource type="Shortcut" id="Shortcut_4c57u"]
+events = [SubResource("InputEventKey_kek77")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_efxa6"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_dg77c"]
+events = [SubResource("InputEventKey_efxa6")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cp0l"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vivmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_kek77"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4c57u"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_getpj"]
+allow_unpress = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jrf"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_come4"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8e4i"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lmeg"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0.44162327, 0.4416229, 0.44162297, 0.59607846)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[sub_resource type="Theme" id="Theme_lquwl"]
+Tree/styles/hovered_selected = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/selected = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/selected_focus = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/title_button_hover = SubResource("StyleBoxFlat_272bh")
+Tree/styles/title_button_normal = ExtResource("4_272bh")
+Tree/styles/title_button_pressed = SubResource("StyleBoxFlat_272bh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w48qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htxhm"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsp4k"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq2sk"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok6jj"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1qrp"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1u8w0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vivmo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xuqvo"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_d13ii"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0odxb"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d13ii"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lswn8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8w0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.09803922, 0.09803922, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_facbu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.53412783, 0.53412783, 0.53412783, 0.623)
+
+[node name="Node2D" type="Control" unique_id=545943904]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 1
+script = ExtResource("1_ig7tw")
+
+[node name="StashLoader" type="FileDialog" parent="." unique_id=1557473263]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+file_mode = 0
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.gstash,*.stash,*.d2s")
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="StashSaverPD2" type="FileDialog" parent="." unique_id=1875563224]
+unique_name_in_owner = true
+oversampling_override = 1.0
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.stash")
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="StashSaverGoblin" type="FileDialog" parent="." unique_id=613873201]
+unique_name_in_owner = true
+oversampling_override = 1.0
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.gstash")
+use_native_dialog = true
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=664943743]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.30980393, 0.2784314, 0.4392157, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=522225457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Stash" type="VBoxContainer" parent="MarginContainer" unique_id=1946453711]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Stash" unique_id=155931785]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2" unique_id=2130447968]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer" unique_id=1892357379]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=1096904869]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=777277628]
+custom_minimum_size = Vector2(142, 0)
+layout_mode = 2
+
+[node name="GoblinView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=777472095]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_2cqfq")
+text = "Stash"
+
+[node name="PD2View" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=1342823456]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_2cqfq")
+text = "PD2"
+
+[node name="GrailView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=792341028]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_2cqfq")
+text = "Grail"
+
+[node name="Views" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1095754745]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("11_ycdy4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer" unique_id=517615347]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0rl1p")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/Label" unique_id=274470479]
+layout_mode = 2
+text = "Search:"
+
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer" unique_id=1017487358]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 1
+focus_behavior_recursive = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_4k2k6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ycdy4")
+script = ExtResource("4_kek77")
+focus_search_shortcut = SubResource("Shortcut_4c57u")
+exit_search_shortcut = SubResource("Shortcut_dg77c")
+
+[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/SearchBar" unique_id=48378324]
+unique_name_in_owner = true
+wait_time = 0.08
+one_shot = true
+
+[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/SearchBar" unique_id=1049118652]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+bbcode_enabled = true
+text = "[color=gray]Filter items ([i]Ctrl+F[/i] )"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=157497543]
+custom_minimum_size = Vector2(492, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=2072785139]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 2
+
+[node name="ReloadWarning" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer" unique_id=883797876]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+tooltip_text = "The PD2 save file has changed, reload to sync"
+theme_override_styles/panel = SubResource("StyleBoxFlat_0cp0l")
+script = ExtResource("4_1u8w0")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer/ReloadWarning" unique_id=904064338]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "!"
+
+[node name="ReloadTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer/ReloadWarning" unique_id=145758262]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="ReloadButton" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1432292268]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload"
+
+[node name="SettingsView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=238291159]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+text = "Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash" unique_id=1039932827]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ViewSelector" type="TabContainer" parent="MarginContainer/Stash/HBoxContainer" unique_id=510675966]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
+current_tab = 0
+tabs_visible = false
+
+[node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector" unique_id=1343246319]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_82xsv")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash" unique_id=1555776440]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2" unique_id=519961676]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftBar" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer" unique_id=2039182538]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+vertical_scroll_mode = 4
+
+[node name="QuickFilters" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar" unique_id=1531519400]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_efxa6")
+script = ExtResource("2_4c57u")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters" unique_id=1908308384]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2" unique_id=357564646]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Type" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer" unique_id=391448468]
+layout_mode = 2
+title = "Type"
+
+[node name="QuickType" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type" unique_id=1618660953]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Weapon" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=367362988]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Weapon"
+
+[node name="Armor" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=1523047916]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Armor"
+
+[node name="Ring" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=716382301]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Ring"
+
+[node name="Amulet" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=662923917]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Amulet"
+
+[node name="Quiver" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=1948125099]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Quiver"
+
+[node name="Charm" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=890433322]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Charm"
+
+[node name="Jewel" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=2031912254]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Jewel"
+
+[node name="Map" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type/QuickType" unique_id=513305781]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Map"
+
+[node name="Rarity" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer" unique_id=23447242]
+layout_mode = 2
+title = "Rarity"
+
+[node name="QuickRarity" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity" unique_id=79253710]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Runeword" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1957405655]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
+theme_override_colors/font_pressed_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Runeword"
+
+[node name="Normal" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1400942263]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Normal"
+
+[node name="Magic" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1157887645]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.25490198, 0.4117647, 0.88235295, 1)
+theme_override_colors/font_pressed_color = Color(0.25490198, 0.4117647, 0.88235295, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Magic"
+
+[node name="Rare" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1566293851]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Rare"
+
+[node name="Crafted" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1799083107]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.54901963, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.54901963, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Crafted"
+
+[node name="Unique" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1550505184]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+theme_override_colors/font_pressed_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Unique"
+
+[node name="Set" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity/QuickRarity" unique_id=1253271930]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_4c57u")
+text = "Set"
+
+[node name="Tier" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer" unique_id=1675068109]
+layout_mode = 2
+title = "Tier"
+
+[node name="QuickTier" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Tier" unique_id=1275055367]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Normal" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Tier/QuickTier" unique_id=2059311681]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_getpj")
+text = "Normal"
+
+[node name="Exceptional" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Tier/QuickTier" unique_id=2072816647]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_getpj")
+text = "Exceptional"
+
+[node name="Elite" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Tier/QuickTier" unique_id=98879382]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_getpj")
+text = "Elite"
+
+[node name="Property" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer" unique_id=786409208]
+layout_mode = 2
+folded = true
+title = "Property"
+
+[node name="QuickProperty" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Property" unique_id=623788526]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Ethereal" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Property/QuickProperty" unique_id=734638143]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
+theme_override_colors/font_pressed_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
+toggle_mode = true
+text = "Ethereal"
+
+[node name="Socketed" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Property/QuickProperty" unique_id=914253244]
+layout_mode = 2
+toggle_mode = true
+text = "Socketed"
+
+[node name="Corrupted" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Property/QuickProperty" unique_id=842091736]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.2, 0.30588236, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.2, 0.30588236, 1)
+toggle_mode = true
+text = "Corrupted"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2" unique_id=551223817]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer2" unique_id=2135269077]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer2/MarginContainer" unique_id=413234626]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer2/MarginContainer/HBoxContainer" unique_id=1615696851]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_a6jrf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_come4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h8e4i")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4lmeg")
+text = "Reset"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash" unique_id=898644244]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer" unique_id=2090959109]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="TreeView" type="Tree" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=2024813567]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 1
+focus_behavior_recursive = 2
+theme = SubResource("Theme_lquwl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_w48qg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w48qg")
+columns = 5
+column_titles_visible = true
+allow_reselect = true
+allow_search = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+script = ExtResource("3_h2yge")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=1240700525]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer" unique_id=28874078]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=943492552]
+layout_mode = 2
+
+[node name="PageLabel" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1946348785]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Page 1 of 1"
+
+[node name="PagePrev" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1888627280]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xuqvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kq58d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_seu75")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_htxhm")
+disabled = true
+text = " < "
+
+[node name="PageNext" type="Button" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=908406577]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsp4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jq2sk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ok6jj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b1qrp")
+disabled = true
+text = " > "
+
+[node name="ItemCount" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=818739865]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+text = "Items: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector" unique_id=1185248715]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("7_yaehf")
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2" unique_id=1445476182]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer" unique_id=678674818]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer2" unique_id=1910599071]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer2/MarginContainer" unique_id=1640861884]
+layout_mode = 2
+text = "Characters"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer" unique_id=534568101]
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer" unique_id=309039951]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer/MarginContainer" unique_id=1986467165]
+layout_mode = 2
+
+[node name="CharacterSelect" type="GridContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer" unique_id=1175302393]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="Button3" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/CharacterSelect" unique_id=1186643183 instance=ExtResource("7_2cqfq")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_1u8w0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2" unique_id=661458001]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer" unique_id=1888559063]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="PD2Inventory" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2" unique_id=352445092]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PD2Stash" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory" unique_id=1686169745]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash" unique_id=1334177851]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_getpj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer" unique_id=1713640508]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PD2Stash" type="TabContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer" unique_id=2052171568]
+unique_name_in_owner = true
+layout_mode = 2
+tab_alignment = 1
+current_tab = 1
+script = ExtResource("2_0xm2m")
+
+[node name="M" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1102498369 instance=ExtResource("10_yaehf")]
+visible = false
+layout_mode = 2
+
+[node name="P" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1891089092 instance=ExtResource("3_1bvp3")]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="1" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1224132876 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="2" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1942325504 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="3" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1424572403 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="4" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=162397645 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="5" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=69570769 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="6" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1610406225 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="7" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1305384590 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 8
+
+[node name="8" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1392874835 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 9
+
+[node name="9" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=230301506 instance=ExtResource("3_1bvp3")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash" unique_id=1500027000]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharInventorySelector" type="TabContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=441424146]
+custom_minimum_size = Vector2(404, 314)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Character" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=219751203 instance=ExtResource("8_vivmo")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="Mercenary" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=1192591918 instance=ExtResource("8_vivmo")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+is_merc = true
+metadata/_tab_index = 1
+
+[node name="Cube" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=2050599502]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="CubeInventory" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector/Cube" unique_id=910500633 instance=ExtResource("3_1bvp3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(164, 164)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+grid_width = 4
+grid_height = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=849962173]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="CharInventory" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/PanelContainer" unique_id=1355600316 instance=ExtResource("3_1bvp3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(404, 324)
+layout_mode = 2
+grid_height = 8
+
+[node name="Grail" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector" unique_id=2062234856]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("6_7mycd")
+metadata/_tab_index = 2
+
+[node name="GrailRoot" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail" unique_id=848965555]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot" unique_id=598008413]
+layout_mode = 2
+title = "Weapons"
+
+[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer" unique_id=1000692285]
+layout_mode = 2
+title = "Axe"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer" unique_id=337355231]
+layout_mode = 2
+
+[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer" unique_id=1184733395]
+layout_mode = 2
+size_flags_horizontal = 3
+title = "Normal"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer" unique_id=1715765768]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=1461164174]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label2" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=1429203515]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label3" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=486531448]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label4" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=1501028459]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label5" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=1774378335]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label6" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer/HFlowContainer" unique_id=1557541963]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="FoldableContainer2" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer" unique_id=1679643982]
+layout_mode = 2
+size_flags_horizontal = 3
+title = "Exceptional"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2" unique_id=433715734]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=988474929]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label2" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=541045066]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label3" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=1085552112]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label4" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=263462905]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label5" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=405475297]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="Label6" type="Label" parent="MarginContainer/Stash/HBoxContainer/ViewSelector/Grail/GrailRoot/FoldableContainer/FoldableContainer/HBoxContainer/FoldableContainer2/HFlowContainer" unique_id=25747675]
+layout_mode = 2
+text = "Normal Axe"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer" unique_id=240837233]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer" unique_id=944467908]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=1893650623]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer2" unique_id=1010426139]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=792994897]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer2/PanelContainer/MarginContainer" unique_id=865332261]
+layout_mode = 2
+text = "Selected"
+
+[node name="Right" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=2101712272]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/focus = ExtResource("2_efxa6")
+draw_focus_border = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="SelectedItemTooltipDisplay" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/Right" unique_id=750739073]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_5vw27")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/Right/SelectedItemTooltipDisplay" unique_id=1326562957]
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="ItemInfo" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/Right/SelectedItemTooltipDisplay/ScrollContainer" unique_id=592829503 instance=ExtResource("5_kek77")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vivmo")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=801729220]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer" unique_id=2103847167]
+layout_mode = 2
+
+[node name="ItemDebug" type="FoldableContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=1222207517]
+unique_name_in_owner = true
+layout_mode = 2
+folded = true
+title = "Debug"
+script = ExtResource("19_d13ii")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug" unique_id=992813389]
+visible = false
+layout_mode = 2
+columns = 2
+
+[node name="ItemDebugStash" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=500456926]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "source: GOBLIN"
+text_overrun_behavior = 3
+
+[node name="ItemDebugID" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=2116086328]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "item_id: 125"
+text_overrun_behavior = 3
+
+[node name="ItemDebugStart" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=1099199140]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "start_byte: 1076"
+text_overrun_behavior = 3
+
+[node name="ItemDebugLength" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=30707636]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "length: 54"
+text_overrun_behavior = 3
+
+[node name="ItemDebugLocation" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=2003878290]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "location_id: STORED"
+text_overrun_behavior = 3
+
+[node name="ItemDebugStore" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=631868036]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "store_id: PD2_STASH"
+text_overrun_behavior = 3
+
+[node name="ItemDebugEquipped" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=29277487]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "equipped_id: 8"
+text_overrun_behavior = 3
+
+[node name="ItemDebugCoord" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/VBoxContainer/MarginContainer/PanelContainer/ItemDebug/GridContainer" unique_id=539623910]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("19_ryguw")
+text = "coord: (0, 0)"
+text_overrun_behavior = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer" unique_id=774407249]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer" unique_id=427370848]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=204227717]
+visible = false
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer" unique_id=1944464230]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1029927567]
+layout_mode = 2
+text = "Transfer"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1197530768]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2" unique_id=193393258]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3" unique_id=984618647]
+custom_minimum_size = Vector2(0, 29)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xuqvo")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer" unique_id=1489190782]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer" unique_id=1343304449]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer" unique_id=1330515636]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1547933432]
+layout_mode = 2
+text = "Items:"
+
+[node name="ToggleSingle" type="Button" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=269505374]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_d13ii")
+text = "Selected"
+
+[node name="ToggleBulk" type="Button" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1515927789]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_d13ii")
+text = "All (0)"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer" unique_id=1181825495]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=943711682]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/HBoxContainer" unique_id=217462732]
+layout_mode = 2
+size_flags_vertical = 1
+text = "To:"
+vertical_alignment = 1
+
+[node name="DestinationOption" type="OptionButton" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/HBoxContainer" unique_id=891159421]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(67, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text_overrun_behavior = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "PD2"
+popup/item_0/id = 0
+popup/item_1/text = "Stash"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+
+[node name="PageOptionContainer" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3" unique_id=1213467528]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/PageOptionContainer" unique_id=281723156]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Page:"
+vertical_alignment = 1
+
+[node name="PageOption" type="OptionButton" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer3/PageOptionContainer" unique_id=943721304]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+selected = 0
+fit_to_longest_item = false
+item_count = 9
+popup/item_0/text = "9"
+popup/item_0/id = 0
+popup/item_1/text = "8"
+popup/item_1/id = 1
+popup/item_2/text = "7"
+popup/item_2/id = 2
+popup/item_3/text = "6"
+popup/item_3/id = 3
+popup/item_4/text = "5"
+popup/item_4/id = 4
+popup/item_5/text = "4"
+popup/item_5/id = 5
+popup/item_6/text = "3"
+popup/item_6/id = 6
+popup/item_7/text = "2"
+popup/item_7/id = 7
+popup/item_8/text = "1"
+popup/item_8/id = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3" unique_id=641777909]
+layout_mode = 2
+
+[node name="TransferButton" type="Button" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2" unique_id=1218231272]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Send"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2" unique_id=998695973]
+layout_mode = 2
+
+[node name="SaveChanges" type="Button" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2/HBoxContainer" unique_id=573827122]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryguw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0odxb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d13ii")
+disabled = true
+text = "Save"
+script = ExtResource("3_074og")
+
+[node name="CancelChanges" type="Button" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2/HBoxContainer" unique_id=398666764]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryguw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lswn8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1u8w0")
+disabled = true
+text = "Cancel"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/HBoxContainer/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3" unique_id=1513578014]
+visible = false
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=136509385]
+visible = false
+z_index = 999
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_getpj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=525426002]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=1301441505]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_getpj")
+
+[node name="CloseSettings" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer" unique_id=2122453919]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_facbu")
+text = "X"
+
+[node name="Settings" parent="CenterContainer/VBoxContainer" unique_id=93658966 instance=ExtResource("16_82xsv")]
+unique_name_in_owner = true
+layout_mode = 2

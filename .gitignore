@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+backups/
+/android/
+export_presets.cfg
+/test_stash/
+/local_data/

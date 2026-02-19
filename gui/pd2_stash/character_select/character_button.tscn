@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://tgixuggfwchr"]
+
+[ext_resource type="Script" uid="uid://2n085w81w80j" path="res://gui/pd2_stash/character_select/character_button.gd" id="1_hypgj"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_vivmo"]
+
+[node name="Button3" type="Button" unique_id=1186643183]
+custom_minimum_size = Vector2(160, 56)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_vivmo")
+script = ExtResource("1_hypgj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=186389039]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -25.0
+offset_right = 72.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NameLabel" type="Label" parent="VBoxContainer" unique_id=8766592]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+text = "Skelton Really long name something"
+clip_text = true
+text_overrun_behavior = 5
+
+[node name="Description" type="Label" parent="VBoxContainer" unique_id=1064508815]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level 94 Necromancer"
