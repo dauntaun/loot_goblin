@@ -67,7 +67,6 @@ var rare_suffix_ids: Array[int]
 var rare_prefixes: Array[String]
 var rare_suffixes: Array[String]
 
-
 var is_armor: bool
 var is_shield: bool
 var is_weapon: bool

@@ -19,6 +19,12 @@ func matches_item(item: D2Item) -> bool:
 	and store_id == item.store_id
 
 
+func matches_placement(placement: ItemPlacement) -> bool:
+	return coord == placement.coord \
+	and equipped_id == placement.equipped_id \
+	and store_id == placement.store_id
+
+
 func apply_to_item(item: D2Item) -> void:
 	item.x_coord = coord.x
 	item.y_coord = coord.y

@@ -89,12 +89,14 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_dg77c"]
 events = [SubResource("InputEventKey_efxa6")]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u8w0"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cp0l"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
+bg_color = Color(0.13333334, 0.12941177, 0.15686275, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -482,31 +484,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=2072785139]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=1978649088]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_constants/separation = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1u8w0")
+script = ExtResource("4_1u8w0")
 
-[node name="ReloadWarning" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer" unique_id=883797876]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer" unique_id=2072785139]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="ReloadWarning" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer" unique_id=883797876]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 tooltip_text = "The PD2 save file has changed, reload to sync"
 theme_override_styles/panel = SubResource("StyleBoxFlat_0cp0l")
-script = ExtResource("4_1u8w0")
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer/ReloadWarning" unique_id=904064338]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/ReloadWarning" unique_id=904064338]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 27
 text = "!"
 
-[node name="ReloadTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer/ReloadWarning" unique_id=145758262]
+[node name="ReloadTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer/ReloadWarning" unique_id=145758262]
 unique_name_in_owner = true
 wait_time = 2.0
 
-[node name="ReloadButton" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1432292268]
+[node name="ReloadButton" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer" unique_id=1432292268]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Reload"

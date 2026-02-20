@@ -12,6 +12,8 @@ const GLOBAL_SECTION := "Global Settings"
 const SOFTCORE_SHARED_STASH_FILENAME := "pd2_shared.stash"
 const HARDCORE_SHARED_STASH_FILENAME := "pd2_hc_shared.stash"
 const GOBLIN_STASH_DIR := "user://"
+const GOBLIN_STASH_DIR_DEBUG := "res://local_data"
+const PD2_FOLDER_DIR_DEBUG := "res://local_data/test_stash/pd2"
 const GOBLIN_STASH_FILENAME := "goblin_stash.gstash"
 const GOBLIN_HC_STASH_FILENAME := "goblin_hc_stash.gstash"
 const DEFAULT_BACKGROUND_COLOR := Color("#4f4770")
@@ -42,7 +44,7 @@ func _ready() -> void:
 
 
 func get_shared_stash_path() -> String:
-	var dir := pd2_folder
+	var dir := PD2_FOLDER_DIR_DEBUG if GlobalSettings.debug_mode else pd2_folder
 	if hardcore_shared_stash:
 		dir = dir.path_join(HARDCORE_SHARED_STASH_FILENAME)
 	else:
@@ -51,10 +53,11 @@ func get_shared_stash_path() -> String:
 
 
 func get_current_goblin_stash_path() -> String:
+	var dir := GOBLIN_STASH_DIR_DEBUG if GlobalSettings.debug_mode else GOBLIN_STASH_DIR
 	if hardcore_shared_stash:
-		return GOBLIN_STASH_DIR.path_join(GOBLIN_HC_STASH_FILENAME)
+		return dir.path_join(GOBLIN_HC_STASH_FILENAME)
 	else:
-		return GOBLIN_STASH_DIR.path_join(GOBLIN_STASH_FILENAME)
+		return dir.path_join(GOBLIN_STASH_FILENAME)
 
 
 func get_sc_goblin_stash_path() -> String:

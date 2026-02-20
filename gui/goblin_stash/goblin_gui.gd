@@ -26,7 +26,7 @@ func _ready() -> void:
 	tree_view.sort_requested.connect(_on_sort_requested)
 	quick_filters.quick_filter_changed.connect(_on_quick_filters_changed)
 	ItemSelection.items_transferred.connect(_on_items_transferred)
-	CommandQueue.queue_undone.connect(_reset_page_and_refresh_filters)
+	CommandQueue.queue_undone.connect(_reset_page_and_refresh_filters.bind(false))
 	
 	_next_page_button.pressed.connect(_next_page)
 	_prev_page_button.pressed.connect(_prev_page)
@@ -52,10 +52,10 @@ func _submit_new_query(string_query: String) -> void:
 	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
 
 
-func _reset_page_and_refresh_filters() -> void:
+func _reset_page_and_refresh_filters(restore_selection: bool = true) -> void:
 	_current_page = 0
 	_item_searcher.filter_and_sort()
-	_refresh_current_page()
+	_refresh_current_page(restore_selection)
 
 
 func _refresh_current_page(restore_selection: bool = true) -> void:

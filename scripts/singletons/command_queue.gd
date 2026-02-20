@@ -20,17 +20,21 @@ func record_command(new_command: BasicCommand) -> void:
 		_queue_blocked = true
 		queue_blocked.emit()
 	
-	# Execute view
-	new_command.execute_move_view()
-	# Update previous command
+	# Check previous commands
 	for prev_command: BasicCommand in _command_queue:
 		if prev_command.matches_with(new_command):
-			
-			prev_command.update_with(new_command)
-			if prev_command.is_redundant():
+			if prev_command.is_redundant_with(new_command):
+				prev_command.undo_move_view()
 				_command_queue.erase(prev_command)
-			return
+				if _command_queue.is_empty():
+					queue_undone.emit()
+				return
+			else:
+				prev_command.update_with(new_command)
+				prev_command.execute_move_view()
+				return
 	# Else queue new command
+	new_command.execute_move_view()
 	_command_queue.append(new_command)
 	command_queued.emit()
 
@@ -92,9 +96,12 @@ func undo_queue() -> void:
 	func is_blocking() -> bool:
 		return false
 	
-	func is_redundant() -> bool:
+	@warning_ignore("unused_parameter")
+	func is_redundant_with(new_command: BasicCommand) -> bool:
 		return false
 	
+	func cleanup() -> void:
+		pass
 
 
 class ImportPlugyCommand extends BasicCommand:
@@ -202,17 +209,16 @@ class ItemTransferCommand extends BasicCommand:
 		destination_placement = placement
 	
 	
-	func position_has_changed() -> bool:
-		return not source_placement.matches_item(item)
-	
-	
-	func is_redundant() -> bool:
+	func is_redundant_with(new_command: BasicCommand) -> bool:
+		new_command = new_command as ItemTransferCommand
 		var source_data := _get_source_data()
-		if source_data == destination_data:
-			if source_view is PagedStashView and not position_has_changed():
+		if source_data == new_command.destination_data:
+			if not new_command.destination_placement:
+				return true
+			elif source_placement.matches_placement(new_command.destination_placement):
 				return true
 			else:
-				return true
+				return false
 		return false
 	
 	
@@ -223,6 +229,7 @@ class ItemTransferCommand extends BasicCommand:
 	
 	func update_with(new_command: BasicCommand) -> void:
 		new_command = new_command as ItemTransferCommand
+		destination_stash = new_command.destination_stash
 		destination_data = new_command.destination_data
 		destination_view = new_command.destination_view
 		destination_placement = new_command.destination_placement
@@ -249,7 +256,7 @@ class ItemTransferCommand extends BasicCommand:
 		if source_data != destination_data:
 			var item_bytes := source_data.extract_item_bytes(item)
 			destination_data.add_item_bytes(item, item_bytes)
-		if position_has_changed():
+		if not source_placement.matches_item(item):
 			destination_data.write_current_item_position(item)
 	
 	

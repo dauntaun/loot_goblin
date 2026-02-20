@@ -67,22 +67,21 @@ func _save_all_transfers() -> void:
 		_save_transfers_button.show_warning()
 		return
 	
+	_backup_save(goblin_save)
+	_backup_save(pd2_shared_save)
 	CommandQueue.commit_queue()
 	if not CommandQueue.is_command_queue_clear():
 		_save_transfers_button.show_warning()
-		OS.alert("Something went wrong when transferring items, saving is disabled. Reload Loot Goblin", "Error")
+		OS.alert("Something went wrong when transferring items. Reload Loot Goblin", "Error")
 		return
 	ItemSelection.clear_selection()
 	_save_transfers_button.clear_save_button()
-	_backup_save(goblin_save)
-	_backup_save(pd2_shared_save)
 	goblin_save.save_file(goblin_save.load_path)
 	pd2_shared_save.save_file(pd2_shared_save.load_path)
 
 
 func _cancel_all_transfers() -> void:
 	CommandQueue.undo_queue()
-	ItemSelection.clear_selection()
 	_save_transfers_button.clear_save_button()
 
 
