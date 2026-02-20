@@ -1,6 +1,24 @@
 # Loot Goblin
 Item muler designed to work with PD2 singleplayer. Provides an infinite and filterable storage for items.
 
+## **Warning experimental software**
+Always keep a separate backup of your PD2 data:
+- `pd2_shared.stash` and/or `pd2_hc_shared.stash`
+- Any character files `.d2s`
+- Any PlugY files `.d2x`, `.sss`
+- Easiest is to copy the entire `Save` folder
+
+Loot Goblin only writes to `pd2_shared.stash` and keeps the 5 most recent backups by default in:
+
+`%Appdata%/Roaming/Godot/app_userdata/Loot Goblin/backups/`
+
+Always confirm ingame that items have been moved correctly when retrieving them from the stash.
+If you find that an item:
+- Didnt move at all
+- Moved to a different stash page or position than intended
+  
+You should restore both `goblin_stash.gstash` and `pd2_shared.stash` from a previous backup (these can be imported into Loot Goblin for preview). 
+
 ## Setup
 When starting for the first time, choose the PD2 save file location (the `Save` folder in the Diablo II installation containing `pd2_shared.stash`). The last shared stash page will be used by default for importing/exporting items. You can choose to automatically store the items from this page to the main stash whenever Loot Goblin is started or reloaded.
 
@@ -33,14 +51,14 @@ Additionally you can search with the following tags:
 
 Its possible to combine and negate terms with `&` and `!`. 
 
-For example: `ring & fire res & faster cast rate & !corrupt` will match all uncorrupted rings with fire resist and FCR.
+For example: `t: ring & r: rare & faster cast rate & !corrupt` will match all uncorrupted rare rings with FCR.
 
 # PlugY import
 Its possible to import personal/shared pages from PlugY using the importer under settings. However, items cannot be exported back to PlugY currently. You must save the stash after performing an import.
 
 # Read only stashes
 Character files are currently read only. The items are displayed, but can not be selected or moved. This includes:
-- The PD2 personal page (P)
+- The character personal page (P)
 - The PD2 materials page (M)
 - The character inventory, equipment, cube and mercenary items
 
