@@ -28,7 +28,7 @@ const FILE_FONT = preload("uid://cen8snwgwauy1")
 @onready var _pd2_save_folder_picker: FileDialog = %DefaultPD2StashPicker
 @onready var _loaded_pd2_files: GridContainer = %LoadedPD2Files
 
-@onready var _choose_default_folder: Button = %ChooseDefaultFolder
+@onready var _choose_pd2_save_folder: Button = %ChooseDefaultFolder
 @onready var _default_folder_line: LineEdit = %DefaultFolderLine
 @onready var _choose_default_stash_page: SpinBox = %DefaultStashPage
 @onready var _choose_auto_retrieve: CheckBox = %AutoRetrieve
@@ -41,8 +41,6 @@ func _ready() -> void:
 	sync_controls_with_settings()
 	# Item list
 	_settings_list.item_selected.connect(func(index: int): _settings_tabs.current_tab = index)
-	if not GlobalSettings.debug_mode:
-		_settings_list.remove_item(_settings_list.item_count)
 	# Unsaved changes
 	CommandQueue.command_queued.connect(_disable_option_buttons)
 	CommandQueue.queue_committed.connect(_enable_option_buttons)
@@ -55,8 +53,10 @@ func _ready() -> void:
 	_choose_background_color.color_changed.connect(GlobalSettings.update_setting.bind("background_color"))
 	_restore_background_color_button.pressed.connect(_restore_background_color)
 	
-	_choose_default_folder.pressed.connect(func(): _pd2_save_folder_picker.popup())
-	_pd2_save_folder_picker.dir_selected.connect(GlobalSettings.update_setting.bind("pd2_folder"))
+	_choose_pd2_save_folder.pressed.connect(func(): _pd2_save_folder_picker.popup())
+	_pd2_save_folder_picker.dir_selected.connect(func(dir: String):
+		GlobalSettings.update_setting(dir, "pd2_folder")
+		_default_folder_line.text = dir)
 	_choose_default_stash_page.value_changed.connect(GlobalSettings.update_setting.bind("pd2_stash_page"))
 	_choose_auto_retrieve.toggled.connect(GlobalSettings.update_setting.bind("auto_retrieve"))
 	_choose_hardcore.item_selected.connect(GlobalSettings.update_setting.bind("hardcore_shared_stash"))

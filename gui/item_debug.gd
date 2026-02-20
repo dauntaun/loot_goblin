@@ -11,8 +11,10 @@ extends Control
 @onready var item_debug_coord: Label = %ItemDebugCoord
 
 
-func _read() -> void:
+func _ready() -> void:
 	clear_labels()
+	if not GlobalSettings.debug_mode:
+		hide()
 
 
 func update_labels(item: D2Item) -> void:
