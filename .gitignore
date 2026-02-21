@@ -5,3 +5,4 @@ backups/
 export_presets.cfg
 /test_stash/
 /local_data/
+*.exe

@@ -34,7 +34,7 @@ func _ready():
 	var goblin_filepath := GlobalSettings.get_current_goblin_stash_path()
 	_init_goblin_stash_file(goblin_filepath)
 	# Init PD2
-	_init_pd2_folder(GlobalSettings.pd2_folder)
+	_init_pd2_folder(GlobalSettings.get_pd2_folder())
 	if pd2_shared_save:
 		pd2_gui.current_tab = GlobalSettings.pd2_stash_page + 1
 		if GlobalSettings.auto_retrieve:

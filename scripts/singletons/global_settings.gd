@@ -18,7 +18,7 @@ const GOBLIN_STASH_FILENAME := "goblin_stash.gstash"
 const GOBLIN_HC_STASH_FILENAME := "goblin_hc_stash.gstash"
 const DEFAULT_BACKGROUND_COLOR := Color("#4f4770")
 
-var debug_mode: bool = false
+var debug_mode: bool = true
 # Setting vars
 var max_backups: int = 5
 var instant_search: bool = true
@@ -50,6 +50,10 @@ func get_shared_stash_path() -> String:
 	else:
 		dir = dir.path_join(SOFTCORE_SHARED_STASH_FILENAME)
 	return dir
+
+
+func get_pd2_folder() -> String:
+	return PD2_FOLDER_DIR_DEBUG if GlobalSettings.debug_mode else pd2_folder
 
 
 func get_current_goblin_stash_path() -> String:
