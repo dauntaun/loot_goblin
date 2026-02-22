@@ -76,6 +76,10 @@ const MODIFY_STATS: Dictionary[int, Dictionary] = {
 	22 : {"mgrp": 6},
 }
 
+const MODIFY_TBL: Dictionary[String, String] = {
+	"StrSklTabItem6" : "+%d to Combat Skills",
+}
+
 const CUSTOM_PROPERTIES: Dictionary[String, Dictionary] = {
 	"dmg-max": {"stat1": "mindamage", "stat2": "secondary_mindamage", "stat3": "item_throw_mindamage"},
 	"dmg-min": {"stat1": "maxdamage", "stat2": "secondary_maxdamage", "stat3": "item_throw_maxdamage"},
@@ -274,6 +278,9 @@ func _build_database() -> void:
 	for f: String in tbl_files:
 		var tbl_data = _load_csv_as_dict(f, "String Index", ["Text"], true)
 		localization_table.merge(tbl_data)
+	# Fix broken keys
+	for key: String in MODIFY_TBL:
+		localization_table[key]["Text"] = MODIFY_TBL[key]
 	# Clean color tags and cache codes in D2Colors
 	var regex := RegEx.create_from_string("\\\\([A-Za-z]+);")
 	for key in misc_codes:
