@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, RARITY, TIER, PROPERTY}
+enum QuickFilter {TYPE, WEAPON, ARMOR, MISC, RARITY, TIER, PROPERTY}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -46,6 +46,9 @@ func mark_applied() -> void:
 
 class CompiledQuickFilterQuery:
 	enum TypeFilter {WEAPON, ARMOR, RING, AMULET, QUIVER, CHARM, JEWEL, MAP}
+	enum WeaponFilter {AXE, MACE, SWORD, DAGGER, THROWING, SPEAR, POLEARM, BOW, CROSSBOW, STAFF, WAND, SCEPTER, CLAW, ORB, AMAZON_WEAPON}
+	enum ArmorFilter {HELM, CIRCLET, ARMOR, SHIELD, GLOVES, BOOTS, BELT, DRUID_HELM, BARBARIAN_HELM, PALADIN_SHIELD, NECROMANCER_SHIELD}
+	enum MiscFilter {QUIVER, AMULET, RING, CHARM, JEWEL, MAP}
 	enum RarityFilter {RUNEWORD, NORMAL, MAGIC, RARE, CRAFTED, UNIQUE, SET}
 	enum TierFilter {NORMAL, EXCEPTIONAL, ELITE}
 	enum PropertyFilter {ETHEREAL, SOCKETED, CORRUPTED}

@@ -3,6 +3,7 @@ extends Node
 
 var item_data_register: Dictionary[int, D2ItemList]
 var item_view_register: Dictionary[int, BasicStashView]
+var item_register: Dictionary[int, D2Item]
 
 
 func get_item_data(item_id: int) -> D2ItemList:

@@ -10,7 +10,6 @@ extends Resource
 @export var rare_prefix: Dictionary
 @export var rare_suffix: Dictionary
 @export var unique_items: Dictionary
-@export var valid_uniques: Dictionary
 @export var set_items: Dictionary
 @export var item_types: Dictionary
 @export var runewords: Dictionary
@@ -34,3 +33,7 @@ extends Resource
 @export var gold_item_codes: Array[String]
 @export var purple_item_codes: Array[String]
 @export var red_item_codes: Array[String]
+
+# For Grail
+@export var grail_uniques: Dictionary[int, GrailEntry]
+@export var grail_sets: Dictionary[int, GrailEntry]

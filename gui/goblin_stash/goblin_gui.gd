@@ -38,8 +38,16 @@ func init_stash(stash_view: BasicStashView) -> void:
 	_reset_page_and_refresh_filters()
 
 
-func _on_quick_filters_changed(quick_filter: ItemSearchQuery.QuickFilter, new_values: Array[int]) -> void:
-	_item_searcher.set_quick_filters(quick_filter, new_values)
+func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void:
+	match quick_filter:
+		"type":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TYPE, values)
+		"rarity":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.RARITY, values)
+		"tier":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TIER, values)
+		"property":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.PROPERTY, values)
 	
 	_reset_page_and_refresh_filters()
 	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)

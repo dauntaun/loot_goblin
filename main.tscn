@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://w5yasfxrxrv0" path="res://gui/reload_warning.gd" id="4_1u8w0"]
 [ext_resource type="Script" uid="uid://dhj51n3tix73q" path="res://gui/item_transfer_gui.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
-[ext_resource type="StyleBox" uid="uid://b8ij3n1qpkg5o" path="res://gui/resources/custom_theme/tree_title_normal_stylebox.tres" id="4_272bh"]
 [ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_info.tscn" id="5_kek77"]
 [ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
@@ -24,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dpqi1rpd66eif" path="res://gui/item_debug.gd" id="19_d13ii"]
 [ext_resource type="FontFile" uid="uid://cen8snwgwauy1" path="res://gui/resources/droid-sans-mono.ttf" id="19_ryguw"]
 [ext_resource type="Script" uid="uid://bdj20u42kbbfv" path="res://gui/settings_shower.gd" id="20_getpj"]
+[ext_resource type="Script" uid="uid://crplyddrr1g6n" path="res://gui/grail/tab_switcher.gd" id="22_1u8w0"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_2cqfq"]
 
@@ -137,35 +137,6 @@ bg_color = Color(0.225, 0.225, 0.225, 0.6)
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
-bg_color = Color(0.44162327, 0.4416229, 0.44162297, 0.59607846)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
-bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
-
-[sub_resource type="Theme" id="Theme_lquwl"]
-Tree/styles/hovered_selected = SubResource("StyleBoxFlat_7mycd")
-Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_7mycd")
-Tree/styles/selected = SubResource("StyleBoxFlat_7mycd")
-Tree/styles/selected_focus = SubResource("StyleBoxFlat_7mycd")
-Tree/styles/title_button_hover = SubResource("StyleBoxFlat_272bh")
-Tree/styles/title_button_normal = ExtResource("4_272bh")
-Tree/styles/title_button_pressed = SubResource("StyleBoxFlat_272bh")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w48qg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
@@ -284,6 +255,13 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.8, 0.33600003, 0.33600003, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_0odxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lswn8"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_lswn8"]
+allow_unpress = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
 content_margin_left = 0.0
@@ -419,15 +397,6 @@ action_mode = 0
 button_group = SubResource("ButtonGroup_2cqfq")
 text = "PD2"
 
-[node name="GrailView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=792341028]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_2cqfq")
-text = "Grail"
-
 [node name="Views" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1095754745]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
@@ -518,6 +487,7 @@ wait_time = 2.0
 
 [node name="ReloadButton" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer" unique_id=1432292268]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "Reload"
 
@@ -530,17 +500,30 @@ toggle_mode = true
 action_mode = 0
 text = "Settings"
 
+[node name="GrailView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=231830775 node_paths=PackedStringArray("switch_buttons", "tab_container")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+text = "Grail"
+script = ExtResource("22_1u8w0")
+switch_buttons = [NodePath(".")]
+tab_container = NodePath("../../../../../MainSelector")
+button_mode = 1
+
 [node name="MainSelector" type="TabContainer" parent="MarginContainer/Stash" unique_id=1838158964]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0odxb")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="MainView" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector" unique_id=1039932827]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_tab_index = 0
@@ -550,12 +533,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1343246319]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_82xsv")
@@ -573,13 +555,19 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 vertical_scroll_mode = 4
 
-[node name="QuickFilters" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar" unique_id=1531519400]
+[node name="QuickFilters" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar" unique_id=1531519400 node_paths=PackedStringArray("filters")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_efxa6")
 script = ExtResource("2_4c57u")
+filters = {
+"property": NodePath("VBoxContainer2/VBoxContainer/Property/QuickProperty"),
+"rarity": NodePath("VBoxContainer2/VBoxContainer/Rarity/QuickRarity"),
+"tier": NodePath("VBoxContainer2/VBoxContainer/Tier/QuickTier"),
+"type": NodePath("VBoxContainer2/VBoxContainer/Type/QuickType")
+}
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters" unique_id=1908308384]
 layout_mode = 2
@@ -596,7 +584,6 @@ layout_mode = 2
 title = "Type"
 
 [node name="QuickType" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Type" unique_id=1618660953]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 
@@ -653,7 +640,6 @@ layout_mode = 2
 title = "Rarity"
 
 [node name="QuickRarity" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Rarity" unique_id=79253710]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 
@@ -716,7 +702,6 @@ layout_mode = 2
 title = "Tier"
 
 [node name="QuickTier" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Tier" unique_id=1275055367]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 
@@ -744,7 +729,6 @@ folded = true
 title = "Property"
 
 [node name="QuickProperty" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer2/VBoxContainer/Property" unique_id=623788526]
-unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
@@ -807,9 +791,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 1
 focus_behavior_recursive = 2
-theme = SubResource("Theme_lquwl")
-theme_override_styles/panel = SubResource("StyleBoxFlat_w48qg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w48qg")
 columns = 5
 column_titles_visible = true
 allow_reselect = true
@@ -867,6 +848,7 @@ vertical_alignment = 1
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1185248715]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 script = ExtResource("7_yaehf")
 metadata/_tab_index = 1
@@ -1365,143 +1347,1153 @@ text = "Cancel"
 visible = false
 layout_mode = 2
 
-[node name="Grail" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector" unique_id=605073294]
-unique_name_in_owner = true
+[node name="GrailView" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector" unique_id=1050702701]
+visible = false
 layout_mode = 2
-script = ExtResource("6_7mycd")
 metadata/_tab_index = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/Grail" unique_id=1386462085]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView" unique_id=610951590]
+visible = false
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2" unique_id=1860186302]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftBar" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer" unique_id=403350830]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+vertical_scroll_mode = 4
+
+[node name="GrailFilters" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar" unique_id=1222440135 node_paths=PackedStringArray("filters")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_efxa6")
+script = ExtResource("2_4c57u")
+filters = {
+"armor": NodePath("VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat"),
+"misc": NodePath("VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat"),
+"status": NodePath("VBoxContainer2/VBoxContainer/Status/UniqueStatus"),
+"weapon": NodePath("VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat")
+}
 
-[node name="GrailRoot" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer" unique_id=93102082]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters" unique_id=109632925]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2" unique_id=1161517792]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Status" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer" unique_id=374268030]
+layout_mode = 2
+title = "All"
+
+[node name="UniqueStatus" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/Status" unique_id=1359160414]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Missing" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/Status/UniqueStatus" unique_id=1775710553]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Missing"
+
+[node name="Found" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/Status/UniqueStatus" unique_id=1043148289]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Found"
+
+[node name="UniqueWeapon" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer" unique_id=423028426]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
+title = "Weapon"
 
-[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot" unique_id=1910167263]
+[node name="UniqueWeaponCat" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon" unique_id=647274702]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Button15" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1628717542]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Axe"
+
+[node name="Button14" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=471482121]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Mace"
+
+[node name="Button13" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=858376781]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Sword"
+
+[node name="Button12" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=503481280]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Dagger"
+
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=938023701]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Throwing"
+
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1166663744]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Spear"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1924618408]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Polearm"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=452542443]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Bow"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=87806525]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Crossbow"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1578371108]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Staff"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1708530324]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Wand"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=575923513]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Scepter"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1226564388]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Claw"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=1918404072]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Orb"
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueWeapon/UniqueWeaponCat" unique_id=2031653557]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Amazon"
+
+[node name="UniqueArmor" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer" unique_id=246684155]
+unique_name_in_owner = true
 layout_mode = 2
 title = "Armor"
 
-[node name="FoldableContainer" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer" unique_id=677645318]
-layout_mode = 2
-title = "Helm"
-
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer" unique_id=550195854]
+[node name="UniqueArmorCat" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor" unique_id=1661582162]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=805598435]
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=501298162]
 layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Helm"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=1717965899]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Circlet"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=919541410]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Armor"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=377452955]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Shield"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=795672519]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Gloves"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=1343344207]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Boots"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=73326376]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Belt"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=626682843]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Druid"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=277033611]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Barbarian"
+
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=32095504]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Paladin"
+
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueArmor/UniqueArmorCat" unique_id=272359872]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Necromancer"
+
+[node name="UniqueMisc" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer" unique_id=1951851084]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Misc"
+
+[node name="UniqueMiscCat" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc" unique_id=208723180]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=1614976532]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Quiver"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=2037442836]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Amulet"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=391430398]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Ring"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=2138777750]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Charm"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=1337993732]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Jewel"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer2/PanelContainer/LeftBar/GrailFilters/VBoxContainer2/VBoxContainer/UniqueMisc/UniqueMiscCat" unique_id=71080253]
+layout_mode = 2
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Map"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView" unique_id=2019872822]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Grail" type="Tree" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer" unique_id=819822851]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+column_titles_visible = true
+allow_search = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+script = ExtResource("6_7mycd")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer" unique_id=1822402727]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer/PanelContainer" unique_id=390881960]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer/PanelContainer/MarginContainer" unique_id=575859015]
+layout_mode = 2
+
+[node name="GrailFoundLabel" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=2025519831]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 1
+text = "20/37 found"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GrailMissingLabel" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=2080642559]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+text = "7 missing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView" unique_id=555508844]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="GrailSideBar" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer" unique_id=1939362723]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar" unique_id=1797614152]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer" unique_id=150303643]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer" unique_id=1107591352]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer/PanelContainer" unique_id=1005690733]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=1882672780]
+layout_mode = 2
+text = "Rarity"
+
+[node name="GrailSwitcher" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer" unique_id=1844676540 node_paths=PackedStringArray("switch_buttons", "tab_container")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+script = ExtResource("22_1u8w0")
+switch_buttons = [NodePath("Button"), NodePath("Button4")]
+tab_container = NodePath("../../ScrollContainer/GrailTabs")
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer/GrailSwitcher" unique_id=302348826]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Biggin's Bonnet"
+theme_override_colors/font_focus_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+theme_override_colors/font_pressed_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+theme_override_colors/font_hover_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+theme_override_colors/font_disabled_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_0odxb")
+text = "Unique"
 
-[node name="Label2" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=266905872]
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer/GrailSwitcher" unique_id=753167671]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Tarnhelm"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_0odxb")
+text = "Set"
 
-[node name="Label3" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=238604722]
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/VBoxContainer/GrailSwitcher" unique_id=1166620996]
+visible = false
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Coif of Glory"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_0odxb")
+text = "Runewords"
 
-[node name="Label4" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=993612190]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer" unique_id=756094460]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Duskdeep"
+size_flags_vertical = 3
 
-[node name="Label5" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1172180591]
+[node name="GrailTabs" type="TabContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer" unique_id=359508730]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "The Face of Horror"
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lswn8")
+current_tab = 0
+tabs_visible = false
 
-[node name="Label6" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=2038567218]
+[node name="GrailFiltersUnique" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs" unique_id=505108792 node_paths=PackedStringArray("filters", "filter_titles")]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Wormskull"
+size_flags_horizontal = 3
+script = ExtResource("2_4c57u")
+filters = {
+"Armor": NodePath("VBoxContainer2/GridContainer"),
+"Misc": NodePath("VBoxContainer3/GridContainer"),
+"Uber": NodePath("VBoxContainer4/GridContainer"),
+"Weapon": NodePath("VBoxContainer/GridContainer")
+}
+filter_titles = {
+"Armor": NodePath("VBoxContainer2/PanelContainer/MarginContainer/Label"),
+"Misc": NodePath("VBoxContainer3/PanelContainer/MarginContainer/Label"),
+"Uber": NodePath("VBoxContainer4/PanelContainer/MarginContainer/Label"),
+"Weapon": NodePath("VBoxContainer/PanelContainer/MarginContainer/Label")
+}
+metadata/_tab_index = 0
 
-[node name="Label7" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=525920760]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique" unique_id=335891220]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Howltusk"
 
-[node name="Label8" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=156763555]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer" unique_id=1756821468]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Undead Crown"
+theme_override_styles/panel = ExtResource("6_getpj")
 
-[node name="Label9" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=784135488]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/PanelContainer" unique_id=695306924]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Peasant Crown"
+theme_override_constants/margin_left = 8
 
-[node name="Label10" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1825671940]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/PanelContainer/MarginContainer" unique_id=2029782902]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Rockstopper"
+text = "Weapon"
 
-[node name="Label11" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=2007868549]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer" unique_id=1603017658]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Stealskull"
+columns = 3
 
-[node name="Label12" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=548857267]
+[node name="Button15" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2018140696]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Darksight Helm"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Axe 1H"
 
-[node name="Label13" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=190996304]
+[node name="Button16" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=475478333]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Blackhorn's Face"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Axe 2H"
 
-[node name="Label14" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=32099792]
+[node name="Button14" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2081190607]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Vampire Gaze"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Mace 1H"
 
-[node name="Label15" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1412930188]
+[node name="Button17" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1663740145]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Crown of Thieves"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Mace 2H"
 
-[node name="Label16" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=2112780758]
+[node name="Button13" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=134687490]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Harlequin Crest"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Sword 1H"
 
-[node name="Label17" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1258135767]
+[node name="Button18" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1748794854]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Steel Shade"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Sword 2H"
 
-[node name="Label18" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=152115182]
+[node name="Button12" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=98015524]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Andariel's Visage"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Dagger"
 
-[node name="Label19" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=2030792641]
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2070783223]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Giant Skull"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Throwing"
 
-[node name="Label20" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=502862561]
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1056360276]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Veil of Steel"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Spear"
 
-[node name="Label21" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1034147740]
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1530272501]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Nightwing's Veil"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Polearm"
 
-[node name="Label22" type="Label" parent="MarginContainer/Stash/MainSelector/Grail/PanelContainer/GrailRoot/FoldableContainer/FoldableContainer/GridContainer" unique_id=1272255776]
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=651844904]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
-text = "Crown of Ages"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Bow"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=221059307]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Crossbow"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1917879840]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Staff"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1385818721]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Wand"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=754447850]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Scepter"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1491408791]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Claw"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1535976645]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Orb"
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2139087177]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Amazon"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique" unique_id=2067354437]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2" unique_id=1216649130]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/PanelContainer" unique_id=1827845929]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/PanelContainer/MarginContainer" unique_id=1586059394]
+layout_mode = 2
+text = "Armor"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2" unique_id=24450875]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=17869477]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Helm"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1036892349]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Circlet"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=545234586]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Armor"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1451058388]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Shield"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=115968314]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Gloves"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=294825014]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Boots"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=154081696]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Belt"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1662653920]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Druid"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1702532300]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Barbarian"
+
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1984113284]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Paladin"
+
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1346428159]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Necromancer"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique" unique_id=928596445]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3" unique_id=1032380023]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/PanelContainer" unique_id=911346178]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/PanelContainer/MarginContainer" unique_id=838699368]
+layout_mode = 2
+text = "Misc"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3" unique_id=1700798472]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=2088404476]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Arrows"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=408093740]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Bolts"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1385761184]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Amulet"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=2108861789]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Ring"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=253045142]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Charm"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1585511698]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Jewel"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1487454153]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Map"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique" unique_id=162424846]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4" unique_id=432687231]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/PanelContainer" unique_id=1121049921]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/PanelContainer/MarginContainer" unique_id=822198351]
+layout_mode = 2
+text = "Uber"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4" unique_id=1628526422]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/GridContainer" unique_id=524957934]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "DClone"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/GridContainer" unique_id=187809402]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_kek77")
+text = "Rathma"
+
+[node name="GrailFiltersSet" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs" unique_id=810341864 node_paths=PackedStringArray("filters", "filter_titles")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_4c57u")
+filters = {
+"Class-Focused": NodePath("VBoxContainer3/GridContainer"),
+"Common": NodePath("VBoxContainer/GridContainer"),
+"Uncommon": NodePath("VBoxContainer2/GridContainer")
+}
+filter_titles = {
+"Class-Focused": NodePath("VBoxContainer3/PanelContainer/MarginContainer/Label"),
+"Common": NodePath("VBoxContainer/PanelContainer/MarginContainer/Label"),
+"Uncommon": NodePath("VBoxContainer2/PanelContainer/MarginContainer/Label")
+}
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet" unique_id=1031492967]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer" unique_id=344390466]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/PanelContainer" unique_id=63221824]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/PanelContainer/MarginContainer" unique_id=1740212099]
+layout_mode = 2
+text = "Common"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer" unique_id=1475914059]
+layout_mode = 2
+columns = 2
+
+[node name="Button15" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1349946568]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Arctic Gear"
+
+[node name="Button14" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=727233218]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Hsarus's Defense"
+
+[node name="Button13" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=939250323]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Berserker's Arsenal"
+
+[node name="Button12" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=585677696]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Cleglaw's Brace"
+
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=714652667]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Infernal Tools"
+
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1861017745]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Death's Disguise"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=2026650155]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Sigon's Complete Steel"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1077177189]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Isenhart's Armory"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=94224749]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Civerb's Vestments"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=699726678]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Cathan's Traps"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=745969671]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Angelic Raiment"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1184221229]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Vidala's Rig"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1417433919]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Arcanna's Tricks"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1399212364]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Iratha's Finery"
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=271748387]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Milabrega's Regalia"
+
+[node name="Button16" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer/GridContainer" unique_id=1526479676]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Tancred's Battlegear"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet" unique_id=1870831592]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2" unique_id=1584695332]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/PanelContainer" unique_id=270330576]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/PanelContainer/MarginContainer" unique_id=1442640920]
+layout_mode = 2
+text = "Uncommon"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2" unique_id=296509807]
+layout_mode = 2
+columns = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=1313113037]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Cow King's Leathers"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=724919947]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Sander's Folly"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=59387523]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Hwanin's Majesty"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=1061272798]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Orphan's Call"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=596929737]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "The Disciple"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=517797365]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Naj's Ancient Visage"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=799962238]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Sazabi's Grand Tribute"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=146052256]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Heaven's Breathren"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer2/GridContainer" unique_id=67120409]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Bul-Khatos's Children"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet" unique_id=239766090]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3" unique_id=1896153924]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/PanelContainer" unique_id=169959487]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/PanelContainer/MarginContainer" unique_id=1370806695]
+layout_mode = 2
+text = "Class-Focused"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3" unique_id=2049550848]
+layout_mode = 2
+columns = 2
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=1075455996]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Aldur's Watchtower"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=833962620]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Griswold's Legacy"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=467591017]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Immortal King"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=2097245958]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "M'avina's Battle Hymn"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=492919378]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Natalya's Odium"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=901686033]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Tal Rasha's Wrappings"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersSet/VBoxContainer3/GridContainer" unique_id=2044008143]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_lswn8")
+text = "Trang-Oul's Avatar"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=136509385]
 visible = false

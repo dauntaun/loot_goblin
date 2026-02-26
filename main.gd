@@ -217,10 +217,10 @@ func _on_setting_changed(value: Variant, setting: String) -> void:
 				_init_pd2_folder(value)
 		"hardcore_shared_stash":
 			if CommandQueue.is_command_queue_clear():
-				var shared_stash_path = GlobalSettings.get_shared_stash_path()
+				var shared_stash_path := GlobalSettings.get_shared_stash_path()
 				if FileAccess.file_exists(shared_stash_path):
 					_init_stash_file(shared_stash_path)
-				var goblin_stash_path = GlobalSettings.get_current_goblin_stash_path()
+				var goblin_stash_path := GlobalSettings.get_current_goblin_stash_path()
 				_init_goblin_stash_file(goblin_stash_path)
 		"background_color":
 			settings_gui.background_color_rect.color = GlobalSettings.background_color

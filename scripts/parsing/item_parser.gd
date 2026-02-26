@@ -19,6 +19,7 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_d
 			item.length = (cursor._bit_pos>>3) - item.start_byte
 			item.item_id = item_id_counter
 			ItemRegistry.item_data_register[item_id_counter] = item_data
+			ItemRegistry.item_register[item_id_counter] = item
 			item_id_counter += 1
 			items.append(item)
 		else:

@@ -35,6 +35,7 @@ StashRegistry="*uid://d0rkkrn84il45"
 ItemSelection="*uid://di02nshq5a7nt"
 CommandQueue="*uid://du1fmx8c8qvtd"
 TooltipHandler="*uid://cj6ci1s2nrup"
+Grail="*uid://dtwsh4ow8di8y"
 
 [debug]
 

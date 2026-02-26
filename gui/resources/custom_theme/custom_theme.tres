@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://45i6hwpxcbin"]
 
 [ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="1_caio8"]
+[ext_resource type="StyleBox" uid="uid://b8ij3n1qpkg5o" path="res://gui/resources/custom_theme/tree_title_normal_stylebox.tres" id="2_myft0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yaehf"]
 content_margin_left = 4.0
@@ -98,6 +99,26 @@ content_margin_bottom = 4.0
 bg_color = Color(0, 0, 0, 0.6)
 border_width_bottom = 2
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w48qg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mycd"]
+bg_color = Color(0.44162327, 0.4416229, 0.44162297, 0.59607846)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_272bh"]
+bg_color = Color(0.1882353, 0.1882353, 0.1882353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
 bg_color = Color(0.44909924, 0.4490993, 0.44909912, 1)
 
@@ -125,6 +146,15 @@ TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_myft0")
 ToggleGroupButton/base_type = &"Button"
 ToggleGroupButton/styles/pressed = SubResource("StyleBoxFlat_caio8")
 Tree/colors/title_button_color = Color(0.875, 0.875, 0.875, 1)
+Tree/styles/focus = SubResource("StyleBoxEmpty_w48qg")
+Tree/styles/hovered_selected = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/hovered_selected_focus = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/panel = SubResource("StyleBoxFlat_w48qg")
+Tree/styles/selected = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/selected_focus = SubResource("StyleBoxFlat_7mycd")
+Tree/styles/title_button_hover = SubResource("StyleBoxFlat_272bh")
+Tree/styles/title_button_normal = ExtResource("2_myft0")
+Tree/styles/title_button_pressed = SubResource("StyleBoxFlat_272bh")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_kq58d")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_seu75")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_seu75")

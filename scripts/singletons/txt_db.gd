@@ -2,6 +2,40 @@ extends Node
 
 const CACHE_PATH := "user://txtdb_cache.res"
 
+const TREASURE_CLASS_ITEMS := {
+ "TC87": ["6ws", "7wa", "nef", "7ws", "7gd", "uhc", "urn", "ci3", "obf", "drf", "7wc", "7gi", "baf", "6lw", "7bl", "uhb", "7wd", "uhg", "uar", "7qr", "7gm", "7gw", "paf", "7p7", "7ts"],
+ "TC84": ["utp", "uh9", "7ga", "7ls", "6rx", "7kr", "7st", "7h7", "uth", "7wh", "uul", "6bs", "dre", "utc", "obe", "uts", "pae"],
+ "TC81": ["uow", "7fb", "bae", "7pa", "7gl", "uld", "ame", "utb", "7tw", "uhm", "nee", "6sw", "7mp", "7b8"],
+ "TC78": ["upl", "7b7", "7bs", "6l7", "utg", "drd", "7lw", "amc", "ult", "7fl", "7qs", "ush", "7bk"],
+ "TC75": ["xts", "7cs", "6hx", "7bt", "usk", "obd", "bad", "6cs", "urs", "7bw", "ucl", "7br", "umc", "7cr"],
+ "TC72": ["7gs", "7s7", "umb", "7mt", "6s7", "ung", "72a", "7di", "uit", "pac", "7s8", "ci2", "utu"],
+ "TC69": ["ulm", "upk", "obc", "6mx", "6cb", "neg", "7fc", "7m7", "ula", "drc", "umg", "uvc", "7xf", "uea"],
+ "TC66": ["7vo", "uui", "7tk", "bac", "7yw", "7cm", "urg", "amf", "xar", "ned", "uvb", "7ba", "6ls", "7tr"],
+ "TC63": ["7sm", "drb", "uhn", "xul", "7sb", "ukp", "uml", "amd", "7sc", "7ma", "pab", "6lb", "7ax", "ulc", "7pi", "uvg", "7wb"],
+ "TC60": ["6hb", "7dg", "bab", "xth", "uuc", "obb", "7sr", "72h", "xtp", "neb", "7o7", "uap", "7ar", "6ss", "ulb"],
+ "TC57": ["xts", "ulg", "7ss", "7la", "7ta", "xrn", "9wc", "6lx", "7wn", "paa", "xld", "6sb", "dra", "7sp"],
+ "TC54": ["8rx", "ci1", "9gd", "uhl", "8lw", "nea", "7ja", "9gm", "amb", "9qr", "baa", "xlt", "7ha", "7cl", "zhb", "xhb", "xhg"],
+ "TC51": ["9gi", "9wd", "ztb", "xtb", "xtg", "9h9", "ne9", "am9", "9gw", "9tw", "xh9", "pa9", "9ts", "xow", "8sw", "xpl", "dr9", "ba9", "oba", "xhm", "9fb"],
+ "TC48": ["8hx", "9wh", "am7", "xrs", "xsk", "9ga", "9b9", "xsh", "dr8", "9p9", "8l8", "9wa", "pa8", "8ws", "ob9", "9bl"],
+ "TC45": ["xhl", "am8", "9mp", "9sm", "9ws", "xit", "9lw", "xmg", "9fl", "xhn", "zmb", "xmb", "ba8", "9ls", "ne8", "8s8", "xcl", "9bw", "9gs", "9m9", "9st"],
+ "TC42": ["pa7", "aar", "xpk", "9s8", "9bs", "xlm", "9kr", "ob8", "9cm", "8bs", "dr7", "9cs", "9qs", "9b8", "xng", "xrg", "8mx", "9s9", "9bt", "xtu", "9br"],
+ "TC39": ["am6", "9ba", "9vo", "8cs", "ob7", "xla", "9cr", "8cb", "92h", "ne7", "ful", "9pi", "9mt", "ba7", "9yw", "xml", "xkp", "zvb", "xvb", "xvg", "9fc", "92a", "9bk"],
+ "TC36": ["pa6", "dr6", "8lx", "8lb", "ama", "9ax", "xuc", "xlb", "zlb", "9xf", "9ma", "9ta", "9tr", "xui", "ltp", "9la", "9pa", "8ls", "9di", "xea", "9sb", "xap", "wsc"],
+ "TC33": ["9sp", "9tk", "9wn", "xlg", "ob6", "gth", "gma", "gsd", "9ha", "ba6", "9b7", "lwb", "ne6", "9dg", "8hb", "rxb", "9sc", "9sr", "9wb"],
+ "TC30": ["crn", "9cl", "8sb", "fld", "9ss", "gts", "hal", "8ss", "9ar", "tsp", "9ja"],
+ "TC27": ["flb", "hgl", "gix", "hbl", "gwn", "am4", "hbt", "am2", "swb", "wax", "whm", "wsd"],
+ "TC24": ["ba5", "bsw", "bld", "bhm", "ci0", "pa5", "ne5", "ob5", "glv", "gax", "ghm", "hxb", "lbb", "am5", "pik", "plt", "skr", "dr5", "tow", "wst"],
+ "TC21": ["pa4", "ba4", "btl", "bsh", "dr4", "fla", "ne4", "gis", "tbl", "tgl", "tbt", "lsd", "msk", "mau", "mpi", "pax", "spt", "spl", "wsp"],
+ "TC18": ["dr3", "bal", "btx", "bst", "bwn", "brn", "brs", "ob4", "clw", "clm", "pa3", "ba3", "kri", "am3", "sbb", "am1", "ne3"],
+ "TC15": ["bkf", "bsd", "ces", "chn", "mxb", "2ax", "fhl", "gsc", "kit", "mst", "scl", "scy", "ssp"],
+ "TC12": ["mbl", "bax", "mbt", "mgl", "cbw", "crs", "flc", "cst", "axf", "hlm", "lrg", "pil", "rng", "ob3", "spk", "2hs", "vou", "ywn"],
+ "TC9": ["axe", "dir", "ba2", "dr2", "vbt", "vgl", "vbl", "lbw", "lst", "mac", "pa2", "sbr", "ob2", "stu", "tax", "tri", "wrb", "ne2"],
+ "TC6": ["bar", "hla", "hbw", "ba1", "lax", "lxb", "ne1", "scm", "skp", "sml", "spr", "spc", "pa1", "dr1"],
+ "TC3": ["buc", "cap", "clb", "dgr", "ob1", "hax", "jav", "ktr", "lea", "lbt", "lgl", "qui", "lbl", "scp", "sbw", "sst", "ssd", "tkf", "wnd"],
+}
+
+const DCLONE_CODES := ["utb", "uhl", "uth", "7qr", "7bs"]
+const RATHMA_CODES := ["rbe", "rar", "ram"]
 const CLASS_ID_BY_CODE: Dictionary[String, int] = {
 	"ama": 0,
 	"sor": 1,
@@ -118,7 +152,6 @@ var magic_suffix: Dictionary
 var rare_prefix: Dictionary
 var rare_suffix: Dictionary
 var unique_items: Dictionary
-var valid_uniques: Dictionary
 var set_items: Dictionary
 var item_types: Dictionary
 var runewords: Dictionary
@@ -160,7 +193,6 @@ func _load_from_cache(cache: CachedTxtDB) -> void:
 	rare_prefix = cache.rare_prefix
 	rare_suffix = cache.rare_suffix
 	unique_items = cache.unique_items
-	valid_uniques = cache.valid_uniques
 	set_items = cache.set_items
 	runewords_parsed = cache.runewords_parsed
 	damage_ranges = cache.damage_ranges
@@ -181,6 +213,9 @@ func _load_from_cache(cache: CachedTxtDB) -> void:
 	D2Colors.gold_item_codes = cache.gold_item_codes
 	D2Colors.purple_item_codes = cache.purple_item_codes
 	D2Colors.red_item_codes = cache.red_item_codes
+	# Grail
+	Grail.grail_uniques = cache.grail_uniques
+	Grail.grail_sets = cache.grail_sets
 
 
 func _save_database_cache() -> void:
@@ -194,7 +229,6 @@ func _save_database_cache() -> void:
 	cache.rare_prefix = rare_prefix
 	cache.rare_suffix = rare_suffix
 	cache.unique_items = unique_items
-	cache.valid_uniques = valid_uniques
 	cache.set_items = set_items
 	cache.item_types = item_types
 	cache.runewords = runewords
@@ -217,6 +251,9 @@ func _save_database_cache() -> void:
 	cache.gold_item_codes = D2Colors.gold_item_codes
 	cache.purple_item_codes = D2Colors.purple_item_codes
 	cache.red_item_codes = D2Colors.red_item_codes
+	# Grail
+	cache.grail_uniques = Grail.grail_uniques
+	cache.grail_sets = Grail.grail_sets
 	ResourceSaver.save(cache, CACHE_PATH)
 
 
@@ -224,7 +261,7 @@ func _build_database() -> void:
 	# -----------------------------
 	# Load Item Codes
 	# -----------------------------
-	weapon_codes = _load_csv_as_dict("txt/Weapons.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "mindam", "maxdam", "2handmindam", "2handmaxdam", "minmisdam", "maxmisdam", "namestr"], true)
+	weapon_codes = _load_csv_as_dict("txt/Weapons.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "mindam", "maxdam", "2handmindam", "2handmaxdam", "minmisdam", "maxmisdam", "namestr", "2handed"], true)
 	armor_codes = _load_csv_as_dict("txt/Armor.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr"], true)
 	misc_codes = _load_csv_as_dict("txt/Misc.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr"], true)
 	item_types = _load_csv_as_dict("txt/ItemTypes.txt", "Code", ["ItemType", "Equiv1", "Equiv2", "Class"], true)
@@ -238,8 +275,8 @@ func _build_database() -> void:
 	magic_suffix = _load_csv_as_dict("txt/MagicSuffix.txt", "", ["Name", "mod1code"], true)
 	rare_prefix = _load_csv_as_dict("txt/RarePrefix.txt", "", ["name"])
 	rare_suffix = _load_csv_as_dict("txt/RareSuffix.txt", "", ["name"])
-	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code"], true)
-	set_items = _load_csv_as_dict("txt/SetItems.txt", "", ["index", "lvl req"], true)
+	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "prop9", "prop10", "prop11", "prop12"], true)
+	set_items = _load_csv_as_dict("txt/SetItems.txt", "", ["index", "set", "item", "rarity", "lvl", "lvl req", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8"], true)
 	runewords = _load_csv_as_dict("txt/Runes.txt", "")
 	gems = _load_csv_as_dict("txt/Gems.txt", "code")
 	properties = _load_csv_as_dict("txt/Properties.txt", "code", ["code", "stat1", "stat2", "stat3", "stat4"])
@@ -378,42 +415,158 @@ func _build_database() -> void:
 				if row[key] != "":
 					runes.append(row[key])
 			runewords_parsed[rw_name] = runes
-	# Setup uniques
+	# Setup grail sets
+	var set_entries: Array[GrailEntry]
+	for set_id: int in set_items:
+		var row: Dictionary = set_items[set_id]
+		var set_entry := GrailEntry.new()
+		set_entry.item_rarity = D2Item.ItemRarity.SET
+		var code_string: String = row["item"]
+		# Setup tier and subcategory
+		var tier := get_item_tier(code_string)
+		set_entry.item_tier = D2Item.ItemTier.keys()[tier].capitalize()
+		# Setup subcategory
+		set_entry.subcategory = localize(row["set"])
+		var main_category: String
+		if set_entry.subcategory in Grail.common_sets:
+			main_category = "Common"
+		elif set_entry.subcategory in Grail.uncommon_sets:
+			main_category = "Uncommon"
+		else:
+			main_category = "Class-Focused"
+		set_entry.main_category = main_category
+		# Setup TC
+		set_entry.item_tc = get_item_tc(code_string)
+		# Setup base name
+		set_entry.item_base_name = get_item_base_name(code_string)
+		# Setup eth
+		var eth_possible: bool
+		var has_eth: bool
+		var has_indestruct: bool
+		for i: int in range(1, 9):
+			var prop_string: String = row["prop%d" % i]
+			if prop_string == "ethereal":
+				has_eth = true
+				break
+			elif prop_string == "indestruct":
+				has_indestruct = true
+		var type := get_item_type(code_string)
+		set_entry.item_type = type
+		eth_possible = has_eth or (not has_indestruct) and not type in ["Bow", "Amazon Bow", "Crossbow", "Amulet", "Ring"]
+		set_entry.eth_possible = eth_possible
+		set_entry.txt_id = set_id
+		set_entry.item_name = localize(row["index"])
+		set_entry.item_qlvl = int(row["lvl"])
+		set_entries.append(set_entry)
+		
+	# Setup grail uniques
+	var unique_entries: Array[GrailEntry]
 	for unique_id: int in unique_items:
 		var row: Dictionary = unique_items[unique_id]
 		if int(row["enabled"]) != 1 or int(row["lvl"]) == 0:
 			continue
-
-		var unique_row := {
-			"name": localize(row["index"]),
-			"id": unique_id,
-			"code": row["code"],
-			"norm_code": all_codes[row["code"]]["normcode"],
-			"exceptional_code": all_codes[row["code"]]["ubercode"],
-			"elite_code": all_codes[row["code"]]["ultracode"],
-		}
-
-		var item_class: String
-		if item_is_weapon(row["code"]):
-			item_class = "weapon"
+		var unique_entry := GrailEntry.new()
+		unique_entry.item_rarity = D2Item.ItemRarity.UNIQUE
+		var code_string: String = row["code"]
+		# Setup main category
+		var main_category: String
+		if code_string in DCLONE_CODES:
+			main_category = "Uber"
+		elif code_string in RATHMA_CODES:
+			main_category = "Uber"
+		elif item_is_weapon(row["code"]):
+			main_category = "Weapon"
 		elif item_is_armor(row["code"]):
-			item_class = "armor"
+			main_category = "Armor"
 		else:
-			item_class = "misc"
-
-		var item_type: String = get_item_type(row["code"])
-		var item_tier: int = get_item_tier(row["code"]) # D2Item.ItemTier
-
-		if not valid_uniques.has(item_class):
-			valid_uniques[item_class] = {}
-
-		if not valid_uniques[item_class].has(item_type):
-			valid_uniques[item_class][item_type] = {}
-
-		if not valid_uniques[item_class][item_type].has(item_tier):
-			valid_uniques[item_class][item_type][item_tier] = []
-
-		valid_uniques[item_class][item_type][item_tier].append(unique_row)
+			main_category = "Misc"
+		unique_entry.main_category = main_category
+		# Setup subcategory
+		var type := get_item_type(code_string)
+		unique_entry.item_type = type
+		var subcategory := type
+		if code_string in DCLONE_CODES:
+			subcategory = "DClone"
+		elif code_string in RATHMA_CODES:
+			subcategory = "Rathma"
+		elif type in ["Small Charm", "Large Charm", "Grand Charm"]:
+			subcategory = "Charm"
+		elif type in ["Mace", "Club", "Hammer"]:
+			if item_is_twohanded(code_string):
+				subcategory = "Mace 2H"
+			else:
+				subcategory = "Mace 1H"
+		elif type == "Sword":
+			if item_is_twohanded(code_string):
+				subcategory = "Sword 2H"
+			else:
+				subcategory = "Sword 1H"
+		elif type == "Axe":
+			if item_is_twohanded(code_string):
+				subcategory = "Axe 2H"
+			else:
+				subcategory = "Axe 1H"
+		elif type in ["Throwing Axe", "Throwing Knife", "Javelin"]:
+			subcategory = "Throwing"
+		elif type in ["Amazon Bow", "Amazon Spear", "Amazon Javelin"]:
+			subcategory = "Amazon"
+		elif type == "Bow Quiver":
+			subcategory = "Arrows"
+		elif type == "Crossbow Quiver":
+			subcategory = "Bolts"
+		elif type == "Map T5":
+			subcategory = "Map"
+		unique_entry.subcategory = subcategory
+		# Setup tier
+		var tier := get_item_tier(code_string)
+		unique_entry.item_tier = D2Item.ItemTier.keys()[tier].capitalize()
+		# Setup TC
+		unique_entry.item_tc = get_item_tc(code_string)
+		# Setup base name
+		unique_entry.item_base_name = get_item_base_name(code_string)
+		# Setup eth
+		var eth_possible: bool
+		var has_eth: bool
+		var has_indestruct: bool
+		for i: int in range(1, 13):
+			var prop_string: String = row["prop%d" % i]
+			if prop_string == "ethereal":
+				has_eth = true
+				break
+			elif prop_string == "indestruct":
+				has_indestruct = true
+		eth_possible = has_eth or (not has_indestruct) and main_category != "Misc" and not type in ["Bow", "Amazon Bow", "Crossbow", "Amulet"]
+		unique_entry.eth_possible = eth_possible
+		unique_entry.txt_id = unique_id
+		unique_entry.item_name = localize(row["index"])
+		unique_entry.item_qlvl = int(row["lvl"])
+		unique_entries.append(unique_entry)
+	# Sort entries
+	var tier_order := ["Normal", "Exceptional", "Elite"]
+	var sort_grail_entries := func(a: GrailEntry, b: GrailEntry, main_category_order: Array, subcategory_order: Array) -> bool:
+		if a.main_category != b.main_category:
+			return main_category_order.find(a.main_category) < main_category_order.find(b.main_category)
+		if a.subcategory != b.subcategory:
+			return subcategory_order.find(a.subcategory) < subcategory_order.find(b.subcategory)
+		#if a.item_type != b.item_type:
+			#return a.item_type.naturalnocasecmp_to(b.item_type) < 0
+		if a.item_tier != b.item_tier:
+			return tier_order.find(a.item_tier) < tier_order.find(b.item_tier)
+		if a.item_tc != b.item_tc:
+			return a.item_tc.naturalnocasecmp_to(b.item_tc) < 0
+		return a.item_qlvl < b.item_qlvl
+	# Sort grail entries
+	unique_entries.sort_custom(sort_grail_entries.bind(Grail.unique_main_categories, Grail.unique_subcategories))
+	var grail_uniques: Dictionary[int, GrailEntry]
+	for unique_entry: GrailEntry in unique_entries:
+		grail_uniques[unique_entry.txt_id] = unique_entry
+	Grail.grail_uniques = grail_uniques
+	
+	set_entries.sort_custom(sort_grail_entries.bind(Grail.set_main_categories, Grail.set_subcategories))
+	var grail_sets: Dictionary[int, GrailEntry]
+	for set_entry: GrailEntry in set_entries:
+		grail_sets[set_entry.txt_id] = set_entry
+	Grail.grail_sets = grail_sets
 	
 	# Setup damage ranges
 	for code_string: String in weapon_codes:
@@ -465,11 +618,16 @@ func build_gem_props(gem_mods: Dictionary) -> Array:
 func item_is_weapon(code_string: String) -> bool:
 	return weapon_codes.has(code_string)
 
+func item_is_twohanded(code_string: String) -> bool:
+	if weapon_codes.has(code_string):
+		return weapon_codes[code_string]["2handed"] == "1"
+	return false
+
 func item_is_armor(code_string: String) -> bool:
 	return armor_codes.has(code_string)
 
 func item_is_shield(code_string: String) -> bool:
-	if armor_codes.get(code_string):
+	if armor_codes.has(code_string):
 		return armor_codes[code_string]["type"] in ["shie", "head", "ashd"]
 	return false
 
@@ -488,6 +646,12 @@ func item_is_stackable(code_string: String) -> bool:
 func get_item_type(code_string: String) -> String:
 	var type_code: String = all_codes[code_string]["type"] 
 	return item_types[type_code]["ItemType"]
+
+func get_item_tc(code_string: String) -> String:
+	for tc: String in TREASURE_CLASS_ITEMS:
+		if code_string in TREASURE_CLASS_ITEMS[tc]:
+			return tc
+	return ""
 
 func get_item_class(code_string: String) -> D2Item.ClassSpecific:
 	var item_type: String = all_codes[code_string]["type"] 
