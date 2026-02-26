@@ -5,6 +5,7 @@ const TREE_MAX_ITEMS_PER_PAGE := 150
 
 # Main panel
 @onready var tree_view: StashTreeView = %TreeView
+@onready var grid_view: StashGridView = %GridView
 # Left panel
 @onready var quick_filters: QuickFiltersGUI = %QuickFilters
 # Bottom panel
@@ -73,6 +74,7 @@ func _refresh_current_page(restore_selection: bool = true) -> void:
 
 	_items_in_page = items.slice(start, end)
 	tree_view.rebuild_display(_items_in_page)
+	grid_view.rebuild_display(_items_in_page)
 	ItemSelection.clear_selection()
 	if restore_selection: 
 		tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)

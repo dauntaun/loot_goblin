@@ -11,12 +11,13 @@
 [ext_resource type="Script" uid="uid://dhj51n3tix73q" path="res://gui/item_transfer_gui.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
 [ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
-[ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_info.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_tooltip.tscn" id="5_kek77"]
 [ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
 [ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="6_getpj"]
 [ext_resource type="PackedScene" uid="uid://tgixuggfwchr" path="res://gui/pd2_stash/character_select/character_button.tscn" id="7_2cqfq"]
 [ext_resource type="Script" uid="uid://bkfjnit6hsnbl" path="res://gui/pd2_stash/character_select/character_select.gd" id="7_yaehf"]
 [ext_resource type="PackedScene" uid="uid://cbtd6ejojofhq" path="res://gui/pd2_stash/character_equip.tscn" id="8_vivmo"]
+[ext_resource type="Script" uid="uid://dutwwrhxbcald" path="res://gui/goblin_stash/stash_grid_view.gd" id="9_0odxb"]
 [ext_resource type="PackedScene" uid="uid://bm5acbi6py5c4" path="res://gui/pd2_stash/stash_page/materials_page_gui.tscn" id="10_yaehf"]
 [ext_resource type="Script" uid="uid://cl6xvv1804apr" path="res://gui/view_selector.gd" id="11_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bbcte44thiwyw" path="res://gui/settings/settings_gui.tscn" id="16_82xsv"]
@@ -138,6 +139,8 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
 content_margin_right = 4.0
@@ -178,7 +181,7 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_1u8w0"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_a6jrf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
 
@@ -780,8 +783,16 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=2024813567]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=138644182]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
+current_tab = 1
+tabs_visible = false
+
+[node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -795,6 +806,27 @@ hide_root = true
 select_mode = 1
 auto_tooltip = false
 script = ExtResource("3_h2yge")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=1799834401]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer" unique_id=562799037]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridView" type="Container" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer/PanelContainer" unique_id=2117013028]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("9_0odxb")
+column_mode = 1
+minimum_column_width = 330
+metadata/_custom_type_script = "uid://2jh0bl5elah8"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=1240700525]
 layout_mode = 2
@@ -887,7 +919,7 @@ columns = 4
 
 [node name="Button3" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/CharacterSelect" unique_id=1186643183 instance=ExtResource("7_2cqfq")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_1u8w0")
+button_group = SubResource("ButtonGroup_a6jrf")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2" unique_id=661458001]
 layout_mode = 2
@@ -1075,7 +1107,7 @@ layout_mode = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 0
 
-[node name="ItemInfo" parent="MarginContainer/Stash/MainSelector/MainView/VBoxContainer/VBoxContainer/Right/SelectedItemTooltipDisplay/ScrollContainer" unique_id=592829503 instance=ExtResource("5_kek77")]
+[node name="ItemInfo" parent="MarginContainer/Stash/MainSelector/MainView/VBoxContainer/VBoxContainer/Right/SelectedItemTooltipDisplay/ScrollContainer" unique_id=983265408 instance=ExtResource("5_kek77")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
