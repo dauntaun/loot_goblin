@@ -44,7 +44,7 @@ func init_characters(characters: Array[D2CharacterSaveFile]) -> void:
 func _init_character_inventory(character: D2CharacterSaveFile) -> void:
 	if _current_character == character:
 		return
-	character.read_item_lists()
+	#character.read_item_lists()
 	var character_item_list := character.item_list.get_itemlist()
 	var personal_stash_items := character_item_list.get_stashed_items()
 	var equipped_items := character_item_list.get_equipped_items()

@@ -67,6 +67,7 @@ func load_file() -> void:
 	character_class_code = data.decode_u8(CLASS_BYTE_OFFSET)
 	character_class_name = CLASS_NAMES[character_class_code]
 	character_level = data.decode_u8(LEVEL_BYTE_OFFSET)
+	read_item_lists()
 
 
 func save_file(_path: String) -> void:
@@ -98,7 +99,13 @@ func read_item_lists() -> void:
 	cursor.discard_bits(3 << 3) # No idea why we have to discard 3 bytes
 	item_list = D2ItemList.new(cursor)
 	# Cursor is now at corpse item list
+	if character_name == "Lucky":
+		pass
 	var corpse_items := D2ItemList.new(cursor)
+	if corpse_items._parsed_item_count == 1:
+		cursor.discard_bits(12 << 3)
+		var real_corpse_items := D2ItemList.new(cursor)
+		item_list = real_corpse_items
 	# Cursor is now at merc items
 	if not data.decode_u16(cursor._bit_pos>>3) == MERC_SIGNATURE:
 		push_error("Unknown merc signature")
