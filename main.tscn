@@ -367,14 +367,14 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer" unique_id=1892357379]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=1096904869]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=777277628]
-custom_minimum_size = Vector2(142, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="GoblinView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=777472095]
@@ -397,26 +397,36 @@ action_mode = 0
 button_group = SubResource("ButtonGroup_2cqfq")
 text = "PD2"
 
+[node name="GrailView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/HBoxContainer" unique_id=1228180879]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_2cqfq")
+text = "Grail"
+
 [node name="Views" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1095754745]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("11_ycdy4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
+[node name="SearchHbox" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer" unique_id=517615347]
+[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox" unique_id=517615347]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0rl1p")
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/Label" unique_id=274470479]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/Label" unique_id=274470479]
 layout_mode = 2
 text = "Search:"
 
-[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer" unique_id=1017487358]
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox" unique_id=1017487358]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -428,12 +438,12 @@ script = ExtResource("4_kek77")
 focus_search_shortcut = SubResource("Shortcut_4c57u")
 exit_search_shortcut = SubResource("Shortcut_dg77c")
 
-[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/SearchBar" unique_id=48378324]
+[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/SearchBar" unique_id=48378324]
 unique_name_in_owner = true
 wait_time = 0.08
 one_shot = true
 
-[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/HBoxContainer/SearchBar" unique_id=1049118652]
+[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/SearchBar" unique_id=1049118652]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -499,20 +509,6 @@ theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 text = "Settings"
-
-[node name="GrailView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=231830775 node_paths=PackedStringArray("switch_buttons", "tab_container")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme_type_variation = &"ToggleGroupButton"
-toggle_mode = true
-action_mode = 0
-text = "Grail"
-script = ExtResource("22_1u8w0")
-switch_buttons = [NodePath(".")]
-tab_container = NodePath("../../../../../MainSelector")
-button_mode = 1
 
 [node name="MainSelector" type="TabContainer" parent="MarginContainer/Stash" unique_id=1838158964]
 unique_name_in_owner = true
