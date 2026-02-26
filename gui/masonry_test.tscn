@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c0mkvnx5gsrt1"]
+
+[ext_resource type="Script" uid="uid://2jh0bl5elah8" path="res://gui/masonry_container.gd" id="1_uecua"]
+
+[node name="Control" type="Control" unique_id=245176301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1516573929]
+layout_mode = 0
+offset_right = 621.0
+offset_bottom = 321.0
+
+[node name="MosaicContainer" type="Container" parent="PanelContainer" unique_id=1692589411]
+layout_mode = 2
+script = ExtResource("1_uecua")
+column_mode = null
+metadata/_custom_type_script = "uid://2jh0bl5elah8"
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1091394802]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1122182527]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1460377031]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=761304157]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=975614279]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1946663591]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2

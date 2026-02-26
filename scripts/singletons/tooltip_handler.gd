@@ -1,7 +1,8 @@
 # TooltipHandler
 extends CanvasLayer
 
-const TOOLTIP_SCENE = preload("res://gui/item_tooltip/item_info.tscn")
+const TOOLTIP_SCENE := preload("uid://dfqosv12wxnro")
+
 
 var _tooltip: ItemTooltip
 var _current_item: D2Item

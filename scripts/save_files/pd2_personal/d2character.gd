@@ -99,8 +99,6 @@ func read_item_lists() -> void:
 	cursor.discard_bits(3 << 3) # No idea why we have to discard 3 bytes
 	item_list = D2ItemList.new(cursor)
 	# Cursor is now at corpse item list
-	if character_name == "Lucky":
-		pass
 	var corpse_items := D2ItemList.new(cursor)
 	if corpse_items._parsed_item_count == 1:
 		cursor.discard_bits(12 << 3)
