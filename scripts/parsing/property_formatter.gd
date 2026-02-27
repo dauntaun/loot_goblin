@@ -24,7 +24,7 @@ static func format_properties(props: Array[Dictionary]) -> Array[String]:
 		})
 
 	# 3) Sort
-	formatted_entries.sort_custom(func(a, b):
+	formatted_entries.sort_custom(func(a: Dictionary, b: Dictionary):
 		if a.priority == b.priority:
 			return a.index < b.index
 		return a.priority > b.priority
