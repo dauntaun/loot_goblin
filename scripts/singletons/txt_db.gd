@@ -271,8 +271,8 @@ func _build_database() -> void:
 	# -----------------------------
 	# Magic / Rare / Unique / Set / Runes
 	# -----------------------------
-	magic_prefix = _load_csv_as_dict("txt/MagicPrefix.txt", "", ["Name", "mod1code"], true)
-	magic_suffix = _load_csv_as_dict("txt/MagicSuffix.txt", "", ["Name", "mod1code"], true)
+	magic_prefix = _load_csv_as_dict("txt/MagicPrefix.txt", "", ["Name", "mod1code", "levelreq"], true)
+	magic_suffix = _load_csv_as_dict("txt/MagicSuffix.txt", "", ["Name", "mod1code", "levelreq"], true)
 	rare_prefix = _load_csv_as_dict("txt/RarePrefix.txt", "", ["name"])
 	rare_suffix = _load_csv_as_dict("txt/RareSuffix.txt", "", ["name"])
 	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "prop9", "prop10", "prop11", "prop12"], true)
@@ -699,6 +699,24 @@ func get_item_required_str(code_string: String) -> int:
 
 func get_item_required_dex(code_string: String) -> int:
 	return int(all_codes[code_string].get("reqdex", 0))
+
+func get_item_required_level_from_affixes(prefix_ids: Array[int], suffix_ids: Array[int]) -> int:
+	var max_required_level: int
+	for prefix_id: int in prefix_ids:
+		if prefix_id == 0:
+			continue
+		var required_level := int(magic_prefix[prefix_id - 1].get("levelreq", 0))
+		if required_level > max_required_level:
+			max_required_level = required_level
+		if prefix_id == 451:
+			pass
+	for suffix_id: int in suffix_ids:
+		if suffix_id == 0:
+			continue
+		var required_level := int(magic_suffix[suffix_id - 1].get("levelreq", 0))
+		if required_level > max_required_level:
+			max_required_level = required_level
+	return max_required_level
 
 func get_item_required_level(code_string: String) -> int:
 	return int(all_codes[code_string].get("levelreq", 0))

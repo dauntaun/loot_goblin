@@ -124,18 +124,18 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 			item.magic_prefix_id = cursor.read_bits(11)
 			item.magic_suffix_id = cursor.read_bits(11)
 			item.item_name = TxtDB.get_item_magic_name(code_string, item.magic_prefix_id, item.magic_suffix_id)
+			var req_level_magic := TxtDB.get_item_required_level_from_affixes([item.magic_prefix_id], [item.magic_suffix_id])
+			item.required_level = maxi(item.required_level, req_level_magic)
 		D2Item.ItemRarity.SET:
 			item.set_id = cursor.read_bits(12)
 			item.item_name = TxtDB.get_item_set_name(item.set_id)
 			var req_level_set: int = TxtDB.get_item_required_level_set(item.set_id)
-			if item.required_level < req_level_set:
-				item.required_level = req_level_set
+			item.required_level = maxi(item.required_level, req_level_set)
 		D2Item.ItemRarity.UNIQUE:
 			item.unique_id = cursor.read_bits(12)
 			item.item_name = TxtDB.get_item_unique_name(item.unique_id)
 			var req_level_unique: int = TxtDB.get_item_required_level_unique(item.unique_id)
-			if item.required_level < req_level_unique:
-				item.required_level = req_level_unique
+			item.required_level = maxi(item.required_level, req_level_unique)
 		D2Item.ItemRarity.RARE, D2Item.ItemRarity.CRAFTED:
 			item.first_rare_name_id = cursor.read_bits(8)
 			item.second_rare_name_id = cursor.read_bits(8)
@@ -156,6 +156,8 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 				item.rare_suffix_ids.append(affix_id)
 				item.rare_suffixes.append(TxtDB.get_magic_suffix_name(affix_id))
 				item.rare_suffix_amount += 1
+		var req_level_magic := TxtDB.get_item_required_level_from_affixes(item.rare_prefix_ids, item.rare_suffix_ids)
+		item.required_level = maxi(item.required_level, req_level_magic)
 	
 	if item.has_runeword:
 		item.runeword_id = cursor.read_bits(12)
