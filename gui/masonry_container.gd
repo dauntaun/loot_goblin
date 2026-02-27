@@ -24,6 +24,8 @@ func _position_children() -> void:
 	if not _children:
 		return
 	_recalculate_column_count()
+	if _columns == 0:
+		return
 	_recalculate_column_width()
 	
 	# Track current height of each column

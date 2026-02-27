@@ -1,12 +1,7 @@
-class_name StashTreeView
-extends Tree
-
-signal sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool)
-signal item_clicked(item: D2Item)
+class_name TableItemListController
+extends BasicItemListController
 
 enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3}
-enum RestoreSelection {NONE, BY_INDEX, BY_ITEM}
-enum RestoreFallback {NONE, FIRST_INDEX, LAST_INDEX}
 
 const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.ITEM: {"col_name": "Item", "sort_key": ItemSorter.SortKey.NAME},
@@ -19,30 +14,31 @@ const SORT_COLUMN_HIGHLIGHT: Color = Color(0.808, 0.847, 0.922, 0.027)
 
 var _sort_column: int = 0
 var _sort_ascending: bool = true
-# Selection
-var _prev_selected_index: int
-var _prev_selected_item: D2Item
 var _item_map: Dictionary[D2Item, TreeItem]
 
+var _tree: Tree
 
-func _ready() -> void:
-	column_title_clicked.connect(_on_column_clicked)
+
+func _init(tree: Tree) -> void:
+	_tree = tree
+	_tree.column_title_clicked.connect(_on_column_clicked)
 	for col: int in COL_NAME_MAP:
 		var col_name: String = COL_NAME_MAP[col].col_name
-		set_column_title(col, col_name)
-		set_column_expand(col, false)
-		set_column_custom_minimum_width(col, get_column_width(col) + 20)
-		set_column_title_alignment(col, HORIZONTAL_ALIGNMENT_CENTER)
-	set_column_title_alignment(ColType.ITEM, HORIZONTAL_ALIGNMENT_CENTER)
-	set_column_title_alignment(ColType.TYPE, HORIZONTAL_ALIGNMENT_LEFT)
-	set_column_expand(ColType.ITEM, true)
-	set_column_expand(ColType.TYPE, true)
-	set_column_expand_ratio(ColType.ITEM, 8)
-	set_column_custom_minimum_width(ColType.ITEM, 150)
-	set_column_custom_minimum_width(ColType.TYPE, 90)
+		_tree.set_column_title(col, col_name)
+		_tree.set_column_expand(col, false)
+		_tree.set_column_custom_minimum_width(col, _tree.get_column_width(col) + 20)
+		_tree.set_column_title_alignment(col, HORIZONTAL_ALIGNMENT_CENTER)
+	_tree.set_column_title_alignment(ColType.ITEM, HORIZONTAL_ALIGNMENT_CENTER)
+	_tree.set_column_title_alignment(ColType.TYPE, HORIZONTAL_ALIGNMENT_LEFT)
+	_tree.set_column_expand(ColType.ITEM, true)
+	_tree.set_column_expand(ColType.TYPE, true)
+	_tree.set_column_expand_ratio(ColType.ITEM, 8)
+	_tree.set_column_custom_minimum_width(ColType.ITEM, 150)
+	_tree.set_column_custom_minimum_width(ColType.TYPE, 90)
 	_update_column_titles()
-	item_selected.connect(_on_item_selected)
-	mouse_exited.connect(func(): TooltipHandler.hide_tooltip())
+	_tree.item_selected.connect(_on_item_selected)
+	_tree.mouse_exited.connect(func(): TooltipHandler.hide_tooltip())
+	_tree.gui_input.connect(_gui_input)
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -60,16 +56,16 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func get_item_at_mouse_pos(pos: Vector2) -> D2Item:
-	var row: TreeItem = get_item_at_position(pos)
+	var row: TreeItem = _tree.get_item_at_position(pos)
 	if not row:
 		return null
 	return row.get_metadata(0)
 
 
 func get_tooltip_position() -> Vector2:
-	var row: TreeItem = get_item_at_position(get_local_mouse_position())
-	var row_rect: Rect2 = get_item_area_rect(row)
-	return global_position + row_rect.position + Vector2(0, row_rect.size.y)
+	var row: TreeItem = _tree.get_item_at_position(_tree.get_local_mouse_position())
+	var row_rect: Rect2 = _tree.get_item_area_rect(row)
+	return _tree.global_position + row_rect.position + Vector2(0, row_rect.size.y)
 
 
 func _on_column_clicked(col_index: int, _mouse_button: int) -> void:
@@ -84,9 +80,9 @@ func _on_column_clicked(col_index: int, _mouse_button: int) -> void:
 
 
 func rebuild_display(items: Array[D2Item]) -> void:
-	clear()
+	_tree.clear()
 	_item_map.clear()
-	create_item() # root
+	_tree.create_item() # root
 	for item: D2Item in items:
 		_create_row(item)
 
@@ -94,7 +90,7 @@ func rebuild_display(items: Array[D2Item]) -> void:
 func restore_last_selection(restore_selection: RestoreSelection, restore_fallback := RestoreFallback.NONE) -> void:
 	match restore_selection:
 		RestoreSelection.BY_INDEX:
-			var child_count := get_root().get_child_count()
+			var child_count := _tree.get_root().get_child_count()
 			if child_count >= _prev_selected_index + 1:
 				_select_existing_row_by_index(_prev_selected_index)
 				return
@@ -113,14 +109,14 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 
 
 func _select_existing_row_by_index(index: int) -> void:
-	if get_root().get_child_count() > 0:
-		var row := get_root().get_child(index)
+	if _tree.get_root().get_child_count() > 0:
+		var row := _tree.get_root().get_child(index)
 		if row:
 			row.select(0)
 
 
 func _create_row(item: D2Item) -> void:
-	var row: TreeItem = create_item()
+	var row: TreeItem = _tree.create_item()
 	_item_map[item] = row
 	row.set_text(ColType.ITEM, item.item_name)
 	row.set_text(ColType.TYPE, item.item_type)
@@ -151,7 +147,7 @@ func _update_column_titles() -> void:
 		var col_name: String = COL_NAME_MAP[col]["col_name"]
 		if col == _sort_column:
 			col_name += " ▲" if _sort_ascending else " ▼"
-		set_column_title(col, col_name)
+		_tree.set_column_title(col, col_name)
 
 
 func _apply_sort_column_highlight(row: TreeItem) -> void:
@@ -163,11 +159,11 @@ func _apply_sort_column_highlight(row: TreeItem) -> void:
 
 
 func _on_item_selected() -> void:
-	var selected := get_selected()
-	if selected.get_parent() != get_root(): # Socketed item
+	var selected := _tree.get_selected()
+	if selected.get_parent() != _tree.get_root(): # Socketed item
 		selected = selected.get_parent()
 	var item: D2Item = selected.get_metadata(0)
 	_prev_selected_index = selected.get_index()
 	_prev_selected_item = item
 	
-	item_clicked.emit(item)
+	item_selected.emit(item)

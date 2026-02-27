@@ -4,8 +4,8 @@ extends Control
 const TREE_MAX_ITEMS_PER_PAGE := 150
 
 # Main panel
-@onready var tree_view: StashTreeView = %TreeView
-@onready var grid_view: StashGridView = %GridView
+@onready var tree: Tree = %TreeView
+@onready var tiled_container: MasonryContainer = %GridView
 # Left panel
 @onready var quick_filters: QuickFiltersGUI = %QuickFilters
 # Bottom panel
@@ -19,12 +19,22 @@ var _item_searcher: ItemSearcher
 var _current_page: int
 var _items_in_page: Array[D2Item]
 
+var _current_itemlist_controller: BasicItemListController
+var _table_controller: BasicItemListController
+var _tiled_controller: TiledItemListController
+
 
 func _ready() -> void:
+	# Setup item list controllers
+	_table_controller = TableItemListController.new(tree)
+	_table_controller.item_selected.connect(_on_item_selected)
+	_table_controller.sort_requested.connect(_on_sort_requested)
+	_tiled_controller = TiledItemListController.new(tiled_container)
+	_tiled_controller.item_selected.connect(_submit_new_query)
+	_current_itemlist_controller = _table_controller
+	
 	_item_searcher = ItemSearcher.new()
 	_search_bar.query_submitted.connect(_submit_new_query)
-	tree_view.item_clicked.connect(_on_item_selected)
-	tree_view.sort_requested.connect(_on_sort_requested)
 	quick_filters.quick_filter_changed.connect(_on_quick_filters_changed)
 	ItemSelection.items_transferred.connect(_on_items_transferred)
 	CommandQueue.queue_undone.connect(_reset_page_and_refresh_filters.bind(false))
@@ -51,14 +61,14 @@ func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.PROPERTY, values)
 	
 	_reset_page_and_refresh_filters()
-	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
+	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 
 
 func _submit_new_query(string_query: String) -> void:
 	_item_searcher.set_typed_filter(string_query)
 	
 	_reset_page_and_refresh_filters()
-	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
+	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 
 
 func _reset_page_and_refresh_filters(restore_selection: bool = true) -> void:
@@ -73,11 +83,10 @@ func _refresh_current_page(restore_selection: bool = true) -> void:
 	var end: int = min(start + TREE_MAX_ITEMS_PER_PAGE, items.size())
 
 	_items_in_page = items.slice(start, end)
-	tree_view.rebuild_display(_items_in_page)
-	grid_view.rebuild_display(_items_in_page)
+	_current_itemlist_controller.rebuild_display(_items_in_page)
 	ItemSelection.clear_selection()
 	if restore_selection: 
-		tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
+		_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 	_refresh_buttons()
 
 
@@ -111,7 +120,7 @@ func _on_items_transferred(from: StashRegistry.StashType, to: StashRegistry.Stas
 func _on_items_retrieved() -> void:
 	_clamp_current_page_index()
 	_refresh_current_page()
-	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_INDEX, StashTreeView.RestoreFallback.LAST_INDEX)
+	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
 
 
 func _on_items_stored() -> void:
@@ -123,7 +132,7 @@ func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> v
 	_item_searcher.set_sort(sort_key, sort_ascending)
 	_item_searcher.apply_sort()
 	_refresh_current_page()
-	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
+	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 
 
 func _refresh_buttons() -> void:
@@ -146,5 +155,5 @@ func _on_item_selected(item: D2Item) -> void:
 
 
 func restore_last_selection() -> void:
-	tree_view.restore_last_selection(StashTreeView.RestoreSelection.BY_ITEM)
+	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 	
