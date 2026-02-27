@@ -82,10 +82,16 @@ const PROPERTY_REGEX_PATTERN_BY_CORRUPT_VALUE := {
 	91: "to Monster Defense Per Hit"
 }
 
+@export var compact_tooltip: bool = false
 @onready var label: RichTextLabel = $Label
 
 
+func _ready() -> void:
+	set_compact_tooltip(compact_tooltip)
+
+
 func set_compact_tooltip(enabled: bool) -> void:
+	compact_tooltip = enabled
 	if enabled:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		#label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
