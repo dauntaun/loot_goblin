@@ -140,6 +140,8 @@ bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_a6jrf"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
 content_margin_right = 4.0
@@ -782,12 +784,15 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=138644182]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=138644182 node_paths=PackedStringArray("switch_buttons", "tab_container")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
 current_tab = 0
 tabs_visible = false
+script = ExtResource("22_1u8w0")
+switch_buttons = [NodePath("../PanelContainer/MarginContainer/HBoxContainer/TableView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/TileView")]
+tab_container = NodePath(".")
 
 [node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
 unique_name_in_owner = true
@@ -835,6 +840,25 @@ theme_override_constants/margin_right = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=943492552]
 layout_mode = 2
+
+[node name="TableView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1527674745]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
+
+[node name="TileView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1702542051]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
 
 [node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1946348785]
 unique_name_in_owner = true

@@ -1,11 +1,14 @@
 class_name GoblinStashGUI
 extends Control
 
-const TREE_MAX_ITEMS_PER_PAGE := 150
+const MAX_ITEMS_PER_PAGE := 150
 
 # Main panel
 @onready var tree: Tree = %TreeView
 @onready var tiled_container: MasonryContainer = %GridView
+@onready var table_view_button: Button = %TableView
+@onready var tile_view_button: Button = %TileView
+
 # Left panel
 @onready var quick_filters: QuickFiltersGUI = %QuickFilters
 # Bottom panel
@@ -32,6 +35,8 @@ func _ready() -> void:
 	_tiled_controller = TiledItemListController.new(tiled_container)
 	_tiled_controller.item_selected.connect(_submit_new_query)
 	_current_itemlist_controller = _table_controller
+	table_view_button.pressed.connect(_switch_itemlist_controller.bind(_table_controller))
+	tile_view_button.pressed.connect(_switch_itemlist_controller.bind(_tiled_controller))
 	
 	_item_searcher = ItemSearcher.new()
 	_search_bar.query_submitted.connect(_submit_new_query)
@@ -79,8 +84,8 @@ func _reset_page_and_refresh_filters(restore_selection: bool = true) -> void:
 
 func _refresh_current_page(restore_selection: bool = true) -> void:
 	var items := _item_searcher.get_filtered_items()
-	var start := _current_page * TREE_MAX_ITEMS_PER_PAGE
-	var end: int = min(start + TREE_MAX_ITEMS_PER_PAGE, items.size())
+	var start := _current_page * MAX_ITEMS_PER_PAGE
+	var end: int = min(start + MAX_ITEMS_PER_PAGE, items.size())
 
 	_items_in_page = items.slice(start, end)
 	_current_itemlist_controller.rebuild_display(_items_in_page)
@@ -103,7 +108,7 @@ func _prev_page() -> void:
 
 
 func _get_max_page() -> int:
-	return maxi(0, (_item_searcher.get_filtered_items().size() - 1) / TREE_MAX_ITEMS_PER_PAGE)
+	return maxi(0, (_item_searcher.get_filtered_items().size() - 1) / MAX_ITEMS_PER_PAGE)
 
 
 func _clamp_current_page_index() -> void:
@@ -142,8 +147,8 @@ func _refresh_buttons() -> void:
 	_prev_page_button.disabled = _current_page == 0
 	_next_page_button.disabled = _current_page >= max_page
 	var item_count := _item_searcher.get_filtered_items().size()
-	var start := _current_page * TREE_MAX_ITEMS_PER_PAGE
-	var end: int = min(start + TREE_MAX_ITEMS_PER_PAGE, item_count)
+	var start := _current_page * MAX_ITEMS_PER_PAGE
+	var end: int = min(start + MAX_ITEMS_PER_PAGE, item_count)
 	if max_page > 0:
 		_item_count_label.text = "(%d to %d) of %d items" % [start + 1, end, item_count]
 	else:
@@ -156,4 +161,8 @@ func _on_item_selected(item: D2Item) -> void:
 
 func restore_last_selection() -> void:
 	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
-	
+
+
+func _switch_itemlist_controller(controller: BasicItemListController) -> void:
+	_current_itemlist_controller = controller
+	_reset_page_and_refresh_filters()
