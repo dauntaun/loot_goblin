@@ -2,6 +2,8 @@ extends Node
 
 const CACHE_PATH := "user://txtdb_cache.res"
 
+const CORRUPTED_STAT_ID := 360
+
 const TREASURE_CLASS_ITEMS := {
  "TC87": ["6ws", "7wa", "nef", "7ws", "7gd", "uhc", "urn", "ci3", "obf", "drf", "7wc", "7gi", "baf", "6lw", "7bl", "uhb", "7wd", "uhg", "uar", "7qr", "7gm", "7gw", "paf", "7p7", "7ts"],
  "TC84": ["utp", "uh9", "7ga", "7ls", "6rx", "7kr", "7st", "7h7", "uth", "7wh", "uul", "6bs", "dre", "utc", "obe", "uts", "pae"],
@@ -642,6 +644,12 @@ func item_is_tome(code_string: String) -> bool:
 
 func item_is_stackable(code_string: String) -> bool:
 	return all_codes[code_string]["stackable"] == "1"
+
+func item_is_corrupted(prop_list: Array[Dictionary]) -> bool:
+	for prop: Dictionary in prop_list:
+		if prop.stat_id == CORRUPTED_STAT_ID:
+			return true
+	return false
 
 func get_item_type(code_string: String) -> String:
 	var type_code: String = all_codes[code_string]["type"] 

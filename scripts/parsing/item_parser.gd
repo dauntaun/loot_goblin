@@ -248,7 +248,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 	item.all_properties_formatted = ItemPropertyFormatter.format_properties(item.all_properties)
 	
 	item.build_search_cache()
-	item.is_corrupted = true if item.search_cache.contains("corrupt") else false
+	item.is_corrupted = TxtDB.item_is_corrupted(item.magic_properties)
 	if item.is_weapon:
 		item.base_weapon_damage = TxtDB.get_weapon_damage_range(code_string, item.is_ethereal)
 		item.weapon_damage = item.base_weapon_damage.duplicate_deep()
