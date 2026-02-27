@@ -1,6 +1,87 @@
 class_name ItemTooltip
 extends PanelContainer
 
+const PROPERTY_REGEX_PATTERN_BY_CORRUPT_VALUE := {
+	2: "Enhanced Damage",
+	3: "to Attack Rating",
+	4: "Life after each Hit",
+	5: "Attack Rating against Demons|Damage to Demons",
+	6: "Requirements -",
+	7: "Better Chance of Getting Magic Items",
+	8: "Life after each Kill",
+	9: "Mana after each Kill",
+	10: r"\+\d+ to Mana",
+	11: "Faster Hit Recovery",
+	12: "Enemy Fire Resistance",
+	13: "Enemy Lightning Resistance",
+	14: "Enemy Cold Resistance",
+	15: "Enemy Poison Resistance",
+	16: "Faster Cast Rate",
+	17: "Enhanced Damage|Life stolen per hit",
+	18: "to Attack Rating",
+	19: "Deadly Strike",
+	20: "Increased Attack Speed",
+	21: "Crushing Blow",
+	22: "Increased Attack Speed|Enhanced Damage",
+	23: "Increased Attack Speed|Crushing Blow",
+	24: "Ignore Target's Defense|Enhanced Damage",
+	25: "Deadly Strike|Enhanced Damage",
+	26: "to Attack Rating|Enhanced Damage",
+	27: "to All Skills",
+	28: "Faster Cast Rate|Fire Skill Damage",
+	29: "Faster Cast Rate|Cold Skill Damage",
+	30: "Faster Cast Rate|Lightning Skill Damage",
+	31: "Faster Cast Rate|Poison Skill Damage",
+	32: "Socketed",
+	33: "Enhanced Defense",
+	34: "Replenish Life|Drain Life",
+	35: "Faster Hit Recovery",
+	36: r"Fire Resist \+\d+%",
+	37: r"Cold Resist \+\d+%",
+	38: r"Lightning Resist \+\d+%",
+	39: r"Poison Resist \+\d+%",
+	40: "Regenerate Mana",
+	41: "Attacker Takes Damage of",
+	42: "Faster Cast Rate",
+	43: "Increase Maximum Life",
+	44: "Faster Run/Walk",
+	45: "Cannot Be Frozen",
+	46: r"Physical Damage Taken Reduced by \d+",
+	47: r"Magic Damage Taken Reduced by \d+",
+	48: "Indestructible|Enhanced Defense",
+	49: "Reduced Curse Duration",
+	50: "to All Skills",
+	51: r"All Resistances|Fire Resist \+\d+%|Cold Resist \+\d+%|Lightning Resist \+\d+%|Poison Resist \+\d+%",
+	52: r"Physical Damage Taken Reduced by \d+%",
+	53: r"Maximum Fire Resist|Fire Resist \+\d+%",
+	54: r"Maximum Cold Resist|Cold Resist \+\d+%",
+	55: r"Maximum Lightning Resist|Lightning Resist \+\d+%",
+	56: r"Maximum Poison Resist|Poison Resist \+\d+%",
+	57: "Life stolen per hit",
+	58: "Mana stolen per hit",
+	59: "to Attack Rating|to Light Radius",
+	60: "Extra Gold from Monsters",
+	61: r"\+\d+ to Life",
+	62: "Curse Resistance",
+	63: "Chance to Pierce",
+	64: "Faster Block Rate",
+	65: r"all Attributes|\+\d+ to Strength|\+\d+ to Dexterity|\+\d+ to Vitality|\+\d+ to Energy",
+	66: r"-\d+% Target Defense",
+	67: "Increased Chance of Blocking",
+	68: r"\+\d+ to Strength",
+	69: r"\+\d+ to Dexterity",
+	70: r"\+\d+ to Vitality",
+	71: r"\+\d+ to Energy",
+	72: r"to Maximum \w+ Resist",
+	73: "Faster Block Rate|Increased Chance of Blocking",
+	74: r"\+\d+ to Minimum Damage",
+	75: r"\+\d+ to Maximum Damage",
+	76: "Ignore Target's Defense",
+	77: "Damage to Undead|Attack Rating against Undead",
+	78: "Deadly Strike|Density|Experience",
+	91: "to Monster Defense Per Hit"
+}
+
 @onready var label: RichTextLabel = $Label
 
 
@@ -121,18 +202,30 @@ func update_tooltip(item: D2Item) -> void:
 	#label.newline()
 	
 	# Properties
-	_parse_properties(item.all_properties_formatted)
+	var corrupted_property_search_pattern := ""
+	if item.is_corrupted:
+		for prop: Dictionary in item.all_properties:
+			if prop.stat_id == TxtDB.CORRUPTED_STAT_ID:
+				corrupted_property_search_pattern = PROPERTY_REGEX_PATTERN_BY_CORRUPT_VALUE.get(prop.params[1], "")
+	_parse_properties(item.all_properties_formatted, corrupted_property_search_pattern)
 	if item.is_ethereal:
 		label.add_text("Ethereal (Cannot Be Repaired)")
 	if item.is_ethereal and item.total_sockets > 0:
 		label.add_text(", ")
 	if item.total_sockets > 0:
 		label.add_text("Socketed (%d)" % [item.total_sockets])
+		if item.is_corrupted and corrupted_property_search_pattern == "Socketed":
+			label.push_color(D2Colors.COLOR_CORRUPTED)
+			label.add_text("*")
+			label.pop()
 		label.newline()
 
 
-func _parse_properties(properties: Array) -> void:
+func _parse_properties(properties: Array, corrupted_search_pattern := "") -> void:
 	label.push_color(D2Colors.COLOR_MAGIC)
+	var regex := RegEx.create_from_string(corrupted_search_pattern)
+	if corrupted_search_pattern != "":
+		pass
 	for property: String in properties:
 		if property.contains("Corrupted"):
 			label.push_color(D2Colors.COLOR_CORRUPTED)
@@ -147,5 +240,9 @@ func _parse_properties(properties: Array) -> void:
 			label.newline()
 		else:
 			label.add_text(property)
+			if corrupted_search_pattern != "" and regex.search(property):
+				label.push_color(D2Colors.COLOR_CORRUPTED)
+				label.add_text("*")
+				label.pop()
 			label.newline()
 	
