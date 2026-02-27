@@ -827,6 +827,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("8_1u8w0")
+minimum_column_width = 300
 metadata/_custom_type_script = "uid://2jh0bl5elah8"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=1240700525]
