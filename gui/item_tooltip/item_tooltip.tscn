@@ -12,6 +12,7 @@ script = ExtResource("2_vrq5e")
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=299208176]
 layout_mode = 2
+mouse_filter = 1
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

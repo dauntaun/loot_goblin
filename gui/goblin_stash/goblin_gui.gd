@@ -35,7 +35,7 @@ func _ready() -> void:
 	_table_controller.item_selected.connect(_on_item_selected)
 	_table_controller.sort_requested.connect(_on_sort_requested)
 	_tiled_controller = TiledItemListController.new(tiled_container)
-	_tiled_controller.item_selected.connect(_submit_new_query)
+	_tiled_controller.item_selected.connect(_on_item_selected)
 	_current_itemlist_controller = _table_controller
 	_current_max_items_per_page = TABLE_MAX_ITEMS_PER_PAGE
 	table_view_button.pressed.connect(_switch_itemlist_controller.bind(_table_controller))
@@ -94,7 +94,7 @@ func _refresh_current_page(restore_selection: bool = true) -> void:
 	_current_itemlist_controller.rebuild_display(_items_in_page)
 	ItemSelection.clear_selection()
 	if restore_selection: 
-		_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
+		_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 	_refresh_buttons()
 
 
@@ -127,8 +127,8 @@ func _on_items_transferred(from: StashRegistry.StashType, to: StashRegistry.Stas
 
 func _on_items_retrieved() -> void:
 	_clamp_current_page_index()
-	_refresh_current_page()
-	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
+	_refresh_current_page(false)
+	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
 
 
 func _on_items_stored() -> void:

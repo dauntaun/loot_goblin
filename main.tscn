@@ -819,6 +819,7 @@ metadata/_tab_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
 [node name="GridView" type="Container" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer/PanelContainer" unique_id=2117013028]
 unique_name_in_owner = true
