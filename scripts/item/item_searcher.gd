@@ -46,6 +46,14 @@ func set_sort(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
 	_sort_ascending = sort_ascending
 
 
+func get_sort_key() -> ItemSorter.SortKey:
+	return _sort_key
+
+
+func get_sort_ascending() -> bool:
+	return _sort_ascending
+
+
 func filter_and_sort(force_resync := false, force_sort := false) -> Array[D2Item]:
 	var source_items: Array[D2Item]
 	

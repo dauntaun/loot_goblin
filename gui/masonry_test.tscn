@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://2jh0bl5elah8" path="res://gui/masonry_container.gd" id="1_uecua"]
 
+[sub_resource type="Theme" id="Theme_vvcgu"]
+
 [node name="Control" type="Control" unique_id=245176301]
 layout_mode = 3
 anchors_preset = 15
@@ -16,9 +18,9 @@ offset_right = 621.0
 offset_bottom = 321.0
 
 [node name="MosaicContainer" type="Container" parent="PanelContainer" unique_id=1692589411]
+custom_minimum_size = Vector2(0, 244)
 layout_mode = 2
 script = ExtResource("1_uecua")
-column_mode = null
 metadata/_custom_type_script = "uid://2jh0bl5elah8"
 
 [node name="ColorRect" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1091394802]
@@ -44,3 +46,36 @@ layout_mode = 2
 [node name="ColorRect6" type="ColorRect" parent="PanelContainer/MosaicContainer" unique_id=1946663591]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
+
+[node name="MenuBar" type="MenuBar" parent="." unique_id=398378164]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 546.0
+offset_right = 481.0
+offset_bottom = 586.0
+
+[node name="Sort by" type="PopupMenu" parent="MenuBar" unique_id=1776704346]
+oversampling_override = 1.0
+size = Vector2i(120, 100)
+item_count = 4
+item_0/text = "Name"
+item_0/checkable = 2
+item_0/id = 1
+item_1/text = "Sockets"
+item_1/checkable = 2
+item_1/id = 2
+item_2/id = 4
+item_2/separator = true
+item_3/text = "Ascending"
+item_3/checkable = 1
+item_3/checked = true
+item_3/id = 0
+
+[node name="Option 2" type="PopupMenu" parent="MenuBar/Sort by" unique_id=1973583157]
+oversampling_override = 1.0
+theme = SubResource("Theme_vvcgu")
+item_count = 2
+item_0/text = "Test"
+item_0/id = 0
+item_1/text = "Test2"
+item_1/id = 1
