@@ -174,6 +174,9 @@ var properties: Dictionary
 
 
 func _ready() -> void:
+	if GlobalSettings.force_update_cache:
+		_build_database()
+		return
 	if ResourceLoader.exists(CACHE_PATH):
 		var cache := ResourceLoader.load(CACHE_PATH) as CachedTxtDB
 		if cache:

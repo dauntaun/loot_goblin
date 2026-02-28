@@ -35,7 +35,8 @@ const SETTINGS := {
 	"load_characters": {"section": PD2_SECTION, "default": true},
 }
 
-var debug_mode: bool
+var debug_mode := false
+var force_update_cache := false
 # Setting vars
 var max_backups: int
 var instant_search: bool
