@@ -533,11 +533,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1343246319]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_82xsv")
@@ -956,7 +957,6 @@ vertical_alignment = 1
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1185248715]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 script = ExtResource("7_yaehf")
 metadata/_tab_index = 1
@@ -1033,7 +1033,7 @@ size_flags_vertical = 8
 unique_name_in_owner = true
 layout_mode = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 10
 script = ExtResource("2_0xm2m")
 
 [node name="M" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1102498369 instance=ExtResource("10_yaehf")]
@@ -1041,6 +1041,7 @@ visible = false
 layout_mode = 2
 
 [node name="P" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1891089092 instance=ExtResource("3_1bvp3")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -1085,7 +1086,6 @@ layout_mode = 2
 metadata/_tab_index = 9
 
 [node name="9" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=230301506 instance=ExtResource("3_1bvp3")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 10
 
@@ -1094,7 +1094,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="CharInventorySelector" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=441424146]
-custom_minimum_size = Vector2(404, 314)
+custom_minimum_size = Vector2(400, 314)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
@@ -1122,20 +1122,16 @@ metadata/_tab_index = 2
 
 [node name="CubeInventory" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector/Cube" unique_id=910500633 instance=ExtResource("3_1bvp3")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(164, 164)
+custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 grid_width = 4
 grid_height = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=849962173]
-layout_mode = 2
-size_flags_vertical = 10
-
-[node name="CharInventory" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/PanelContainer" unique_id=1355600316 instance=ExtResource("3_1bvp3")]
+[node name="CharInventory" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=1355600316 instance=ExtResource("3_1bvp3")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(404, 324)
+custom_minimum_size = Vector2(400, 320)
 layout_mode = 2
 grid_height = 8
 

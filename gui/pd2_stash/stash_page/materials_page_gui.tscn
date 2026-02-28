@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://fut63vcier4j" path="res://gui/pd2_stash/stash_page/materials_page_gui.gd" id="1_i5llc"]
 
 [node name="M" type="PanelContainer" unique_id=1102498369]
-custom_minimum_size = Vector2(404, 604)
+custom_minimum_size = Vector2(400, 600)
 script = ExtResource("1_i5llc")
 metadata/_tab_index = 0
 
@@ -19,7 +19,7 @@ theme_override_constants/separation = -4
 
 [node name="UpperRunes" parent="VBoxContainer/Runes" unique_id=213725564 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(364, 124)
+custom_minimum_size = Vector2(360, 120)
 layout_mode = 2
 size_flags_horizontal = 4
 grid_width = 9
@@ -27,7 +27,7 @@ grid_height = 3
 
 [node name="LowerRunes" parent="VBoxContainer/Runes" unique_id=663475486 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(244, 44)
+custom_minimum_size = Vector2(240, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 grid_width = 6
@@ -40,7 +40,7 @@ theme_override_constants/separation = 20
 
 [node name="Organs" parent="VBoxContainer/Middle" unique_id=152513526 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(124, 284)
+custom_minimum_size = Vector2(120, 280)
 layout_mode = 2
 grid_width = 3
 grid_height = 7
@@ -50,7 +50,7 @@ layout_mode = 2
 
 [node name="Potions" parent="VBoxContainer/Middle/VBoxContainer" unique_id=512462425 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(84, 44)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_vertical = 0
 grid_width = 2
@@ -58,7 +58,7 @@ grid_height = 1
 
 [node name="CraftMats" parent="VBoxContainer/Middle/VBoxContainer" unique_id=1668010634 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(84, 124)
+custom_minimum_size = Vector2(80, 120)
 layout_mode = 2
 size_flags_vertical = 6
 grid_width = 2
@@ -66,21 +66,21 @@ grid_height = 3
 
 [node name="Essences" parent="VBoxContainer/Middle/VBoxContainer" unique_id=78411507 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(84, 84)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 grid_width = 2
 grid_height = 2
 
 [node name="Gems" parent="VBoxContainer/Middle" unique_id=1952820186 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(124, 284)
+custom_minimum_size = Vector2(120, 280)
 layout_mode = 2
 grid_width = 3
 grid_height = 7
 
 [node name="MapMats" parent="VBoxContainer" unique_id=1717985626 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(284, 84)
+custom_minimum_size = Vector2(280, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 grid_width = 7

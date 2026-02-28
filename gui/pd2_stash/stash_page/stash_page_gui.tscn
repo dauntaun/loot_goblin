@@ -1,24 +1,10 @@
 [gd_scene format=3 uid="uid://cqpmew5ljytmu"]
 
 [ext_resource type="Script" uid="uid://1sgqdvtxuii8" path="res://gui/pd2_stash/stash_page/stash_page_gui.gd" id="1_fpfwo"]
-[ext_resource type="Texture2D" uid="uid://cvklflv4xyk0u" path="res://gui/pd2_stash/stash_page/grid_unit.png" id="2_tuoxh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuoxh"]
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.32941177, 0.32941177, 0.32941177, 1)
-
-[node name="StashPage" type="PanelContainer" unique_id=213725564]
-custom_minimum_size = Vector2(404, 604)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="StashPage" type="Container" unique_id=515020742]
+custom_minimum_size = Vector2(400, 600)
+offset_right = 400.0
+offset_bottom = 600.0
 mouse_behavior_recursive = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_tuoxh")
 script = ExtResource("1_fpfwo")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=80162079]
-layout_mode = 2
-texture = ExtResource("2_tuoxh")
-stretch_mode = 1

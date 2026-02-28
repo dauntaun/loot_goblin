@@ -6,7 +6,6 @@ signal item_selected(item: D2Item)
 
 const ITEM_RECT_SCENE = preload("uid://dmcf3j2822imo")
 const GRID_PIXEL_SIZE := 40
-const GRID_INNER_MARGINS: int = 4
 
 @export_range(1, 10) var grid_width: int = 10: 
 	set(new):
@@ -21,21 +20,56 @@ var _item_rect_mapping: Dictionary[D2Item, ItemRect]
 var _prev_selected_item: D2Item
 var _initialized := false
 
-@onready var _texture_rect: TextureRect = $TextureRect
-
 
 func _ready() -> void:
 	pass
 	#var test_item := D2Item.new()
-	#test_item.x_coord = 1
-	#test_item.y_coord = 0
-	#test_item.inv_height = 4
-	#test_item.inv_width = 2
+	#test_item.x_coord = 9
+	#test_item.y_coord = 3
+	#test_item.inv_height = 2
+	#test_item.inv_width = 1
 	#add_item_rect(test_item)
 
 
+func _draw() -> void:
+	if grid_width <= 0 or grid_height <= 0:
+		return
+
+	var cell_size: Vector2 = size / Vector2(grid_width, grid_height)
+
+	var line_width := 2
+	var line_color := Color("#545454ff")
+	var bg_color := Color("#1d1d1dff")
+
+	# Draw background
+	draw_rect(Rect2(Vector2.ZERO, size), bg_color)
+	
+	# Draw borders
+	draw_rect(Rect2(Vector2(line_width/2, line_width/2), size - Vector2(line_width, line_width)), line_color, false, line_width)
+	
+	# Vertical lines
+	for x: int in range(1, grid_width):
+		var xpos := roundi(x * cell_size.x)
+		draw_line(
+			Vector2(xpos, 0),
+			Vector2(xpos, size.y),
+			line_color,
+			line_width
+		)
+
+	# Horizontal lines
+	for y: int in range(1, grid_height):
+		var ypos := roundi(y * cell_size.y)
+		draw_line(
+			Vector2(0, ypos),
+			Vector2(size.x, ypos),
+			line_color,
+			line_width
+		)
+
+
 func _remake_grid() -> void:
-	custom_minimum_size = Vector2(grid_width * GRID_PIXEL_SIZE + 4, grid_height * GRID_PIXEL_SIZE + 4)
+	custom_minimum_size = Vector2(grid_width * GRID_PIXEL_SIZE, grid_height * GRID_PIXEL_SIZE)
 
 
 func init_page(init_items: Array[D2Item]) -> void:
@@ -57,8 +91,12 @@ func add_item_rect(item: D2Item) -> void:
 	item_rect.item_selected.connect(_on_item_selected)
 	# Setup
 	
+	item_rect.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	item_rect.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	add_child(item_rect)
+	item_rect.custom_minimum_size = Vector2(item.inv_width, item.inv_height) * 40
+	item_rect.size = item_rect.custom_minimum_size
 	item_rect.position = item.get_coord() * GRID_PIXEL_SIZE
-	_texture_rect.add_child(item_rect)
 	item_rect.init_rect(item)
 	_item_rect_mapping[item] = item_rect
 

@@ -21,7 +21,6 @@ func _ready() -> void:
 
 
 func init_rect(item: D2Item) -> void:
-	size = Vector2(item.inv_width, item.inv_height) * 40
 	z_index = 1
 	var color: Color = D2Colors.get_item_color(item)
 	color.a = 0.9
