@@ -199,7 +199,7 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return "Stat By Percent 128 per level (not implemented)"
 
 		11: # Repairs durability. Fix to use ModStre9u
-			return string % (100 / value)
+			return TxtDB.localize("ModStre9u") % [1, (100 / value)]
 
 		12: # Plus sub one
 			var value_string: String = "+%d" % value if value > 1 else "%d" % value
