@@ -254,6 +254,24 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
 
+[node name="Characters7" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=771962763]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters7" unique_id=1192761239]
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "For formatting per level stats (reload needed)"
+mouse_filter = 0
+text = "Character level"
+
+[node name="CharacterLevel" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters7" unique_id=2021853233]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 99.0
+value = 99.0
+
 [node name="Characters4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=932767167]
 layout_mode = 2
 
