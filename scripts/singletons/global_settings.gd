@@ -105,7 +105,10 @@ func save_config() -> void:
 	
 	for key: String in SETTINGS:
 		var section: String = SETTINGS[key].section
-		_config_file.set_value(section, key, get(key))
+		var value: Variant = get(key)
+		if value == null:
+			value = SETTINGS[key].default
+		_config_file.set_value(section, key, value)
 		
 	_config_file.save(CONFIG_FILEPATH)
 	config_saved.emit()
