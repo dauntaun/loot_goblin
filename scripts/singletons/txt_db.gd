@@ -303,6 +303,14 @@ func _build_database() -> void:
 			stat["next_in_chain"] = int(stat["ID"]) + 1
 		else:
 			stat["next_in_chain"] = 0
+		# Setup per level divisor
+		if stat["Stat"].contains("perlevel"):
+			if stat["Stat"].contains("_tohit_"):
+				stat["per_level_divisor"] = 2
+			else:
+				stat["per_level_divisor"] = 8
+		else:
+			stat["per_level_divisor"] = 1
 	# Setup merged stats for formatter
 	for grp: int in MODIFY_STATS:
 		var stat: Dictionary = item_stat_cost[grp]
@@ -407,6 +415,7 @@ func _build_database() -> void:
 		"dgrpstr2": str(raw.get("dgrpstr2", "")),
 		"valshift": int(raw.get("ValShift", 0)),
 		"mgrp": int(raw.get("mgrp", 0)),
+		"per_level_divisor": int(raw.get("per_level_divisor", 1))
 		}
 	
 	# Setup runewords

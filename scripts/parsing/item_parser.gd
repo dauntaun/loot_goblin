@@ -261,7 +261,8 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 			if property.stat_id == 31: # Flat defense
 				item.defense += property.params[0]
 			if property.stat_id == 214: # Flat defense per level
-				item.defense += property.params[0]
+				var bonus_defense := floori((float(property.params[0]) / 8) * GlobalSettings.character_level)
+				item.defense += bonus_defense
 			if property.stat_id == 215: # Enhanced defense per level
 				push_error("Enhanced defense per level not implemented")
 			if property.stat_id == 91: # -Requirements
@@ -273,14 +274,22 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 		for property: Dictionary in item.all_properties:
 			if property.stat_id == 18: # Enhanced damage
 				for dam_type: String in item.weapon_damage:
-					item.weapon_damage[dam_type]["min"] = floori(item.weapon_damage[dam_type]["min"] * (1.0 + property.params[0] / 100.0))
-					item.weapon_damage[dam_type]["max"] = floori(item.weapon_damage[dam_type]["max"] * (1.0 + property.params[0] / 100.0))
+					item.weapon_damage[dam_type]["min"] += floori(item.base_weapon_damage[dam_type]["min"] * (property.params[0] / 100.0))
+					item.weapon_damage[dam_type]["max"] += floori(item.base_weapon_damage[dam_type]["max"] * (property.params[0] / 100.0))
+			if property.stat_id == 219: # Enhanced max damage per level
+				var bonus_max_ed := floori((float(property.params[0]) / 8) * GlobalSettings.character_level)
+				for dam_type: String in item.weapon_damage:
+					item.weapon_damage[dam_type]["max"] += floori(item.base_weapon_damage[dam_type]["max"] * (bonus_max_ed / 100.0))
 			if property.stat_id == 21: # Flat min damage
 				for dam_type: String in item.weapon_damage:
 					item.weapon_damage[dam_type]["min"] += property.params[0]
 			if property.stat_id == 22: # Flat max damage
 				for dam_type: String in item.weapon_damage:
 					item.weapon_damage[dam_type]["max"] += property.params[0]
+			if property.stat_id == 218: # Max damage per level
+				var bonus_damage := floori((float(property.params[0]) / 8) * GlobalSettings.character_level)
+				for dam_type: String in item.weapon_damage:
+					item.weapon_damage[dam_type]["max"] += bonus_damage
 			if property.stat_id == 91: # -Requirements
 				if item.required_dexterity > 0:
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))

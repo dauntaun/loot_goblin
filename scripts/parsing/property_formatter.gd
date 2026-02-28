@@ -161,35 +161,42 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return _format_with_descvalue(value_string, string, stat.descval)
 
 		6: # Plus or minus per level
-			var value_string: String = "+%d" % value if value > 0 else "%d" % value
-			#var property_string: String = "%s %s" % [string, TxtDB.localize(stat.descstr2)]
-			#return _format_with_descvalue(value_string, property_string, stat.descval)
+			var level_scaled_value := value
+			if stat.per_level_divisor != 1:
+				level_scaled_value = floori((float(value) / stat.per_level_divisor) * GlobalSettings.character_level)
+			var value_string: String = "+%d" % level_scaled_value if level_scaled_value > 0 else "%d" % level_scaled_value
 			var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
 			return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
 
 		7: # Percent per level
-			var value_string: String = "%d%%" % value
-			#var property_string: String = "%s %s" % [string, TxtDB.localize(stat.descstr2)]
-			#return _format_with_descvalue(value_string, property_string, stat.descval)
+			var level_scaled_value := value
+			if stat.per_level_divisor != 1:
+				level_scaled_value = floori((float(value) / stat.per_level_divisor) * GlobalSettings.character_level)
+			var value_string: String = "%d%%" % level_scaled_value
 			var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
 			return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
 
 		8: # Plus percent per level
-			var value_string: String = "+%d%%" % value if value > 0 else "%d%%" % value
-			#var property_string: String = "%s %s" % [string, TxtDB.localize(stat.descstr2)]
-			#return _format_with_descvalue(value_string, property_string, stat.descval)
+			var level_scaled_value := value
+			if stat.per_level_divisor != 1:
+				level_scaled_value = floori((float(value) / stat.per_level_divisor) * GlobalSettings.character_level)
+			var value_string: String = "+%d%%" % level_scaled_value if level_scaled_value > 0 else "%d%%" % level_scaled_value
 			var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
 			return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
 
 		9: # String per level
-			var value_string: String = "%d" % value
+			var level_scaled_value := value
+			if stat.per_level_divisor != 1:
+				level_scaled_value = floori((float(value) / stat.per_level_divisor) * GlobalSettings.character_level)
+			var value_string: String = "%d" % level_scaled_value
 			var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
 			return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
 
 		10: # Percent 128 per level
-			var value_string: String = "%d%%" % (value * 100 / 128)
-			var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
-			return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
+			#var value_string: String = "%d%%" % (value * 100 / 128)
+			#var intermediate_string: String = _format_with_descvalue(value_string, string, stat.descval)
+			#return "%s %s" % [intermediate_string, TxtDB.localize(stat.descstr2)]
+			return "Stat By Percent 128 per level (not implemented)"
 
 		11: # Repairs durability. Fix to use ModStre9u
 			return string % (100 / value)

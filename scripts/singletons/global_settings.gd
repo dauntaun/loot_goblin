@@ -24,6 +24,7 @@ const SETTINGS := {
 	"show_goblin_tooltips": {"section": GLOBAL_SECTION, "default": true},
 	"show_pd2_tooltips": {"section": GLOBAL_SECTION, "default": true},
 	"show_ilvl_in_tooltips": {"section": GLOBAL_SECTION, "default": false},
+	"character_level": {"section": GLOBAL_SECTION, "default": 99, "min": 1, "max": 99},
 	"max_backups": {"section": GLOBAL_SECTION, "default": 5, "min": 0, "max": 10},
 	"background_color": {"section": GLOBAL_SECTION, "default": Color("#4f4770")},
 
@@ -43,6 +44,7 @@ var instant_search: bool
 var show_goblin_tooltips: bool
 var show_pd2_tooltips: bool
 var show_ilvl_in_tooltips: bool
+var character_level: int
 var background_color: Color
 
 var pd2_folder: String
