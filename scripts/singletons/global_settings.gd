@@ -18,21 +18,42 @@ const GOBLIN_STASH_FILENAME := "goblin_stash.gstash"
 const GOBLIN_HC_STASH_FILENAME := "goblin_hc_stash.gstash"
 const DEFAULT_BACKGROUND_COLOR := Color("#4f4770")
 
-var debug_mode: bool = true
-# Setting vars
-var max_backups: int = 5
-var instant_search: bool = true
-var show_goblin_tooltips: bool = true
-var show_pd2_tooltips: bool = true
-var background_color: Color = Color("#4f4770")
+const SETTINGS := {
+	# Global
+	"instant_search": {"section": GLOBAL_SECTION, "default": true},
+	"show_goblin_tooltips": {"section": GLOBAL_SECTION, "default": true},
+	"show_pd2_tooltips": {"section": GLOBAL_SECTION, "default": true},
+	"max_backups": {"section": GLOBAL_SECTION, "default": 5, "min": 0, "max": 10},
+	"background_color": {"section": GLOBAL_SECTION, "default": Color("#4f4770")},
 
-var pd2_folder: String = "C:/Program Files (x86)/Diablo II/Save"
-var hardcore_shared_stash: bool = false
-var load_characters: bool = true
-var pd2_stash_page: int = 9
-var auto_retrieve: bool = false
+	# PD2
+	"pd2_folder": {"section": PD2_SECTION, "default": "C:/Program Files (x86)/Diablo II/Save"},
+	"pd2_stash_page": {"section": PD2_SECTION, "default": 9, "min": 1, "max": 9},
+	"auto_retrieve": {"section": PD2_SECTION, "default": false},
+	"hardcore_shared_stash": {"section": PD2_SECTION, "default": false},
+	"load_characters": {"section": PD2_SECTION, "default": true},
+}
+
+var debug_mode: bool
+# Setting vars
+var max_backups: int
+var instant_search: bool
+var show_goblin_tooltips: bool
+var show_pd2_tooltips: bool
+var background_color: Color
+
+var pd2_folder: String
+var hardcore_shared_stash: bool
+var load_characters: bool
+var pd2_stash_page: int
+var auto_retrieve: bool
 
 var _config_file := ConfigFile.new()
+
+
+func _init() -> void:
+	for key: String in SETTINGS:
+		set(key, SETTINGS[key].default)
 
 
 func _ready() -> void:
@@ -73,58 +94,31 @@ func get_hc_goblin_stash_path() -> String:
 
 
 func update_setting(value: Variant, setting: String) -> void:
-	match setting:
-		"max_backups":
-			max_backups = value
-		"pd2_folder":
-			pd2_folder = value
-		"pd2_stash_page":
-			pd2_stash_page = value
-		"auto_retrieve":
-			auto_retrieve = value
-		"hardcore_shared_stash":
-			hardcore_shared_stash = value
-		"load_characters":
-			load_characters = value
-		"instant_search":
-			instant_search = value
-		"show_goblin_tooltips":
-			show_goblin_tooltips = value
-		"show_pd2_tooltips":
-			show_pd2_tooltips = value
-		"background_color":
-			background_color = value
-	save_config()
-	setting_changed.emit(value, setting)
+	if SETTINGS.has(setting):
+		set(setting, value)
+		save_config()
+		setting_changed.emit(value, setting)
 
 
 func save_config() -> void:
 	_config_file.clear()
-	_config_file.set_value(GLOBAL_SECTION, "instant_search", instant_search)
-	_config_file.set_value(GLOBAL_SECTION, "show_goblin_tooltips", show_goblin_tooltips)
-	_config_file.set_value(GLOBAL_SECTION, "show_pd2_tooltips", show_pd2_tooltips)
-	_config_file.set_value(GLOBAL_SECTION, "max_backups", max_backups)
-	_config_file.set_value(GLOBAL_SECTION, "background_color", background_color)
 	
-	_config_file.set_value(PD2_SECTION, "pd2_folder", pd2_folder)
-	_config_file.set_value(PD2_SECTION, "pd2_stash_page", pd2_stash_page)
-	_config_file.set_value(PD2_SECTION, "auto_retrieve", auto_retrieve)
-	_config_file.set_value(PD2_SECTION, "hardcore_shared_stash", hardcore_shared_stash)
-	_config_file.set_value(PD2_SECTION, "load_characters", load_characters)
+	for key: String in SETTINGS:
+		var section: String = SETTINGS[key].section
+		_config_file.set_value(section, key, get(key))
+		
 	_config_file.save(CONFIG_FILEPATH)
 	config_saved.emit()
 
 
 func load_config() -> void:
-	instant_search = _config_file.get_value(GLOBAL_SECTION, "instant_search", true)
-	show_goblin_tooltips = _config_file.get_value(GLOBAL_SECTION, "show_goblin_tooltips", true)
-	show_pd2_tooltips = _config_file.get_value(GLOBAL_SECTION, "show_pd2_tooltips", true)
-	max_backups = clampi(_config_file.get_value(GLOBAL_SECTION, "max_backups", 5), 0, 10)
-	background_color = _config_file.get_value(GLOBAL_SECTION, "background_color", Color("#4f4770"))
-	
-	pd2_folder = _config_file.get_value(PD2_SECTION, "pd2_folder", "")
-	pd2_stash_page = clampi(_config_file.get_value(PD2_SECTION, "pd2_stash_page", 9), 1, 9)
-	auto_retrieve = _config_file.get_value(PD2_SECTION, "auto_retrieve", false)
-	hardcore_shared_stash = _config_file.get_value(PD2_SECTION, "hardcore_shared_stash", false)
-	load_characters = _config_file.get_value(PD2_SECTION, "load_characters", true)
+	for key: String in SETTINGS:
+		var params: Dictionary = SETTINGS[key]
+		var section: String = params.section
+		var default_value: Variant = params.default
+		var value = _config_file.get_value(section, key, default_value)
+		if params.get(min) and params.get(max):
+			value = clampi(value, params.min, params.max)
+		set(key, value)
+		
 	config_loaded.emit()
