@@ -51,6 +51,11 @@ func _ready() -> void:
 	_prev_page_button.pressed.connect(_prev_page)
 
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			print("right click")
+
 func init_stash(stash_view: BasicStashView) -> void:
 	_item_searcher = ItemSearcher.new(stash_view)
 	_item_searcher.filter_outdated.connect(_reset_page_and_refresh_filters)

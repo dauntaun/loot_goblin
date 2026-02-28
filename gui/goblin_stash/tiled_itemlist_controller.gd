@@ -52,6 +52,7 @@ func _create_item_panel(item: D2Item) -> void:
 	button.toggle_mode = true
 	button.button_group = _button_group
 	button.action_mode = BaseButton.ACTION_MODE_BUTTON_PRESS
+	button.mouse_filter = Control.MOUSE_FILTER_PASS
 	tooltip.add_child(button)
 	tooltip.move_child(button, 0)
 	button.toggled.connect(_on_item_tooltip_pressed.bind(item))
@@ -62,7 +63,6 @@ func _create_item_panel(item: D2Item) -> void:
 	tooltip.custom_minimum_size.y = 150
 	tooltip.mouse_filter = Control.MOUSE_FILTER_PASS
 	button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
-	#tooltip.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
 
 
 func _on_item_tooltip_pressed(_toggled: bool, item: D2Item) -> void:
