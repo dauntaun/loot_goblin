@@ -19,6 +19,8 @@ const TILES_MAX_ITEMS_PER_PAGE := 75
 @onready var _page_label: Label = %PageLabel
 @onready var _item_count_label: Label = %ItemCount
 
+var _sort_menu: PopupMenu
+
 var _item_searcher: ItemSearcher
 var _current_page: int
 var _items_in_page: Array[D2Item]
@@ -30,6 +32,19 @@ var _tiled_controller: TiledItemListController
 
 
 func _ready() -> void:
+	# Setup right click to sort
+	_sort_menu = PopupMenu.new()
+	_sort_menu.add_radio_check_item("By Name", ItemSorter.SortKey.NAME)
+	_sort_menu.add_radio_check_item("By Ethereal", ItemSorter.SortKey.ETH)
+	_sort_menu.add_radio_check_item("By Corruption", ItemSorter.SortKey.CORRUPT)
+	_sort_menu.add_radio_check_item("By Sockets", ItemSorter.SortKey.SOCKETS)
+	_sort_menu.add_radio_check_item("By Type", ItemSorter.SortKey.TYPE)
+	_sort_menu.add_separator("")
+	_sort_menu.add_check_item("Ascending")
+	_sort_menu.set_item_checked(ItemSorter.SortKey.NAME, true)
+	_sort_menu.set_item_checked(-1, true)
+	add_child(_sort_menu)
+	_sort_menu.id_pressed.connect(_on_sort_menu_picked)
 	# Setup item list controllers
 	_table_controller = TableItemListController.new(tree)
 	_table_controller.item_selected.connect(_on_item_selected)
@@ -54,7 +69,9 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			print("right click")
+			_sort_menu.position = get_global_mouse_position()
+			_sort_menu.popup()
+
 
 func init_stash(stash_view: BasicStashView) -> void:
 	_item_searcher = ItemSearcher.new(stash_view)
@@ -142,10 +159,22 @@ func _on_items_stored() -> void:
 
 
 func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
+	_sort_menu.set_item_checked(_sort_menu.get_item_index(_item_searcher.get_sort_key()), false)
+	_sort_menu.set_item_checked(_sort_menu.get_item_index(sort_key), true)
+	_sort_menu.set_item_checked(-1, sort_ascending)
 	_item_searcher.set_sort(sort_key, sort_ascending)
 	_item_searcher.apply_sort()
 	_refresh_current_page()
 	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
+
+
+func _on_sort_menu_picked(id: int) -> void:
+	if id == 6:
+		var sort_ascending := not _item_searcher.get_sort_ascending()
+		_on_sort_requested(_item_searcher.get_sort_key(), sort_ascending)
+	elif id != _item_searcher.get_sort_key():
+		var sort_ascending := _item_searcher.get_sort_ascending()
+		_on_sort_requested(id, sort_ascending)
 
 
 func _refresh_buttons() -> void:
