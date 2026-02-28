@@ -94,10 +94,8 @@ func set_compact_tooltip(enabled: bool) -> void:
 	compact_tooltip = enabled
 	if enabled:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		#label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
 	else:
 		label.autowrap_mode = TextServer.AUTOWRAP_OFF
-		#label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 
 
 func update_tooltip(item: D2Item) -> void:
