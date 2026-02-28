@@ -4,12 +4,12 @@ extends BasicItemListController
 const ITEM_TOOLTIP_SCENE := preload("uid://dfqosv12wxnro")
 const MASONRY_ITEM_TOOLTIP_STYLEBOX: StyleBox = preload("uid://c163oia6j5fbw")
 
-var _container: MasonryContainer
+var _container: Container
 var _item_map: Dictionary[D2Item, Button]
 var _button_group := ButtonGroup.new()
 
 
-func _init(container: MasonryContainer) -> void:
+func _init(container: Container) -> void:
 	_container = container
 	_button_group.allow_unpress = false
 

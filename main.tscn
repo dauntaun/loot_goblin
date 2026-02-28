@@ -791,7 +791,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
 current_tab = 0
 tabs_visible = false
 script = ExtResource("22_1u8w0")
-switch_buttons = [NodePath("../PanelContainer/MarginContainer/HBoxContainer/TableView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/TileView")]
+switch_buttons = [NodePath("../PanelContainer/MarginContainer/HBoxContainer/TableView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/TileView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/ListView")]
 tab_container = NodePath(".")
 
 [node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
@@ -832,6 +832,24 @@ script = ExtResource("8_1u8w0")
 minimum_column_width = 300
 metadata/_custom_type_script = "uid://2jh0bl5elah8"
 
+[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=319090182]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer2" unique_id=222009388]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+
+[node name="BoxView" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer2/PanelContainer" unique_id=1120482911]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=1240700525]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_getpj")
@@ -861,7 +879,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "List"
+text = "Table"
 horizontal_alignment = 1
 
 [node name="TileView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1702542051]
@@ -881,6 +899,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Tiles"
+horizontal_alignment = 1
+
+[node name="ListView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1028953113]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ListView" unique_id=1346472393]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "List"
 horizontal_alignment = 1
 
 [node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1946348785]
