@@ -149,11 +149,10 @@ size_flags_horizontal = 3
 focus_behavior_recursive = 2
 theme = SubResource("Theme_82xsv")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_1u8w0")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="Global" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1995137241]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -229,6 +228,24 @@ mouse_filter = 0
 text = "Hover item tooltips in PD2"
 
 [node name="PD2Tooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters3" unique_id=635132309]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_82xsv")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
+
+[node name="Characters6" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=819672400]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters6" unique_id=1229964961]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 0
+text = "Show ilvl in tooltips"
+
+[node name="IlvlTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters6" unique_id=545874653]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -346,6 +363,7 @@ theme_override_fonts/font = ExtResource("2_6lqv6")
 text = "v0.1"
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1903321314]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 

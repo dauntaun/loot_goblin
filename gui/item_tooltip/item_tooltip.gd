@@ -204,8 +204,9 @@ func update_tooltip(item: D2Item) -> void:
 		label.add_text("Required Level: %d" % [item.required_level])
 		label.newline()
 	
-	#label.add_text("ilvl: %d" % [item.item_level])
-	#label.newline()
+	if GlobalSettings.show_ilvl_in_tooltips:
+		label.add_text("ilvl: %d" % [item.item_level])
+		label.newline()
 	
 	# Properties
 	var corrupted_property_search_pattern := ""

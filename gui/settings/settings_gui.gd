@@ -21,6 +21,7 @@ const FILE_FONT = preload("uid://cen8snwgwauy1")
 @onready var _choose_instant_search: CheckBox = %InstantSearch
 @onready var _choose_goblin_tooltips: CheckBox = %StashTooltips
 @onready var _choose_pd2_tooltips: CheckBox = %PD2Tooltips
+@onready var _choose_ilvl_tooltips: CheckBox = %IlvlTooltips
 @onready var _choose_max_backups: SpinBox = %BackupNumber
 @onready var _restore_background_color_button: Button = %UndoColor
 @onready var _choose_background_color: ColorPickerButton = %ChooseColor
@@ -49,6 +50,7 @@ func _ready() -> void:
 	_choose_instant_search.toggled.connect(GlobalSettings.update_setting.bind("instant_search"))
 	_choose_goblin_tooltips.toggled.connect(GlobalSettings.update_setting.bind("show_goblin_tooltips"))
 	_choose_pd2_tooltips.toggled.connect(GlobalSettings.update_setting.bind("show_pd2_tooltips"))
+	_choose_ilvl_tooltips.toggled.connect(GlobalSettings.update_setting.bind("show_ilvl_in_tooltips"))
 	_choose_max_backups.value_changed.connect(GlobalSettings.update_setting.bind("max_backups"))
 	_choose_background_color.color_changed.connect(GlobalSettings.update_setting.bind("background_color"))
 	_restore_background_color_button.pressed.connect(_restore_background_color)
@@ -107,6 +109,7 @@ func sync_controls_with_settings() -> void:
 	_choose_instant_search.button_pressed = GlobalSettings.instant_search
 	_choose_goblin_tooltips.button_pressed = GlobalSettings.show_goblin_tooltips
 	_choose_pd2_tooltips.button_pressed = GlobalSettings.show_pd2_tooltips
+	_choose_ilvl_tooltips.button_pressed = GlobalSettings.show_ilvl_in_tooltips
 	_choose_max_backups.value = GlobalSettings.max_backups
 	_choose_background_color.color = GlobalSettings.background_color
 	
