@@ -234,12 +234,11 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return "Minus percent per level (not implemented)"
 
 		22: # Versus monsters percent
-			#return string.replace("%s", TxtDB.get_monster_type_name(params[0]))
 			return "Versus monsters percent (not implemented)"
 
 		23: # Reanimates
-			#return string.replace("%s", TxtDB.get_monster_name(params[0]))
-			return "Reanimates (not implemented)"
+			var monster_string := TxtDB.get_monster_name(params[0])
+			return "%s%% %s %s" % [params[1], string, monster_string]
 
 		24: # Charges
 			# param[0] = skill level

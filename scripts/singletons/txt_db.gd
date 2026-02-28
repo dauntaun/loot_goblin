@@ -345,7 +345,7 @@ func _build_database() -> void:
 	skill_table = _load_csv_as_dict("txt/Skills.txt", "Id", ["skill", "charclass", "skilldesc"])
 	skill_desc = _load_csv_as_dict("txt/SkillDesc.txt", "skilldesc", ["str name"])
 	charstat_table = _load_csv_as_dict("txt/CharStats.txt", "", ["StrAllSkills", "StrSkillTab1", "StrSkillTab2", "StrSkillTab3", "StrClassOnly"], true)
-	monster_table = _load_csv_as_dict("txt/MonStats.txt", "", ["NameStr"])
+	monster_table = _load_csv_as_dict("txt/MonStats.txt", "", ["NameStr"], true)
 	monstertype_table = _load_csv_as_dict("txt/MonType.txt", "", ["strplur"])
 	
 	# Setup gem props
@@ -826,15 +826,10 @@ func get_charstat_string(key: String) -> String:
 		return charstat_table[key]["Name"]
 	return key
 
-func get_monster_type_name(type_id: int) -> String:
-	if monstertype_table.has(type_id):
-		return monstertype_table[type_id]["Name"]
-	return "MonsterType %d" % type_id
-
 func get_monster_name(monster_id: int) -> String:
 	if monster_table.has(monster_id):
-		return monster_table[monster_id]["Name"]
-	return "Monster %d" % monster_id
+		return localize(monster_table[monster_id]["NameStr"])
+	return ""
 
 # ============================================================
 # CSV LOADER
