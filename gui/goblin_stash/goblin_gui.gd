@@ -164,6 +164,7 @@ func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> v
 	_sort_menu.set_item_checked(-1, sort_ascending)
 	_item_searcher.set_sort(sort_key, sort_ascending)
 	_item_searcher.apply_sort()
+	_current_itemlist_controller.accept_sort(sort_key, sort_ascending)
 	_refresh_current_page()
 	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 

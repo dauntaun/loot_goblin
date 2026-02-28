@@ -12,7 +12,7 @@ const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 }
 const SORT_COLUMN_HIGHLIGHT: Color = Color(0.808, 0.847, 0.922, 0.027)
 
-var _sort_column: int = 0
+var _sort_column: ColType = ColType.ITEM
 var _sort_ascending: bool = true
 var _item_map: Dictionary[D2Item, TreeItem]
 
@@ -70,12 +70,17 @@ func get_tooltip_position() -> Vector2:
 
 func _on_column_clicked(col_index: int, _mouse_button: int) -> void:
 	var sort_key: ItemSorter.SortKey = COL_NAME_MAP[col_index]["sort_key"]
+	var sort_ascending := true
 	if col_index == _sort_column:
-		_sort_ascending = not _sort_ascending
-	else:
-		_sort_ascending = true
-	_sort_column = col_index
-	sort_requested.emit(sort_key, _sort_ascending)
+		sort_ascending = not _sort_ascending
+	sort_requested.emit(sort_key, sort_ascending)
+
+
+func accept_sort(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
+	_sort_ascending = sort_ascending
+	for col: ColType in COL_NAME_MAP:
+		if COL_NAME_MAP[col].sort_key == sort_key:
+			_sort_column = col
 	_update_column_titles()
 
 
