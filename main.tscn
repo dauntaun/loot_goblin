@@ -89,6 +89,8 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_dg77c"]
 events = [SubResource("InputEventKey_efxa6")]
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_a6jrf"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u8w0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cp0l"]
@@ -139,8 +141,6 @@ content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_a6jrf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
@@ -423,20 +423,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("11_ycdy4")
 
-[node name="SearchHbox" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
+[node name="SearchBox" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox" unique_id=517615347]
+[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=517615347]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0rl1p")
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/Label" unique_id=274470479]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/Label" unique_id=274470479]
 layout_mode = 2
 text = "Search:"
 
-[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox" unique_id=1017487358]
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=1017487358]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -448,12 +449,12 @@ script = ExtResource("4_kek77")
 focus_search_shortcut = SubResource("Shortcut_4c57u")
 exit_search_shortcut = SubResource("Shortcut_dg77c")
 
-[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/SearchBar" unique_id=48378324]
+[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/SearchBar" unique_id=48378324]
 unique_name_in_owner = true
 wait_time = 0.08
 one_shot = true
 
-[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchHbox/SearchBar" unique_id=1049118652]
+[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/SearchBar" unique_id=1049118652]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -465,6 +466,67 @@ mouse_filter = 2
 mouse_behavior_recursive = 1
 bbcode_enabled = true
 text = "[color=gray]Filter items ([i]Ctrl+F[/i] )"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TableView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=598375625]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView" unique_id=498312360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Table"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TileView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=1524196157]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView" unique_id=1498534968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Tiles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ListView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=2013874327]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_a6jrf")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/ListView" unique_id=1090757340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "List"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -539,12 +601,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1343246319]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_82xsv")
@@ -798,7 +859,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
 current_tab = 0
 tabs_visible = false
 script = ExtResource("22_1u8w0")
-switch_buttons = [NodePath("../PanelContainer/MarginContainer/HBoxContainer/TableView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/TileView"), NodePath("../PanelContainer/MarginContainer/HBoxContainer/ListView")]
+switch_buttons = [NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/ListView")]
 tab_container = NodePath(".")
 
 [node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
@@ -869,64 +930,6 @@ theme_override_constants/margin_right = 8
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=943492552]
 layout_mode = 2
 
-[node name="TableView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1527674745]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-theme_type_variation = &"ToggleGroupButton"
-toggle_mode = true
-button_pressed = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TableView" unique_id=1937663136]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Table"
-horizontal_alignment = 1
-
-[node name="TileView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1702542051]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-theme_type_variation = &"ToggleGroupButton"
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/TileView" unique_id=2131318016]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Tiles"
-horizontal_alignment = 1
-
-[node name="ListView" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1028953113]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-theme_type_variation = &"ToggleGroupButton"
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/ListView" unique_id=1346472393]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "List"
-horizontal_alignment = 1
-
 [node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=1946348785]
 unique_name_in_owner = true
 layout_mode = 2
@@ -963,6 +966,7 @@ vertical_alignment = 1
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1185248715]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 script = ExtResource("7_yaehf")
 metadata/_tab_index = 1

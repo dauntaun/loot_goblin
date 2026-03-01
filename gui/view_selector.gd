@@ -11,7 +11,7 @@ var current_selection: Selection
 @onready var view_tab: TabContainer = %ViewSelector
 @onready var main_tab: TabContainer = %MainSelector
 
-@onready var search_bar: SearchBar = %SearchBar
+@onready var search_box: HBoxContainer = %SearchBox
 
 @onready var selection_map: Dictionary[Selection, Dictionary] = {
 	Selection.GOBLIN: {"button": goblin_view_button, "main_tab": 0, "view_tab": 0},
@@ -33,7 +33,7 @@ func _ready() -> void:
 func _change_view(selection: Selection) -> void:
 	main_tab.current_tab = selection_map[selection].main_tab
 	view_tab.current_tab = selection_map[selection].get("view_tab", 0)
-	search_bar.visible = selection == Selection.GOBLIN
+	search_box.visible = selection == Selection.GOBLIN
 
 
 func _reset_selection(tab: int) -> void:
