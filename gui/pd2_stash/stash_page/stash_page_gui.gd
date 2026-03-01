@@ -5,7 +5,7 @@ extends Control
 signal item_selected(item: D2Item)
 
 const ITEM_RECT_SCENE = preload("uid://dmcf3j2822imo")
-const GRID_PIXEL_SIZE := 40
+const MIN_CELL_SIZE := 40
 
 @export_range(1, 10) var grid_width: int = 10: 
 	set(new):
@@ -29,6 +29,12 @@ func _ready() -> void:
 	#test_item.inv_height = 2
 	#test_item.inv_width = 1
 	#add_item_rect(test_item)
+
+
+func _notification(what):
+	if what == NOTIFICATION_RESIZED:
+		_update_item_layout()
+		queue_redraw()
 
 
 func _draw() -> void:
@@ -69,7 +75,31 @@ func _draw() -> void:
 
 
 func _remake_grid() -> void:
-	custom_minimum_size = Vector2(grid_width * GRID_PIXEL_SIZE, grid_height * GRID_PIXEL_SIZE)
+	# Minimum size = 40px per cell
+	custom_minimum_size = Vector2(
+		grid_width * MIN_CELL_SIZE,
+		grid_height * MIN_CELL_SIZE
+	)
+
+	_update_item_layout()
+	queue_redraw()
+
+
+func _update_item_layout() -> void:
+	if grid_width <= 0 or grid_height <= 0:
+		return
+
+	var cell_size := _get_cell_size()
+
+	for item: D2Item in _item_rect_mapping:
+		var rect: ItemRect = _item_rect_mapping[item]
+
+		rect.position = item.get_coord() as Vector2 * cell_size
+		rect.size = Vector2(item.inv_width, item.inv_height) * cell_size
+
+
+func _get_cell_size() -> Vector2:
+	return size / Vector2(grid_width, grid_height)
 
 
 func init_page(init_items: Array[D2Item]) -> void:
@@ -91,12 +121,9 @@ func add_item_rect(item: D2Item) -> void:
 	item_rect.item_selected.connect(_on_item_selected)
 	# Setup
 	
-	item_rect.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	item_rect.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 	add_child(item_rect)
-	item_rect.custom_minimum_size = Vector2(item.inv_width, item.inv_height) * 40
-	item_rect.size = item_rect.custom_minimum_size
-	item_rect.position = item.get_coord() * GRID_PIXEL_SIZE
+	item_rect.position = item.get_coord() as Vector2 * _get_cell_size()
+	item_rect.size = Vector2(item.inv_width, item.inv_height) * _get_cell_size()
 	item_rect.init_rect(item)
 	_item_rect_mapping[item] = item_rect
 
