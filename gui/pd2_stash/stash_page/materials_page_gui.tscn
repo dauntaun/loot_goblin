@@ -18,7 +18,7 @@ theme_override_constants/separation = 20
 
 [node name="Runes" type="VBoxContainer" parent="VBoxContainer" unique_id=37329646]
 layout_mode = 2
-theme_override_constants/separation = -2
+theme_override_constants/separation = 0
 
 [node name="UpperRunes" parent="VBoxContainer/Runes" unique_id=213725564 instance=ExtResource("1_ci5dv")]
 unique_name_in_owner = true

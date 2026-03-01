@@ -43,7 +43,7 @@ func _draw() -> void:
 
 	var cell_size: Vector2 = size / Vector2(grid_width, grid_height)
 
-	var line_width := 2
+	var line_width := 2.0
 	var line_color := Color("#545454ff")
 	var bg_color := Color("#1d1d1dff")
 
@@ -51,8 +51,16 @@ func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), bg_color)
 	
 	# Draw borders
-	draw_rect(Rect2(Vector2(line_width/2, line_width/2), size - Vector2(line_width, line_width)), line_color, false, line_width)
-	
+	draw_rect(
+		Rect2(
+			Vector2(line_width/4.0, line_width/4.0),
+			size - Vector2(line_width/2.0, line_width/2.0)
+			),
+		line_color,
+		false,
+		line_width / 2
+		)
+		
 	# Vertical lines
 	for x: int in range(1, grid_width):
 		var xpos := roundi(x * cell_size.x)
