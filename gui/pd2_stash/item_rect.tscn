@@ -29,8 +29,8 @@ border_width_bottom = 2
 border_color = Color(0.13899964, 0.13899967, 0.13899961, 1)
 
 [node name="ItemRect" type="Panel" unique_id=1300969932]
-offset_right = 71.0
-offset_bottom = 71.0
+offset_right = 40.0
+offset_bottom = 40.0
 mouse_filter = 1
 mouse_behavior_recursive = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2uup3")

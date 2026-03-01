@@ -1,5 +1,5 @@
 class_name ItemRect
-extends Panel
+extends Control
 
 signal item_selected(item: D2Item)
 
