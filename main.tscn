@@ -184,7 +184,13 @@ bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1u8w0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsp4k"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xuqvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kq58d"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_qsp4k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
 
@@ -1019,95 +1025,254 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 12
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash" unique_id=1334177851]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash" unique_id=1713640508]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2" unique_id=1499661340]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qsp4k")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer" unique_id=677040811 node_paths=PackedStringArray("switch_buttons", "tab_container")]
+layout_mode = 2
+theme_override_constants/separation = 2
+script = ExtResource("22_1u8w0")
+switch_buttons = [NodePath("Button"), NodePath("Button2"), NodePath("Button3"), NodePath("Button4"), NodePath("Button5"), NodePath("Button6"), NodePath("Button7"), NodePath("Button8"), NodePath("Button9"), NodePath("Button10"), NodePath("Button11")]
+tab_container = NodePath("../../PD2Stash")
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=679415907]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_getpj")
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "M"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer" unique_id=1713640508]
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=64942370]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "P"
 
-[node name="PD2Stash" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer" unique_id=2052171568]
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=792748318]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "1"
+
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=1115408045]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "2"
+
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=1630967327]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "3"
+
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=589207045]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "4"
+
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=1549804147]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "5"
+
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=469189543]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "6"
+
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=1980281111]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "7"
+
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=1955488616]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "8"
+
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PanelContainer/HBoxContainer" unique_id=2134535328]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_xuqvo")
+text = "9"
+
+[node name="PD2Stash" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2" unique_id=2052171568]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 8
+size_flags_stretch_ratio = 21.0
 tab_alignment = 1
 current_tab = 10
+tabs_visible = false
 script = ExtResource("2_0xm2m")
 
-[node name="M" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1102498369 instance=ExtResource("10_yaehf")]
+[node name="M" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1102498369 instance=ExtResource("10_yaehf")]
 visible = false
 layout_mode = 2
 
-[node name="P" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1891089092 instance=ExtResource("3_1bvp3")]
+[node name="P" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1891089092 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="1" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1224132876 instance=ExtResource("3_1bvp3")]
+[node name="1" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1224132876 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="2" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1942325504 instance=ExtResource("3_1bvp3")]
+[node name="2" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1942325504 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="3" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1424572403 instance=ExtResource("3_1bvp3")]
+[node name="3" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1424572403 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="4" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=162397645 instance=ExtResource("3_1bvp3")]
+[node name="4" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=162397645 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="5" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=69570769 instance=ExtResource("3_1bvp3")]
+[node name="5" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=69570769 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
-[node name="6" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1610406225 instance=ExtResource("3_1bvp3")]
+[node name="6" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1610406225 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 7
 
-[node name="7" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1305384590 instance=ExtResource("3_1bvp3")]
+[node name="7" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1305384590 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 8
 
-[node name="8" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=1392874835 instance=ExtResource("3_1bvp3")]
+[node name="8" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=1392874835 instance=ExtResource("3_1bvp3")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 9
 
-[node name="9" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/PanelContainer/VBoxContainer/PD2Stash" unique_id=230301506 instance=ExtResource("3_1bvp3")]
+[node name="9" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer2/PD2Stash" unique_id=230301506 instance=ExtResource("3_1bvp3")]
 layout_mode = 2
 metadata/_tab_index = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash" unique_id=1500027000]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 0
 
-[node name="CharInventorySelector" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=441424146]
-custom_minimum_size = Vector2(400, 314)
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer" unique_id=1145934208]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer" unique_id=1579287421]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kq58d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/PanelContainer" unique_id=233280632 node_paths=PackedStringArray("switch_buttons", "tab_container")]
+layout_mode = 2
+theme_override_constants/separation = 2
+script = ExtResource("22_1u8w0")
+switch_buttons = [NodePath("Button"), NodePath("Button2"), NodePath("Button3")]
+tab_container = NodePath("../../CharInventorySelector")
+
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=511512369]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_qsp4k")
+text = "Character"
+
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1168604632]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_qsp4k")
+text = "Mercenary"
+
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1816067327]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
+toggle_mode = true
+action_mode = 0
+button_group = SubResource("ButtonGroup_qsp4k")
+text = "Cube"
+
+[node name="CharInventorySelector" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer" unique_id=441424146]
+layout_mode = 2
+size_flags_stretch_ratio = 9.8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
 tab_alignment = 1
 current_tab = 0
+tabs_visible = false
 
-[node name="Character" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=219751203 instance=ExtResource("8_vivmo")]
+[node name="Character" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/CharInventorySelector" unique_id=219751203 instance=ExtResource("8_vivmo")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_tab_index = 0
 
-[node name="Mercenary" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=1192591918 instance=ExtResource("8_vivmo")]
+[node name="Mercenary" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/CharInventorySelector" unique_id=1192591918 instance=ExtResource("8_vivmo")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -1115,12 +1280,13 @@ size_flags_vertical = 3
 is_merc = true
 metadata/_tab_index = 1
 
-[node name="Cube" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector" unique_id=2050599502]
+[node name="Cube" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/CharInventorySelector" unique_id=2050599502]
 visible = false
+custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="CubeInventory" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/CharInventorySelector/Cube" unique_id=910500633 instance=ExtResource("3_1bvp3")]
+[node name="CubeInventory" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2/ScrollContainer/VBoxContainer2/PD2Inventory/PD2Stash/VBoxContainer/VBoxContainer/CharInventorySelector/Cube" unique_id=910500633 instance=ExtResource("3_1bvp3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
@@ -1133,6 +1299,7 @@ grid_height = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 320)
 layout_mode = 2
+size_flags_stretch_ratio = 1.04
 grid_height = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView" unique_id=240837233]

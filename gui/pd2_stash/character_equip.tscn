@@ -11,12 +11,15 @@
 [sub_resource type="ButtonGroup" id="ButtonGroup_w48qg"]
 
 [node name="CharEquip" type="PanelContainer" unique_id=219751203]
+custom_minimum_size = Vector2(0, 280)
+offset_right = 336.0
+offset_bottom = 271.0
 script = ExtResource("1_o8xj8")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1361300142]
 layout_mode = 2
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=800101913]
 layout_mode = 2
@@ -25,40 +28,65 @@ size_flags_vertical = 4
 
 [node name="LeftSide" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2068602561]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
 
 [node name="LeftWeapon" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftSide" unique_id=67499591]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 2.5
 localize_numeral_system = false
 theme_override_constants/separation = 0
 
 [node name="Swap" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon" unique_id=847184047]
-custom_minimum_size = Vector2(0, 31)
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 0
 
 [node name="Swap1" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon/Swap" unique_id=1580925288]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_ycdy4")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon/Swap/Swap1" unique_id=707354470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "I"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Swap2" type="Button" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon/Swap" unique_id=1094232896]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_ycdy4")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon/Swap/Swap2" unique_id=1441042357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "II"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeftTab" type="TabContainer" parent="MarginContainer/HBoxContainer/LeftSide/LeftWeapon" unique_id=2060332216]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 4.0
 current_tab = 0
 tabs_visible = false
 
@@ -83,105 +111,150 @@ metadata/_tab_index = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_vertical = 8
 
 [node name="LeftRing" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=372802470]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Spacer" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftRing" unique_id=1376025103]
 custom_minimum_size = Vector2(40, 204)
 layout_mode = 2
+size_flags_stretch_ratio = 0.72
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2cqfq")
 
 [node name="LeftRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftRing" unique_id=573960780]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.14
+
+[node name="Spacer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftRing" unique_id=1693195004]
+layout_mode = 2
+size_flags_stretch_ratio = 0.11
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2cqfq")
 
 [node name="Torso" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=439567609]
 layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
 
 [node name="Helmet" type="PanelContainer" parent="MarginContainer/HBoxContainer/Torso" unique_id=1651151688]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.28
 
 [node name="Chest" type="PanelContainer" parent="MarginContainer/HBoxContainer/Torso" unique_id=449015598]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 120)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.42
 
 [node name="Belt" type="PanelContainer" parent="MarginContainer/HBoxContainer/Torso" unique_id=850919605]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.14
+
+[node name="Spacer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/Torso" unique_id=848744271]
+layout_mode = 2
+size_flags_stretch_ratio = 0.11
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2cqfq")
 
 [node name="RightRing" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=113155809]
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Spacer" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1580225802]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
+size_flags_stretch_ratio = 0.11
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yaehf")
 
 [node name="Amulet" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1654510863]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_stretch_ratio = 0.14
 
 [node name="Spacer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=447162202]
 custom_minimum_size = Vector2(40, 120)
 layout_mode = 2
+size_flags_stretch_ratio = 0.42
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yaehf")
 
 [node name="RightRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1922185006]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 0.14
+
+[node name="Spacer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1201699670]
+layout_mode = 2
+size_flags_stretch_ratio = 0.11
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2cqfq")
 
 [node name="RightSide" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1561130648]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
 
 [node name="RightWeapon" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightSide" unique_id=969590415]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_stretch_ratio = 2.5
 localize_numeral_system = false
 theme_override_constants/separation = 0
 
 [node name="Swap" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon" unique_id=744905090]
-custom_minimum_size = Vector2(0, 31)
+custom_minimum_size = Vector2(0, 23)
 layout_mode = 2
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 0
 
 [node name="Swap11" type="Button" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon/Swap" unique_id=1123802423]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_w48qg")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon/Swap/Swap11" unique_id=1721326292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "I"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Swap22" type="Button" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon/Swap" unique_id=1088124976]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_w48qg")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon/Swap/Swap22" unique_id=1480263998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "II"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RightTab" type="TabContainer" parent="MarginContainer/HBoxContainer/RightSide/RightWeapon" unique_id=518910326]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_stretch_ratio = 4.0
 current_tab = 0
 tabs_visible = false
 
@@ -206,4 +279,3 @@ metadata/_tab_index = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-size_flags_vertical = 8

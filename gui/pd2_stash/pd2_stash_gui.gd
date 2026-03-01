@@ -1,7 +1,6 @@
 class_name PD2StashGUI
 extends TabContainer
 
-
 var _initialized: bool
 var _pd2_pages: PagedStashView
 var _item_page_map: Dictionary[D2Item, int]
