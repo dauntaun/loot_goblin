@@ -64,10 +64,13 @@ class CompiledQuickFilterQuery:
 		for filter: QuickFilter in _active_filters:
 			var values: Array[int] = _active_filters[filter]
 			var match_function := _get_match_function(filter)
+			var filter_matched: bool
 			for value: int in values:
-				var result: bool = match_function.call(item, value)
-				if not result:
-					return false
+				if match_function.call(item, value):
+					filter_matched = true
+					break
+			if not filter_matched:
+				return false
 		return true
 
 
@@ -115,7 +118,7 @@ class CompiledQuickFilterQuery:
 			PropertyFilter.ETHEREAL: return item.is_ethereal
 			PropertyFilter.SOCKETED: return item.is_socketed
 			PropertyFilter.CORRUPTED:return item.is_corrupted
-		return true
+		return false
 
 
 	func _item_matches_tier(item: D2Item, tier: TierFilter) -> bool:
@@ -123,7 +126,7 @@ class CompiledQuickFilterQuery:
 			TierFilter.NORMAL: return item.item_tier == D2Item.ItemTier.NORMAL
 			TierFilter.EXCEPTIONAL: return item.item_tier == D2Item.ItemTier.EXCEPTIONAL
 			TierFilter.ELITE: return item.item_tier == D2Item.ItemTier.ELITE
-		return true
+		return false
 
 
 class CompiledStringQuery:
