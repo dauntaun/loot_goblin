@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY}
+enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -58,7 +58,9 @@ class CompiledQuickFilterQuery:
 	enum RarityFilter {RUNEWORD, NORMAL, MAGIC, RARE, CRAFTED, UNIQUE, SET}
 	enum TierFilter {NORMAL, EXCEPTIONAL, ELITE}
 	enum ClassFilter {NON_CLASS, AMAZON, ASSASSIN, BARBARIAN, DRUID, PALADIN, SORCERESS, NECROMANCER}
-	enum PropertyFilter {ETHEREAL, SOCKETED, CORRUPTED}
+	enum PropertyFilter {ETHEREAL, CORRUPTED}
+	enum SocketFilter {NONE, ONE, TWO, THREE, FOUR, FIVE, SIX}
+	
 	
 	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
 
@@ -99,6 +101,8 @@ class CompiledQuickFilterQuery:
 				return _item_matches_weapon_size
 			QuickFilter.CLASS:
 				return _item_matches_class
+			QuickFilter.SOCKET:
+				return _item_matches_socket
 		return func() -> void: pass
 
 
@@ -195,7 +199,6 @@ class CompiledQuickFilterQuery:
 	func _item_matches_property(item: D2Item, property: PropertyFilter) -> bool:
 		match property:
 			PropertyFilter.ETHEREAL: return item.is_ethereal
-			PropertyFilter.SOCKETED: return item.is_socketed
 			PropertyFilter.CORRUPTED:return item.is_corrupted
 		return false
 
@@ -205,6 +208,18 @@ class CompiledQuickFilterQuery:
 			TierFilter.NORMAL: return item.item_tier == D2Item.ItemTier.NORMAL
 			TierFilter.EXCEPTIONAL: return item.item_tier == D2Item.ItemTier.EXCEPTIONAL
 			TierFilter.ELITE: return item.item_tier == D2Item.ItemTier.ELITE
+		return false
+
+
+	func _item_matches_socket(item: D2Item, sockets: SocketFilter) -> bool:
+		match sockets:
+			SocketFilter.NONE: return item.total_sockets == 0
+			SocketFilter.ONE: return item.total_sockets == 1
+			SocketFilter.TWO: return item.total_sockets == 2
+			SocketFilter.THREE: return item.total_sockets == 3
+			SocketFilter.FOUR: return item.total_sockets == 4
+			SocketFilter.FIVE: return item.total_sockets == 5
+			SocketFilter.SIX: return item.total_sockets == 6
 		return false
 
 
