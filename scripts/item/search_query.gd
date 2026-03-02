@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET}
+enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET, ETHEREAL, CORRUPT}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -60,6 +60,8 @@ class CompiledQuickFilterQuery:
 	enum ClassFilter {NON_CLASS, AMAZON, ASSASSIN, BARBARIAN, DRUID, PALADIN, SORCERESS, NECROMANCER}
 	enum PropertyFilter {ETHEREAL, CORRUPTED}
 	enum SocketFilter {NONE, ONE, TWO, THREE, FOUR, FIVE, SIX}
+	enum EtherealFilter {YES, NO}
+	enum CorruptedFilter {YES, NO}
 	
 	
 	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
@@ -103,6 +105,10 @@ class CompiledQuickFilterQuery:
 				return _item_matches_class
 			QuickFilter.SOCKET:
 				return _item_matches_socket
+			QuickFilter.ETHEREAL:
+				return _item_matches_ethereal
+			QuickFilter.CORRUPT:
+				return _item_matches_corrupted
 		return func() -> void: pass
 
 
@@ -220,6 +226,20 @@ class CompiledQuickFilterQuery:
 			SocketFilter.FOUR: return item.total_sockets == 4
 			SocketFilter.FIVE: return item.total_sockets == 5
 			SocketFilter.SIX: return item.total_sockets == 6
+		return false
+
+
+	func _item_matches_ethereal(item: D2Item, ethereal: EtherealFilter) -> bool:
+		match ethereal:
+			EtherealFilter.YES: return item.is_ethereal
+			EtherealFilter.NO: return not item.is_ethereal
+		return false
+	
+	
+	func _item_matches_corrupted(item: D2Item, corrupt: CorruptedFilter) -> bool:
+		match corrupt:
+			CorruptedFilter.YES: return item.is_corrupted
+			CorruptedFilter.NO: return not item.is_corrupted
 		return false
 
 
