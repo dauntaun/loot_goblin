@@ -53,61 +53,39 @@ class CompiledQuickFilterQuery:
 	enum TierFilter {NORMAL, EXCEPTIONAL, ELITE}
 	enum PropertyFilter {ETHEREAL, SOCKETED, CORRUPTED}
 	
-	var _active_types: Array[TypeFilter]
-	var _active_rarities: Array[RarityFilter]
-	var _active_tiers: Array[TierFilter]
-	var _active_properties: Array[PropertyFilter]
+	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
+
 
 	func compile(quick_filter: QuickFilter, values: Array[int]) -> void:
-		match quick_filter:
-			QuickFilter.TYPE:
-				_active_types = values as Array[TypeFilter]
-			QuickFilter.RARITY:
-				_active_rarities = values as Array[RarityFilter]
-			QuickFilter.TIER:
-				_active_tiers = values as Array[TierFilter]
-			QuickFilter.PROPERTY:
-				_active_properties = values as Array[PropertyFilter]
+		_active_filters[quick_filter] = values
 
 
 	func matches(item: D2Item) -> bool:
-		return _match_properties(item) \
-			and _match_types(item) \
-			and _match_rarities(item) \
-			and _match_tiers(item)
-
-	func _match_types(item: D2Item) -> bool:
-		if _active_types.is_empty():
-			return true
-		for t in _active_types:
-			if _item_matches_type(item, t):
-				return true
-		return false
-
-	func _match_rarities(item: D2Item) -> bool:
-		if _active_rarities.is_empty():
-			return true
-		for r in _active_rarities:
-			if _item_matches_rarity(item, r):
-				return true
-		return false
-
-	func _match_tiers(item: D2Item) -> bool:
-			if _active_tiers.is_empty():
-				return true
-			for t in _active_tiers:
-				if _item_matches_tier(item, t):
-					return true
-			return false
-
-	func _match_properties(item: D2Item) -> bool:
-		for p in _active_properties:
-			if not _item_matches_property(item, p):
-				return false
+		for filter: QuickFilter in _active_filters:
+			var values: Array[int] = _active_filters[filter]
+			var match_function := _get_match_function(filter)
+			for value: int in values:
+				var result: bool = match_function.call(item, value)
+				if not result:
+					return false
 		return true
 
-	func _item_matches_type(item: D2Item, t: TypeFilter) -> bool:
-		match t:
+
+	func _get_match_function(filter: QuickFilter) -> Callable:
+		match filter:
+			QuickFilter.TYPE:
+				return _item_matches_type
+			QuickFilter.RARITY:
+				return _item_matches_rarity
+			QuickFilter.TIER:
+				return _item_matches_tier
+			QuickFilter.PROPERTY:
+				return _item_matches_property
+		return func() -> void: pass
+
+
+	func _item_matches_type(item: D2Item, type: TypeFilter) -> bool:
+		match type:
 			TypeFilter.WEAPON: return item.is_weapon
 			TypeFilter.ARMOR:  return item.is_armor
 			TypeFilter.RING:   return item.item_type == "Ring"
@@ -116,10 +94,11 @@ class CompiledQuickFilterQuery:
 			TypeFilter.CHARM:   return item.item_type in ["Small Charm", "Large Charm", "Grand Charm"]
 			TypeFilter.JEWEL:   return item.item_type == "Jewel"
 			TypeFilter.MAP:   return item.item_type in ["Map T1", "Map T2", "Map T3"]
-			_: return false
+		return false
 
-	func _item_matches_rarity(item: D2Item, r: RarityFilter) -> bool:
-		match r:
+
+	func _item_matches_rarity(item: D2Item, rarity: RarityFilter) -> bool:
+		match rarity:
 			RarityFilter.NORMAL: return item.rarity in \
 			[D2Item.ItemRarity.NORMAL, D2Item.ItemRarity.INFERIOR, D2Item.ItemRarity.SUPERIOR] and not item.has_runeword
 			RarityFilter.RUNEWORD: return item.has_runeword
@@ -128,21 +107,22 @@ class CompiledQuickFilterQuery:
 			RarityFilter.CRAFTED: return item.rarity == D2Item.ItemRarity.CRAFTED
 			RarityFilter.UNIQUE: return item.rarity == D2Item.ItemRarity.UNIQUE
 			RarityFilter.SET:    return item.rarity == D2Item.ItemRarity.SET
-			_: return false
+		return false
 
-	func _item_matches_property(item: D2Item, p: PropertyFilter) -> bool:
-		match p:
+
+	func _item_matches_property(item: D2Item, property: PropertyFilter) -> bool:
+		match property:
 			PropertyFilter.ETHEREAL: return item.is_ethereal
 			PropertyFilter.SOCKETED: return item.is_socketed
 			PropertyFilter.CORRUPTED:return item.is_corrupted
 		return true
-	
-	func _item_matches_tier(item: D2Item, t: TierFilter) -> bool:
-		match t:
+
+
+	func _item_matches_tier(item: D2Item, tier: TierFilter) -> bool:
+		match tier:
 			TierFilter.NORMAL: return item.item_tier == D2Item.ItemTier.NORMAL
 			TierFilter.EXCEPTIONAL: return item.item_tier == D2Item.ItemTier.EXCEPTIONAL
 			TierFilter.ELITE: return item.item_tier == D2Item.ItemTier.ELITE
-
 		return true
 
 
