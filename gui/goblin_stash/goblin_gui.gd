@@ -66,6 +66,7 @@ func _ready() -> void:
 	_item_searcher = ItemSearcher.new()
 	_search_bar.query_submitted.connect(_submit_new_query)
 	quick_filters.quick_filter_changed.connect(_on_quick_filters_changed)
+	quick_filters.quick_filter_reset.connect(_on_quick_filters_reset)
 	ItemSelection.items_transferred.connect(_on_items_transferred)
 	CommandQueue.queue_undone.connect(_reset_page_and_refresh_filters.bind(false))
 	
@@ -119,6 +120,12 @@ func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void
 		"corrupted":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.CORRUPT, values)
 	
+	_reset_page_and_refresh_filters()
+	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
+
+
+func _on_quick_filters_reset() -> void:
+	_item_searcher.reset_quick_filters()
 	_reset_page_and_refresh_filters()
 	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 

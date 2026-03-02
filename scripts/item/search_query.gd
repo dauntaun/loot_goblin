@@ -16,6 +16,11 @@ func set_quick_filter(quick_filter: QuickFilter, values: Array[int]) -> void:
 	_incremental_invalidated = true
 
 
+func reset_quick_filters() -> void:
+	_quickfilter_query = CompiledQuickFilterQuery.new()
+	_incremental_invalidated = true
+
+
 func set_string_query(string_query: String) -> void:
 	_string_query = CompiledStringQuery.new(string_query)
 
@@ -62,7 +67,6 @@ class CompiledQuickFilterQuery:
 	enum SocketFilter {NONE, ONE, TWO, THREE, FOUR, FIVE, SIX}
 	enum EtherealFilter {YES, NO}
 	enum CorruptedFilter {YES, NO}
-	
 	
 	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
 

@@ -28,6 +28,10 @@ func set_quick_filters(quick_filter: ItemSearchQuery.QuickFilter, values: Array[
 	_search_query.set_quick_filter(quick_filter, values)
 
 
+func reset_quick_filters() -> void:
+	_search_query.reset_quick_filters()
+
+
 func set_typed_filter(typed_query: String) -> void:
 	_search_query.set_string_query(typed_query)
 
