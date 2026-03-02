@@ -248,12 +248,12 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return "%s%% %s %s" % [params[1], string, monster_string]
 
 		24: # Charges
-			# param[0] = skill level
-			# param[1] = skill id
-			# param[2] = current charges
-			# param[3] = max charges
+			# params[0] = skill level
+			# params[1] = skill id
+			# params[2] = current charges
+			# params[3] = max charges
 			var skill_string: String = TxtDB.localize(TxtDB.get_skill_name(params[1]))
-			return "Level %d %s %s" % [value, skill_string, string] % [params[2], params[3]]
+			return "Level %d %s %s" % [params[0], skill_string, string] % [params[2], params[3]]
 
 		25: # Minus
 			return "Minus (not implemented)"
@@ -269,8 +269,8 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return output
 
 		28: # OSkill
-			# param[0] = skill id
-			# param[1] = skill level
+			# params[0] = skill id
+			# params[1] = skill level
 			var skill_string: String = TxtDB.localize(TxtDB.get_skill_name(params[0]))
 			return "+%d to %s" % [params[1], skill_string]
 
