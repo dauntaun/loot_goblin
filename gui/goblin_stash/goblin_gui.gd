@@ -96,6 +96,22 @@ func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TIER, values)
 		"property":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.PROPERTY, values)
+		"weapon":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TYPE, values)
+		"armor":
+			for i: int in values.size(): # Skip weapon enums
+				values[i] += 21 
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TYPE, values)
+		"misc":
+			for i: int in values.size(): # Skip weapon+armor enums
+				values[i] += 21 + 11
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TYPE, values)
+		"weapon_type":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.WEAPON_TYPE, values)
+		"weapon_size":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.WEAPON_SIZE, values)
+		"class":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.CLASS, values)
 	
 	_reset_page_and_refresh_filters()
 	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)

@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, WEAPON, ARMOR, MISC, RARITY, TIER, PROPERTY}
+enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -45,12 +45,19 @@ func mark_applied() -> void:
 
 
 class CompiledQuickFilterQuery:
-	enum TypeFilter {WEAPON, ARMOR, RING, AMULET, QUIVER, CHARM, JEWEL, MAP}
-	enum WeaponFilter {AXE, MACE, SWORD, DAGGER, THROWING, SPEAR, POLEARM, BOW, CROSSBOW, STAFF, WAND, SCEPTER, CLAW, ORB, AMAZON_WEAPON}
-	enum ArmorFilter {HELM, CIRCLET, ARMOR, SHIELD, GLOVES, BOOTS, BELT, DRUID_HELM, BARBARIAN_HELM, PALADIN_SHIELD, NECROMANCER_SHIELD}
-	enum MiscFilter {QUIVER, AMULET, RING, CHARM, JEWEL, MAP}
+	enum TypeFilter {
+		# Weapon 21 types
+		AXE, CLUB, MACE, HAMMER, SWORD, DAGGER, THROWING_AXE, THROWING_KNIFE, JAVELIN, AMAZON_JAVELIN, SPEAR, AMAZON_SPEAR, POLEARM, BOW, AMAZON_BOW, CROSSBOW, STAFF, WAND, SCEPTER, CLAW, ORB,
+		# Armor 11 types
+		HELM, CIRCLET, ARMOR, SHIELD, GLOVES, BOOTS, BELT, DRUID_HELM, BARBARIAN_HELM, PALADIN_SHIELD, NECROMANCER_SHIELD,
+		# Misc 9 types
+		RING, AMULET, ARROWS, BOLTS, SMALL_CHARM, LARGE_CHARM, GRAND_CHARM, JEWEL, MAP
+		}
+	enum WeaponSizeFilter {ONE_HANDED, TWO_HANDED}
+	enum WeaponTypeFilter {MELEE, MISSILE, THROWING}
 	enum RarityFilter {RUNEWORD, NORMAL, MAGIC, RARE, CRAFTED, UNIQUE, SET}
 	enum TierFilter {NORMAL, EXCEPTIONAL, ELITE}
+	enum ClassFilter {NON_CLASS, AMAZON, ASSASSIN, BARBARIAN, DRUID, PALADIN, SORCERESS, NECROMANCER}
 	enum PropertyFilter {ETHEREAL, SOCKETED, CORRUPTED}
 	
 	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
@@ -63,7 +70,7 @@ class CompiledQuickFilterQuery:
 	func matches(item: D2Item) -> bool:
 		for filter: QuickFilter in _active_filters:
 			var values: Array[int] = _active_filters[filter]
-			if values.is_empty():
+			if values.is_empty(): # Return true by default if no filters are selected
 				continue
 			var match_function := _get_match_function(filter)
 			var filter_matched: bool
@@ -71,7 +78,7 @@ class CompiledQuickFilterQuery:
 				if match_function.call(item, value):
 					filter_matched = true
 					break
-			if not filter_matched:
+			if not filter_matched: # Match filters by logical AND
 				return false
 		return true
 
@@ -86,19 +93,89 @@ class CompiledQuickFilterQuery:
 				return _item_matches_tier
 			QuickFilter.PROPERTY:
 				return _item_matches_property
+			QuickFilter.WEAPON_TYPE:
+				return _item_matches_weapon_type
+			QuickFilter.WEAPON_SIZE:
+				return _item_matches_weapon_size
+			QuickFilter.CLASS:
+				return _item_matches_class
 		return func() -> void: pass
 
 
 	func _item_matches_type(item: D2Item, type: TypeFilter) -> bool:
-		match type:
-			TypeFilter.WEAPON: return item.is_weapon
-			TypeFilter.ARMOR:  return item.is_armor
-			TypeFilter.RING:   return item.item_type == "Ring"
-			TypeFilter.AMULET:   return item.item_type == "Amulet"
-			TypeFilter.QUIVER:   return item.item_type in ["Bow Quiver", "Crossbow Quiver"]
-			TypeFilter.CHARM:   return item.item_type in ["Small Charm", "Large Charm", "Grand Charm"]
-			TypeFilter.JEWEL:   return item.item_type == "Jewel"
-			TypeFilter.MAP:   return item.item_type in ["Map T1", "Map T2", "Map T3"]
+			match type:
+				# Weapon
+				TypeFilter.AXE: return item.item_type == "Axe"
+				TypeFilter.CLUB: return item.item_type == "Club"
+				TypeFilter.MACE: return item.item_type == "Mace"
+				TypeFilter.HAMMER: return item.item_type == "Hammer"
+				TypeFilter.SWORD: return item.item_type == "Sword"
+				TypeFilter.DAGGER: return item.item_type == "Dagger"
+				TypeFilter.THROWING_AXE: return item.item_type == "Throwing Axe"
+				TypeFilter.THROWING_KNIFE: return item.item_type == "Throwing Knife"
+				TypeFilter.JAVELIN: return item.item_type == "Javelin"
+				TypeFilter.SPEAR: return item.item_type == "Spear"
+				TypeFilter.POLEARM: return item.item_type == "Polearm"
+				TypeFilter.BOW: return item.item_type == "Bow"
+				TypeFilter.CROSSBOW: return item.item_type == "Crossbow"
+				TypeFilter.STAFF: return item.item_type == "Staff"
+				TypeFilter.WAND: return item.item_type == "Wand"
+				TypeFilter.SCEPTER: return item.item_type == "Scepter"
+				TypeFilter.CLAW: return item.item_type == "Claw"
+				TypeFilter.ORB: return item.item_type == "Orb"
+				TypeFilter.AMAZON_BOW: return item.item_type == "Amazon Bow"
+				TypeFilter.AMAZON_SPEAR: return item.item_type == "Amazon Spear"
+				TypeFilter.AMAZON_JAVELIN: return item.item_type == "Amazon Javelin"
+				# Armor
+				TypeFilter.HELM: return item.item_type == "Helm"
+				TypeFilter.CIRCLET: return item.item_type == "Circlet"
+				TypeFilter.ARMOR: return item.item_type == "Armor"
+				TypeFilter.SHIELD: return item.item_type == "Shield"
+				TypeFilter.GLOVES: return item.item_type == "Gloves"
+				TypeFilter.BOOTS: return item.item_type == "Boots"
+				TypeFilter.BELT: return item.item_type == "Belt"
+				TypeFilter.DRUID_HELM: return item.item_type == "Druid Helm"
+				TypeFilter.BARBARIAN_HELM: return item.item_type == "Barbarian Helm"
+				TypeFilter.PALADIN_SHIELD: return item.item_type == "Paladin Shield"
+				TypeFilter.NECROMANCER_SHIELD: return item.item_type == "Necromancer Shield"
+				# Misc
+				TypeFilter.RING: return item.item_type == "Ring"
+				TypeFilter.AMULET: return item.item_type == "Amulet"
+				TypeFilter.ARROWS: return item.item_type == "Bow Quiver"
+				TypeFilter.BOLTS: return item.item_type == "Crossbow Quiver"
+				TypeFilter.SMALL_CHARM: return item.item_type == "Small Charm"
+				TypeFilter.LARGE_CHARM: return item.item_type == "Large Charm"
+				TypeFilter.GRAND_CHARM: return item.item_type == "Grand Charm"
+				TypeFilter.JEWEL: return item.item_type == "Jewel"
+				TypeFilter.MAP: return item.item_type in ["Map T1", "Map T2", "Map T3"]
+			return false
+
+
+	func _item_matches_weapon_type(item: D2Item, weapon_type: WeaponTypeFilter) -> bool:
+		match weapon_type:
+			WeaponTypeFilter.MELEE: return item.is_weapon and not item.item_type in ["Bow", "Crossbow", "Amazon Bow", "Throwing Axe", "Throwing Knife", "Javelin", "Amazon Javelin", "Orb"]
+			WeaponTypeFilter.MISSILE: return item.item_type in ["Bow", "Crossbow", "Amazon Bow"]
+			WeaponTypeFilter.THROWING: return item.item_type in ["Throwing Axe", "Throwing Knife", "Javelin", "Amazon Javelin"]
+		return false
+
+
+	func _item_matches_weapon_size(item: D2Item, weapon_size: WeaponSizeFilter) -> bool:
+		match weapon_size:
+			WeaponSizeFilter.ONE_HANDED: return item.weapon_damage.has("onehand") and not item.weapon_damage.has("twohand")
+			WeaponSizeFilter.TWO_HANDED: return item.weapon_damage.has("twohand")
+		return false
+
+
+	func _item_matches_class(item: D2Item, d2_class: ClassFilter) -> bool:
+		match d2_class:
+			ClassFilter.NON_CLASS: return item.item_class == D2Item.ClassSpecific.ANY
+			ClassFilter.AMAZON: return item.item_class == D2Item.ClassSpecific.AMA
+			ClassFilter.ASSASSIN: return item.item_class == D2Item.ClassSpecific.ASS
+			ClassFilter.BARBARIAN: return item.item_class == D2Item.ClassSpecific.BAR
+			ClassFilter.DRUID: return item.item_class == D2Item.ClassSpecific.DRU
+			ClassFilter.PALADIN: return item.item_class == D2Item.ClassSpecific.PAL
+			ClassFilter.SORCERESS: return item.item_class == D2Item.ClassSpecific.SOR
+			ClassFilter.NECROMANCER: return item.item_class == D2Item.ClassSpecific.NEC
 		return false
 
 
