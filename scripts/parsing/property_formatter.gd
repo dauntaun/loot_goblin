@@ -201,9 +201,9 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 		11: # Repairs durability. Fix to use ModStre9u
 			return TxtDB.localize("ModStre9u") % [1, (100 / value)]
 
-		12: # Plus sub one
-			var value_string: String = "+%d" % value if value > 1 else "%d" % value
-			return _format_with_descvalue(value_string, string, stat.descval)
+		12: # Hit freezes/blinds target
+			var output := "%s +%d" % [string, value] if value > 1 else string
+			return output
 
 		13: # Add class skill
 			var property_string: String = TxtDB.get_charstat_class_all_skills_string(params[0])
