@@ -63,6 +63,8 @@ class CompiledQuickFilterQuery:
 	func matches(item: D2Item) -> bool:
 		for filter: QuickFilter in _active_filters:
 			var values: Array[int] = _active_filters[filter]
+			if values.is_empty():
+				continue
 			var match_function := _get_match_function(filter)
 			var filter_matched: bool
 			for value: int in values:
