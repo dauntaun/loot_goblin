@@ -207,24 +207,24 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 
 		13: # Add class skill
 			var property_string: String = TxtDB.get_charstat_class_all_skills_string(params[0])
-			var output: String = "+%d %s" % [params[1], TxtDB.localize(property_string)]
+			var output: String = "+%d %s" % [params[1], property_string]
 			return output
 
 		14: # Add tab skill
 			var class_tab_skills_string: String = TxtDB.get_charstat_class_tab_skills_string(params[0])
 			var class_only_string: String = TxtDB.get_charstat_class_only_string(floor(params[0] / 8))
-			var output: String = "%s %s" % [TxtDB.localize(class_tab_skills_string), TxtDB.localize(class_only_string)] % params[1]
-			return "%s %s" % [TxtDB.localize(class_tab_skills_string), TxtDB.localize(class_only_string)] % params[1]
+			var output: String = "%s %s" % [class_tab_skills_string, class_only_string] % params[1]
+			return "%s %s" % [class_tab_skills_string, class_only_string] % params[1]
 
 		15: # Proc skill
-			var skill_name: String = TxtDB.localize(TxtDB.get_skill_name(params[1]))
+			var skill_name: String = TxtDB.get_skill_name(params[1])
 			if skill_name != "":
 				return string % [params[2], params[0], skill_name]
 			else:
 				return string
 
 		16: # Aura
-			var skill_name: String = TxtDB.localize(TxtDB.get_skill_name(params[0]))
+			var skill_name: String = TxtDB.get_skill_name(params[0])
 			return string % [params[1], skill_name]
 
 		17, 18: # By time
@@ -252,7 +252,7 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			# params[1] = skill id
 			# params[2] = current charges
 			# params[3] = max charges
-			var skill_string: String = TxtDB.localize(TxtDB.get_skill_name(params[1]))
+			var skill_string: String = TxtDB.get_skill_name(params[1])
 			return "Level %d %s %s" % [params[0], skill_string, string] % [params[2], params[3]]
 
 		25: # Minus
@@ -265,13 +265,13 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			var skill: String = TxtDB.get_skill_name(params[0])
 			var class_id: int = TxtDB.get_skill_class_id(params[0])
 			var class_only_string = TxtDB.get_charstat_class_only_string(class_id)
-			var output: String = "+%d to %s %s" % [params[1], TxtDB.localize(skill), TxtDB.localize(class_only_string)]
+			var output: String = "+%d to %s %s" % [params[1], skill, class_only_string]
 			return output
 
 		28: # OSkill
 			# params[0] = skill id
 			# params[1] = skill level
-			var skill_string: String = TxtDB.localize(TxtDB.get_skill_name(params[0]))
+			var skill_string: String = TxtDB.get_skill_name(params[0])
 			return "+%d to %s" % [params[1], skill_string]
 
 		29: # Sprintf num positive

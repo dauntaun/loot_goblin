@@ -809,7 +809,7 @@ func get_skill_name(skill_id: int) -> String: #TODO return str name from skill_d
 	var skill_desc_id: String = skill_table[str(skill_id)]["skilldesc"]
 	var desc_id: Dictionary = skill_desc.get(skill_desc_id, {})
 	if desc_id:
-		return skill_desc[skill_desc_id]["str name"]
+		return localize(skill_desc[skill_desc_id]["str name"])
 	else:
 		return ""
 
@@ -818,22 +818,18 @@ func get_skill_class_id(skill_id: int) -> int:
 	return CLASS_ID_BY_CODE[class_code]
 
 func get_charstat_class_all_skills_string(class_id: int) -> String:
-	return charstat_table[class_id]["StrAllSkills"]
+	return localize(charstat_table[class_id]["StrAllSkills"])
 
 func get_charstat_class_tab_skills_string(packed_id: int) -> String:
 	var class_id: int = floor(packed_id / 8)
 	var tab_id: int = packed_id % 8 + 1
 	
 	var col_index: String = "StrSkillTab%d" % tab_id
-	return charstat_table[class_id][col_index]
+	return localize(charstat_table[class_id][col_index])
 
 func get_charstat_class_only_string(class_id: int) -> String:
-	return charstat_table[class_id]["StrClassOnly"]
+	return localize(charstat_table[class_id]["StrClassOnly"])
 
-func get_charstat_string(key: String) -> String:
-	if charstat_table.has(key):
-		return charstat_table[key]["Name"]
-	return key
 
 func get_monster_name(monster_id: int) -> String:
 	if monster_table.has(monster_id):
