@@ -16,7 +16,6 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_d
 			break
 		elif data.decode_u16(cursor._bit_pos>>3) == ITEM_SIGNATURE:
 			var item: D2Item = _parse_item_at_cursor(cursor)
-			item.length = (cursor._bit_pos>>3) - item.start_byte
 			item.item_id = item_id_counter
 			ItemRegistry.item_data_register[item_id_counter] = item_data
 			ItemRegistry.item_register[item_id_counter] = item
@@ -57,6 +56,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 		item.build_search_cache()
 		
 		cursor.discard_to_byte_boundary()
+		item.length = (cursor._bit_pos>>3) - item.start_byte
 		return item
 	
 	# Item code
@@ -83,8 +83,9 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 	# Simple return
 	if item.is_simple:
 		item.item_name = item.base_name
-		cursor.discard_to_byte_boundary()
 		item.build_search_cache()
+		cursor.discard_to_byte_boundary()
+		item.length = (cursor._bit_pos>>3) - item.start_byte
 		return item
 	
 	item.is_armor = TxtDB.item_is_armor(code_string)
@@ -295,7 +296,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
-	
+	item.length = (cursor._bit_pos>>3) - item.start_byte
 	return item
 
 
