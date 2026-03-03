@@ -128,6 +128,7 @@ func clear_list() -> void:
 	var length: int = end - begin
 
 	BitFieldIO.remove_section(_data, begin, length)
+	_end_byte -= length
 
 	_items.clear()
 	list_cleared.emit()
