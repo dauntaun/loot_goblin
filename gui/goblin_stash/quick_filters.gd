@@ -53,5 +53,6 @@ func _reset_all_filters() -> void:
 	for button_container: Control in filters.values():
 		for button: Button in button_container.get_children():
 			button.set_pressed_no_signal(false)
+	_active_filter_count.clear()
 	reset_button.hide()
 	quick_filter_reset.emit()
