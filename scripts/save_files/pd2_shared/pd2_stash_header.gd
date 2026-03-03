@@ -4,8 +4,6 @@ const FILE_SIZE_BYTE_OFFSET: int = 8
 const CHECKSUM_BYTE_OFFSET: int = 12
 const CHECKSUM_BYTE_LENGTH: int = 4
 
-const ITEM_LIST_BYTE_OFFSET: int = 302
-const ITEM_COUNT_BYTE_OFFSET: int = 304
 
 var parse_successful: bool
 var _data: PackedByteArray
@@ -21,12 +19,6 @@ func _init(cursor: BitCursor) -> void:
 	cursor.set_at(ITEM_LIST_BYTE_OFFSET << 3)
 
 
-func read_item_count() -> int:
-	return _data.decode_u16(ITEM_COUNT_BYTE_OFFSET)
-
-
-func write_item_count(count: int) -> void:
-	_data.encode_u16(ITEM_COUNT_BYTE_OFFSET, count)
 
 
 func update_file_size() -> void:

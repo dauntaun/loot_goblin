@@ -143,6 +143,10 @@ func clear_list() -> void:
 	bytes_shifted.emit(-items_length)
 
 
+func write_item_count() -> void:
+	_data.encode_u16(_start_byte - 2, get_item_count())
+
+
 # List getters
 func get_start_byte() -> int:
 	return _start_byte

@@ -17,7 +17,7 @@ func load_file() -> void:
 
 
 func save_file(path: String) -> void:
-	header.write_item_count(item_list.get_item_count())
+	item_list.write_item_count()
 	header.update_file_size()
 	header.write_checksum()
 	

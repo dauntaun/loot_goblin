@@ -103,7 +103,7 @@ func read_item_lists() -> void:
 	if corpse_items._parsed_item_count == 1:
 		cursor.discard_bits(12 << 3)
 		var real_corpse_items := D2ItemList.new(cursor)
-		item_list = real_corpse_items
+		#item_list = real_corpse_items
 	# Cursor is now at merc items
 	if not data.decode_u16(cursor._bit_pos>>3) == MERC_SIGNATURE:
 		push_error("Unknown merc signature")

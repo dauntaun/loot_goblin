@@ -14,7 +14,6 @@ const COLLECTION_NAME_BYTE_OFFSET := 20 ## Relative to start
 const COLLECTION_NAME_BYTE_LENGTH := 50 ## Null terminates string
 const MAIN_COLLECTION_NAME := "Main"
 const ITEM_LIST_BYTE_OFFSET := 70 ## Relative to start
-const ITEM_COUNT_BYTE_OFFSET := 72 ## Relative to start
 
 var item_list: D2ItemList
 
@@ -55,15 +54,11 @@ func save_file(path: String) -> void:
 	if data.is_empty():
 		write_header()
 	if item_list:
-		write_item_count(item_list.get_item_count())
+		item_list.write_item_count()
 	file.store_buffer(data)
 	file.close()
 	save_timestamp = FileAccess.get_modified_time(path)
 	load_timestamp = FileAccess.get_access_time(path)
-
-
-func write_item_count(count: int) -> void:
-	data.encode_u16(MAIN_COLLECTION_START_BYTE_OFFSET + ITEM_COUNT_BYTE_OFFSET, count)
 
 
 func write_header() -> void:
