@@ -23,7 +23,7 @@ func update_labels(item: D2Item) -> void:
 		return
 	item_debug_stash.text = "source: %s" % StashRegistry.StashType.find_key(ItemRegistry.get_item_stash(item.item_id))
 	item_debug_id.text = "item_id: %d" % item.item_id
-	item_debug_start.text = "start_byte: %d" % item.start_byte
+	item_debug_start.text = "start_offset: %d" % item.start_offset
 	item_debug_length.text = "length: %d" % item.length
 	item_debug_location.text = "location_id: %s" % D2Item.ItemLocation.find_key(item.location_id)
 	item_debug_store.text = "store_id: %s" % D2Item.StoreLocation.find_key(item.store_id)

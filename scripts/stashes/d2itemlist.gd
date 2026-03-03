@@ -49,13 +49,13 @@ func _append_items_from_list(item_list: D2ItemList) -> void:
 	if item_list._items.is_empty():
 		return
 	
-	var end_pos: int = _end_byte
+	var end_offset := _end_byte - _start_byte
 	
 	for item: D2Item in item_list._items:
 		_items.append(item)
 		ItemRegistry.item_data_register[item.item_id] = self
-		item.start_byte = end_pos
-		end_pos += item.length
+		item.start_offset = end_offset
+		end_offset += item.length
 	var new_bytes: PackedByteArray = item_list.get_bytes()
 	_data.append_array(new_bytes)
 	_end_byte += new_bytes.size()
@@ -68,7 +68,7 @@ func import_item_lists(item_lists: Array[D2ItemList]) -> void:
 
 
 func add_item_bytes(item: D2Item, item_bytes: PackedByteArray) -> void:
-	item.start_byte = _end_byte
+	item.start_offset = _end_byte - _start_byte
 
 	# Bookkeeping
 	_data.append_array(item_bytes) # NOTE this will not work on a PlugY stash
@@ -78,7 +78,8 @@ func add_item_bytes(item: D2Item, item_bytes: PackedByteArray) -> void:
 
 
 func get_item_bytes(item: D2Item) -> PackedByteArray:
-	var item_bytes := _data.slice(item.start_byte, item.start_byte + item.length)
+	var item_start_byte := _start_byte + item.start_offset
+	var item_bytes := _data.slice(item_start_byte, item_start_byte + item.length)
 	return item_bytes
 
 
@@ -98,37 +99,37 @@ func delete_item_bytes(item: D2Item) -> void:
 		push_error("Item not found in item list")
 		return
 
-	var start: int = item.start_byte
-	var length: int = item.length
+	var item_start_offset := item.start_offset
+	var item_start_byte := _start_byte + item_start_offset
+	var item_length := item.length
 
-	BitFieldIO.remove_section(_data, start, length)
-	_end_byte -= length
+	BitFieldIO.remove_section(_data, item_start_byte, item_length)
+	_end_byte -= item_length
 	_items.erase(item)
 
 	# Fix offsets for remaining entries
 	for other: D2Item in _items:
-		if other.start_byte > start:
-			other.start_byte -= length
+		if other.start_offset > item_start_offset:
+			other.start_offset -= item_length
 
 
 func write_current_item_position(item: D2Item) -> void:
-	var start_byte: int = item.start_byte
-	ItemWriter.write_field(_data, start_byte, ItemWriter.WriteableField.X_COORD, item.x_coord)
-	ItemWriter.write_field(_data, start_byte, ItemWriter.WriteableField.Y_COORD, item.y_coord)
-	ItemWriter.write_field(_data, start_byte, ItemWriter.WriteableField.EQUIPPED_ID, item.equipped_id)
-	ItemWriter.write_field(_data, start_byte, ItemWriter.WriteableField.STORE_ID, item.store_id)
+	var item_start_byte: int = _start_byte + item.start_offset
+	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.X_COORD, item.x_coord)
+	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.Y_COORD, item.y_coord)
+	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.EQUIPPED_ID, item.equipped_id)
+	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.STORE_ID, item.store_id)
 
 
 func clear_list() -> void:
 	if _items.is_empty():
 		return
 
-	var begin: int = _items[0].start_byte
-	var end: int = _items[-1].start_byte + _items[-1].length
-	var length: int = end - begin
+	var items_begin_byte: int = _start_byte + _items[0].start_offset
+	var items_length: int = _end_byte - items_begin_byte
 
-	BitFieldIO.remove_section(_data, begin, length)
-	_end_byte -= length
+	BitFieldIO.remove_section(_data, items_begin_byte, items_length)
+	_end_byte -= items_length
 
 	_items.clear()
 	list_cleared.emit()

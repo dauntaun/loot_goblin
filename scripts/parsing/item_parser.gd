@@ -5,7 +5,7 @@ const ITEM_SIGNATURE: int = 0x4D4A ## JM
 static var item_id_counter: int = 0
 
 
-static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_data: D2ItemList) -> Array[D2Item]:
+static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_list: D2ItemList) -> Array[D2Item]:
 	if item_count <= 0:
 		return []
 	var items: Array[D2Item]
@@ -15,9 +15,9 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_d
 			push_error("Cursor out of bounds")
 			break
 		elif data.decode_u16(cursor._bit_pos>>3) == ITEM_SIGNATURE:
-			var item: D2Item = _parse_item_at_cursor(cursor)
+			var item: D2Item = _parse_item_at_cursor(cursor, item_list.get_start_byte())
 			item.item_id = item_id_counter
-			ItemRegistry.item_data_register[item_id_counter] = item_data
+			ItemRegistry.item_data_register[item_id_counter] = item_list
 			ItemRegistry.item_register[item_id_counter] = item
 			item_id_counter += 1
 			items.append(item)
@@ -27,9 +27,10 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_d
 	return items
 
 
-static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
+static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2Item:
 	var item := D2Item.new()
-	item.start_byte = cursor._bit_pos >> 3
+	var start_byte := cursor._bit_pos >> 3
+	item.start_offset = (cursor._bit_pos >> 3) - list_start_byte
 	
 	item.is_identified = cursor.jump_and_read(20, 1) # 21
 	item.is_socketed = cursor.jump_and_read(6, 1) # 28
@@ -56,7 +57,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 		item.build_search_cache()
 		
 		cursor.discard_to_byte_boundary()
-		item.length = (cursor._bit_pos>>3) - item.start_byte
+		item.length = (cursor._bit_pos>>3) - start_byte
 		return item
 	
 	# Item code
@@ -85,7 +86,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 		item.item_name = item.base_name
 		item.build_search_cache()
 		cursor.discard_to_byte_boundary()
-		item.length = (cursor._bit_pos>>3) - item.start_byte
+		item.length = (cursor._bit_pos>>3) - start_byte
 		return item
 	
 	item.is_armor = TxtDB.item_is_armor(code_string)
@@ -211,7 +212,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 	# Internal items
 	var socketed_items: Array[D2Item]
 	for i: int in item.socketed_item_count:
-		var socketed_item: D2Item = _parse_item_at_cursor(cursor)
+		var socketed_item: D2Item = _parse_item_at_cursor(cursor, list_start_byte)
 		socketed_items.append(socketed_item)
 	item.socketed_items = socketed_items
 	
@@ -296,7 +297,7 @@ static func _parse_item_at_cursor(cursor: BitCursor) -> D2Item:
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
-	item.length = (cursor._bit_pos>>3) - item.start_byte
+	item.length = (cursor._bit_pos>>3) - start_byte
 	return item
 
 

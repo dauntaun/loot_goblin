@@ -104,7 +104,7 @@ var search_cache: String
 
 var item_name: String
 
-var start_byte: int
+var start_offset: int
 var length: int
 
 
