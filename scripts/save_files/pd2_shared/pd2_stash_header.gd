@@ -1,24 +1,14 @@
-class_name PD2Header
+class_name D2SaveHeader
 
 const FILE_SIZE_BYTE_OFFSET: int = 8
 const CHECKSUM_BYTE_OFFSET: int = 12
 const CHECKSUM_BYTE_LENGTH: int = 4
 
-
-var parse_successful: bool
 var _data: PackedByteArray
 
 
-func _init(cursor: BitCursor) -> void:
-	_data = cursor._data
-	cursor.set_at(ITEM_LIST_BYTE_OFFSET << 3)
-	if _data.decode_u16(cursor._bit_pos>>3) != ItemParser.ITEM_SIGNATURE:
-		push_error("Invalid PD2 stash header")
-		return
-	parse_successful = true
-	cursor.set_at(ITEM_LIST_BYTE_OFFSET << 3)
-
-
+func _init(data: PackedByteArray) -> void:
+	_data = data
 
 
 func update_file_size() -> void:
