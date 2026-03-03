@@ -45,3 +45,12 @@ static func remove_section(data: PackedByteArray, from_byte: int, length: int) -
 	new_data.append_array(data.slice(from_byte + length, data.size()))
 	data.clear()
 	data.append_array(new_data)
+
+
+static func insert_section(data: PackedByteArray, at_offset: int, section_bytes: PackedByteArray) -> void:
+	var new_data := PackedByteArray()
+	new_data.append_array(data.slice(0, at_offset))
+	new_data.append_array(section_bytes)
+	new_data.append_array(data.slice(at_offset, data.size()))
+	data.clear()
+	data.append_array(new_data)

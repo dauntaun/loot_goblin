@@ -2,6 +2,7 @@ class_name D2ItemList
 
 signal list_cleared
 signal items_imported
+signal bytes_shifted(delta: int)
 
 var _data: PackedByteArray
 var _start_byte: int
@@ -57,8 +58,10 @@ func _append_items_from_list(item_list: D2ItemList) -> void:
 		item.start_offset = end_offset
 		end_offset += item.length
 	var new_bytes: PackedByteArray = item_list.get_bytes()
-	_data.append_array(new_bytes)
-	_end_byte += new_bytes.size()
+	BitFieldIO.insert_section(_data, _end_byte, new_bytes)
+	var delta := new_bytes.size()
+	_end_byte += delta
+	bytes_shifted.emit(delta)
 
 
 func import_item_lists(item_lists: Array[D2ItemList]) -> void:
@@ -71,10 +74,12 @@ func add_item_bytes(item: D2Item, item_bytes: PackedByteArray) -> void:
 	item.start_offset = _end_byte - _start_byte
 
 	# Bookkeeping
-	_data.append_array(item_bytes) # NOTE this will not work on a PlugY stash
-	_end_byte += item_bytes.size()
+	BitFieldIO.insert_section(_data, _end_byte, item_bytes)
+	var delta := item_bytes.size()
+	_end_byte += delta
 	_items.append(item)
 	ItemRegistry.item_data_register[item.item_id] = self
+	bytes_shifted.emit(delta)
 
 
 func get_item_bytes(item: D2Item) -> PackedByteArray:
@@ -111,6 +116,8 @@ func delete_item_bytes(item: D2Item) -> void:
 	for other: D2Item in _items:
 		if other.start_offset > item_start_offset:
 			other.start_offset -= item_length
+	
+	bytes_shifted.emit(-item_length)
 
 
 func write_current_item_position(item: D2Item) -> void:
@@ -133,6 +140,7 @@ func clear_list() -> void:
 
 	_items.clear()
 	list_cleared.emit()
+	bytes_shifted.emit(-items_length)
 
 
 # List getters
