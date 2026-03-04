@@ -1,6 +1,7 @@
 class_name CachedTxtDB
 extends Resource
 
+@export var version: String
 @export var all_codes: Dictionary
 @export var weapon_codes: Dictionary
 @export var armor_codes: Dictionary

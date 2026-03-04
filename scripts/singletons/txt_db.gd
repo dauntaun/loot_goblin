@@ -179,7 +179,7 @@ func _ready() -> void:
 		return
 	if ResourceLoader.exists(CACHE_PATH):
 		var cache := ResourceLoader.load(CACHE_PATH) as CachedTxtDB
-		if cache:
+		if cache and cache.version == GlobalSettings.version:
 			_load_from_cache(cache)
 		else:
 			_build_database()
@@ -260,6 +260,8 @@ func _save_database_cache() -> void:
 	cache.grail_uniques = Grail.grail_uniques
 	cache.grail_sets = Grail.grail_sets
 	ResourceSaver.save(cache, CACHE_PATH)
+	# Version
+	cache.version = GlobalSettings.version
 
 
 func _build_database() -> void:
