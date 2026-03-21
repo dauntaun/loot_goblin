@@ -5,13 +5,15 @@ signal item_removed(item: D2Item)
 signal items_imported
 signal list_cleared
 
+var stash_id: int
 var _items: Array[D2Item]
 
 
-func _init(items: Array[D2Item]) -> void:
+func _init(items: Array[D2Item], id: int) -> void:
+	stash_id = id
 	_items = items
 	for item: D2Item in items:
-		ItemRegistry.item_view_register[item.item_id] = self
+		ItemRegistry.item_view_register[item.item_id] = stash_id
 
 
 @warning_ignore("unused_parameter")
@@ -26,7 +28,7 @@ func can_add_items(items: Array[D2Item], page_index: int) -> bool:
 
 func add_item(item: D2Item) -> void:
 	_items.append(item)
-	ItemRegistry.item_view_register[item.item_id] = self
+	ItemRegistry.item_view_register[item.item_id] = stash_id
 	item_added.emit(item)
 
 
@@ -42,7 +44,7 @@ func get_items() -> Array[D2Item]:
 func import_items(items: Array[D2Item]) -> void:
 	_items.append_array(items)
 	for item: D2Item in items:
-		ItemRegistry.item_view_register[item.item_id] = self
+		ItemRegistry.item_view_register[item.item_id] = stash_id
 	items_imported.emit()
 
 
