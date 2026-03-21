@@ -111,11 +111,11 @@ layout_mode = 2
 text = "Save to"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=25895215]
+[node name="SaveContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1011849167]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="GoblinFileLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1496933770]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/SaveContainer" unique_id=1496933770]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_xr2ix")
@@ -123,11 +123,7 @@ text = "goblin_stash.gstash"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1636865095]
-layout_mode = 2
-
-[node name="Pd2FileLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=154570969]
-unique_name_in_owner = true
+[node name="Label2" type="Label" parent="Control/MarginContainer/VBoxContainer/SaveContainer" unique_id=154570969]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("3_xr2ix")

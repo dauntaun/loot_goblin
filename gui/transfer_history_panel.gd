@@ -1,10 +1,10 @@
 extends ScrollContainer
 
+const FILE_FONT = preload("uid://cen8snwgwauy1")
 const MAX_TRANSFER_LABELS := 20
 
 @onready var add_container: VBoxContainer = %AddContainer
-@onready var goblin_file_label: Label = %GoblinFileLabel
-@onready var pd2_file_label: Label = %Pd2FileLabel
+@onready var save_container: VBoxContainer = %SaveContainer
 
 
 func _ready() -> void:
@@ -13,22 +13,21 @@ func _ready() -> void:
 
 func update_command_labels(commands: Array[CommandQueue.BasicCommand]) -> void:
 	clear_command_labels()
+	# Annotate commands
 	for i: int in mini(commands.size(), MAX_TRANSFER_LABELS):
 		add_command_label(commands[i])
 	var diff := commands.size() - MAX_TRANSFER_LABELS
 	if diff > 0:
 		_add_overflow_label(diff)
-	# Annotate file names
-	var goblin_save := StashRegistry.get_save_file(StashRegistry.StashType.GOBLIN)
-	var pd2_save := StashRegistry.get_save_file(StashRegistry.StashType.PD2_SHARED)
-	if goblin_save:
-		goblin_file_label.text = goblin_save.load_path.get_file()
-	else:
-		goblin_file_label.text = ""
-	if pd2_save:
-		pd2_file_label.text = pd2_save.load_path.get_file()
-	else:
-		pd2_file_label.text = ""
+	# Annotate save files
+	for file: BasicSaveFile in CommandQueue.get_involved_save_files():
+		var filename := file.load_path.get_file()
+		var label := Label.new()
+		label.text = filename
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		label.add_theme_font_override("font", FILE_FONT)
+		save_container.add_child(label)
 
 
 func _add_overflow_label(diff: int) -> void:
@@ -56,8 +55,8 @@ func _add_transfer_label(command: CommandQueue.ItemTransferCommand) -> void:
 	item_label.add_theme_color_override("font_color", D2Colors.get_item_color(command.item))
 	hbox.add_child(item_label)
 	var transfer_label := Label.new()
-	transfer_label.text = _get_stash_name(command.source_stash) + "->"
-	transfer_label.text += _get_stash_name(command.destination_stash)
+	transfer_label.text = _get_stash_name(command.source_stash_id) + "->"
+	transfer_label.text += _get_stash_name(command.destination_stash_id)
 	hbox.add_child(transfer_label)
 	add_container.add_child(hbox)
 	
@@ -80,12 +79,18 @@ func _add_clear_stash_label() -> void:
 func clear_command_labels() -> void:
 	for child: Node in add_container.get_children():
 		child.queue_free()
+	for child: Node in save_container.get_children():
+		child.queue_free()
 
 
-func _get_stash_name(stash_type: StashRegistry.StashType) -> String:
-	if stash_type == StashRegistry.StashType.GOBLIN:
-		return "Stash"
-	elif stash_type == StashRegistry.StashType.PD2_SHARED:
-		return "PD2"
-	else:
-		return "PlugY"
+func _get_stash_name(stash_id: int) -> String:
+	var stash_type := StashRegistry.get_stash_type(stash_id)
+	match stash_type:
+		StashRegistry.StashType.GOBLIN:
+			return "Stash"
+		StashRegistry.StashType.PD2_SHARED:
+			return "PD2"
+		StashRegistry.StashType.PD2_PERSONAL:
+			return "Char"
+		_:
+			return "PlugY"
