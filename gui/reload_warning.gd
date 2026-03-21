@@ -12,16 +12,14 @@ var _empty_stylebox := StyleBoxEmpty.new()
 func _ready() -> void:
 	reload_warning.hide()
 	add_theme_stylebox_override("panel", _empty_stylebox)
-	StashRegistry.stash_registered.connect(_start_monitoring_changes)
+	StashRegistry.pd2_shared_registered.connect(_start_monitoring_changes)
 	reload_timer.timeout.connect(_check_for_changes)
 
 
-func _start_monitoring_changes(stash: StashRegistry.StashType) -> void:
-	if stash != StashRegistry.StashType.PD2_SHARED:
-		return
+func _start_monitoring_changes() -> void:
 	add_theme_stylebox_override("panel", _empty_stylebox)
 	reload_warning.hide()
-	_pd2_save = StashRegistry.get_save_file(StashRegistry.StashType.PD2_SHARED)
+	_pd2_save = StashRegistry.get_pd2_shared_save_file()
 	reload_timer.start()
 
 
