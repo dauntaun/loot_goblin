@@ -17,12 +17,20 @@ func _init(items: Array[D2Item], id: int) -> void:
 
 
 @warning_ignore("unused_parameter")
-func get_placement(item: D2Item, page_index: int) -> ItemPlacement:
+func get_placement(
+		item: D2Item,
+		page_index: int,
+		item_location := D2Item.ItemLocation.STORED,
+		store_location := D2Item.StoreLocation.NONE) -> ItemPlacement:
 	return null
 
 
 @warning_ignore("unused_parameter")
-func can_add_items(items: Array[D2Item], page_index: int) -> bool:
+func can_add_items(
+		items: Array[D2Item],
+		page_index: int,
+		item_location := D2Item.ItemLocation.STORED,
+		store_location := D2Item.StoreLocation.NONE) -> bool:
 	return true
 
 
