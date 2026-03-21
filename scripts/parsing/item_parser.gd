@@ -10,14 +10,16 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_l
 		return []
 	var items: Array[D2Item]
 	var data := cursor._data
+	var start_byte := item_list.get_start_byte()
+	var stash_id := item_list.stash_id
 	for i: int in item_count:
 		if not cursor.can_read(16):
 			push_error("Cursor out of bounds")
 			break
 		elif data.decode_u16(cursor._bit_pos>>3) == ITEM_SIGNATURE:
-			var item: D2Item = _parse_item_at_cursor(cursor, item_list.get_start_byte())
+			var item: D2Item = _parse_item_at_cursor(cursor, start_byte)
 			item.item_id = item_id_counter
-			ItemRegistry.item_data_register[item_id_counter] = item_list
+			ItemRegistry.item_data_register[item_id_counter] = stash_id
 			ItemRegistry.item_register[item_id_counter] = item
 			item_id_counter += 1
 			items.append(item)
