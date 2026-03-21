@@ -24,6 +24,7 @@ const LIST_MAX_ITEMS_PER_PAGE := 25
 
 var _sort_menu: PopupMenu
 
+var _stash_id: int
 var _item_searcher: ItemSearcher
 var _current_page: int
 var _items_in_page: Array[D2Item]
@@ -72,6 +73,10 @@ func _ready() -> void:
 	
 	_next_page_button.pressed.connect(_next_page)
 	_prev_page_button.pressed.connect(_prev_page)
+	
+	StashRegistry.goblin_registered.connect(func() -> void:
+		var goblin_view := StashRegistry.get_stash_view(StashRegistry._goblin_main_stash_id)
+		init_stash(goblin_view))
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -82,6 +87,7 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func init_stash(stash_view: BasicStashView) -> void:
+	_stash_id = stash_view.stash_id
 	_item_searcher = ItemSearcher.new(stash_view)
 	_item_searcher.filter_outdated.connect(_reset_page_and_refresh_filters)
 	_reset_page_and_refresh_filters()
@@ -150,7 +156,7 @@ func _refresh_current_page(restore_selection: bool = true) -> void:
 
 	_items_in_page = items.slice(start, end)
 	_current_itemlist_controller.rebuild_display(_items_in_page)
-	ItemSelection.clear_selection()
+	#ItemSelection.clear_selection() # NOTE probably safe to disable?
 	if restore_selection: 
 		_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 	_refresh_buttons()
@@ -176,10 +182,10 @@ func _clamp_current_page_index() -> void:
 	_current_page = clamp(_current_page, 0, _get_max_page())
 
 
-func _on_items_transferred(from: StashRegistry.StashType, to: StashRegistry.StashType) -> void:
-	if from == StashRegistry.StashType.GOBLIN:
+func _on_items_transferred(from_stash_id: int, to_stash_id: int) -> void:
+	if from_stash_id == _stash_id:
 		_on_items_retrieved()
-	elif to == StashRegistry.StashType.GOBLIN:
+	elif to_stash_id == _stash_id:
 		_on_items_stored()
 
 
@@ -231,7 +237,7 @@ func _refresh_buttons() -> void:
 
 
 func _on_item_selected(item: D2Item) -> void:
-	ItemSelection.set_selection(item, StashRegistry.StashType.GOBLIN, _items_in_page)
+	ItemSelection.set_selection(item, _stash_id, _items_in_page)
 
 
 func restore_last_selection() -> void:
