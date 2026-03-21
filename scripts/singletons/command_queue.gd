@@ -91,7 +91,7 @@ func get_involved_save_files() -> Array[BasicSaveFile]:
 
 
 @abstract class BasicCommand:
-	var destination_stash: StashRegistry.StashType
+	var destination_stash_id: int
 	var destination_data: D2ItemList
 	var destination_view: BasicStashView
 	
@@ -124,12 +124,11 @@ class ImportPlugyCommand extends BasicCommand:
 	var source_data: Array[D2ItemList]
 	
 	
-	func _init(item_lists: Array[D2ItemList], to_stash: StashRegistry.StashType) -> void:
+	func _init(item_lists: Array[D2ItemList], to_stash_id: int) -> void:
 		source_data = item_lists
-		destination_stash = to_stash
-		var stash := StashRegistry.get_stash_entry(to_stash)
-		destination_view = stash.view
-		destination_data = stash.data
+		destination_stash_id = to_stash_id
+		destination_view = StashRegistry.get_stash_view(destination_stash_id)
+		destination_data = StashRegistry.get_stash_data(destination_stash_id)
 		for data: D2ItemList in source_data:
 			plugy_items.append_array(data._items)
 	
@@ -160,12 +159,11 @@ class StashClearCommand extends BasicCommand:
 	var stash_items: Array[D2Item]
 	
 	
-	func _init(to_stash: StashRegistry.StashType) -> void:
-		destination_stash = to_stash
-		var stash := StashRegistry.get_stash_entry(to_stash)
-		destination_data = stash.data
-		destination_view = stash.view
-		stash_items = destination_data._items
+	func _init(to_stash_id: int) -> void:
+		destination_stash_id = to_stash_id
+		destination_view = StashRegistry.get_stash_view(destination_stash_id)
+		destination_data = StashRegistry.get_stash_data(destination_stash_id)
+		stash_items = destination_data.get_items()
 	
 	
 	func execute_move_view() -> void:
@@ -202,25 +200,24 @@ class StashClearCommand extends BasicCommand:
 
 class ItemTransferCommand extends BasicCommand:
 	var item: D2Item
-	var source_stash: StashRegistry.StashType
+	var source_stash_id: int
+	var source_placement: ItemPlacement
 	var source_view: BasicStashView
 	var destination_placement: ItemPlacement
-	var source_placement: ItemPlacement
 	
 	
 	func _init(
 		for_item: D2Item,
-		from_stash: StashRegistry.StashType,
-	 	to_stash: StashRegistry.StashType,
+		from_stash_id: int,
+	 	to_stash_id: int,
 		placement: ItemPlacement = null) -> void:
 		
 		item = for_item
 		source_placement = ItemPlacement.from_item(item) # Snapshot for undo
-		source_stash = from_stash
-		destination_stash = to_stash
-		var stash := StashRegistry.get_stash_entry(to_stash)
-		destination_view = stash.view
-		destination_data = stash.data
+		source_stash_id = from_stash_id
+		destination_stash_id = to_stash_id
+		destination_view = StashRegistry.get_stash_view(destination_stash_id)
+		destination_data = StashRegistry.get_stash_data(destination_stash_id)
 		destination_placement = placement
 	
 	
@@ -244,7 +241,7 @@ class ItemTransferCommand extends BasicCommand:
 	
 	func update_with(new_command: BasicCommand) -> void:
 		new_command = new_command as ItemTransferCommand
-		destination_stash = new_command.destination_stash
+		destination_stash_id = new_command.destination_stash_id
 		destination_data = new_command.destination_data
 		destination_view = new_command.destination_view
 		destination_placement = new_command.destination_placement
@@ -284,8 +281,10 @@ class ItemTransferCommand extends BasicCommand:
 	
 	
 	func _get_source_data() -> D2ItemList:
-		return ItemRegistry.get_item_data(item.item_id)
+		var stash_id := ItemRegistry.get_item_data_stash_id(item.item_id)
+		return StashRegistry.get_stash_data(stash_id)
 	
 	
 	func _get_current_view() -> BasicStashView:
-		return ItemRegistry.get_item_view(item.item_id)
+		var stash_id := ItemRegistry.get_item_view_stash_id(item.item_id)
+		return StashRegistry.get_stash_view(stash_id)
