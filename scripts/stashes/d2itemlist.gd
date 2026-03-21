@@ -2,8 +2,11 @@ class_name D2ItemList
 
 signal list_cleared
 signal items_imported
-signal bytes_shifted(delta: int)
+signal bytes_shifted(delta: int, from_offset: int)
 
+static var stash_id_counter := 0
+
+var stash_id: int
 var _data: PackedByteArray
 var _start_byte: int
 var _end_byte: int
@@ -19,9 +22,11 @@ func _init(cursor: BitCursor) -> void:
 	if _data.decode_u16(cursor._bit_pos>>3) != ItemParser.ITEM_SIGNATURE:
 		push_error("Invalid item list header")
 		return
+	_start_byte = cursor._bit_pos >> 3
 	cursor.discard_bits(16) # cursor at item count header
 	_parsed_item_count = cursor.read_bits(16) # cursor at first item JM header
-	_start_byte = cursor._bit_pos >> 3
+	stash_id = stash_id_counter
+	stash_id_counter += 1
 	_items = ItemParser.parse_item_list_at_cursor(cursor, _parsed_item_count, self)
 	_end_byte = cursor._bit_pos >> 3
 
@@ -31,11 +36,15 @@ func get_items() -> Array[D2Item]:
 
 
 func get_itemlist() -> BasicStashView:
-	return BasicStashView.new(_items.duplicate())
+	return BasicStashView.new(_items.duplicate(), stash_id)
 
 
 func get_pd2pages() -> PagedStashView:
-	return PagedStashView.new(_items.duplicate())
+	return PagedStashView.new(_items.duplicate(), stash_id)
+
+
+func get_char_view() -> CharacterStashView:
+	return CharacterStashView.new(_items.duplicate(), stash_id)
 
 
 func get_parsed_item_count() -> int:
@@ -54,14 +63,14 @@ func _append_items_from_list(item_list: D2ItemList) -> void:
 	
 	for item: D2Item in item_list._items:
 		_items.append(item)
-		ItemRegistry.item_data_register[item.item_id] = self
+		ItemRegistry.item_data_register[item.item_id] = stash_id
 		item.start_offset = end_offset
 		end_offset += item.length
-	var new_bytes: PackedByteArray = item_list.get_bytes()
+	var new_bytes := item_list.get_items_bytes()
 	BitFieldIO.insert_section(_data, _end_byte, new_bytes)
 	var delta := new_bytes.size()
 	_end_byte += delta
-	bytes_shifted.emit(delta)
+	bytes_shifted.emit(delta, _start_byte)
 
 
 func import_item_lists(item_lists: Array[D2ItemList]) -> void:
@@ -78,8 +87,8 @@ func add_item_bytes(item: D2Item, item_bytes: PackedByteArray) -> void:
 	var delta := item_bytes.size()
 	_end_byte += delta
 	_items.append(item)
-	ItemRegistry.item_data_register[item.item_id] = self
-	bytes_shifted.emit(delta)
+	ItemRegistry.item_data_register[item.item_id] = stash_id
+	bytes_shifted.emit(delta, _start_byte)
 
 
 func get_item_bytes(item: D2Item) -> PackedByteArray:
@@ -117,7 +126,7 @@ func delete_item_bytes(item: D2Item) -> void:
 		if other.start_offset > item_start_offset:
 			other.start_offset -= item_length
 	
-	bytes_shifted.emit(-item_length)
+	bytes_shifted.emit(-item_length, _start_byte)
 
 
 func write_current_item_position(item: D2Item) -> void:
@@ -126,13 +135,14 @@ func write_current_item_position(item: D2Item) -> void:
 	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.Y_COORD, item.y_coord)
 	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.EQUIPPED_ID, item.equipped_id)
 	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.STORE_ID, item.store_id)
+	ItemWriter.write_field(_data, item_start_byte, ItemWriter.WriteableField.LOCATION_ID, item.location_id)
 
 
 func clear_list() -> void:
 	if _items.is_empty():
 		return
 
-	var items_begin_byte: int = _start_byte + _items[0].start_offset
+	var items_begin_byte: int = _start_byte + 4 + _items[0].start_offset
 	var items_length: int = _end_byte - items_begin_byte
 
 	BitFieldIO.remove_section(_data, items_begin_byte, items_length)
@@ -140,11 +150,15 @@ func clear_list() -> void:
 
 	_items.clear()
 	list_cleared.emit()
-	bytes_shifted.emit(-items_length)
+	bytes_shifted.emit(-items_length, _start_byte)
+
+
+func write_header() -> void:
+	_data.encode_u16(_start_byte, ItemParser.ITEM_SIGNATURE)
 
 
 func write_item_count() -> void:
-	_data.encode_u16(_start_byte - 2, get_item_count())
+	_data.encode_u16(_start_byte + 2, get_item_count())
 
 
 # List getters
@@ -156,5 +170,9 @@ func get_end_byte() -> int:
 	return _end_byte
 
 
-func get_bytes() -> PackedByteArray:
-	return _data.slice(_start_byte, _end_byte)
+func get_items_bytes() -> PackedByteArray:
+	if _items.is_empty():
+		return PackedByteArray()
+
+	var items_start := _start_byte + 4
+	return _data.slice(items_start, _end_byte)
