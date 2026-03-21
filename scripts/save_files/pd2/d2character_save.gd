@@ -1,7 +1,7 @@
 class_name D2CharacterSaveFile
 extends BasicSaveFile
 
-const CHARACTER_SIGNATURE := 0xaa55aa55
+const FILE_SIGNATURE := 0xaa55aa55
 const SKILLS_SIGNATURE := 0x6669 # if
 const MERC_SIGNATURE := 0x666a # jf
 const NAME_BYTE_OFFSET := 20
@@ -11,6 +11,7 @@ const HARDCORE_STATUS_BIT := 1 << 2
 const CLASS_BYTE_OFFSET := 40
 const LEVEL_BYTE_OFFSET := 43
 const ATTRIBUTES_BYTE_OFFSET := 765
+const MERCENARY_ID_OFFSET := 179
 
 const CLASS_NAMES: Dictionary[int, String] = {
 	0 : "Amazon",
@@ -41,8 +42,14 @@ const ATRRIBUTE_MAP: Dictionary[int, Dictionary] = {
 	15: {"attribute": "Stashed gold", "bit_length": 25},
 }
 
+static var character_id_counter := 0
+
+var character_id: int
+var header: D2SaveHeader
 var item_list: D2ItemList
 var merc_item_list: D2ItemList
+var corpse_item_list: D2ItemList
+var has_mercenary: bool
 
 var character_name: String
 var character_class_code: int
@@ -52,11 +59,15 @@ var is_hardcore: bool
 
 
 func load_file() -> void:
-	if data.decode_u32(0) != CHARACTER_SIGNATURE:
-		push_error("Unknown character file signature")
+	if data.decode_u32(0) != FILE_SIGNATURE:
+		push_error("Unknown character save header")
 		return
 	load_successful = true
-		
+	character_id = character_id_counter
+	character_id_counter += 1
+	
+	header = D2SaveHeader.new(data)
+	
 	for i: int in NAME_BYTE_LENGTH:
 		var char_code := data.decode_u8(NAME_BYTE_OFFSET + i)
 		if char_code == 0:
@@ -67,11 +78,25 @@ func load_file() -> void:
 	character_class_code = data.decode_u8(CLASS_BYTE_OFFSET)
 	character_class_name = CLASS_NAMES[character_class_code]
 	character_level = data.decode_u8(LEVEL_BYTE_OFFSET)
+	var merc_id := data.decode_u32(MERCENARY_ID_OFFSET)
+	has_mercenary = merc_id != 0
 	read_item_lists()
 
 
-func save_file(_path: String) -> void:
-	return
+func save_file(path: String) -> void:
+	item_list.write_item_count()
+	if merc_item_list:
+		merc_item_list.write_item_count()
+	if corpse_item_list:
+		corpse_item_list.write_item_count()
+	header.update_file_size()
+	header.write_checksum()
+	
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	file.store_buffer(data)
+	file.close()
+	save_timestamp = FileAccess.get_modified_time(path)
+	load_timestamp = FileAccess.get_access_time(path)
 
 
 func read_item_lists() -> void:
@@ -98,15 +123,33 @@ func read_item_lists() -> void:
 	# Cursor is now at item list
 	cursor.discard_bits(3 << 3) # No idea why we have to discard 3 bytes
 	item_list = D2ItemList.new(cursor)
-	# Cursor is now at corpse item list
-	var corpse_items := D2ItemList.new(cursor)
-	if corpse_items._parsed_item_count == 1:
+	item_list.bytes_shifted.connect(_update_item_list_offsets)
+	# Cursor is now at fake corpse item list
+	if not data.decode_u16(cursor._bit_pos>>3) == ItemParser.ITEM_SIGNATURE:
+		push_error("Unknown corpse itemlist signature")
+		return
+	cursor.discard_bits(2 << 3)
+	var corpse_items_present: bool = data.decode_u16(cursor._bit_pos>>3) == 1
+	cursor.discard_bits(2 << 3)
+	if corpse_items_present:
 		cursor.discard_bits(12 << 3)
-		var real_corpse_items := D2ItemList.new(cursor)
-		#item_list = real_corpse_items
+		corpse_item_list = D2ItemList.new(cursor)
+		corpse_item_list.bytes_shifted.connect(_update_item_list_offsets)
 	# Cursor is now at merc items
 	if not data.decode_u16(cursor._bit_pos>>3) == MERC_SIGNATURE:
 		push_error("Unknown merc signature")
 		return
 	cursor.discard_bits(2 << 3)
-	merc_item_list = D2ItemList.new(cursor)
+	if has_mercenary:
+		merc_item_list = D2ItemList.new(cursor)
+
+
+func _update_item_list_offsets(delta: int, from_offset: int) -> void:
+	if corpse_item_list:
+		if corpse_item_list.get_start_byte() > from_offset:
+			corpse_item_list._start_byte += delta
+			corpse_item_list._end_byte += delta
+	if merc_item_list:
+		if merc_item_list.get_start_byte() > from_offset:
+			merc_item_list._start_byte += delta
+			merc_item_list._end_byte += delta
