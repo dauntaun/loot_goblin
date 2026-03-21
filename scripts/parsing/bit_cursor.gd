@@ -5,9 +5,9 @@ var _bit_pos: int
 var _data_size: int
 
 
-func _init(data: PackedByteArray, start_from: int = 0) -> void:
+func _init(data: PackedByteArray, start_bit: int = 0) -> void:
 	_data = data
-	_bit_pos = start_from
+	_bit_pos = start_bit
 	_data_size = _data.size()
 
 
