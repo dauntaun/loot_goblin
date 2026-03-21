@@ -1,12 +1,13 @@
 class_name ItemWriter
 
-enum WriteableField {X_COORD, Y_COORD, EQUIPPED_ID, STORE_ID}
+enum WriteableField {LOCATION_ID, EQUIPPED_ID, X_COORD, Y_COORD, STORE_ID}
 
 const _FIELD_SPEC: Dictionary[WriteableField, Dictionary] = {
-	WriteableField.EQUIPPED_ID : {"start_bit": 61, "length": 4},
-	WriteableField.X_COORD : {"start_bit": 65, "length": 4},
-	WriteableField.Y_COORD : {"start_bit": 69, "length": 4},
-	WriteableField.STORE_ID : {"start_bit": 73, "length": 3},
+	WriteableField.LOCATION_ID: {"start_bit": 58, "length": 3},
+	WriteableField.EQUIPPED_ID: {"start_bit": 61, "length": 4},
+	WriteableField.X_COORD: {"start_bit": 65, "length": 4},
+	WriteableField.Y_COORD: {"start_bit": 69, "length": 4},
+	WriteableField.STORE_ID: {"start_bit": 73, "length": 3},
 }
 
 
