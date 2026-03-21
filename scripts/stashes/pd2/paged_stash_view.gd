@@ -7,15 +7,19 @@ var _grids: Array[InventoryGrid]
 var _item_page_map: Dictionary[D2Item, int]
 
 
-func _init(items: Array[D2Item]) -> void:
+func _init(items: Array[D2Item], id: int) -> void:
 	for i: int in MAX_STASH_PAGES:
 		var grid := InventoryGrid.new()
 		_grids.append(InventoryGrid.new())
 	_init_items(items)
-	super(items)
+	super(items, id)
 
 
-func can_add_items(items: Array[D2Item], page_index: int) -> bool:
+func can_add_items(
+		items: Array[D2Item],
+	 	page_index: int,
+		_item_location := D2Item.ItemLocation.STORED,
+		_store_location := D2Item.StoreLocation.NONE) -> bool:
 	return _grids[page_index].can_fit_items(items)
 
 
@@ -23,7 +27,11 @@ func find_space(item: D2Item, page_index: int) -> Vector2i:
 	return _grids[page_index].find_space(item)
 
 
-func get_placement(item: D2Item, page_index: int) -> ItemPlacement:
+func get_placement(
+		item: D2Item,
+		page_index: int,
+		_item_location := D2Item.ItemLocation.STORED,
+		_store_location := D2Item.StoreLocation.NONE) -> ItemPlacement:
 	var placement := ItemPlacement.new()
 	placement.coord = find_space(item, page_index)
 	placement.equipped_id = page_index + 1 as D2Item.EquipLocation
