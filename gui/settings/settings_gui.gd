@@ -5,19 +5,18 @@ const FILE_FONT = preload("uid://cen8snwgwauy1")
 
 # Exposed for main
 @onready var plugy_importer: PlugyImporter = %PlugyImporter
-@onready var background_color_rect: ColorRect = %BackgroundColor
 @onready var load_stash_button: Button = %LoadStashButton
 @onready var save_pd2_button: Button = %SavePD2Button
 @onready var save_goblin_button: Button = %SaveGoblinButton
 @onready var reset_goblin_button: Button = %ResetStashButton
 @onready var open_backups_button: Button = %OpenBackups
-@onready var loaded_goblin_label: LineEdit = %LoadedGoblinLabel
-@onready var loaded_pd2_label: LineEdit = %LoadedPD2Label
 
 # Item list
 @onready var _settings_list: ItemList = %SettingsList
 @onready var _settings_tabs: TabContainer = %SettingsTabs
 # Global settings
+@onready var _version_label: Label = %VersionLabel
+@onready var _reset_goblin_debug: Control = %ResetGoblinDebug
 @onready var _choose_instant_search: CheckBox = %InstantSearch
 @onready var _choose_goblin_tooltips: CheckBox = %StashTooltips
 @onready var _choose_pd2_tooltips: CheckBox = %PD2Tooltips
@@ -37,9 +36,16 @@ const FILE_FONT = preload("uid://cen8snwgwauy1")
 @onready var _choose_hardcore: OptionButton = %HardcoreSelect
 @onready var _choose_load_characters: CheckBox = %LoadCharacters
 
+# Updated via signals
+@onready var _loaded_goblin_save_file_label: LineEdit = %LoadedGoblinLabel
+@onready var _loaded_pd2_save_file_label: LineEdit = %LoadedPD2Label
+
 
 func _ready() -> void:
-	show_loaded_pd2_files()
+	for child: Node in _loaded_pd2_files.get_children():
+		child.queue_free()
+	_version_label.text = "v" + GlobalSettings.version
+	_reset_goblin_debug.visible = GlobalSettings.debug_mode
 	sync_controls_with_settings()
 	# Item list
 	_settings_list.item_selected.connect(func(index: int): _settings_tabs.current_tab = index)
@@ -57,14 +63,20 @@ func _ready() -> void:
 	_choose_background_color.color_changed.connect(GlobalSettings.update_setting.bind("background_color"))
 	_restore_background_color_button.pressed.connect(_restore_background_color)
 	
-	_choose_pd2_save_folder.pressed.connect(func(): _pd2_save_folder_picker.popup())
-	_pd2_save_folder_picker.dir_selected.connect(func(dir: String):
+	_choose_pd2_save_folder.pressed.connect(_pd2_save_folder_picker.popup)
+	_pd2_save_folder_picker.dir_selected.connect(func(dir: String) -> void:
 		GlobalSettings.update_setting(dir, "pd2_folder")
 		_default_folder_line.text = dir)
 	_choose_default_stash_page.value_changed.connect(GlobalSettings.update_setting.bind("pd2_stash_page"))
 	_choose_auto_retrieve.toggled.connect(GlobalSettings.update_setting.bind("auto_retrieve"))
 	_choose_hardcore.item_selected.connect(GlobalSettings.update_setting.bind("hardcore_shared_stash"))
 	_choose_load_characters.toggled.connect(GlobalSettings.update_setting.bind("load_characters"))
+	# Connect to StashRegistry
+	StashRegistry.goblin_registered.connect(func() -> void:
+		_loaded_goblin_save_file_label.text = StashRegistry.get_goblin_save_file().load_path.get_file())
+	StashRegistry.pd2_shared_registered.connect(func() -> void:
+		_loaded_pd2_save_file_label.text = StashRegistry.get_pd2_shared_save_file().load_path.get_file())
+	StashRegistry.characters_registered.connect(_show_character_files)
 
 
 func _restore_background_color() -> void:
@@ -88,21 +100,17 @@ func _enable_option_buttons() -> void:
 	load_stash_button.disabled = false
 
 
-func show_loaded_pd2_files(files: PackedStringArray = []) -> void:
+func _show_character_files() -> void:
 	for child: Node in _loaded_pd2_files.get_children():
 		child.queue_free()
-	if files.is_empty():
+	
+	var character_files := StashRegistry.get_character_files()
+	
+	for file: D2CharacterSaveFile in character_files:
 		var label := Label.new()
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		label.text = "No save files found, choose a different folder"
-		_loaded_pd2_files.add_child(label)
-		return
-	for file: String in files:
-		var label := Label.new()
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		label.text = file
+		label.text = file.load_path.get_file()
 		label.add_theme_font_override("font", FILE_FONT)
 		_loaded_pd2_files.add_child(label)
 

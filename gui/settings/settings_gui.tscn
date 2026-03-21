@@ -38,13 +38,13 @@ LineEdit/styles/focus = SubResource("StyleBoxEmpty_0odxb")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_getpj"]
 
-[sub_resource type="Theme" id="Theme_074og"]
-LineEdit/constants/minimum_character_width = 2
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
 bg_color = Color(1, 1, 1, 0)
 border_width_top = 1
 border_width_bottom = 1
+
+[sub_resource type="Theme" id="Theme_074og"]
+LineEdit/constants/minimum_character_width = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgxye"]
 content_margin_left = 0.0
@@ -359,7 +359,7 @@ size_flags_horizontal = 3
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=2031058211]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Loaded PD2 file"
+text = "Loaded PD2 shared file"
 
 [node name="LoadedPD2Label" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=986302582]
 unique_name_in_owner = true
@@ -368,12 +368,42 @@ size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_6lqv6")
 editable = false
 
+[node name="PD2FileShower" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=852445263]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower" unique_id=2106372357]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/PanelContainer" unique_id=2045144965]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/PanelContainer/HBoxContainer" unique_id=451291529]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loaded character files:"
+horizontal_alignment = 1
+
+[node name="LoadedPD2Files" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower" unique_id=858042407]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/LoadedPD2Files" unique_id=1019710679]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_6lqv6")
+text = "MyCharacter.d2s"
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=285794230]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer" unique_id=79667466]
+[node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer" unique_id=79667466]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -466,44 +496,6 @@ theme = SubResource("Theme_82xsv")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
-
-[node name="PD2FileShower" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2" unique_id=630711420]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower" unique_id=1682564980]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/PanelContainer" unique_id=1265597239]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/PanelContainer/HBoxContainer" unique_id=795433784]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Loaded files:"
-horizontal_alignment = 1
-
-[node name="LoadedPD2Files" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower" unique_id=1805604376]
-unique_name_in_owner = true
-layout_mode = 2
-columns = 3
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/LoadedPD2Files" unique_id=1834136518]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_6lqv6")
-text = "pd2_shared.stash"
-horizontal_alignment = 1
-clip_text = true
-text_overrun_behavior = 3
-
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/PD2/PD2FileShower/LoadedPD2Files" unique_id=1478083951]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_6lqv6")
-text = "MyCharacter.d2s"
-horizontal_alignment = 1
 
 [node name="PlugyImporter" type="ScrollContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1861689478]
 unique_name_in_owner = true
@@ -759,18 +751,19 @@ focus_mode = 0
 disabled = true
 text = "Save as..."
 
-[node name="PD2Debug2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=246580541]
+[node name="ResetGoblinDebug" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug" unique_id=246580541]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug2" unique_id=323247470]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/ResetGoblinDebug" unique_id=323247470]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Reset Goblin stash"
 
-[node name="ResetStashButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/PD2Debug2" unique_id=2020621324]
+[node name="ResetStashButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Debug/ResetGoblinDebug" unique_id=2020621324]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
