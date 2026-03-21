@@ -251,18 +251,22 @@ class ItemTransferCommand extends BasicCommand:
 	
 	
 	func execute_move_view() -> void:
-		source_view = _get_current_view() # Snapshot for undo
-		source_view.remove_item(item)
+		if source_view == null:
+			source_view = _get_current_view() # snapshot only once
+
+		var current_view := _get_current_view()
+		current_view.remove_item(item)
+
 		if destination_placement:
 			destination_placement.apply_to_item(item)
 		destination_view.add_item(item)
 	
 	
 	func undo_move_view() -> void:
-		# Restore position
-		source_placement.apply_to_item(item)
 		# Restore view
 		destination_view.remove_item(item)
+		# Restore position
+		source_placement.apply_to_item(item)
 		source_view.add_item(item)
 	
 	
