@@ -43,6 +43,7 @@ const ITEM_RECT_SCENE = preload("uid://dmcf3j2822imo")
 }
 
 var _initialized := false
+var _item_rect_mapping: Dictionary[D2Item, ItemRect]
 
 
 func _ready() -> void:
@@ -71,11 +72,28 @@ func init_equipped_items(items: Array[D2Item]) -> void:
 		push_error("Too many equipped items")
 		return
 	for item: D2Item in items:
-		var item_rect: ItemRect = ITEM_RECT_SCENE.instantiate()
-		equip_map[item.equipped_id].add_child(item_rect)
-		item_rect.init_rect(item)
-		item_rect.item_selected.connect(_on_item_selected)
+		add_item_rect(item)
 	_initialized = true
+
+
+func add_item_rect(item: D2Item) -> void:
+	var item_rect: ItemRect = ITEM_RECT_SCENE.instantiate()
+	equip_map[item.equipped_id].add_child(item_rect)
+	_item_rect_mapping[item] = item_rect
+	item_rect.init_rect(item)
+	item_rect.item_selected.connect(_on_item_selected)
+
+
+func remove_item(item: D2Item) -> void:
+	if not _item_rect_mapping.has(item):
+		push_error("Trying to remove a non-existing item in grid")
+		return
+	_item_rect_mapping[item].queue_free()
+	_item_rect_mapping.erase(item)
+
+
+func select_item(item: D2Item) -> void:
+	_item_rect_mapping[item].select()
 
 
 func _swap_weapons(weapon_set: int) -> void:
@@ -92,6 +110,7 @@ func _swap_weapons(weapon_set: int) -> void:
 
 
 func _clear_equipped_items() -> void:
+	_item_rect_mapping.clear()
 	for equip: D2Item.EquipLocation in equip_map:
 		for node: Node in equip_map[equip].get_children():
 			node.queue_free()
