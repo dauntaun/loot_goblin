@@ -92,11 +92,13 @@ func get_current_goblin_stash_path() -> String:
 
 
 func get_sc_goblin_stash_path() -> String:
-	return GOBLIN_STASH_DIR.path_join(GOBLIN_STASH_FILENAME)
+	var dir := GOBLIN_STASH_DIR_DEBUG if GlobalSettings.debug_mode else GOBLIN_STASH_DIR
+	return dir.path_join(GOBLIN_STASH_FILENAME)
 
 
 func get_hc_goblin_stash_path() -> String:
-	return GOBLIN_STASH_DIR.path_join(GOBLIN_HC_STASH_FILENAME)
+	var dir := GOBLIN_STASH_DIR_DEBUG if GlobalSettings.debug_mode else GOBLIN_STASH_DIR
+	return dir.path_join(GOBLIN_HC_STASH_FILENAME)
 
 
 func update_setting(value: Variant, setting: String) -> void:
