@@ -1,7 +1,10 @@
 class_name ItemDebugGUI
 extends Control
 
-@onready var item_debug_stash: Label = %ItemDebugStash
+@onready var item_debug_data: Label = %ItemDebugData
+@onready var item_debug_data_id: Label = %ItemDebugDataID
+@onready var item_debug_view: Label = %ItemDebugView
+@onready var item_debug_view_id: Label = %ItemDebugViewID
 @onready var item_debug_id: Label = %ItemDebugID
 @onready var item_debug_start: Label = %ItemDebugStart
 @onready var item_debug_length: Label = %ItemDebugLength
@@ -12,16 +15,26 @@ extends Control
 
 
 func _ready() -> void:
-	clear_labels()
 	if not GlobalSettings.debug_mode:
 		hide()
+		return
+	clear_labels()
+	ItemSelection.selection_changed.connect(update_labels)
 
 
-func update_labels(item: D2Item) -> void:
+func update_labels() -> void:
+	var item := ItemSelection._selected_item
 	if not item:
 		clear_labels()
 		return
-	item_debug_stash.text = "source: %s" % StashRegistry.StashType.find_key(ItemRegistry.get_item_stash(item.item_id))
+	var data_stash_id := ItemRegistry.get_item_data_stash_id(item.item_id)
+	var data_stash_type := StashRegistry.get_stash_type(data_stash_id)
+	item_debug_data.text = "data: %s" % StashRegistry.StashType.find_key(data_stash_type)
+	item_debug_data_id.text = "data_id: %d" % data_stash_id
+	var view_stash_id := ItemRegistry.get_item_view_stash_id(item.item_id)
+	var view_stash_type := StashRegistry.get_stash_type(view_stash_id)
+	item_debug_view.text = "view: %s" % StashRegistry.StashType.find_key(view_stash_type)
+	item_debug_view_id.text = "view_id %d" % view_stash_id
 	item_debug_id.text = "item_id: %d" % item.item_id
 	item_debug_start.text = "start_offset: %d" % item.start_offset
 	item_debug_length.text = "length: %d" % item.length
@@ -32,7 +45,10 @@ func update_labels(item: D2Item) -> void:
 
 
 func clear_labels() -> void:
-	item_debug_stash.text = "source:"
+	item_debug_data.text = "data:"
+	item_debug_data_id.text = "data_id:"
+	item_debug_view.text = "view:"
+	item_debug_view_id.text = "view_id:"
 	item_debug_id.text = "item_id:"
 	item_debug_start.text = "start_byte:"
 	item_debug_length.text = "length:"
