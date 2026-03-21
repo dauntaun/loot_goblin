@@ -36,7 +36,7 @@ const SETTINGS := {
 	"load_characters": {"section": PD2_SECTION, "default": true},
 }
 
-var version := "0.3"
+var version := "0.4"
 var debug_mode := true
 var force_update_cache := false
 # Setting vars
