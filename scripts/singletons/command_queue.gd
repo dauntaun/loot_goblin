@@ -75,6 +75,21 @@ func undo_queue() -> void:
 	queue_undone.emit()
 
 
+func get_involved_save_files() -> Array[BasicSaveFile]:
+	var saves: Array[BasicSaveFile]
+	for command: BasicCommand in _command_queue:
+		var destination_id := command.destination_stash_id
+		var destination_save := StashRegistry.get_stash_save(destination_id)
+		if not saves.has(destination_save):
+			saves.append(destination_save)
+		if command is CommandQueue.ItemTransferCommand:
+			var source_id: int = command.source_stash_id
+			var source_save := StashRegistry.get_stash_save(source_id)
+			if not saves.has(source_save):
+				saves.append(source_save)
+	return saves
+
+
 @abstract class BasicCommand:
 	var destination_stash: StashRegistry.StashType
 	var destination_data: D2ItemList
