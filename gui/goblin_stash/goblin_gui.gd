@@ -11,7 +11,6 @@ const LIST_MAX_ITEMS_PER_PAGE := 25
 @onready var list_container: VBoxContainer = %BoxView
 @onready var table_view_button: Button = %TableView
 @onready var tile_view_button: Button = %TileView
-@onready var list_view_button: Button = %ListView
 
 # Left panel
 @onready var quick_filters: QuickFiltersGUI = %QuickFilters
@@ -33,7 +32,6 @@ var _current_itemlist_controller: BasicItemListController
 var _current_max_items_per_page: int
 var _table_controller: BasicItemListController
 var _tiled_controller: TiledItemListController
-var _list_controller: TiledItemListController
 
 
 func _ready() -> void:
@@ -56,13 +54,10 @@ func _ready() -> void:
 	_table_controller.sort_requested.connect(_on_sort_requested)
 	_tiled_controller = TiledItemListController.new(tiled_container)
 	_tiled_controller.item_selected.connect(_on_item_selected)
-	_list_controller = TiledItemListController.new(list_container)
-	_list_controller.item_selected.connect(_on_item_selected)
 	_current_itemlist_controller = _table_controller
 	_current_max_items_per_page = TABLE_MAX_ITEMS_PER_PAGE
 	table_view_button.pressed.connect(_switch_itemlist_controller.bind(_table_controller))
 	tile_view_button.pressed.connect(_switch_itemlist_controller.bind(_tiled_controller))
-	list_view_button.pressed.connect(_switch_itemlist_controller.bind(_list_controller))
 	
 	_item_searcher = ItemSearcher.new()
 	_search_bar.query_submitted.connect(_submit_new_query)

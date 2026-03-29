@@ -514,26 +514,6 @@ text = "Tiles"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ListView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=2013874327]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
-layout_mode = 2
-theme_type_variation = &"ToggleGroupButton"
-toggle_mode = true
-action_mode = 0
-button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/ListView" unique_id=1090757340]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "List"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=157497543]
 custom_minimum_size = Vector2(392, 0)
 layout_mode = 2
@@ -1111,7 +1091,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
 current_tab = 0
 tabs_visible = false
 script = ExtResource("22_1u8w0")
-switch_buttons = [NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/ListView")]
+switch_buttons = [NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView")]
 tab_container = NodePath(".")
 
 [node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
