@@ -27,10 +27,12 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 			var button := _item_map.values().get(_prev_selected_index) as Button
 			if button:
 				button.button_pressed = true
+				return
 		RestoreSelection.BY_ITEM:
 			var button := _item_map.get(_prev_selected_item) as Button
 			if button:
 				button.button_pressed = true
+				return
 		RestoreSelection.NONE:
 			return
 	# Fallback
@@ -40,7 +42,7 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 			if button:
 				button.button_pressed = true
 		RestoreFallback.LAST_INDEX:
-			var button := _item_map.values().get(-1) as Button
+			var button := _item_map.values().back() as Button
 			if button:
 				button.button_pressed = true
 
