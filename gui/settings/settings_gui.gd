@@ -111,6 +111,7 @@ func _show_character_files() -> void:
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.text = file.load_path.get_file()
+		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_WORD_ELLIPSIS
 		label.add_theme_font_override("font", FILE_FONT)
 		_loaded_pd2_files.add_child(label)
 

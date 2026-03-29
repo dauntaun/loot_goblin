@@ -152,21 +152,26 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_1u8w0")
 current_tab = 0
 tabs_visible = false
 
-[node name="Global" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1995137241]
+[node name="Global" type="ScrollContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=465583009]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Hardcore" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=862096908]
+[node name="Global" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1995137241]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Hardcore" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=862096908]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Hardcore" unique_id=2012712482]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Hardcore" unique_id=2012712482]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Softcore and hardcore files are stored separately. This will change which PD2 shared stash to load appropriately. Cannot be changed if there are pending transfers."
 mouse_filter = 0
 text = "Main stash"
 
-[node name="HardcoreSelect" type="OptionButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Hardcore" unique_id=1457260485]
+[node name="HardcoreSelect" type="OptionButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Hardcore" unique_id=1457260485]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -181,17 +186,17 @@ popup/item_0/id = 0
 popup/item_1/text = "Hardcore"
 popup/item_1/id = 1
 
-[node name="Characters" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1258294559]
+[node name="Characters" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=1258294559]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters" unique_id=791116673]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters" unique_id=791116673]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Toggles live searching, search is submitted on enter if disabled"
 mouse_filter = 0
 text = "Instant item search"
 
-[node name="InstantSearch" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters" unique_id=274816361]
+[node name="InstantSearch" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters" unique_id=274816361]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -200,16 +205,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
 
-[node name="Characters2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1729322351]
+[node name="Characters2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=1729322351]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters2" unique_id=730623227]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters2" unique_id=730623227]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
 text = "Hover item tooltips in Stash"
 
-[node name="StashTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters2" unique_id=1245193189]
+[node name="StashTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters2" unique_id=1245193189]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -218,16 +223,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
 
-[node name="Characters3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=12618795]
+[node name="Characters3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=12618795]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters3" unique_id=1811942018]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters3" unique_id=1811942018]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
 text = "Hover item tooltips in PD2"
 
-[node name="PD2Tooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters3" unique_id=635132309]
+[node name="PD2Tooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters3" unique_id=635132309]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -236,16 +241,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
 
-[node name="Characters6" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=819672400]
+[node name="Characters6" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=819672400]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters6" unique_id=1229964961]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters6" unique_id=1229964961]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
 text = "Show ilvl in tooltips"
 
-[node name="IlvlTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters6" unique_id=545874653]
+[node name="IlvlTooltips" type="CheckBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters6" unique_id=545874653]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -254,17 +259,17 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_cegan")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_82xsv")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_getpj")
 
-[node name="Characters7" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=771962763]
+[node name="Characters7" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=771962763]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters7" unique_id=1192761239]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters7" unique_id=1192761239]
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "For formatting per level stats (reload needed)"
 mouse_filter = 0
 text = "Character level"
 
-[node name="CharacterLevel" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters7" unique_id=2021853233]
+[node name="CharacterLevel" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters7" unique_id=2021853233]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -272,16 +277,16 @@ min_value = 1.0
 max_value = 99.0
 value = 99.0
 
-[node name="Characters4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=932767167]
+[node name="Characters4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=932767167]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters4" unique_id=1822473160]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters4" unique_id=1822473160]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
 text = "Number of backups to keep"
 
-[node name="BackupNumber" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters4" unique_id=1381430570]
+[node name="BackupNumber" type="SpinBox" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters4" unique_id=1381430570]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -289,26 +294,26 @@ theme = SubResource("Theme_82xsv")
 max_value = 10.0
 value = 5.0
 
-[node name="Characters5" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=236951473]
+[node name="Characters5" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=236951473]
 custom_minimum_size = Vector2(0, 31)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5" unique_id=692337895]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters5" unique_id=692337895]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5/HBoxContainer" unique_id=1551964771]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters5/HBoxContainer" unique_id=1551964771]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 0
 text = "Background color"
 
-[node name="UndoColor" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5/HBoxContainer" unique_id=16660887]
+[node name="UndoColor" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters5/HBoxContainer" unique_id=16660887]
 unique_name_in_owner = true
 layout_mode = 2
 text = "↶"
 
-[node name="ChooseColor" type="ColorPickerButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Characters5" unique_id=497939309]
+[node name="ChooseColor" type="ColorPickerButton" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/Characters5" unique_id=497939309]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -316,99 +321,101 @@ color = Color(0.78039217, 0.7019608, 0.46666667, 1)
 edit_alpha = false
 edit_intensity = false
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=1714579810]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=1714579810]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=839323214]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=839323214]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=168437268]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=168437268]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer2" unique_id=1366237890]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/HBoxContainer2" unique_id=1366237890]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Goblin data directory"
 
-[node name="OpenBackups" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer2" unique_id=367362200]
+[node name="OpenBackups" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/HBoxContainer2" unique_id=367362200]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Open folder"
 
-[node name="GoblinDebug3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=59938092]
+[node name="GoblinDebug3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=59938092]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug3" unique_id=1956971787]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/GoblinDebug3" unique_id=1956971787]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Loaded Goblin file"
 
-[node name="LoadedGoblinLabel" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug3" unique_id=419439766]
+[node name="LoadedGoblinLabel" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/GoblinDebug3" unique_id=419439766]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_6lqv6")
 editable = false
 
-[node name="GoblinDebug4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=845691418]
+[node name="GoblinDebug4" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=845691418]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=2031058211]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/GoblinDebug4" unique_id=2031058211]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Loaded PD2 shared file"
 
-[node name="LoadedPD2Label" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/GoblinDebug4" unique_id=986302582]
+[node name="LoadedPD2Label" type="LineEdit" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/GoblinDebug4" unique_id=986302582]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_6lqv6")
 editable = false
 
-[node name="PD2FileShower" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=852445263]
+[node name="PD2FileShower" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=852445263]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower" unique_id=2106372357]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/PD2FileShower" unique_id=2106372357]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dg77c")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/PanelContainer" unique_id=2045144965]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/PD2FileShower/PanelContainer" unique_id=2045144965]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/PanelContainer/HBoxContainer" unique_id=451291529]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/PD2FileShower/PanelContainer/HBoxContainer" unique_id=451291529]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Loaded character files:"
 horizontal_alignment = 1
 
-[node name="LoadedPD2Files" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower" unique_id=858042407]
+[node name="LoadedPD2Files" type="GridContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/PD2FileShower" unique_id=858042407]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 3
 
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/PD2FileShower/LoadedPD2Files" unique_id=1019710679]
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/PD2FileShower/LoadedPD2Files" unique_id=1019710679]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_6lqv6")
 text = "MyCharacter.d2s"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global" unique_id=285794230]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global" unique_id=285794230]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 10
+size_flags_vertical = 8
 
-[node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/HBoxContainer" unique_id=79667466]
+[node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs/Global/Global/HBoxContainer" unique_id=79667466]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_6lqv6")
-text = "v0.1"
+text = "v0.4"
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1903321314]
 visible = false
