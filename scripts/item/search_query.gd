@@ -251,6 +251,7 @@ class CompiledStringQuery:
 	enum TermKind {
 		TEXT,
 		TYPE,
+		BASE,
 		RARITY,
 		SOCKETS,
 	}
@@ -299,6 +300,12 @@ class CompiledStringQuery:
 		var item_type: String = item.item_type.to_lower()
 		var value: String = parts[1].strip_edges()
 		return item_type.contains(value)
+	
+	func _matches_base_filter(item: D2Item, term: String) -> bool:
+		var parts: PackedStringArray = term.split(":", false)
+		var item_base: String = item.base_name.to_lower()
+		var value: String = parts[1].strip_edges()
+		return item_base.contains(value)
 
 	func _matches_rarity_filter(item: D2Item, term: String) -> bool:
 		var parts: PackedStringArray = term.split(":", false)
@@ -345,6 +352,9 @@ class CompiledStringQuery:
 		elif term.begins_with("t:") or term.begins_with("type:"):
 			var term_complete := term.split(":", false).size() > 1
 			return { "kind": TermKind.TYPE, "value": term, "negated": negated, "complete": term_complete}
+		elif term.begins_with("b:") or term.begins_with("base:"):
+			var term_complete := term.split(":", false).size() > 1
+			return { "kind": TermKind.BASE, "value": term, "negated": negated, "complete": term_complete}
 		elif term.begins_with("r:") or term.begins_with("rarity:"):
 			var term_complete := term.split(":", false).size() > 1
 			return { "kind": TermKind.RARITY, "value": term, "negated": negated, "complete": term_complete }
@@ -361,6 +371,8 @@ class CompiledStringQuery:
 				result = item.search_cache.contains(compiled_term.value)
 			TermKind.TYPE:
 				result = _matches_type_filter(item, compiled_term.value)
+			TermKind.BASE:
+				result = _matches_base_filter(item, compiled_term.value)
 			TermKind.RARITY:
 				result = _matches_rarity_filter(item, compiled_term.value)
 			TermKind.SOCKETS:
