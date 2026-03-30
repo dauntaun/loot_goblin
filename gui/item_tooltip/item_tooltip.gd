@@ -244,10 +244,13 @@ func _parse_properties(properties: Array, corrupted_search_pattern := "") -> voi
 			label.push_color(D2Colors.COLOR_MAGIC)
 			label.newline()
 		else:
-			label.add_text(property)
-			if corrupted_search_pattern != "" and regex.search(property):
-				label.push_color(D2Colors.COLOR_CORRUPTED)
-				label.add_text("*")
-				label.pop()
-			label.newline()
+			var parts := property.split("\\n") # Fix for multiline properties (Purgatory)
+			parts.reverse()
+			for part: String in parts:
+				label.add_text(part)
+				if corrupted_search_pattern != "" and regex.search(property):
+					label.push_color(D2Colors.COLOR_CORRUPTED)
+					label.add_text("*")
+					label.pop()
+				label.newline()
 	
