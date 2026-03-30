@@ -60,6 +60,12 @@ content_margin_top = 3.0
 content_margin_bottom = 3.0
 bg_color = Color(0.11372549, 0.11372549, 0.11372549, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
+bg_color = Color(0.44909924, 0.4490993, 0.44909912, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
+bg_color = Color(0.6239672, 0.6239672, 0.62396723, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq2sk"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -119,12 +125,6 @@ border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0.13682577, 0.13682574, 0.13682571, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq58d"]
-bg_color = Color(0.44909924, 0.4490993, 0.44909912, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_seu75"]
-bg_color = Color(0.6239672, 0.6239672, 0.62396723, 1)
-
 [resource]
 Button/styles/disabled = SubResource("StyleBoxFlat_yaehf")
 Button/styles/focus = SubResource("StyleBoxFlat_074og")
@@ -139,6 +139,9 @@ FoldableContainer/styles/title_collapsed_hover_panel = SubResource("StyleBoxFlat
 FoldableContainer/styles/title_collapsed_panel = SubResource("StyleBoxFlat_xuqvo")
 FoldableContainer/styles/title_hover_panel = SubResource("StyleBoxFlat_a6jrf")
 FoldableContainer/styles/title_panel = ExtResource("1_caio8")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_kq58d")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_seu75")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_seu75")
 Label/colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
 LineEdit/constants/minimum_character_width = 1
 LineEdit/styles/normal = SubResource("StyleBoxFlat_jq2sk")
