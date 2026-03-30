@@ -153,13 +153,13 @@ class CompiledQuickFilterQuery:
 				TypeFilter.PALADIN_SHIELD: return item.item_type == "Paladin Shield"
 				TypeFilter.NECROMANCER_SHIELD: return item.item_type == "Necromancer Shield"
 				# Misc
-				TypeFilter.RING: return item.item_type == "Ring"
-				TypeFilter.AMULET: return item.item_type == "Amulet"
+				TypeFilter.RING: return item.base_name == "Ring"
+				TypeFilter.AMULET: return item.base_name == "Amulet"
 				TypeFilter.ARROWS: return item.item_type == "Bow Quiver"
 				TypeFilter.BOLTS: return item.item_type == "Crossbow Quiver"
-				TypeFilter.SMALL_CHARM: return item.item_type == "Small Charm"
-				TypeFilter.LARGE_CHARM: return item.item_type == "Large Charm"
-				TypeFilter.GRAND_CHARM: return item.item_type == "Grand Charm"
+				TypeFilter.SMALL_CHARM: return item.base_name == "Small Charm"
+				TypeFilter.LARGE_CHARM: return item.base_name == "Large Charm"
+				TypeFilter.GRAND_CHARM: return item.base_name == "Grand Charm"
 				TypeFilter.JEWEL: return item.item_type == "Jewel"
 				TypeFilter.MAP: return item.item_type in ["Map T1", "Map T2", "Map T3"]
 			return false

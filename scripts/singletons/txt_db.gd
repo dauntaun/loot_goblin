@@ -139,9 +139,12 @@ const RENAME_TYPES: Dictionary[String, String] = {
 	"Voodoo Heads": "Necromancer Shield",
 	"Auric Shields": "Paladin Shield",
 	"Pelt": "Druid Helm",
-	"Large Charm": "Grand Charm",
-	"Medium Charm": "Large Charm",
-	"Amulet [S]": "Amulet",
+	"Small Charm": "Charm",
+	"Large Charm": "Charm",
+	"Medium Charm": "Charm",
+	"Ring": "Jewelry",
+	"Amulet": "Jewelry",
+	"Amulet [S]": "Jewelry",
 	"Belt [S]": "Belt",
 }
 
@@ -499,14 +502,17 @@ func _build_database() -> void:
 		unique_entry.main_category = main_category
 		# Setup subcategory
 		var type := get_item_type(code_string)
+		var base := get_item_base_name(code_string)
 		unique_entry.item_type = type
 		var subcategory := type
 		if code_string in DCLONE_CODES:
 			subcategory = "DClone"
 		elif code_string in RATHMA_CODES:
 			subcategory = "Rathma"
-		elif type in ["Small Charm", "Large Charm", "Grand Charm"]:
-			subcategory = "Charm"
+		elif base == "Ring":
+			subcategory = "Ring"
+		elif base == "Amulet":
+			subcategory = "Amulet"
 		elif type in ["Mace", "Club", "Hammer"]:
 			if item_is_twohanded(code_string):
 				subcategory = "Mace 2H"
@@ -551,7 +557,7 @@ func _build_database() -> void:
 				break
 			elif prop_string == "indestruct":
 				has_indestruct = true
-		eth_possible = has_eth or (not has_indestruct) and main_category != "Misc" and not type in ["Bow", "Amazon Bow", "Crossbow", "Amulet"]
+		eth_possible = has_eth or (not has_indestruct) and main_category != "Misc" and not type in ["Bow", "Amazon Bow", "Crossbow", "Jewelry"]
 		unique_entry.eth_possible = eth_possible
 		unique_entry.txt_id = unique_id
 		unique_entry.item_name = localize(row["index"])

@@ -581,12 +581,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
-current_tab = 1
+current_tab = 0
 tabs_visible = false
 
 [node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1343246319]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_82xsv")
@@ -1194,6 +1193,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1185248715]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
