@@ -9,15 +9,15 @@
 [ext_resource type="Script" uid="uid://w5yasfxrxrv0" path="res://gui/reload_warning.gd" id="4_1u8w0"]
 [ext_resource type="Script" uid="uid://dhj51n3tix73q" path="res://gui/item_transfer_gui.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
-[ext_resource type="Texture2D" uid="uid://n0enybkn1a6t" path="res://assets/list_icon.svg" id="4_htxhm"]
+[ext_resource type="Texture2D" uid="uid://n0enybkn1a6t" path="res://assets/icons/list_icon.svg" id="4_htxhm"]
 [ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
-[ext_resource type="Texture2D" uid="uid://8a6wkt0mkxhl" path="res://assets/grid_icon.svg" id="5_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://8a6wkt0mkxhl" path="res://assets/icons/grid_icon.svg" id="5_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_tooltip.tscn" id="5_kek77"]
 [ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
 [ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="6_getpj"]
 [ext_resource type="PackedScene" uid="uid://tgixuggfwchr" path="res://gui/pd2_stash/character_select/character_button.tscn" id="7_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://boyrsqj3lv6y7" path="res://assets/reload_icon.svg" id="7_kq58d"]
-[ext_resource type="Texture2D" uid="uid://dpgyet8cryc86" path="res://assets/cog_icon.svg" id="7_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://boyrsqj3lv6y7" path="res://assets/icons/reload_icon.svg" id="7_kq58d"]
+[ext_resource type="Texture2D" uid="uid://dpgyet8cryc86" path="res://assets/icons/cog_icon.svg" id="7_qsp4k"]
 [ext_resource type="Script" uid="uid://bkfjnit6hsnbl" path="res://gui/pd2_stash/character_select/character_select.gd" id="7_yaehf"]
 [ext_resource type="Script" uid="uid://2jh0bl5elah8" path="res://gui/masonry_container.gd" id="8_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://cbtd6ejojofhq" path="res://gui/pd2_stash/character_equip.tscn" id="8_vivmo"]
@@ -30,8 +30,8 @@
 [ext_resource type="Script" uid="uid://bdj20u42kbbfv" path="res://gui/settings_shower.gd" id="20_getpj"]
 [ext_resource type="Script" uid="uid://crplyddrr1g6n" path="res://gui/grail/tab_switcher.gd" id="22_1u8w0"]
 [ext_resource type="Script" uid="uid://buhtyywih6onk" path="res://gui/selection_debug.gd" id="22_lswn8"]
-[ext_resource type="Texture2D" uid="uid://cgekq2wi5bnpn" path="res://assets/save_icon.svg" id="27_seu75"]
-[ext_resource type="Texture2D" uid="uid://cwfuqofq0qy66" path="res://assets/cancel_icon.svg" id="29_htxhm"]
+[ext_resource type="Texture2D" uid="uid://cgekq2wi5bnpn" path="res://assets/icons/save_icon.svg" id="27_seu75"]
+[ext_resource type="Texture2D" uid="uid://cwfuqofq0qy66" path="res://assets/icons/cancel_icon.svg" id="29_htxhm"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_2cqfq"]
 
@@ -832,6 +832,7 @@ text = "Ring"
 layout_mode = 2
 toggle_mode = true
 text = "Amulet"
+expand_icon = true
 
 [node name="Misc3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1189798918]
 layout_mode = 2

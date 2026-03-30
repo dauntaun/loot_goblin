@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwfuqofq0qy66"
-path="res://.godot/imported/cancel_icon.svg-34c745a2a668abcacea0393bee44906f.ctex"
+uid="uid://8a6wkt0mkxhl"
+path="res://.godot/imported/grid_icon.svg-3c3669ed7ea913cca4658a1a6ec46aec.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cancel_icon.svg"
-dest_files=["res://.godot/imported/cancel_icon.svg-34c745a2a668abcacea0393bee44906f.ctex"]
+source_file="res://assets/icons/grid_icon.svg"
+dest_files=["res://.godot/imported/grid_icon.svg-3c3669ed7ea913cca4658a1a6ec46aec.ctex"]
 
 [params]
 
@@ -39,5 +40,5 @@ process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
 svg/scale=1.0
-editor/scale_with_editor_scale=false
+editor/scale_with_editor_scale=true
 editor/convert_colors_with_editor_theme=false
