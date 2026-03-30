@@ -1,7 +1,7 @@
 class_name TableItemListController
 extends BasicItemListController
 
-enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3}
+enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3, BASE = 5, DMG = 6, DEF = 7, RES = 8, ILVL = 9}
 
 const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.ITEM: {"col_name": "Item", "sort_key": ItemSorter.SortKey.NAME},
@@ -9,6 +9,11 @@ const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.TYPE: {"col_name": "Type", "sort_key": ItemSorter.SortKey.TYPE},
 	ColType.ETH: {"col_name": "Eth", "sort_key": ItemSorter.SortKey.ETH},
 	ColType.SOCKETS: {"col_name": "Soc", "sort_key": ItemSorter.SortKey.SOCKETS},
+	ColType.BASE: {"col_name": "Base", "sort_key": ItemSorter.SortKey.BASE},
+	ColType.DMG: {"col_name": "Dmg", "sort_key": ItemSorter.SortKey.DAM},
+	ColType.DEF: {"col_name": "Def", "sort_key": ItemSorter.SortKey.DEF},
+	ColType.RES: {"col_name": "Res", "sort_key": ItemSorter.SortKey.RES},
+	ColType.ILVL: {"col_name": "iLvl", "sort_key": ItemSorter.SortKey.ILVL},
 }
 const SORT_COLUMN_HIGHLIGHT: Color = Color(0.808, 0.847, 0.922, 0.027)
 
@@ -30,11 +35,14 @@ func _init(tree: Tree) -> void:
 		_tree.set_column_title_alignment(col, HORIZONTAL_ALIGNMENT_CENTER)
 	_tree.set_column_title_alignment(ColType.ITEM, HORIZONTAL_ALIGNMENT_CENTER)
 	_tree.set_column_title_alignment(ColType.TYPE, HORIZONTAL_ALIGNMENT_LEFT)
+	_tree.set_column_title_alignment(ColType.BASE, HORIZONTAL_ALIGNMENT_LEFT)
 	_tree.set_column_expand(ColType.ITEM, true)
 	_tree.set_column_expand(ColType.TYPE, true)
+	_tree.set_column_expand(ColType.BASE, true)
 	_tree.set_column_expand_ratio(ColType.ITEM, 8)
-	_tree.set_column_custom_minimum_width(ColType.ITEM, 150)
-	_tree.set_column_custom_minimum_width(ColType.TYPE, 90)
+	_tree.set_column_custom_minimum_width(ColType.ITEM, 330)
+	_tree.set_column_custom_minimum_width(ColType.TYPE, 150)
+	_tree.set_column_custom_minimum_width(ColType.BASE, 150)
 	_update_column_titles()
 	_tree.item_selected.connect(_on_item_selected)
 	_tree.mouse_exited.connect(func(): TooltipHandler.hide_tooltip())
@@ -125,9 +133,14 @@ func _create_row(item: D2Item) -> void:
 	_item_map[item] = row
 	row.set_text(ColType.ITEM, item.item_name)
 	row.set_text(ColType.TYPE, item.item_type)
+	row.set_text(ColType.BASE, item.base_name)
 	row.set_text(ColType.ETH, "e" if item.is_ethereal else "")
 	row.set_text(ColType.CORRUPT, "*" if item.is_corrupted else "")
 	row.set_text(ColType.SOCKETS, str(item.total_sockets) if item.is_socketed else "")
+	row.set_text(ColType.DMG, str(item.average_damage) if item.average_damage > 0 else "")
+	row.set_text(ColType.DEF, str(item.defense) if item.defense > 0 else "")
+	row.set_text(ColType.RES, str(item.total_res) if item.total_res > 0 else "")
+	row.set_text(ColType.ILVL, str(item.item_level))
 	row.set_metadata(0, item)
 
 	row.set_custom_color(ColType.ITEM, D2Colors.get_item_color(item))
@@ -136,6 +149,10 @@ func _create_row(item: D2Item) -> void:
 	row.set_text_alignment(ColType.CORRUPT, HORIZONTAL_ALIGNMENT_CENTER)
 	row.set_text_alignment(ColType.ETH, HORIZONTAL_ALIGNMENT_CENTER)
 	row.set_text_alignment(ColType.SOCKETS, HORIZONTAL_ALIGNMENT_CENTER)
+	row.set_text_alignment(ColType.DMG, HORIZONTAL_ALIGNMENT_CENTER)
+	row.set_text_alignment(ColType.DEF, HORIZONTAL_ALIGNMENT_CENTER)
+	row.set_text_alignment(ColType.RES, HORIZONTAL_ALIGNMENT_CENTER)
+	row.set_text_alignment(ColType.ILVL, HORIZONTAL_ALIGNMENT_CENTER)
 
 	_apply_sort_column_highlight(row)
 	

@@ -87,6 +87,8 @@ var defense: int
 var base_defense: int
 var base_weapon_damage: Dictionary
 var weapon_damage: Dictionary
+var average_damage: int
+var total_res: int
 
 var max_durability: int
 var current_durability: int

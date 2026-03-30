@@ -257,6 +257,7 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 		item.base_weapon_damage = TxtDB.get_weapon_damage_range(code_string, item.is_ethereal)
 		item.weapon_damage = item.base_weapon_damage.duplicate_deep()
 	
+	# Real damage/defense and reqs
 	if item.is_armor:
 		for property: Dictionary in item.all_properties:
 			if property.stat_id == 16: # Enhanced defense
@@ -274,6 +275,8 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
+			if property.stat_id == 39 or property.stat_id == 41 or property.stat_id == 43 or property.stat_id == 45: # Resists
+				item.total_res += property.params[0]
 	elif item.is_weapon:
 		for property: Dictionary in item.all_properties:
 			if property.stat_id == 18: # Enhanced damage
@@ -299,6 +302,19 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
+			if property.stat_id == 39 or property.stat_id == 41 or property.stat_id == 43 or property.stat_id == 45: # Resists
+				item.total_res += property.params[0]
+		# Average damage
+		if item.weapon_damage.has("twohand"):
+			item.average_damage = (item.weapon_damage["twohand"]["min"] + item.weapon_damage["twohand"]["max"]) / 2
+		elif item.weapon_damage.has("throw"):
+			item.average_damage = (item.weapon_damage["throw"]["min"] + item.weapon_damage["throw"]["max"]) / 2
+		else:
+			item.average_damage = (item.weapon_damage["onehand"]["min"] + item.weapon_damage["onehand"]["max"]) / 2
+	elif item.is_misc:
+		for property: Dictionary in item.all_properties:
+			if property.stat_id == 39 or property.stat_id == 41 or property.stat_id == 43 or property.stat_id == 45: # Resists
+				item.total_res += property.params[0]
 	item.length = (cursor._bit_pos>>3) - start_byte
 	return item
 

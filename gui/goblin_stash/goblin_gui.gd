@@ -42,6 +42,11 @@ func _ready() -> void:
 	_sort_menu.add_radio_check_item("By Corruption", ItemSorter.SortKey.CORRUPT)
 	_sort_menu.add_radio_check_item("By Sockets", ItemSorter.SortKey.SOCKETS)
 	_sort_menu.add_radio_check_item("By Type", ItemSorter.SortKey.TYPE)
+	_sort_menu.add_radio_check_item("By Base", ItemSorter.SortKey.BASE)
+	_sort_menu.add_radio_check_item("By Average damage", ItemSorter.SortKey.DAM)
+	_sort_menu.add_radio_check_item("By Defense", ItemSorter.SortKey.DEF)
+	_sort_menu.add_radio_check_item("By Total resistance", ItemSorter.SortKey.RES)
+	_sort_menu.add_radio_check_item("By ilvl", ItemSorter.SortKey.ILVL)
 	_sort_menu.add_separator("")
 	_sort_menu.add_check_item("Ascending")
 	_sort_menu.set_item_checked(ItemSorter.SortKey.NAME, true)
@@ -208,7 +213,7 @@ func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> v
 
 
 func _on_sort_menu_picked(id: int) -> void:
-	if id == 6:
+	if id == 11:
 		var sort_ascending := not _item_searcher.get_sort_ascending()
 		_on_sort_requested(_item_searcher.get_sort_key(), sort_ascending)
 	elif id != _item_searcher.get_sort_key():
