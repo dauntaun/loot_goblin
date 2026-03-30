@@ -11,8 +11,8 @@
 [ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
 [ext_resource type="Texture2D" uid="uid://n0enybkn1a6t" path="res://assets/list_icon.svg" id="4_htxhm"]
 [ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://8a6wkt0mkxhl" path="res://assets/grid_icon.svg" id="5_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_tooltip.tscn" id="5_kek77"]
-[ext_resource type="Texture2D" uid="uid://4xw7d53fhj6k" path="res://assets/grid_icon.png" id="5_xuqvo"]
 [ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
 [ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="6_getpj"]
 [ext_resource type="PackedScene" uid="uid://tgixuggfwchr" path="res://gui/pd2_stash/character_select/character_button.tscn" id="7_2cqfq"]
@@ -502,7 +502,7 @@ theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_a6jrf")
-icon = ExtResource("5_xuqvo")
+icon = ExtResource("5_jq2sk")
 expand_icon = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=157497543]
@@ -581,11 +581,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_vivmo")
-current_tab = 0
+current_tab = 1
 tabs_visible = false
 
 [node name="GoblinStash" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1343246319]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_82xsv")
@@ -1193,7 +1194,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector" unique_id=1185248715]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
