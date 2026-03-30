@@ -9,11 +9,15 @@
 [ext_resource type="Script" uid="uid://w5yasfxrxrv0" path="res://gui/reload_warning.gd" id="4_1u8w0"]
 [ext_resource type="Script" uid="uid://dhj51n3tix73q" path="res://gui/item_transfer_gui.gd" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://bte4ycahd8imr" path="res://gui/goblin_stash/goblin_gui.gd" id="4_82xsv"]
+[ext_resource type="Texture2D" uid="uid://n0enybkn1a6t" path="res://assets/list_icon.svg" id="4_htxhm"]
 [ext_resource type="Script" uid="uid://cwfbvxo6iqotc" path="res://gui/goblin_stash/search_bar.gd" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://dfqosv12wxnro" path="res://gui/item_tooltip/item_tooltip.tscn" id="5_kek77"]
+[ext_resource type="Texture2D" uid="uid://4xw7d53fhj6k" path="res://assets/grid_icon.png" id="5_xuqvo"]
 [ext_resource type="Script" uid="uid://wvntlyjedsqg" path="res://gui/grail/grail_gui.gd" id="6_7mycd"]
 [ext_resource type="StyleBox" uid="uid://cbkqi01e5m4wf" path="res://gui/resources/custom_theme/section_title_stylebox.tres" id="6_getpj"]
 [ext_resource type="PackedScene" uid="uid://tgixuggfwchr" path="res://gui/pd2_stash/character_select/character_button.tscn" id="7_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://boyrsqj3lv6y7" path="res://assets/reload_icon.svg" id="7_kq58d"]
+[ext_resource type="Texture2D" uid="uid://dpgyet8cryc86" path="res://assets/cog_icon.svg" id="7_qsp4k"]
 [ext_resource type="Script" uid="uid://bkfjnit6hsnbl" path="res://gui/pd2_stash/character_select/character_select.gd" id="7_yaehf"]
 [ext_resource type="Script" uid="uid://2jh0bl5elah8" path="res://gui/masonry_container.gd" id="8_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://cbtd6ejojofhq" path="res://gui/pd2_stash/character_equip.tscn" id="8_vivmo"]
@@ -26,6 +30,8 @@
 [ext_resource type="Script" uid="uid://bdj20u42kbbfv" path="res://gui/settings_shower.gd" id="20_getpj"]
 [ext_resource type="Script" uid="uid://crplyddrr1g6n" path="res://gui/grail/tab_switcher.gd" id="22_1u8w0"]
 [ext_resource type="Script" uid="uid://buhtyywih6onk" path="res://gui/selection_debug.gd" id="22_lswn8"]
+[ext_resource type="Texture2D" uid="uid://cgekq2wi5bnpn" path="res://assets/save_icon.svg" id="27_seu75"]
+[ext_resource type="Texture2D" uid="uid://cwfuqofq0qy66" path="res://assets/cancel_icon.svg" id="29_htxhm"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_2cqfq"]
 
@@ -475,44 +481,29 @@ vertical_alignment = 1
 
 [node name="TableView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=598375625]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
+tooltip_text = "Table view"
 theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 button_pressed = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView" unique_id=498312360]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Table"
-horizontal_alignment = 1
-vertical_alignment = 1
+icon = ExtResource("4_htxhm")
+icon_alignment = 1
+expand_icon = true
 
 [node name="TileView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=1524196157]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(54, 0)
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
+tooltip_text = "Tooltip view"
 theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_a6jrf")
-
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView" unique_id=1498534968]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Tiles"
-horizontal_alignment = 1
-vertical_alignment = 1
+icon = ExtResource("5_xuqvo")
+expand_icon = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer" unique_id=157497543]
 custom_minimum_size = Vector2(392, 0)
@@ -553,18 +544,23 @@ wait_time = 2.0
 
 [node name="ReloadButton" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2/PanelContainer/HBoxContainer" unique_id=1432292268]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Reload"
+icon = ExtResource("7_kq58d")
+expand_icon = true
 
 [node name="SettingsView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer2" unique_id=238291159]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_type_variation = &"ToggleGroupButton"
 toggle_mode = true
 action_mode = 0
 text = "Settings"
+icon = ExtResource("7_qsp4k")
+expand_icon = true
 
 [node name="MainSelector" type="TabContainer" parent="MarginContainer/Stash" unique_id=1838158964]
 unique_name_in_owner = true
@@ -1965,6 +1961,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Send"
+icon_alignment = 2
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2" unique_id=998695973]
 layout_mode = 2
@@ -1979,6 +1976,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0odxb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d13ii")
 disabled = true
 text = "Save"
+icon = ExtResource("27_seu75")
+expand_icon = true
 script = ExtResource("3_074og")
 
 [node name="CancelChanges" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3/HBoxContainer2/HBoxContainer" unique_id=398666764]
@@ -1990,6 +1989,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lswn8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1u8w0")
 disabled = true
 text = "Cancel"
+icon = ExtResource("29_htxhm")
+expand_icon = true
 
 [node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/VBoxContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer3" unique_id=1513578014]
 visible = false

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c8obf1a2dykff"]
+
+[node name="Control" type="Control" unique_id=1661112595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1764972084]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FoldableContainer" type="FoldableContainer" parent="PanelContainer" unique_id=1436166481]
+layout_mode = 2
+title = "Weapon"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer/FoldableContainer" unique_id=102815831]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer" unique_id=1904173618]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Axe"
+
+[node name="Button2" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer" unique_id=1117396289]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Sword"
+
+[node name="Button3" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer" unique_id=789094511]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Dagger"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/FoldableContainer/HBoxContainer" unique_id=79182005]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button5" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer" unique_id=1216577716]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Throwing"
+
+[node name="Button4" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer" unique_id=1839449494]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = ">"
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4" unique_id=1084881237]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -64.5
+offset_right = 146.0
+offset_bottom = 65.5
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4/PanelContainer" unique_id=1955674597]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Button" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4/PanelContainer/VBoxContainer" unique_id=488543156]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Throwing Axe"
+
+[node name="Button2" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4/PanelContainer/VBoxContainer" unique_id=1911008065]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Throwing Knife"
+
+[node name="Button3" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4/PanelContainer/VBoxContainer" unique_id=2072115135]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Javelin"
+
+[node name="Button4" type="Button" parent="PanelContainer/FoldableContainer/HBoxContainer/HBoxContainer/Button4/PanelContainer/VBoxContainer" unique_id=576457824]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+text = "Amazon Javelin"
