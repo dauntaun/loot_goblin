@@ -281,7 +281,7 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return string % [params[0], params[1]]
 
 		102: # Poison damage
-			return string % [params[0] * 25/128, params[2] * 1/25]
+			return string % [roundi(params[0] / 256.0 * params[2]), params[2] / 25]
 
 		_:
 			return "Unknown descfunc"
