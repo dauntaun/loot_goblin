@@ -146,6 +146,8 @@ const RENAME_TYPES: Dictionary[String, String] = {
 	"Amulet": "Jewelry",
 	"Amulet [S]": "Jewelry",
 	"Belt [S]": "Belt",
+	"Crossbow Quiver": "Bolts",
+	"Bow Quiver": "Arrows",
 }
 
 var all_codes: Dictionary
@@ -532,10 +534,6 @@ func _build_database() -> void:
 			subcategory = "Throwing"
 		elif type in ["Amazon Bow", "Amazon Spear", "Amazon Javelin"]:
 			subcategory = "Amazon"
-		elif type == "Bow Quiver":
-			subcategory = "Arrows"
-		elif type == "Crossbow Quiver":
-			subcategory = "Bolts"
 		elif type == "Map T5":
 			subcategory = "Map"
 		unique_entry.subcategory = subcategory
