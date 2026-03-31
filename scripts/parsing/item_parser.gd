@@ -275,6 +275,10 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
+			if property.stat_id == 73: # Flat durability
+				item.max_durability += property.params[0]
+			if property.stat_id == 75: # Percent durability
+				item.max_durability = floori(item.max_durability * (1 + property.params[0] / 100.0))
 			if property.stat_id == 39 or property.stat_id == 41 or property.stat_id == 43 or property.stat_id == 45: # Resists
 				item.total_res += property.params[0]
 	elif item.is_weapon:
@@ -302,6 +306,10 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 					item.required_dexterity = ceili(item.required_dexterity * (1 + property.params[0] / 100.0))
 				if item.required_strength > 0:
 					item.required_strength = ceili(item.required_strength * (1 + property.params[0] / 100.0))
+			if property.stat_id == 73: # Flat durability
+				item.max_durability += property.params[0]
+			if property.stat_id == 75: # Percent durability
+				item.max_durability = floori(item.max_durability * (1 + property.params[0] / 100.0))
 			if property.stat_id == 39 or property.stat_id == 41 or property.stat_id == 43 or property.stat_id == 45: # Resists
 				item.total_res += property.params[0]
 		# Average damage
