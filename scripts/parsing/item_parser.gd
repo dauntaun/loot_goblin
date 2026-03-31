@@ -387,7 +387,7 @@ static func _combine_property_lists(property_lists: Array[Array]) -> Array[Dicti
 					all_properties[merge_index[stat_id]].params[0] += prop.params[0]
 				else:
 					merge_index[stat_id] = all_properties.size()
-					all_properties.append(prop)
+					all_properties.append(prop.duplicate(true))
 			else:
 				all_properties.append(prop)
 
