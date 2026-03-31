@@ -255,6 +255,7 @@ func _import_plugy_items_to_goblin_stash(plugy_files: Array[PlugySaveFile]) -> v
 func _reload_loaded_save_files() -> void:
 	var goblin_save := StashRegistry.get_goblin_save_file()
 	ItemSelection.clear_destination()
+	ItemSelection.clear_selection()
 	ItemRegistry.unregister_all_items()
 	StashRegistry.unregister_all_stashes()
 	CommandQueue.undo_queue()
