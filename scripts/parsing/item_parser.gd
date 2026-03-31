@@ -377,18 +377,23 @@ static func _read_item_property_list(cursor: BitCursor, target_array: Array[Dict
 
 static func _combine_property_lists(property_lists: Array[Array]) -> Array[Dictionary]:
 	var all_properties: Array[Dictionary]
-	var merge_index: Dictionary[int, int]
+	var merge_index: Dictionary[Array, int]
 
 	for props: Array in property_lists:
 		for prop: Dictionary in props:
-			if prop.params.size() == 1:
-				var stat_id: int = prop.stat_id
-				if merge_index.has(stat_id):
-					all_properties[merge_index[stat_id]].params[0] += prop.params[0]
-				else:
-					merge_index[stat_id] = all_properties.size()
-					all_properties.append(prop.duplicate(true))
+			var stat_id: int = prop.stat_id
+			var params: Array = prop.params
+			
+			# Build merge key: stat_id + params except last
+			var merge_key: Array[int] = [stat_id]
+			if stat_id == 197 or stat_id == 199: # Skill on death/level-up
+				merge_key.append_array(params.slice(0, params.size() - 1))
+			
+			if merge_index.has(merge_key):
+				var index: int = merge_index[merge_key]
+				all_properties[index].params[-1] += params[-1]
 			else:
-				all_properties.append(prop)
+				merge_index[merge_key] = all_properties.size()
+				all_properties.append(prop.duplicate(true))
 
 	return all_properties
