@@ -377,26 +377,18 @@ static func _read_item_property_list(cursor: BitCursor, target_array: Array[Dict
 
 static func _combine_property_lists(property_lists: Array[Array]) -> Array[Dictionary]:
 	var all_properties: Array[Dictionary]
-	var merge_index: Dictionary
+	var merge_index: Dictionary[int, int]
 
-	var i := 0
-	while i < property_lists.size():
-		var props = property_lists[i]
-		var j := 0
-		while j < props.size():
-			var prop = props[j]
-
-			if prop.has("stat_id") and prop.has("params") and prop.params.size() == 1:
+	for props: Array in property_lists:
+		for prop: Dictionary in props:
+			if prop.params.size() == 1:
 				var stat_id: int = prop.stat_id
 				if merge_index.has(stat_id):
 					all_properties[merge_index[stat_id]].params[0] += prop.params[0]
 				else:
-					var new_prop = prop.duplicate(true)
 					merge_index[stat_id] = all_properties.size()
-					all_properties.append(new_prop)
+					all_properties.append(prop)
 			else:
-				all_properties.append(prop.duplicate(true))
-			j += 1
-		i += 1
+				all_properties.append(prop)
 
 	return all_properties
