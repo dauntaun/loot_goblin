@@ -126,7 +126,7 @@ const CUSTOM_PROPERTIES: Dictionary[String, Dictionary] = {
 const MODIFY_GEMS: Dictionary[String, Dictionary] = {
 	"r07" : {"weaponMod1Code": "pois-min", "weaponMod1Min": 154, "weaponMod2Code": "pois-max", "weaponMod2Min": 154, "weaponMod3Code": "pois-len", "weaponMod3Min": 125},
 	"r08" : {"weaponMod1Code": "fire-min", "weaponMod1Min": 5, "weaponMod2Code": "fire-max", "weaponMod2Min": 30},
-	"r09" : {"weaponMod1Code": "ltng-min", "weaponMod1Min": 5, "weaponMod2Code": "ltng-max", "weaponMod2Min": 30},
+	"r09" : {"weaponMod1Code": "ltng-min", "weaponMod1Min": 1, "weaponMod2Code": "ltng-max", "weaponMod2Min": 50},
 	"r10" : {"weaponMod1Code": "cold-min", "weaponMod1Min": 3, "weaponMod2Code": "cold-max", "weaponMod2Min": 14, "weaponMod3Code": "cold-len", "weaponMod3Min": 75},
 }
 
@@ -290,7 +290,7 @@ func _build_database() -> void:
 	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "prop9", "prop10", "prop11", "prop12"], true)
 	set_items = _load_csv_as_dict("txt/SetItems.txt", "", ["index", "set", "item", "rarity", "lvl", "lvl req", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8"], true)
 	runewords = _load_csv_as_dict("txt/Runes.txt", "")
-	gems = _load_csv_as_dict("txt/Gems.txt", "code")
+	gems = _load_csv_as_dict("txt/Gems.txt", "code", [], true)
 	properties = _load_csv_as_dict("txt/Properties.txt", "code", ["code", "stat1", "stat2", "stat3", "stat4"])
 	item_stat_cost = _load_csv_as_dict("txt/ItemStatCost.txt", "", 
 	["Stat", "ID", "Save Bits", "Save Add", "Encode", "Save Param Bits", "CSvBits",
@@ -366,7 +366,7 @@ func _build_database() -> void:
 	# Setup gem props
 	for gem_code: String in MODIFY_GEMS:
 		var gem_dict: Dictionary = MODIFY_GEMS[gem_code]
-		for key in gem_dict:
+		for key: String in gem_dict:
 			gems[gem_code][key] = gem_dict[key]
 	for mod: String in CUSTOM_PROPERTIES:
 		properties[mod] = CUSTOM_PROPERTIES[mod]
