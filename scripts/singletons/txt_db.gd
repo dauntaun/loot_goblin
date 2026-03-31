@@ -4,7 +4,7 @@ const CACHE_PATH := "user://txtdb_cache.res"
 
 const CORRUPTED_STAT_ID := 360
 
-const TREASURE_CLASS_ITEMS := {
+const TREASURE_CLASS_ITEMS: Dictionary[String, Array] = {
  "TC87": ["6ws", "7wa", "nef", "7ws", "7gd", "uhc", "urn", "ci3", "obf", "drf", "7wc", "7gi", "baf", "6lw", "7bl", "uhb", "7wd", "uhg", "uar", "7qr", "7gm", "7gw", "paf", "7p7", "7ts"],
  "TC84": ["utp", "uh9", "7ga", "7ls", "6rx", "7kr", "7st", "7h7", "uth", "7wh", "uul", "6bs", "dre", "utc", "obe", "uts", "pae"],
  "TC81": ["uow", "7fb", "bae", "7pa", "7gl", "uld", "ame", "utb", "7tw", "uhm", "nee", "6sw", "7mp", "7b8"],
