@@ -122,7 +122,7 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.72
 theme_override_styles/panel = SubResource("StyleBoxEmpty_2cqfq")
 
-[node name="LeftRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftRing" unique_id=573960780]
+[node name="RightRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftRing" unique_id=573960780]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -183,7 +183,7 @@ layout_mode = 2
 size_flags_stretch_ratio = 0.42
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yaehf")
 
-[node name="RightRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1922185006]
+[node name="LeftRing" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightRing" unique_id=1922185006]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
