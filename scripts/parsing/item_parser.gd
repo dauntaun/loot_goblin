@@ -82,6 +82,7 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	item.is_rune = TxtDB.item_is_rune(code_string)
 	item.is_tome = TxtDB.item_is_tome(code_string)
 	item.is_stackable = TxtDB.item_is_stackable(code_string)
+	item.required_level = TxtDB.get_item_required_level(code_string)
 	
 	# Simple return
 	if item.is_simple:
@@ -102,7 +103,6 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 		req_dex = clampi(req_dex - 10, 0, req_dex)
 	item.required_strength = req_str
 	item.required_dexterity = req_dex
-	item.required_level = TxtDB.get_item_required_level(code_string)
 	item.unique_signature = cursor.read_bits(32) # 143
 	item.item_level = cursor.read_bits(7) # 150
 	item.rarity = cursor.read_bits(4) as D2Item.ItemRarity # 154
@@ -234,6 +234,7 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	
 	# Merge and format properties
 	for socketed_item: D2Item in item.socketed_items:
+		item.required_level = maxi(item.required_level, socketed_item.required_level)
 		if socketed_item.is_simple:
 			var gem_props: Dictionary = TxtDB.get_gem_properties(socketed_item.code_string)
 			if item.is_weapon:
