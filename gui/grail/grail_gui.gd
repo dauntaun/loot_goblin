@@ -77,6 +77,8 @@ func update_grail() -> void:
 	for i: int in all_buttons.size():
 		var button := all_buttons[i]
 		var category: String = Grail.unique_subcategories[i]
+		if Grail.unique_completion_by_subcategory[category].missing != 0:
+			button.add_theme_color_override("font_color", D2Colors.COLOR_GRAY)
 		var button_string: String = "\n" + "(%d/%d)" % \
 			[Grail.unique_completion_by_subcategory[category].found, Grail.unique_completion_by_subcategory[category].total]
 		button.text += button_string
@@ -105,6 +107,8 @@ func update_grail() -> void:
 	for i: int in all_buttons.size():
 		var button := all_buttons[i]
 		var category: String = Grail.set_subcategories[i]
+		if Grail.set_completion_by_subcategory[category].missing != 0:
+			button.add_theme_color_override("font_color", D2Colors.COLOR_GRAY)
 		var button_string: String = "\n" + "(%d/%d)" % \
 			[Grail.set_completion_by_subcategory[category].found, Grail.set_completion_by_subcategory[category].total]
 		button.text += button_string
