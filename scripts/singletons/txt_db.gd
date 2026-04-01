@@ -473,7 +473,7 @@ func _build_database() -> void:
 				has_indestruct = true
 		var type := get_item_type(code_string)
 		set_entry.item_type = type
-		eth_possible = has_eth or (not has_indestruct) and not type in ["Bow", "Amazon Bow", "Crossbow", "Amulet", "Ring"]
+		eth_possible = has_eth or (not has_indestruct) and not type in ["Bow", "Amazon Bow", "Crossbow", "Jewelry"]
 		set_entry.eth_possible = eth_possible
 		set_entry.txt_id = set_id
 		set_entry.item_name = localize(row["index"])
