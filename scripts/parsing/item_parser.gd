@@ -386,8 +386,7 @@ static func _combine_property_lists(property_lists: Array[Array]) -> Array[Dicti
 			
 			# Build merge key: stat_id + params except last
 			var merge_key: Array[int] = [stat_id]
-			if stat_id == 197 or stat_id == 199: # Skill on death/level-up
-				merge_key.append_array(params.slice(0, params.size() - 1))
+			merge_key.append_array(params.slice(0, params.size() - 1))
 			
 			if merge_index.has(merge_key):
 				var index: int = merge_index[merge_key]
