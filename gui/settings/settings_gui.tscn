@@ -415,7 +415,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("2_6lqv6")
-text = "v0.4"
+text = "v0.4.1"
 
 [node name="PD2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/SettingsTabs" unique_id=1903321314]
 visible = false
