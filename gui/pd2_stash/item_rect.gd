@@ -26,7 +26,7 @@ func init_rect(item: D2Item) -> void:
 	color.a = 0.9
 	set_color(color)
 	_item = item
-	if item.is_stackable and item.is_misc and item.item_type not in ["Bow Quiver", "Crossbow Quiver"]:
+	if item.is_stackable and item.is_misc and item.item_type not in ["Bolts", "Arrows"]:
 		quantity_label.text = str(item.quantity) + " "
 		quantity_label.show()
 	else:

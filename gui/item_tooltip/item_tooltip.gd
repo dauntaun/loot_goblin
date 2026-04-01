@@ -163,7 +163,7 @@ func update_tooltip(item: D2Item) -> void:
 				label.add_text("%d to %d" % [item.weapon_damage["twohand"]["min"], item.weapon_damage["twohand"]["max"]])
 			label.newline()
 	# Quantity
-	if item.is_stackable and item.is_misc and not item.item_type in ["Bow Quiver", "Crossbow Quiver"]:
+	if item.is_stackable and item.is_misc and not item.item_type in ["Bolts", "Arrows"]:
 		label.add_text("Quantity: %d" % item.quantity)
 		label.newline()
 	# Requirements
