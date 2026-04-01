@@ -2421,10 +2421,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_4c57u")
 filters = {
-"Armor": NodePath("VBoxContainer2/GridContainer"),
-"Misc": NodePath("VBoxContainer3/GridContainer"),
-"Uber": NodePath("VBoxContainer4/GridContainer"),
-"Weapon": NodePath("VBoxContainer/GridContainer")
+"Armor": NodePath("VBoxContainer2/ArmorGrail"),
+"Misc": NodePath("VBoxContainer3/MiscGrail"),
+"Uber": NodePath("VBoxContainer4/UberGrail"),
+"Weapon": NodePath("VBoxContainer/WeaponGrail")
 }
 filter_titles = {
 "Armor": NodePath("VBoxContainer2/PanelContainer/MarginContainer/Label"),
@@ -2449,11 +2449,11 @@ theme_override_constants/margin_left = 8
 layout_mode = 2
 text = "Weapon"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer" unique_id=1603017658]
+[node name="WeaponGrail" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer" unique_id=1603017658]
 layout_mode = 2
 columns = 3
 
-[node name="Button15" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2018140696]
+[node name="Button15" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=2018140696]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2461,7 +2461,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Axe 1H"
 
-[node name="Button16" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=475478333]
+[node name="Button16" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=475478333]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2469,7 +2469,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Axe 2H"
 
-[node name="Button14" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2081190607]
+[node name="Button14" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=2081190607]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2477,7 +2477,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Mace 1H"
 
-[node name="Button17" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1663740145]
+[node name="Button17" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1663740145]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2485,7 +2485,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Mace 2H"
 
-[node name="Button13" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=134687490]
+[node name="Button13" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=134687490]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2493,7 +2493,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Sword 1H"
 
-[node name="Button18" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1748794854]
+[node name="Button18" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1748794854]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2501,7 +2501,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Sword 2H"
 
-[node name="Button12" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=98015524]
+[node name="Button12" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=98015524]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2509,7 +2509,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Dagger"
 
-[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2070783223]
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=2070783223]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2517,7 +2517,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Throwing"
 
-[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1056360276]
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1056360276]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2525,7 +2525,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Spear"
 
-[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1530272501]
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1530272501]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2533,7 +2533,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Polearm"
 
-[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=651844904]
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=651844904]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2541,7 +2541,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Bow"
 
-[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=221059307]
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=221059307]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2549,7 +2549,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Crossbow"
 
-[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1917879840]
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1917879840]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2557,7 +2557,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Staff"
 
-[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1385818721]
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1385818721]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2565,7 +2565,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Wand"
 
-[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=754447850]
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=754447850]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2573,7 +2573,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Scepter"
 
-[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1491408791]
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1491408791]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2581,7 +2581,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Claw"
 
-[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=1535976645]
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=1535976645]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2589,7 +2589,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Orb"
 
-[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/GridContainer" unique_id=2139087177]
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer/WeaponGrail" unique_id=2139087177]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2612,11 +2612,11 @@ theme_override_constants/margin_left = 8
 layout_mode = 2
 text = "Armor"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2" unique_id=24450875]
+[node name="ArmorGrail" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2" unique_id=24450875]
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=17869477]
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=17869477]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2624,7 +2624,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Helm"
 
-[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1036892349]
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1036892349]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2632,7 +2632,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Circlet"
 
-[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=545234586]
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=545234586]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2640,7 +2640,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Armor"
 
-[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1451058388]
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1451058388]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2648,7 +2648,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Shield"
 
-[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=115968314]
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=115968314]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2656,7 +2656,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Gloves"
 
-[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=294825014]
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=294825014]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2664,7 +2664,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Boots"
 
-[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=154081696]
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=154081696]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2672,7 +2672,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Belt"
 
-[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1662653920]
+[node name="Button8" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1662653920]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2680,7 +2680,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Druid"
 
-[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1702532300]
+[node name="Button9" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1702532300]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2688,7 +2688,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Barbarian"
 
-[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1984113284]
+[node name="Button10" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1984113284]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2696,7 +2696,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Paladin"
 
-[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/GridContainer" unique_id=1346428159]
+[node name="Button11" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1346428159]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2719,11 +2719,11 @@ theme_override_constants/margin_left = 8
 layout_mode = 2
 text = "Misc"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3" unique_id=1700798472]
+[node name="MiscGrail" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3" unique_id=1700798472]
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=2088404476]
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=2088404476]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2731,7 +2731,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Arrows"
 
-[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=408093740]
+[node name="Button7" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=408093740]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2739,7 +2739,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Bolts"
 
-[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1385761184]
+[node name="Button2" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=1385761184]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2747,7 +2747,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Amulet"
 
-[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=2108861789]
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=2108861789]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2755,7 +2755,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Ring"
 
-[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=253045142]
+[node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=253045142]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2763,7 +2763,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Charm"
 
-[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1585511698]
+[node name="Button5" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=1585511698]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2771,7 +2771,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "Jewel"
 
-[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/GridContainer" unique_id=1487454153]
+[node name="Button6" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer3/MiscGrail" unique_id=1487454153]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2794,11 +2794,11 @@ theme_override_constants/margin_left = 8
 layout_mode = 2
 text = "Uber"
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4" unique_id=1628526422]
+[node name="UberGrail" type="GridContainer" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4" unique_id=1628526422]
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/GridContainer" unique_id=524957934]
+[node name="Button" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/UberGrail" unique_id=524957934]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
@@ -2806,7 +2806,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
 text = "DClone"
 
-[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/GridContainer" unique_id=187809402]
+[node name="Button3" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer4/UberGrail" unique_id=187809402]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)

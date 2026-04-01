@@ -157,7 +157,7 @@ func store_active_page() -> void:
 	for item: D2Item in items:
 		var transfer_record := CommandQueue.ItemTransferCommand.new(item, pd2_stash_id, goblin_stash_id)
 		CommandQueue.record_command(transfer_record)
-		items_transferred.emit(pd2_stash_id, goblin_stash_id)
+	items_transferred.emit(pd2_stash_id, goblin_stash_id)
 
 
 func transfer_selection() -> void:
