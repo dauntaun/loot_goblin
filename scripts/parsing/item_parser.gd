@@ -9,6 +9,7 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_l
 	if item_count <= 0:
 		return []
 	var items: Array[D2Item]
+	items.resize(item_count)
 	var data := cursor._data
 	var start_byte := item_list.get_start_byte()
 	var stash_id := item_list.stash_id
@@ -22,7 +23,7 @@ static func parse_item_list_at_cursor(cursor: BitCursor, item_count: int, item_l
 			ItemRegistry.item_data_register[item_id_counter] = stash_id
 			ItemRegistry.item_register[item_id_counter] = item
 			item_id_counter += 1
-			items.append(item)
+			items[i] = item
 		else:
 			push_error("Invalid item header")
 			break
