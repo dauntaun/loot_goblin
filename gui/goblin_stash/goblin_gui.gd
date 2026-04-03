@@ -237,7 +237,7 @@ func _refresh_buttons() -> void:
 
 
 func _on_item_selected(item: D2Item) -> void:
-	ItemSelection.set_selection(item, _stash_id, _items_in_page)
+	ItemSelection.set_selection(item, _items_in_page)
 
 
 func restore_last_selection() -> void:

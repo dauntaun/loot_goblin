@@ -27,7 +27,8 @@ var _destination_character_id := -1
 var _transfer_mode: TransferMode
 
 
-func set_selection(item: D2Item, stash_id: int, bulk_items: Array[D2Item] = []) -> void:
+func set_selection(item: D2Item, bulk_items: Array[D2Item] = []) -> void:
+	var stash_id := ItemRegistry.item_data_register[item.item_id]
 	if _selected_item != item or _source_stash_id != stash_id or _bulk_selection != bulk_items:
 		_selected_item = item
 		_bulk_selection = bulk_items

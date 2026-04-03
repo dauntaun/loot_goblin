@@ -115,13 +115,13 @@ func _on_tab_changed(tab: int) -> void:
 
 func _on_item_selected_in_shared_stash(item: D2Item) -> void:
 	var items_in_page := _pd2_pages.get_items_in_page(current_tab - 2)
-	ItemSelection.set_selection(item, _pd2_pages.stash_id, items_in_page)
+	ItemSelection.set_selection(item, items_in_page)
 	_shared_pages[current_tab - 2].select_item(item)
 
 
 func _on_item_selected_in_personal_stash(item: D2Item) -> void:
 	var items_in_page := _char_view.get_stashed_items()
-	ItemSelection.set_selection(item, _char_view.stash_id, items_in_page)
+	ItemSelection.set_selection(item, items_in_page)
 	_personal_page.select_item(item)
 
 

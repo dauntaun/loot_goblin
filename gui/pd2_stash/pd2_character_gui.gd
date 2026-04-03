@@ -56,19 +56,19 @@ func _on_item_selected(item: D2Item, inventory_case: String) -> void:
 	match inventory_case:
 		"inventory":
 			var bulk_items := _char_view.get_inventory_items()
-			ItemSelection.set_selection(item, _char_view.stash_id, bulk_items)
+			ItemSelection.set_selection(item, bulk_items)
 			char_inventory.select_item(item)
 		"cube":
 			var bulk_items := _char_view.get_cube_items()
-			ItemSelection.set_selection(item, _char_view.stash_id, bulk_items)
+			ItemSelection.set_selection(item, bulk_items)
 			cube_inventory.select_item(item)
 		"equip":
 			var bulk_items := _char_view.get_equipped_items()
-			ItemSelection.set_selection(item, _char_view.stash_id, bulk_items)
+			ItemSelection.set_selection(item, bulk_items)
 			char_equip.select_item(item)
 		"merc":
 			var bulk_items := _merc_view.get_equipped_items()
-			ItemSelection.set_selection(item, _merc_view.stash_id, bulk_items)
+			ItemSelection.set_selection(item, bulk_items)
 			merc_equip.select_item(item)
 
 
