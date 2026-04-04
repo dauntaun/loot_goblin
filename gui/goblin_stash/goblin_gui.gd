@@ -115,7 +115,7 @@ func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.TYPE, values)
 		"weapon_type":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.WEAPON_TYPE, values)
-		"weapon_size":
+		"size":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.WEAPON_SIZE, values)
 		"class":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.CLASS, values)
