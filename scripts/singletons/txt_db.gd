@@ -264,9 +264,10 @@ func _save_database_cache() -> void:
 	# Grail
 	cache.grail_uniques = Grail.grail_uniques
 	cache.grail_sets = Grail.grail_sets
-	ResourceSaver.save(cache, CACHE_PATH)
 	# Version
 	cache.version = GlobalSettings.version
+	# Save
+	ResourceSaver.save(cache, CACHE_PATH)
 
 
 func _build_database() -> void:
