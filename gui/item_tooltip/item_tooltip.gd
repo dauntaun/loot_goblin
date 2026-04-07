@@ -61,7 +61,7 @@ const PROPERTY_REGEX_PATTERN_BY_CORRUPT_VALUE := {
 	58: "Mana stolen per hit",
 	59: "to Attack Rating|to Light Radius",
 	60: "Extra Gold from Monsters",
-	61: r"\+\d+ to Life",
+	61: r"\+\d+ to Life$",
 	62: "Curse Resistance",
 	63: "Chance to Pierce",
 	64: "Faster Block Rate",
