@@ -12,6 +12,7 @@ extends Control
 @onready var item_debug_store: Label = %ItemDebugStore
 @onready var item_debug_equipped: Label = %ItemDebugEquipped
 @onready var item_debug_coord: Label = %ItemDebugCoord
+@onready var item_debug_version: Label = %ItemDebugVersion
 
 
 func _ready() -> void:
@@ -42,6 +43,7 @@ func update_labels() -> void:
 	item_debug_store.text = "store_id: %s" % D2Item.StoreLocation.find_key(item.store_id)
 	item_debug_equipped.text = "equipped_id: %d" % item.equipped_id
 	item_debug_coord.text = "coord: (%d, %d)" % [item.x_coord, item.y_coord]
+	item_debug_version.text = "ver: %s" % D2Item.ItemVersion.find_key(item.item_version)
 
 
 func clear_labels() -> void:
@@ -56,3 +58,4 @@ func clear_labels() -> void:
 	item_debug_store.text = "store_id:"
 	item_debug_equipped.text = "equipped_id:"
 	item_debug_coord.text = "coord:"
+	item_debug_version.text = "ver:"

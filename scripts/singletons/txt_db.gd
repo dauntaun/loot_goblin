@@ -296,7 +296,7 @@ func _build_database() -> void:
 	item_stat_cost = _load_csv_as_dict("txt/ItemStatCost.txt", "", 
 	["Stat", "ID", "Save Bits", "Save Add", "Encode", "Save Param Bits", "CSvBits",
 	"descfunc", "descstrpos", "descstrneg", "descstr2", "descpriority", "op", "fMin", "MinAccr", "descval",
-	"dgrp", "dgrpfunc", "dgrpval", "dgrpstrpos", "dgrpstrneg", "dgrpstr2", "ValShift"])
+	"dgrp", "dgrpfunc", "dgrpval", "dgrpstrpos", "dgrpstrneg", "dgrpstr2", "ValShift", "Save Bits S12", "Save Add S12", "Save Param Bits S12"])
 	
 	# Rename item types
 	for rename: String in RENAME_TYPES:
@@ -311,6 +311,14 @@ func _build_database() -> void:
 			stat["next_in_chain"] = int(stat["ID"]) + 1
 		else:
 			stat["next_in_chain"] = 0
+		if stat["ID"] in ["17", "48", "50", "52", "54", "57"]:
+			stat["chain_root"] = true
+		else:
+			stat["chain_root"] = false
+		if stat["ID"] in ["18", "49", "51", "53", "55", "56", "58", "59"]:
+			stat["discard_stat"] = true
+		else:
+			stat["discard_stat"] = false
 		# Setup per level divisor
 		if stat["Stat"].contains("perlevel"):
 			if stat["Stat"].contains("_tohit_"):
@@ -408,6 +416,8 @@ func _build_database() -> void:
 		"save_add": int(raw.get("Save Add", 0)),
 		"encode": int(raw.get("Encode", 0)),
 		"next_in_chain": int(raw.get("next_in_chain", 0)),
+		"chain_root": int(raw.get("chain_root", false)),
+		"discard_stat": int(raw.get("discard_stat", false)),
 		"descfunc": int(raw.get("descfunc", 0)),
 		"descstrpos": str(raw.get("descstrpos", "")),
 		"descstrneg": str(raw.get("descstrneg", "")),
@@ -423,7 +433,10 @@ func _build_database() -> void:
 		"dgrpstr2": str(raw.get("dgrpstr2", "")),
 		"valshift": int(raw.get("ValShift", 0)),
 		"mgrp": int(raw.get("mgrp", 0)),
-		"per_level_divisor": int(raw.get("per_level_divisor", 1))
+		"per_level_divisor": int(raw.get("per_level_divisor", 1)),
+		"save_bits_s12": int(raw.get("Save Bits S12", 0)),
+		"save_add_s12": int(raw.get("Save Add S12", 0)),
+		"save_param_bits_s12": int(raw.get("Save Param Bits S12", 0)),
 		}
 	
 	# Setup runewords

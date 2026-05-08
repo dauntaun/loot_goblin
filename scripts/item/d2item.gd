@@ -1,5 +1,12 @@
 class_name D2Item
 
+enum ItemVersion {
+	CLASSIC_108 = 0,
+	CLASSIC = 1,
+	EXPANSION_109 = 100,
+	EXPANSION = 101,
+	PD2_SEASON13_BETA = 102,
+	PD2_SEASON13 = 103}
 enum ItemRarity {
 	INVALID,
 	INFERIOR,
@@ -39,6 +46,7 @@ var is_socketed: bool
 var is_ethereal: bool
 var is_personalized: bool
 var has_runeword: bool
+var item_version: ItemVersion
 var socketed_item_count: int
 var socketed_items: Array[D2Item]
 var inv_width: int

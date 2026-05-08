@@ -41,8 +41,9 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	item.is_simple = cursor.jump_and_read(4, 1) # 38
 	item.is_ethereal = cursor.read_bits(1) # 39 
 	item.is_personalized = cursor.jump_and_read(1, 1) # 41
-	item.has_runeword = cursor.jump_and_read(1, 1) # 43 
-	item.location_id = cursor.jump_and_read(15, 3) as D2Item.ItemLocation # 61
+	item.has_runeword = cursor.jump_and_read(1, 1) # 43
+	item.item_version = cursor.jump_and_read(5, 8) as D2Item.ItemVersion # 56
+	item.location_id = cursor.jump_and_read(2, 3) as D2Item.ItemLocation # 61
 	item.equipped_id = cursor.read_bits(4) as D2Item.EquipLocation # 65
 	item.x_coord = cursor.read_bits(4) # 69
 	item.y_coord = cursor.read_bits(4) # 73
@@ -196,18 +197,30 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 		item.set_prop_bits = cursor.read_bits(5)
 	
 	# Property lists
-	_read_item_property_list(cursor, item.magic_properties)
+	var id_bit_length: int = 9
+	var id_terminator: int = 511
+	var save_bits_key := "save_bits_s12"
+	var save_add_key := "save_add_s12"
+	var save_param_bits_key := "save_param_bits_s12"
+	if item.item_version == D2Item.ItemVersion.PD2_SEASON13:
+		id_bit_length = 10
+		id_terminator = 1023
+		save_bits_key = "save_bits"
+		save_add_key = "save_add"
+		save_param_bits_key = "save_param_bits"
+	
+	_read_item_property_list(cursor, item.magic_properties, id_bit_length, id_terminator, save_bits_key, save_add_key, save_param_bits_key)
 	# Set properties
 	if item.rarity == D2Item.ItemRarity.SET:
 		for i: int in 5:
 			if (item.set_prop_bits >> i) & 1:
 				var bonus_props: Array[Dictionary]
-				_read_item_property_list(cursor, bonus_props)
+				_read_item_property_list(cursor, bonus_props, id_bit_length, id_terminator, save_bits_key, save_add_key, save_param_bits_key)
 				item.set_properties.append_array(bonus_props)
 	
 	# Runeword properties
 	if item.has_runeword:
-		_read_item_property_list(cursor, item.runeword_properties)
+		_read_item_property_list(cursor, item.runeword_properties, id_bit_length, id_terminator, save_bits_key, save_add_key, save_param_bits_key)
 	
 	# Padding to next byte
 	cursor.discard_to_byte_boundary()
@@ -333,44 +346,50 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	return item
 
 
-static func _read_item_property_list(cursor: BitCursor, target_array: Array[Dictionary]) -> void:
+static func _read_item_property_list(cursor: BitCursor, target_array: Array[Dictionary], id_bit_length: int, id_terminator: int, save_bits_key: String, save_add_key: String, save_param_bits_key: String) -> void:
+	
 	while true:
-		var id: int = cursor.read_bits(9)
-		if id == 0x1FF:
+		var id: int = cursor.read_bits(id_bit_length)
+		if id == id_terminator:
 			return
 
 		var stat: Dictionary = TxtDB.get_item_stat_cost(id)
-
+		if stat.discard_stat:
+			cursor.discard_bits(stat[save_bits_key])
+			continue
+		
 		var prop := {
 			"stat_id": id,
 			"params": []
 		}
 
 		if stat.encode == 2:
-			prop.params.append(cursor.read_bits(6) - stat.save_add)
-			prop.params.append(cursor.read_bits(10) - stat.save_add)
-			prop.params.append(cursor.read_bits(stat.save_bits) - stat.save_add)
+			prop.params.append(cursor.read_bits(6) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(10) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(stat[save_bits_key]) - stat[save_add_key])
 
 		elif stat.encode == 3:
-			prop.params.append(cursor.read_bits(6) - stat.save_add)
-			prop.params.append(cursor.read_bits(10) - stat.save_add)
-			prop.params.append(cursor.read_bits(8) - stat.save_add)
-			prop.params.append(cursor.read_bits(8) - stat.save_add)
+			prop.params.append(cursor.read_bits(6) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(10) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(8) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(8) - stat[save_add_key])
 
-		elif stat.save_param_bits > 0:
-			prop.params.append(cursor.read_bits(stat.save_param_bits) - stat.save_add)
-			prop.params.append(cursor.read_bits(stat.save_bits) - stat.save_add)
+		elif stat[save_param_bits_key] > 0:
+			prop.params.append(cursor.read_bits(stat[save_param_bits_key]) - stat[save_add_key])
+			prop.params.append(cursor.read_bits(stat[save_bits_key]) - stat[save_add_key])
 
 		else:
-			prop.params.append(cursor.read_bits(stat.save_bits) - stat.save_add)
+			prop.params.append(cursor.read_bits(stat[save_bits_key]) - stat[save_add_key])
 
 		target_array.append(prop)
 		
 		# Chained stats
+		if not stat.chain_root:
+			continue
 		var next_id: int = stat.next_in_chain
 		while next_id != 0:
 			var next_stat: Dictionary = TxtDB.get_item_stat_cost(next_id)
-			var next_param: int = cursor.read_bits(next_stat.save_bits) - next_stat.save_add 
+			var next_param: int = cursor.read_bits(next_stat[save_bits_key]) - next_stat[save_add_key] 
 			var next_prop := {"stat_id": next_id, "params": [next_param]}
 			target_array.append(next_prop)
 			next_id = next_stat.next_in_chain
