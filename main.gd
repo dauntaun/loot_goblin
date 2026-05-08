@@ -15,7 +15,7 @@ extends Control
 
 func _ready():
 	DisplayServer.window_set_min_size(Vector2i(1050, 550))
-	DisplayServer.window_set_title("Loot Goblin" + " " + GlobalSettings.version)
+	get_window().title = "Loot Goblin" + " " + GlobalSettings.version
 	background_color.color = GlobalSettings.background_color
 	# Init Goblin save
 	var sc_filepath := GlobalSettings.get_sc_goblin_stash_path()
