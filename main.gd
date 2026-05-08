@@ -17,7 +17,7 @@ func _ready():
 	DisplayServer.window_set_min_size(Vector2i(1050, 550))
 	DisplayServer.window_set_title("Loot Goblin" + " " + GlobalSettings.version)
 	background_color.color = GlobalSettings.background_color
-	# Init Goblin
+	# Init Goblin save
 	var sc_filepath := GlobalSettings.get_sc_goblin_stash_path()
 	if not FileAccess.file_exists(sc_filepath):
 		var init_goblin := GoblinSaveFile.new()
@@ -27,33 +27,33 @@ func _ready():
 		var init_goblin := GoblinSaveFile.new()
 		init_goblin.save_file(hc_filepath)
 	
+	# Init Stashes
 	var goblin_filepath := GlobalSettings.get_current_goblin_stash_path()
 	_init_goblin_stash_file(goblin_filepath)
-	# Init PD2
 	_init_pd2_folder(GlobalSettings.get_pd2_folder())
+	StashRegistry.complete_registration()
 	ItemSelection.set_destination_page_index(GlobalSettings.pd2_stash_page)
 	if GlobalSettings.auto_retrieve:
 		ItemSelection.store_active_page()
 	
+	# Connections
+	GlobalSettings.setting_changed.connect(_on_setting_changed)
 	_save_transfers_button.pressed.connect(_save_all_transfers)
 	_cancel_transfers_button.pressed.connect(_cancel_all_transfers)
-	GlobalSettings.setting_changed.connect(_on_setting_changed)
 	settings_gui.open_backups_button.pressed.connect(func(): OS.shell_open(OS.get_user_data_dir()))
 	settings_gui.plugy_importer.import_plugy_requested.connect(_import_plugy_items_to_goblin_stash)
-	# Debug
 	_reload_button.pressed.connect(_reload_loaded_save_files)
-	settings_gui.reset_goblin_button.pressed.connect(_reset_goblin_stash_file)
 	settings_gui.load_stash_button.pressed.connect(_stash_loader.popup)
+	settings_gui.reset_goblin_button.pressed.connect(_reset_goblin_stash_file)
+	_stash_loader.file_selected.connect(_init_stash_file)
+	_pd2_stash_saver.file_selected.connect(_on_pd2_save_file_selected)
+	_goblin_stash_saver.file_selected.connect(_on_goblin_save_file_selected)
 	settings_gui.save_pd2_button.pressed.connect(func():
 		_pd2_stash_saver.get_line_edit().text = "pd2_shared.stash"
 		_pd2_stash_saver.popup())
 	settings_gui.save_goblin_button.pressed.connect(func():
 		_goblin_stash_saver.get_line_edit().text = "goblin_stash.gstash"
 		_goblin_stash_saver.popup())
-	_stash_loader.file_selected.connect(_init_stash_file)
-	_pd2_stash_saver.file_selected.connect(_on_pd2_save_file_selected)
-	_goblin_stash_saver.file_selected.connect(_on_goblin_save_file_selected)
-	print_orphan_nodes()
 
 # Save
 func _save_all_transfers() -> void:
@@ -131,29 +131,19 @@ func _init_pd2_folder(dir: String) -> void:
 	if FileAccess.file_exists(shared_stash_path):
 		_init_pd2_shared_stash_file(shared_stash_path)
 	if GlobalSettings.load_characters:
-		var characters: Array[Dictionary]
+		var characters: Array[D2CharacterSaveFile]
 		for file: String in character_files:
 			var path := dir.path_join(file)
 			var pd2_char := D2CharacterSaveFile.new(path)
 			if not pd2_char.load_successful:
 				push_error("Could not open character stash")
 				OS.alert("Could not open " + pd2_char.load_path.get_file(), "Error")
+				continue
 			if not GlobalSettings.hardcore_shared_stash == pd2_char.is_hardcore:
 				continue
-			var char_stash := {"data": pd2_char.item_list, "view": pd2_char.item_list.get_char_view(), "stash_id": pd2_char.item_list.stash_id}
-			var merc_stash := {}
-			if pd2_char.has_mercenary:
-				merc_stash = {"data": pd2_char.merc_item_list, "view": pd2_char.merc_item_list.get_char_view(), "stash_id": pd2_char.merc_item_list.stash_id}
-			
-			var character := {
-				"id": pd2_char.character_id,
-				"name": pd2_char.character_name,
-				"save": pd2_char,
-				"stash": char_stash,
-				"merc_stash": merc_stash}
-			characters.append(character)
+			characters.append(pd2_char)
 		
-		StashRegistry.register_characters(characters)
+		StashRegistry.register_character_save_files(characters)
 
 
 # When user selects a single file
@@ -163,14 +153,17 @@ func _init_stash_file(path: String) -> void:
 		for stash_id: int in StashRegistry.get_goblin_collection_ids():
 			ItemRegistry.unregister_items_from_stash(stash_id)
 		_init_goblin_stash_file(path)
+		StashRegistry.complete_registration()
 	elif path.ends_with(".d2s"):
 		for stash_id: int in StashRegistry.get_all_character_stash_ids():
 			ItemRegistry.unregister_items_from_stash(stash_id)
 		_init_pd2_character_file(path)
+		StashRegistry.complete_registration()
 	elif path.ends_with(".stash"):
 		var stash_id := StashRegistry.get_pd2_shared_stash_id()
 		ItemRegistry.unregister_items_from_stash(stash_id)
 		_init_pd2_shared_stash_file(path)
+		StashRegistry.complete_registration()
 
 
 func _init_pd2_character_file(path: String) -> void:
@@ -179,21 +172,7 @@ func _init_pd2_character_file(path: String) -> void:
 		push_error("Could not open character stash")
 		OS.alert("Could not open " + pd2_char.load_path.get_file(), "Error")
 		return
-	
-	var char_stash := {"data": pd2_char.item_list, "view": pd2_char.item_list.get_char_view(), "stash_id": pd2_char.item_list.stash_id}
-	var merc_stash := {}
-	if pd2_char.has_mercenary:
-		merc_stash = {"data": pd2_char.merc_item_list, "view": pd2_char.merc_item_list.get_char_view(), "stash_id": pd2_char.merc_item_list.stash_id}
-	
-	var character := {
-		"id": pd2_char.character_id,
-		"name": pd2_char.character_name,
-		"save": pd2_char,
-		"stash": char_stash,
-		"merc_stash": merc_stash}
-
-	StashRegistry.register_characters([character])
-	
+	StashRegistry.register_character_save_files([pd2_char])
 
 
 func _init_pd2_shared_stash_file(path: String) -> void:
@@ -203,8 +182,7 @@ func _init_pd2_shared_stash_file(path: String) -> void:
 		OS.alert("Could not open " + save_file.load_path.get_file(), "Error")
 		return
 	var pd2_pages := save_file.item_list.get_pd2pages()
-	StashRegistry.register_pd2_shared(save_file.item_list.stash_id, save_file.item_list, pd2_pages, save_file)
-	settings_gui.save_pd2_button.disabled = false
+	StashRegistry.register_pd2_shared_save(save_file)
 
 
 func _init_goblin_stash_file(path: String) -> void:
@@ -213,16 +191,7 @@ func _init_goblin_stash_file(path: String) -> void:
 		push_error("Could not open Goblin stash")
 		OS.alert("Could not open " + save_file.load_path.get_file(), "Error")
 		return
-	var stash_entries: Array[Dictionary]
-	for collection: GoblinSaveFile.GoblinCollection in save_file.collections:
-		var stash_entry: Dictionary
-		stash_entry["collection_id"] = collection.collection_id
-		stash_entry["stash_id"] = collection.item_list.stash_id
-		stash_entry["data"] = collection.item_list
-		stash_entry["view"] = collection.item_list.get_itemlist()
-		stash_entry["name"] = collection.name
-		stash_entries.append(stash_entry)
-	StashRegistry.register_goblin(stash_entries, save_file)
+	StashRegistry.register_goblin_save(save_file)
 
 
 func _reset_goblin_stash_file() -> void:
@@ -234,6 +203,7 @@ func _on_setting_changed(value: Variant, setting: String) -> void:
 		"pd2_folder":
 			if not StashRegistry.get_pd2_shared_save_file():
 				_init_pd2_folder(value)
+				StashRegistry.complete_registration()
 		"hardcore_shared_stash":
 			if CommandQueue.is_command_queue_clear():
 				ItemSelection.clear_destination()
@@ -242,6 +212,7 @@ func _on_setting_changed(value: Variant, setting: String) -> void:
 				_init_pd2_folder(GlobalSettings.get_pd2_folder())
 				var goblin_stash_path := GlobalSettings.get_current_goblin_stash_path()
 				_init_goblin_stash_file(goblin_stash_path)
+				StashRegistry.complete_registration()
 		"background_color":
 			background_color.color = GlobalSettings.background_color
 
@@ -255,14 +226,15 @@ func _import_plugy_items_to_goblin_stash(plugy_files: Array[PlugySaveFile]) -> v
 
 func _reload_loaded_save_files() -> void:
 	var goblin_save := StashRegistry.get_goblin_save_file()
+	CommandQueue.undo_queue()
 	ItemSelection.clear_destination()
 	ItemSelection.clear_selection()
 	ItemRegistry.unregister_all_items()
 	StashRegistry.unregister_all_stashes()
-	CommandQueue.undo_queue()
 	if goblin_save:
 		_init_goblin_stash_file(goblin_save.load_path)
 	_init_pd2_folder(GlobalSettings.get_pd2_folder())
+	StashRegistry.complete_registration()
 	_save_transfers_button.hide_warning()
 	if GlobalSettings.auto_retrieve:
 		ItemSelection.store_active_page()
