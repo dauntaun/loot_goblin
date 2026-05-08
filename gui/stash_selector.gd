@@ -77,8 +77,12 @@ func _on_stash_selected(option_index: int) -> void:
 	match option_index:
 		0: # All
 			var init_stashes: Array[BasicStashView]
-			init_stashes.append(StashRegistry.get_stash_view(StashRegistry.get_goblin_main_stash_id()))
-			init_stashes.append(StashRegistry.get_stash_view(StashRegistry.get_pd2_shared_stash_id()))
+			var goblin_main_stash_id := StashRegistry.get_goblin_main_stash_id()
+			var pd2_shared_stash_id := StashRegistry.get_pd2_shared_stash_id()
+			if goblin_main_stash_id != -1:
+				init_stashes.append(StashRegistry.get_stash_view(goblin_main_stash_id))
+			if pd2_shared_stash_id != -1:
+				init_stashes.append(StashRegistry.get_stash_view(pd2_shared_stash_id))
 			for stash_id: int in StashRegistry.get_all_character_stash_ids():
 				init_stashes.append(StashRegistry.get_stash_view(stash_id))
 			_stash_select_tabs.hide()
