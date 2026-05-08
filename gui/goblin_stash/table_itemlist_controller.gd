@@ -1,7 +1,7 @@
 class_name TableItemListController
 extends BasicItemListController
 
-enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3, BASE = 5, DMG = 6, DEF = 7, RES = 8, ILVL = 9}
+enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3, BASE = 5, DMG = 6, DEF = 7, RES = 8, ILVL = 9, STASH = 10}
 
 const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.ITEM: {"col_name": "Item", "sort_key": ItemSorter.SortKey.NAME},
@@ -14,6 +14,7 @@ const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.DEF: {"col_name": "Def", "sort_key": ItemSorter.SortKey.DEF},
 	ColType.RES: {"col_name": "Res", "sort_key": ItemSorter.SortKey.RES},
 	ColType.ILVL: {"col_name": "iLvl", "sort_key": ItemSorter.SortKey.ILVL},
+	ColType.STASH: {"col_name": "Stash", "sort_key": ItemSorter.SortKey.STASH},
 }
 const SORT_COLUMN_HIGHLIGHT: Color = Color(0.808, 0.847, 0.922, 0.027)
 
@@ -36,13 +37,17 @@ func _init(tree: Tree) -> void:
 	_tree.set_column_title_alignment(ColType.ITEM, HORIZONTAL_ALIGNMENT_CENTER)
 	_tree.set_column_title_alignment(ColType.TYPE, HORIZONTAL_ALIGNMENT_LEFT)
 	_tree.set_column_title_alignment(ColType.BASE, HORIZONTAL_ALIGNMENT_LEFT)
+	_tree.set_column_title_alignment(ColType.STASH, HORIZONTAL_ALIGNMENT_LEFT)
 	_tree.set_column_expand(ColType.ITEM, true)
 	_tree.set_column_expand(ColType.TYPE, true)
 	_tree.set_column_expand(ColType.BASE, true)
+	_tree.set_column_expand(ColType.STASH, true)
 	_tree.set_column_expand_ratio(ColType.ITEM, 8)
+	#_tree.set_column_expand_ratio(ColType.STASH, 0)
 	_tree.set_column_custom_minimum_width(ColType.ITEM, 330)
 	_tree.set_column_custom_minimum_width(ColType.TYPE, 150)
 	_tree.set_column_custom_minimum_width(ColType.BASE, 150)
+	_tree.set_column_custom_minimum_width(ColType.STASH, 120)
 	_update_column_titles()
 	_tree.item_selected.connect(_on_item_selected)
 	_tree.mouse_exited.connect(func(): TooltipHandler.hide_tooltip())
@@ -141,6 +146,8 @@ func _create_row(item: D2Item) -> void:
 	row.set_text(ColType.DEF, str(item.defense) if item.defense > 0 else "")
 	row.set_text(ColType.RES, str(item.total_res) if item.total_res > 0 else "")
 	row.set_text(ColType.ILVL, str(item.item_level))
+	var stash_id := ItemRegistry.item_view_register[item.item_id]
+	row.set_text(ColType.STASH, StashRegistry.get_stash_name(ItemRegistry.item_view_register[item.item_id]))
 	row.set_metadata(0, item)
 
 	row.set_custom_color(ColType.ITEM, D2Colors.get_item_color(item))

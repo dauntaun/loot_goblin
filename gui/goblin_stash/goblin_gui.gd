@@ -11,19 +11,20 @@ const LIST_MAX_ITEMS_PER_PAGE := 25
 @onready var list_container: VBoxContainer = %BoxView
 @onready var table_view_button: Button = %TableView
 @onready var tile_view_button: Button = %TileView
+@onready var _search_bar: SearchBar = %SearchBar
 
 # Left panel
 @onready var quick_filters: QuickFiltersGUI = %QuickFilters
 # Bottom panel
-@onready var _search_bar: SearchBar = %SearchBar
 @onready var _prev_page_button: Button = %PagePrev
 @onready var _next_page_button: Button = %PageNext
 @onready var _page_label: Label = %PageLabel
 @onready var _item_count_label: Label = %ItemCount
 
+@onready var _stash_selector: StashSelector = %StashSelector
+
 var _sort_menu: PopupMenu
 
-var _stash_id: int
 var _item_searcher: ItemSearcher
 var _current_page: int
 var _items_in_page: Array[D2Item]
@@ -68,15 +69,13 @@ func _ready() -> void:
 	_search_bar.query_submitted.connect(_submit_new_query)
 	quick_filters.quick_filter_changed.connect(_on_quick_filters_changed)
 	quick_filters.quick_filter_reset.connect(_on_quick_filters_reset)
-	ItemSelection.items_transferred.connect(_on_items_transferred)
 	CommandQueue.queue_undone.connect(_reset_page_and_refresh_filters.bind(false))
+	StashRegistry.registration_completed.connect(_init_stash)
+	ItemSelection.items_transferred.connect(_on_items_transferred)
 	
 	_next_page_button.pressed.connect(_next_page)
 	_prev_page_button.pressed.connect(_prev_page)
-	
-	StashRegistry.goblin_registered.connect(func() -> void:
-		var goblin_view := StashRegistry.get_stash_view(StashRegistry._goblin_main_stash_id)
-		init_stash(goblin_view))
+	_stash_selector.stashes_changed.connect(_change_stash)
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -86,11 +85,15 @@ func _gui_input(event: InputEvent) -> void:
 			_sort_menu.popup()
 
 
-func init_stash(stash_view: BasicStashView) -> void:
-	_stash_id = stash_view.stash_id
-	_item_searcher = ItemSearcher.new(stash_view)
+func _init_stash() -> void:
+	_item_searcher = ItemSearcher.new()
+	_stash_selector.select_default()
 	_item_searcher.filter_outdated.connect(_reset_page_and_refresh_filters)
 	_reset_page_and_refresh_filters()
+
+
+func _change_stash(stashes: Array[BasicStashView]) -> void:
+	_item_searcher.set_source_stashes(stashes)
 
 
 func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void:
@@ -156,7 +159,6 @@ func _refresh_current_page(restore_selection: bool = true) -> void:
 
 	_items_in_page = items.slice(start, end)
 	_current_itemlist_controller.rebuild_display(_items_in_page)
-	#ItemSelection.clear_selection() # NOTE probably safe to disable?
 	if restore_selection: 
 		_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 	_refresh_buttons()
@@ -183,21 +185,32 @@ func _clamp_current_page_index() -> void:
 
 
 func _on_items_transferred(from_stash_id: int, to_stash_id: int) -> void:
-	if from_stash_id == _stash_id:
+	var affects_from := _item_searcher.has_stash_id(from_stash_id)
+	var affects_to := _item_searcher.has_stash_id(to_stash_id)
+
+	if affects_from and affects_to:
+		_item_searcher.apply_sort()
+		_refresh_current_page(false)
+
+	elif affects_from:
 		_on_items_retrieved()
-	elif to_stash_id == _stash_id:
+
+	elif affects_to:
 		_on_items_stored()
 
 
 func _on_items_retrieved() -> void:
 	_clamp_current_page_index()
 	_refresh_current_page(false)
-	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
+	if MainViewSelector.current_selection == MainViewSelector.Selection.GOBLIN:
+		_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
 
 
 func _on_items_stored() -> void:
 	_item_searcher.apply_sort()
 	_refresh_current_page(false)
+	if MainViewSelector.current_selection == MainViewSelector.Selection.GOBLIN:
+		_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_INDEX, BasicItemListController.RestoreFallback.LAST_INDEX)
 
 
 func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
@@ -237,7 +250,10 @@ func _refresh_buttons() -> void:
 
 
 func _on_item_selected(item: D2Item) -> void:
-	ItemSelection.set_selection(item, _items_in_page)
+	if _stash_selector.is_virtual_stash_selected():
+		ItemSelection.set_selection(item, [item])
+	else:
+		ItemSelection.set_selection(item, _items_in_page)
 
 
 func restore_last_selection() -> void:

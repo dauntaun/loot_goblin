@@ -2,6 +2,7 @@ class_name ItemSearcher
 
 signal filter_outdated
 
+var _source_stashes: Array[BasicStashView]
 var _source_items: Array[D2Item]
 var _filtered_items: Array[D2Item]
 
@@ -13,15 +14,40 @@ var _sort_key: ItemSorter.SortKey
 var _sort_ascending: bool = true
 
 
-func _init(item_list: BasicStashView = null) -> void:
+func _init(sources: Array[BasicStashView] = []) -> void:
 	_search_query = ItemSearchQuery.new()
-	if not item_list:
+	if not sources:
 		return
-	_source_items = item_list.get_items()
-	item_list.item_removed.connect(_on_item_removed)
-	item_list.item_added.connect(_on_item_added)
-	item_list.items_imported.connect(_on_item_list_modified)
-	item_list.list_cleared.connect(_on_item_list_modified)
+	set_source_stashes(sources)
+
+
+func set_source_stashes(sources: Array[BasicStashView]) -> void:
+	for stash: BasicStashView in _source_stashes:
+		stash.item_removed.disconnect(_on_item_removed)
+		stash.item_added.disconnect(_on_item_added)
+		stash.items_imported.disconnect(_on_item_list_modified)
+		stash.list_cleared.disconnect(_on_item_list_modified)
+	_source_stashes.clear()
+	_source_items.clear()
+
+	for stash: BasicStashView in sources:
+		_source_stashes.append(stash)
+		_source_items.append_array(stash.get_items())
+
+		stash.item_removed.connect(_on_item_removed)
+		stash.item_added.connect(_on_item_added)
+		stash.items_imported.connect(_on_item_list_modified)
+		stash.list_cleared.connect(_on_item_list_modified)
+
+	_resync_items_required = true
+	filter_outdated.emit()
+
+
+func has_stash_id(stash_id: int) -> bool:
+	for stash: BasicStashView in _source_stashes:
+		if stash.stash_id == stash_id:
+			return true
+	return false
 
 
 func set_quick_filters(quick_filter: ItemSearchQuery.QuickFilter, values: Array[int]) -> void:
@@ -65,6 +91,9 @@ func filter_and_sort(force_resync := false, force_sort := false) -> Array[D2Item
 	if not resync_required:
 		source_items = _filtered_items
 	else:
+		_source_items.clear()
+		for stash: BasicStashView in _source_stashes:
+			_source_items.append_array(stash.get_items())
 		source_items = _source_items
 		_resync_items_required = false
 	

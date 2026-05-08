@@ -1,8 +1,9 @@
+class_name MainViewSelector
 extends Control
 
 enum Selection {GOBLIN, PD2, GRAIL}
 
-var current_selection: Selection
+static var current_selection: Selection
 
 @onready var goblin_view_button: Button = %GoblinView
 @onready var pd2_view_button: Button = %PD2View
@@ -19,6 +20,7 @@ var current_selection: Selection
 	Selection.GRAIL: {"button": grail_view_button, "main_tab": 1},
 }
 
+@onready var goblin_gui: GoblinStashGUI = %GoblinStash
 
 func _ready() -> void:
 	selection_map[Selection.GOBLIN].button.button_pressed = true
@@ -31,6 +33,7 @@ func _ready() -> void:
 
 
 func _change_view(selection: Selection) -> void:
+	current_selection = selection
 	main_tab.current_tab = selection_map[selection].main_tab
 	view_tab.current_tab = selection_map[selection].get("view_tab", 0)
 	search_box.visible = selection == Selection.GOBLIN

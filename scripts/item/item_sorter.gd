@@ -1,6 +1,6 @@
 class_name ItemSorter
 
-enum SortKey {NAME, TYPE, BASE, ETH, CORRUPT, SOCKETS, DAM, DEF, RES, ILVL}
+enum SortKey {NAME, TYPE, BASE, ETH, CORRUPT, SOCKETS, DAM, DEF, RES, ILVL, STASH}
 
 
 static func sort_items(items: Array[D2Item], sort_key: SortKey, ascending: bool) -> void:
@@ -25,6 +25,8 @@ static func sort_items(items: Array[D2Item], sort_key: SortKey, ascending: bool)
 			items.sort_custom(_sort_by_total_res)
 		SortKey.ILVL:
 			items.sort_custom(_sort_by_ilvl)
+		SortKey.STASH:
+			items.sort_custom(_sort_by_stash_id)
 	if not ascending:
 		items.reverse()
 
@@ -85,3 +87,11 @@ static func _sort_by_ilvl(a: D2Item, b: D2Item) -> int:
 	if a.item_level == b.item_level:
 		return a.item_name.naturalnocasecmp_to(b.item_name) < 0
 	return a.item_level > b.item_level
+
+
+static func _sort_by_stash_id(a: D2Item, b: D2Item) -> int:
+	var a_id := ItemRegistry.item_view_register[a.item_id]
+	var b_id := ItemRegistry.item_view_register[b.item_id]
+	if a_id == b_id:
+		return a.item_name.naturalnocasecmp_to(b.item_name) < 0
+	return a_id > b_id
