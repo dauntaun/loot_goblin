@@ -36,7 +36,7 @@ const TREASURE_CLASS_ITEMS: Dictionary[String, Array] = {
  "TC3": ["buc", "cap", "clb", "dgr", "ob1", "hax", "jav", "ktr", "lea", "lbt", "lgl", "qui", "lbl", "scp", "sbw", "sst", "ssd", "tkf", "wnd"],
 }
 
-const DCLONE_CODES := ["utb", "uhl", "uth", "7qr", "7bs"]
+const DCLONE_CODES := ["utb", "uh9", "uth", "7qr", "7bs"]
 const RATHMA_CODES := ["rbe", "rar", "ram"]
 const CLASS_ID_BY_CODE: Dictionary[String, int] = {
 	"ama": 0,
@@ -505,7 +505,8 @@ func _build_database() -> void:
 		var code_string: String = row["code"]
 		# Setup main category
 		var main_category: String
-		if code_string in DCLONE_CODES:
+		var rarity = row["rarity"]
+		if code_string in DCLONE_CODES and rarity == "0":
 			main_category = "Uber"
 		elif code_string in RATHMA_CODES:
 			main_category = "Uber"
@@ -521,7 +522,7 @@ func _build_database() -> void:
 		var base := get_item_base_name(code_string)
 		unique_entry.item_type = type
 		var subcategory := type
-		if code_string in DCLONE_CODES:
+		if code_string in DCLONE_CODES and rarity == "0":
 			subcategory = "DClone"
 		elif code_string in RATHMA_CODES:
 			subcategory = "Rathma"
