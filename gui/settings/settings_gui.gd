@@ -75,7 +75,8 @@ func _ready() -> void:
 	StashRegistry.goblin_registered.connect(func() -> void:
 		_loaded_goblin_save_file_label.text = StashRegistry.get_goblin_save_file().load_path.get_file())
 	StashRegistry.pd2_shared_registered.connect(func() -> void:
-		_loaded_pd2_save_file_label.text = StashRegistry.get_pd2_shared_save_file().load_path.get_file())
+		_loaded_pd2_save_file_label.text = StashRegistry.get_pd2_shared_save_file().load_path.get_file()
+		save_pd2_button.disabled = false)
 	StashRegistry.characters_registered.connect(_show_character_files)
 
 
