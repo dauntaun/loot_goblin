@@ -1179,7 +1179,7 @@ x	Unable to add message filter.
 x	Message filter removed.
 x	Unable to remove message filter.
 StartIndexBlock	(DontTranslate) These are hardcoded indexes and should not be moved. Only add to the end of this block
-Bnet_AccountExists	Login to projectdiablo2.com Click on your name and go to Settings to create an in-game account
+Bnet_AccountExists	Login to www.projectdiablo2.com and go to Account -> Manage PD2 Account to create an in-game account.
 Bnet_CreateGameDesc	Description (Optional)
 VerifyTransaction9_PD2	Your Mercenary will be replaced. Their equipment will be dropped.
 Charmdes_PD2	Active in Charm Inventory
@@ -1243,11 +1243,9 @@ PD2_MainMenu_ConnectingToBnet	Connecting to Project Diablo 2
 PD2_MainMenu_UnableToConnectToBnet	Unable to connect to Project Diablo 2.
 PD2_MainMenu_LoginScreenDescription	To use an existing Project Diablo 2 account, enter the information below and click 'Log In'. Otherwise, click 'Create New Account'.
 PD2_MainMenu_CreateAccountScreenDescription	Create a Project Diablo 2 account on our website https://www.projectdiablo2.com, and set up a Game Account there.
-PhysicalResistanceCharSheet	Physical\nResistance
-Index11245	Just to make it easier to find. This is 11245
 EndIndexBlock	(DontTranslate)==================================================
 LabelMiscStart	(DontTranslate)==================================================
-stdDesc	+20% Magic and Gold Find\n+20% Monster Density\n+10% Experience\n \nCube with a map to add Heroic bonuses
+stdDesc	+20% Magic and Gold Find\n+20% Monster Density\n+10% Experience\nCube with a map to add Heroic bonuses
 wss	\red;Worldstone Shard
 wssDesc	to corrupt it unpredictably\nCube with a map or an item
 imma	\gold;Arcane Orb
@@ -1275,7 +1273,7 @@ scouDesc	to downgrade it to a Normal Map\nCube with a \blue;Magic Map\grey; or \
 upmp	\gold;Cartographer's Orb
 upmpDesc	to create 1 map of the next tier\nCube with 3 maps of the same tier
 fort	\gold;Orb of Fortification
-fortDesc	Monsters have +100% increased health\nMonsters deal +20% damage\n-50% base monster density\nMonsters grant +100% experience\nMonsters have +100% chance to drop extra items\n \nCube with a map to add fortify bonuses
+fortDesc	Monsters grant 2x experience and drop 2x loot\nMonsters have 2x health and deal 20% more damage\nBase monster density is reduced by half\nCube with a map to fortify it
 scrb	\gold;Horadrim Scarab
 scrbDesc	\red;Dangerous Group Content\n\grey;Cube with a Tier 3 map to create a Dungeon
 iwss	\purple;Catalyst Shard\white;
@@ -1426,14 +1424,9 @@ Purgatory	Purgatory
 Raekors Virtue	Raekor's Virtue
 Nightmares Feast	Ursa's Nightmare
 Nethercrow	Kadala's Heirloom
-Skyfall	Skyfall
 Mirror Shield	Twilight's Reflection
 Shatterblade	Shatterblade
 Denmother	Denmother
-Embersworn	Embersworn
-Sage's Defiance	Sage's Defiance
-Giant Maimer	Giant Maimer
-Nethercrux	Nethercrux
 Titangrip	Titan's Grip
 Wraithskin	Wraithskin
 Ebonbane	Ebonbane
@@ -1450,7 +1443,6 @@ Abyssal Ward	Abyssal Ward
 Frozen Sorrow	Frozen Sorrow
 Doom's Finger	Doom's Finger
 Bannerlord's Call	Bannerlord's Call
-Ephemeral	Ephemeral
 LabelRunewordStart	(DontTranslate)==================================================
 Ferocity	Ferocity
 Zenith	Zenith
@@ -1699,10 +1691,7 @@ MapBossFacet	Map boss drops a Rainbow Facet
 MapMonIncreasedJewels	chance of dropping additional jewels
 StrMapLightRadius	reduced light radius
 MapGlobSunderMonsters	Monsters have sundered resistances
-MapGlobDropSockets	Monsters have +%d%% chance to drop socketed items\nMap boss drops socketed uniques
-MapGlobDropBonus	Monsters have +%d%% chance to drop extra items
-MapGlobBossTreasure	Map boss drops a treasure explosion
-MapGlobDropEthereal	Monsters have +%d%% chance to drop ethereal items\nMap boss drops ethereal uniques
+MapGlobDropSockets	Monsters have +%d%% chance to drop socketed items\nMap boss drops a socketed unique
 LabelMapStart	(DontTranslate)==================================================
 MapTier	Tier:
 t11	Ruins of Viz-Jun Map
@@ -1730,7 +1719,6 @@ t37	Pandemonium Citadel Map
 t38	Canyon of Sescheron Map
 t39	Kehjistan Marketplace Map
 t3a	Ashen Plains Map
-t3b	Kyovashad Map
 t41	Cathedral of Light Map
 t42	Plains of Torment Map
 t43	Sanctuary of Sin Map
@@ -1741,8 +1729,6 @@ t53	Map
 t54	Map
 t55	Map
 t56	Map
-t57	Map
-t58	Map
 t61	Desert Duel Arena
 t62	Moor Duel Arena
 Kurast	Ruins of Viz-Jun
@@ -1769,9 +1755,6 @@ Canyon Map	The Canyon of Sescheron
 Desert Map	Kehjistan Marketplace
 Ashen Plains	The Ashen Plains
 Demon Road	The Demon Road
-Na-Krul's Abyss Map	Na-Krul's Abyss
-NaKrulAbyssMap	Na-Krul's Abyss
-ToNaKrulAbyssMap	To Na-Krul's Abyss
 Skovos Stronghold	The Skovos Stronghold
 ToSkovosStronghold	To The Skovos Stronghold
 ToDemonRoad	To The Demon Road
@@ -1839,15 +1822,6 @@ ImperialPalaceMap	The Imperial Palace
 Outer Void Map	Outer Void
 ToOuterVoidMap	To the Outer Void
 OuterVoidMap	The Outer Void
-Djinns Domain Map	Djinn's Domain
-ToDjinnsDomainMap	To the Djinn's Domain
-DjinnsDomainMap	The Djinn's Domain
-DjinnsDomainRedMap	Djinn's Mirage
-ToDjinnsDomainRedMap	To the Djinn's Mirage
-DjinnsDomainBossMap	The Wishing Well
-ToDjinnsDomainBossMap	To the Wishing Well
-ToKyovashadMap	To Kyovashad
-KyovashadMap	Kyovashad
 ToLucionArenaMap	To Veiled Realm
 LucionArenaMap	Veiled Realm
 ToLucionVaultMap	To Temple of the Triune
@@ -1864,7 +1838,7 @@ CowBoss	\gold;The Cow Queen
 IceBoss	\gold;Nathkill The Numb
 TombBoss	\gold;Toadflax the Tainted
 SewerBoss	\gold;The Mad Philosopher
-SiegeBoss	\gold;Armorsmith of Equality
+SiegeBoss	\gold;Armorsmith Equality
 ThroneBoss	\gold;Indio The Insane
 torajanBoss	\gold;The Great Worm
 Wisp Boss	\gold;Canight The Corrupted
@@ -1935,10 +1909,6 @@ ZharTheMad	\gold;Zhar The Mad
 ZharTomeObject	Tome of Insanity
 Lucion	\gold;Lucion
 LucionChest	Treasure Chest
-ClientDefenseHover	%s: %d%% \nAverage chance to be hit by
-ClientDefenseHoverMiss	%s (Missile): %d%% \n%s (Melee): %d%% \nAverage chance to be hit by
-ClientDefenseBlockHover	Chance to Block: %d%% \n%s: %d%% \nAverage chance to be hit by
-ClientDefenseBlockHoverMiss	Chance to Block: %d%% \n%s (Missile): %d%% \n%s (Melee): %d%% \nAverage chance to be hit by
 LabelMercStart	(DontTranslate)==================================================
 MercX401	Anarel
 MercX402	Beradon
@@ -2004,7 +1974,6 @@ SplashSeqBonus	% Melee Splash Radius
 IncSplash	Melee Splash Radius Increased by 20%
 StrCorrupted	\red;Corrupted
 StrHeroic	\dgreen;Heroic
-StrTreacherous	\purple;Treacherous
 StrCorruptNum	Corrupt
 StrEndless	\grey;Quiver
 ModStrRepCharge1	Replenish 1 Charge in 3 Seconds
@@ -2024,19 +1993,19 @@ StrExtraBonespear	Bonespear Now Fires
 StrExtraBonespear2	Additional Spears
 YouMaySummon	You May Summon
 StrExtraRevives	You May Summon
-StrExtraRevives2	to Maximum Revives
-StrExtraSpirits	to Maximum Spirits
+StrExtraRevives2	Additional Revives
+StrExtraSpirits	Additional Spirit
 StrNoWolves	You May No Longer Summon Wolves
-ExtraGrizzly	to Maximum Grizzlies
-ExtraSkeleWar	to Maximum Skeleton Warriors
-ExtraSkeleMage	to Maximum Skeleton Mages
-ExtraSkeleArcher	to Maximum Skeleton Archers
-ExtraGolem	to Maximum Golems
-ExtraHydra	to Maximum Hydras
-ExtraValk	to Maximum Valkyries
+ExtraGrizzly	Additional Grizzlies
+ExtraSkeleWar	Additional Skeleton Warriors
+ExtraSkeleMage	Additional Skeleton Mages
+ExtraSkeleArcher	Additional Skeleton Archers
+ExtraGolem	Additional Golem
+ExtraHydra	Additional Hydra
+ExtraValk	Additional Valkyrie
 GustReduction	Gust Cooldown Reduced By 2 Seconds
 joustreduction	Joust Cooldown Reduced By 0.5 Seconds
-ExtraSkeleMageGrim	to Maximum Skeleton Mages
+ExtraSkeleMageGrim	You May Summon 6 Additional Skeleton Mages
 ModitemdamMagisk	To Magic Skill Damage
 bloodwarplifereduction	Bloodwarp Costs 2% Less Health
 SocketedTextOnly	Socketed [1]
@@ -2115,16 +2084,14 @@ BladeDance	Blade Dance
 StrEnemyFireRes	Enemy Fire Resistances: 
 StrEnemyColdRes	Enemy Cold Resistances: 
 Convphy2fire	Converts %d%% Physical Damage to Fire Damage
-SacrificeLongDesc	plus 5 percent of corpse life as physical damage\nslain monsters explode dealing 125% of overkill damage\na deadly attack at the cost of life
-skillsd96_PD2	slain monsters corpses explode on death
+SacrificeLongDesc	as half physical and half magic\noverkill damage plus 5 percent of corpse life\nslain monsters explode dealing\na deadly attack at the cost of life
 ChargeLongDesc	based on distance travelled\ngains increased splash radius\ncharge into battle and attack an enemy
 Deep Wounds	Deep Wounds
 DeepWoundsDesc	passive - increases open wounds damage
 OpenWoundsDamage	Open Wounds Damage: 
 OpenWoundsDesc	 percent chance of open wounds
-Attack1	 Attack 1: 
-Attack2	 Attack 2: 
-Attack3	 Attack 3: 
+Attack1	 Attack 2: 
+Attack2	 Attack 3: 
 AssassinTrapUI	Trap
 Holy Sword	Holy Sword
 Holy Sword SD	to parry attacks and deal extra damage to demons and undead\nimbues a two-handed sword with holy energy
@@ -2168,7 +2135,7 @@ StrBounces	bounces:
 StrPercentDamage	% Damage
 Gust	Gust
 GustShortDesc	Instantly moves to a destination and chills enemies
-GustLongDesc	enemies upon arrival for 0.5 seconds\nInstantly moves to a destination chilling
+GustLongDesc	enemies upon arrival for .5 seconds\nInstantly moves to a destination chilling
 StrCooldown	Cooldown: 
 BloodWarp	Blood Warp
 BloodWarpShortDesc	Instantly moves to a destination and drains life
@@ -2203,8 +2170,8 @@ StrGainRegenPassiveBonus	Grants +1 Passive Health Regeneration per Base Level
 StrEnemyLtngRes	Enemy Lightning Resistances: -
 StrLtngMasterySynergy	seconds increased duration
 StrSkillBombs	Bombs: 
-StrSecondaryExplosions	 secondary explosions
-StrIncreasedBombs	Gains an Extra Bomb Every 3 Levels
+StrSecondaryExplosions	 seconday explosions
+StrIncreasedBombs	Gains an Extra Bomb Every 3 Base Levels
 StrAddBoneSpear	Fires an Additional Bone Spear at Levels 15 and 25
 StrSkillBoneSpears	Bone Spears: 
 StrIncVelocity	Velocity: 
@@ -2328,8 +2295,8 @@ StrTeleportDebuff	damage reduction debuff reduced by 2% per base level
 Eskillfistsoffire1_PD2	fire damage per second: 
 Eskillfistsoffire2_PD2	fire nova damage: 
 Eskillfistsoffire3_PD2	meteor damage: 
-skillsd9_PD2	passive - chance of dealing 2x damage
-skillld9_PD2	passive - your attacks have a chance to deal 2x damage
+skillsd9_PD2	passive - chance of dealing 1.5x damage
+skillld9_PD2	passive - your attacks have a chance to deal 1.5x damage
 skillsd13_PD2	also grants bonus faster hit recovery\npassive - dodges melee and ranged attacks
 skillsd14_PD2	adds lightning damage and casts a small nova
 skillname17_PD2	Slow Movement
@@ -2338,7 +2305,7 @@ skillld17_PD2	their ranged attacks and movement\nilluminates nearby enemies and 
 skillan17_PD2	Slow Movement
 skillname19_PD2	Javelin and Spear Mastery
 skillsd19_PD2	passively increases damage and attack speed
-skillld19_PD2	javelin and spear class weapons\nincreases damage and critical hit damage with
+skillld19_PD2	javelin and spear class weapons\nincreases damage and critical hit chance with
 skillld23_PD2	passive - increases your attack rating and lowers target defense
 skillld29_PD2	a melee or missile attack when walking or running\npassive - you have a chance to dodge
 skillld37_PD2	and grants passive attack rating\npassive - increases the rate at which you recover mana
@@ -2392,14 +2359,14 @@ skillxld124_PD2	the souls of slain enemies to give you mana\nwhen active, aura a
 skillsd125_PD2	aura - protects against and increases elemental damage
 skillld125_PD2	for you and your party\nreceived and increases fire, cold, and lightning damage dealt\nwhen active, aura decreases fire, cold, and lightning damage
 skillld126_PD2	powerful blow that has a chance to knock back enemies
-skillname128_PD2	One Handed Weapon Mastery
-skillsd128_PD2	passive - improves one handed weapon skill
-skillld128_PD2	passive - improves one handed weapon skill
-skillan128_PD2	One Handed Weapon Mastery
-skillname134_PD2	Two Handed Weapon Mastery
-skillsd134_PD2	passive - improves two handed weapon skill
-skillld134_PD2	passive - improves two handed weapon skill
-skillan134_PD2	Two Handed Weapon Mastery
+skillname128_PD2	General Mastery
+skillsd128_PD2	passive - improves sword, axe, dagger, and mace fighting skill
+skillld128_PD2	passive - improves sword, axe, dagger, and mace fighting skill
+skillan128_PD2	General Mastery
+skillname134_PD2	Polearm And Spear Mastery
+skillsd134_PD2	passive - improves polearm and spear skill
+skillld134_PD2	passive - improves polearm and spear skill
+skillan134_PD2	Polearm And Spear Mastery
 skillname135_PD2	Ranged Mastery
 skillsd135_PD2	passive - improves thrown weapon skill
 skilld135_PD2	passive - improves thrown weapon skill
@@ -2515,21 +2482,13 @@ TeleportBlocked	This area is cursed, you cannot use teleport skills here.
 MapEventNotifyHorazon	An alternate dimension radiates dark energy...
 MapEventNotifyDarkWanderer	Darkness itself wanders these lands...
 MapEventNotifyMendeln	Evil beckons you from the Void...
-MapEventNotifyButcher1	The stench of fresh meat fills the air...
+MapEventNotifyButcher1	The stench fresh meat fills the air...
 MapEventNotifyButcher2	You have 30 seconds before the Butcher's Lair is sealed forever...
 MapEventNotifyTreasure	Shrieking, mischievous laughter pierces your ears...
 MapEventNotifyTainted	A faint humming keeps the dark at bay...
 MapEventNotifyVoid	The deafening silence of an alternate dimension calls for you...
 MapEventNotifyGheed	You hear coins being counted nearby...
 MapEventNotifyShard	A mysterious altar vibrates with potential...
-MapEventNotifyInvaders	You feel a corrupted presence watching you, as if you're being hunted...
-MapEventNotifyInvadersAmazon	Corrupted Amazon has expressed hostility towards you.
-MapEventNotifyInvadersAssassin	Corrupted Assassin has expressed hostility towards you.
-MapEventNotifyInvadersBarbarian	Corrupted Barbarian has expressed hostility towards you.
-MapEventNotifyInvadersDruid	Corrupted Druid has expressed hostility towards you.
-MapEventNotifyInvadersNecromancer	Corrupted Necromancer has expressed hostility towards you.
-MapEventNotifyInvadersPaladin	Corrupted Paladin has expressed hostility towards you.
-MapEventNotifyInvadersSorceress	Corrupted Sorceress has expressed hostility towards you.
 MapEventNotifyTimer	 seconds remaining...
 BRNotifyBegin	Match has begun! Loot phase will last 5 minutes before crafting begins in the center area
 BRNotifyCraft1	2 minutes until crafting phase begins
@@ -2565,7 +2524,7 @@ CreateGameGS8	South America
 CreateGameGS9	Australia
 CreateGameGS10	The Moon
 GameServerTitle	Game Server
-FrenzyDurationDesc	Duration increased by 2 seconds every base level
+FrenzyDurationDesc	Duration increased by 1 second every base level
 LootAllocationTitle	Allocated Loot
 PvpCharmDesc	\red;Only active in duel arenas
 cm1p	Dueling Small Charm
@@ -2575,45 +2534,38 @@ StrBOI2DamDesc	cold wave damage:
 StrBOI3DamDesc	ice bolt damage: 
 PVPTome1	PvP Arena Skill Modifiers
 NormalPVPModifiers	\gold;Normal PVP Skill Modifiers
-NormalBasePVPModifier	Base Modifier: 16% (Summons: 85%)
-NormalAmazonPVPModifiers	Jab: \gold;40\grey;%\nCharged Strike: \yellow;85\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;55\grey;%\nLightning Fury: \gold;75\grey;%\nPoison Javelin: \green;85\grey;%\nPoison Javelin: \gold;75\grey;%\nPlague Javelin: \green;90\grey;%\nPlague Javelin: \gold;75\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;90\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;35\grey;%\nMultiple Shot: \gold;85\grey;%\n\gold;Amazon
-NormalAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;20\grey;%\nBlade Fury: \gold;90\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;37\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;60\grey;%\nDragon Talon: \grey;70\grey;%\nDragon Claw: \grey;90\grey;%\nTiger Strike: \grey;90\grey;%\nDeath Sentry: \grey;80\grey;%\nShadow Warrior: \grey;10\grey;%\nShadow Master: \grey;33\grey;%\n\gold;Assassin
-NormalBarbarianPVPModifiers	Stun: \grey;90\grey;%\nDouble Swing: \grey;90\grey;%\nConcentrate: \orange;45\grey;%\nConcentrate: \gold;90\grey;%\nBerserk: \gold;90\grey;%\nFrenzy: \grey;90\grey;%\nWhirlwind: \gold;55\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
-NormalDruidPVPModifiers	Fire Storm: \red;150\grey;%\nFissure: \red;90\grey;%\nArctic Blast: \blue;150\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;125\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+NormalBasePVPModifier	Base Modifier: 16%
+NormalAmazonPVPModifiers	Jab: \gold;50\grey;%\nCharged Strike: \yellow;130\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;80\grey;%\nPoison Javelin: \green;85\grey;%\nPlague Javelin: \green;90\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;114\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;40\grey;%\n\gold;Amazon
+NormalAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;60\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;45\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;70\grey;%\nDragon Talon: \grey;80\grey;%\nDeath Sentry: \grey;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+NormalBarbarianPVPModifiers	Concentrate: \orange;50\grey;%\nWhirlwind: \gold;63\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+NormalDruidPVPModifiers	Fire Storm: \red;150\grey;%\nArctic Blast: \blue;200\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;150\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
 NormalNecromancerPVPModifiers	Bone Spear: \orange;35\grey;%\nBone Spirit: \orange;30\grey;%\nTeeth: \orange;20\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;85\grey;%\nCorpse Explosion: \grey;65\grey;%\nPoison Nova: \green;150\grey;%\nPoison Dagger: \green;150\grey;%\n\gold;Necromancer
-NormalPaladinPVPModifiers	Holy Bolt: \orange;50\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;50\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
-NormalSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;100\grey;%\nIce Bolt: \blue;90\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;160\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;50\grey;%\nFire Wall: \red;60\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;90\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
+NormalPaladinPVPModifiers	Holy Bolt: \orange;40\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;85\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
+NormalSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;130\grey;%\nIce Bolt: \blue;110\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;190\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;130\grey;%\nFire Wall: \red;90\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;140\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
 NightmarePVPModifiers	\gold;Nightmare PVP Skill Modifiers
-NightmareBasePVPModifier	Base Modifier: 12% (Summons: 85%)
-NightmareAmazonPVPModifiers	Jab: \gold;40\grey;%\nCharged Strike: \yellow;85\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;55\grey;%\nLightning Fury: \gold;75\grey;%\nPoison Javelin: \green;85\grey;%\nPoison Javelin: \gold;75\grey;%\nPlague Javelin: \green;90\grey;%\nPlague Javelin: \gold;75\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;90\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;35\grey;%\nMultiple Shot: \gold;85\grey;%\n\gold;Amazon
-NightmareAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;20\grey;%\nBlade Fury: \gold;90\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;37\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;60\grey;%\nDragon Talon: \grey;70\grey;%\nDragon Claw: \grey;90\grey;%\nTiger Strike: \grey;90\grey;%\nDeath Sentry: \grey;80\grey;%\nShadow Warrior: \grey;10\grey;%\nShadow Master: \grey;33\grey;%\n\gold;Assassin
-NightmareBarbarianPVPModifiers	Stun: \grey;90\grey;%\nDouble Swing: \grey;90\grey;%\nConcentrate: \orange;45\grey;%\nConcentrate: \gold;90\grey;%\nBerserk: \gold;90\grey;%\nFrenzy: \grey;90\grey;%\nWhirlwind: \gold;55\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
-NightmareDruidPVPModifiers	Fire Storm: \red;150\grey;%\nFissure: \red;90\grey;%\nArctic Blast: \blue;150\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;125\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+NightmareBasePVPModifier	Base Modifier: 12%
+NightmareAmazonPVPModifiers	Jab: \gold;50\grey;%\nCharged Strike: \yellow;130\grey;%\nPowerstrike: \gold;17\grey;%\nLightning Bolt: \yellow;80\grey;%\nPoison Javelin: \green;85\grey;%\nPlague Javelin: \green;90\grey;%\nMagic Arrow: \orange;60\grey;%\nGuided Arrow: \grey;114\grey;%\nIce Arrow: \blue;200\grey;%\nFire Arrow: \red;150\grey;%\nCold Arrow: \blue;150\grey;%\nFreezing Arrow: \blue;200\grey;%\nImmo. Arrow: \red;200\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\nStrafe: \gold;40\grey;%\n\gold;Amazon
+NightmareAssassinPVPModifiers	Mind Blast: \gold;30\grey;%\nPsychic Hammer: \orange;20\grey;%\nBlade Sentinel: \gold;60\grey;%\nChain Ltng. Sent.: \yellow;45\grey;%\nLtng. Sentry: \yellow;45\grey;%\nWake Of Fire: \red;40\grey;%\nWake Of Inferno: \red;70\grey;%\nDragon Talon: \grey;80\grey;%\nDeath Sentry: \grey;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+NightmareBarbarianPVPModifiers	Concentrate: \orange;50\grey;%\nWhirlwind: \gold;63\grey;%\nWarcry: \gold;120\grey;%\nLeap Attack: \gold;16\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+NightmareDruidPVPModifiers	Fire Storm: \red;150\grey;%\nArctic Blast: \blue;200\grey;%\nHurricane: \blue;150\grey;%\nRabies: \green;150\grey;%\nShockwave: \gold;120\grey;%\nFireclaws: \red;300\grey;%\nMolten Boulder: \grey;90\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;30\grey;%\nArmageddon: \red;30\grey;%\nTornado: \gold;50\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
 NightmareNecromancerPVPModifiers	Bone Spear: \orange;35\grey;%\nBone Spirit: \orange;30\grey;%\nTeeth: \orange;20\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;85\grey;%\nCorpse Explosion: \grey;65\grey;%\nPoison Nova: \green;150\grey;%\nPoison Dagger: \green;150\grey;%\n\gold;Necromancer
-NightmarePaladinPVPModifiers	Holy Bolt: \orange;50\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;50\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
-NightmareSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;100\grey;%\nIce Bolt: \blue;90\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;160\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;50\grey;%\nFire Wall: \red;60\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;90\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
+NightmarePaladinPVPModifiers	Holy Bolt: \orange;40\grey;%\nHoly Fire: \red;125\grey;%\nHeaven's Fist: \grey;55\grey;%\nHoly Light: \orange;5\grey;%\nSmite: \gold;85\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;60\grey;%\nZeal: \gold;75\grey;%\nCharge: \gold;70\grey;%\nVengeance: \red;200\grey;%\nVengeance: \blue;200\grey;%\nVengeance: \yellow;200\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
+NightmareSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;30\grey;%\nCharged Bolt: \yellow;130\grey;%\nIce Bolt: \blue;110\grey;%\nIce Blast: \blue;150\grey;%\nGlacial Spike: \blue;150\grey;%\nIce Barrage: \blue;190\grey;%\nFrost Nova: \blue;150\grey;%\nFrozen Orb: \blue;150\grey;%\nInferno: \red;125\grey;%\nBlaze: \red;130\grey;%\nFire Wall: \red;90\grey;%\nFire Bolt: \red;75\grey;%\nFire Ball: \red;90\grey;%\nMeteor: \grey;65\grey;%\nNova: \yellow;175\grey;%\nLesser Hydra: \red;40\grey;%\nHydra: \red;30\grey;%\nLightning: \yellow;140\grey;%\nChain Ltng.: \yellow;120\grey;%\nCombustion: \red;35\grey;%\n\gold;Sorceress
 HellPVPModifiers	\gold;Hell PVP Skill Modifiers
-HellBasePVPModifier	Base Modifier: 6% (Summons: 85%)
-HellAmazonPVPModifiers	Jab: \gold;80\grey;%\nPoison Javelin: \green;80\grey;%\nPlague Javelin: \green;55\grey;%\nMagic Arrow: \orange;130\grey;%\nGuided Arrow: \grey;120\grey;%\nIce Arrow: \blue;150\grey;%\nFire Arrow: \red;125\grey;%\nCold Arrow: \blue;125\grey;%\nFreezing Arrow: \blue;160\grey;%\nImmo. Arrow: \red;155\grey;%\nDecoy Strafe: \gold;30\grey;%\nValkyrie: \grey;70\grey;%\n\gold;Amazon
-HellAssassinPVPModifiers	Mind Blast: \gold;35\grey;%\nPsychic Hammer: \orange;10\grey;%\nBlade Sentinel: \gold;25\grey;%\nBlade Fury: \gold;75\grey;%\nChain Ltng. Sent.: \yellow;40\grey;%\nLtng. Sentry: \yellow;40\grey;%\nWake Of Fire: \red;80\grey;%\nShadow Warrior: \grey;10\grey;%\nShadow Master: \grey;33\grey;%\n\gold;Assassin
-HellBarbarianPVPModifiers	Double Throw: \gold;114\grey;%\nConcentrate: \orange;50\grey;%\nFrenzy: \gold;125\grey;%\nWhirlwind: \gold;88\grey;%\nWarcry: \gold;105\grey;%\nLeap Attack: \gold;12\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
-HellDruidPVPModifiers	Fire Storm: \red;120\grey;%\nRabies: \green;125\grey;%\nMolten Boulder: \grey;80\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;35\grey;%\nArmageddon: \red;35\grey;%\nTornado: \gold;35\grey;%\nTwister: \gold;80\grey;%\nRaven: \grey;60\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
+HellBasePVPModifier	Base Modifier: 6%
+HellAmazonPVPModifiers	Jab: \gold;80\grey;%\nPoison Javelin: \green;80\grey;%\nPlague Javelin: \green;55\grey;%\nMagic Arrow: \orange;130\grey;%\nGuided Arrow: \grey;120\grey;%\nIce Arrow: \blue;150\grey;%\nFire Arrow: \red;125\grey;%\nCold Arrow: \blue;125\grey;%\nFreezing Arrow: \blue;160\grey;%\nImmo. Arrow: \red;155\grey;%\n\gold;Amazon
+HellAssassinPVPModifiers	Mind Blast: \gold;35\grey;%\nPsychic Hammer: \orange;10\grey;%\nBlade Sentinel: \gold;60\grey;%\nBlade Fury: \gold;75\grey;%\nChain Ltng. Sent.: \yellow;40\grey;%\nLtng. Sentry: \yellow;40\grey;%\nWake Of Fire: \red;80\grey;%\nShadowwarrior: \grey;10\grey;%\n\gold;Assassin
+HellBarbarianPVPModifiers	Double Throw: \gold;114\grey;%\nFrenzy: \gold;125\grey;%\nWhirlwind: \gold;88\grey;%\nWarcry: \gold;105\grey;%\nLeap Attack: \gold;12\grey;%\nDeep Wounds: \gold;33\grey;%\n\gold;Barbarian
+HellDruidPVPModifiers	Fire Storm: \red;120\grey;%\nRabies: \green;125\grey;%\nMolten Boulder: \grey;80\grey;%\nVolcano: \grey;45\grey;%\nArmageddon: \gold;35\grey;%\nArmageddon: \red;35\grey;%\nTornado: \gold;35\grey;%\nTwister: \gold;80\grey;%\nPoison Creeper: \green;15\grey;%\n\gold;Druid
 HellNecromancerPVPModifiers	Bone Spear: \orange;40\grey;%\nBone Spirit: \orange;15\grey;%\nTeeth: \orange;30\grey;%\nDark Pact: \orange;50\grey;%\nDesecrate: \green;60\grey;%\nPoison Nova: \green;125\grey;%\nPoison Dagger: \green;125\grey;%\n\gold;Necromancer
 HellPaladinPVPModifiers	Holy Bolt: \orange;65\grey;%\nHoly Fire: \red;50\grey;%\nHeaven's Fist: \grey;65\grey;%\nHoly Light: \orange;15\grey;%\nSmite: \gold;75\grey;%\nJoust: \grey;20\grey;%\nBlessed Hammer: \orange;40\grey;%\nZeal: \gold;85\grey;%\nCharge: \gold;70\grey;%\nHoly Nova: \orange;50\grey;%\n\gold;Paladin
 HellSorceressPVPModifiers	Telekinesis: \yellow;10\grey;%\nThunderstorm: \yellow;35\grey;%\nCharged Bolt: \yellow;75\grey;%\nIce Bolt: \blue;145\grey;%\nIce Blast: \blue;145\grey;%\nGlacial Spike: \blue;145\grey;%\nIce Barrage: \blue;140\grey;%\nFrost Nova: \blue;140\grey;%\nFrozen Orb: \blue;130\grey;%\nFire Wall: \red;120\grey;%\nFire Bolt: \red;135\grey;%\nFire Ball: \red;130\grey;%\nMeteor: \grey;90\grey;%\nNova: \yellow;150\grey;%\nLesser Hydra: \red;80\grey;%\nHydra: \red;80\grey;%\nBlizzard: \blue;130\grey;%\nLightning: \yellow;200\grey;%\nCombustion: \red;90\grey;%\n\gold;Sorceress
 Sacrifice Altar	Sacrificial Altar
 StrDesecrated	\gold;Desecrated
-StrCBEffect	Crushing Blow Efficiency: 
-StrCBChance	 Percent Chance of Crushing Blow
+StrCBEffect	Crushing Blow Effectiveness: 
+StrCBChance	% Chance of Crushing Blow
 splash4	Melee Attacks Deal Lesser Splash Damage
 StrMaxDeadlyStrike	Maximum Deadly Strike
-SkillMaxDeadlyStrike	Maximum Deadly Strike: 
-StrCritMultiplier	Critical Strike Multiplier: 
-StrDSMultiplier	Deadly Strike Multiplier: 
-StrCritMultiplierStat	Critical Strike Multiplier
-StrDSMultiplierStat	Deadly Strike Multiplier
-StrCritChanceStat	Chance of Critical Strike
-ModStr5q	Chance of Deadly Strike
 merca201	Hazade
 merca202	Alhizeer
 merca203	Azrael
@@ -2680,7 +2632,7 @@ LucionSpawnerName	Veiled Portal
 LucionControlName	Lucion
 PVPTome2	PvP Arena Rules
 PVPTome2Title	\gold;PvP Arena Rules
-PVPTome2Paragraph1	- Life replenish is capped at +30\n- Flat magic and physical damage reduction is capped at +25\n- Slow, Knockback (from items), Absorb, Attackers Take Damage, Life Leech, and Melee Splash are disabled\n- Regenerating charges (e.g. Blink on Enigma) regenerate 200% faster\n- Stun cannot be reapplied and the duration is reduced by 2 frames when hit\n- Passive Elemental and Physical resistance pierce is disabled (debuffs work normally)\n- Open Wounds deals 8%/6%/4% of it's normal damage in Normal/Nightmare/Hell\n- Maximum Resistance is capped at 75%/80%/85% for Normal/Nightmare/Hell and difficulty resistance penalty is removed\n- Only dueling mana potions (purchased from Akara in the arena) can be used\n- PvP only charms can be purchased from Akara in the arena\n- Type .spec to enter spectator mode\n- There is no level cap for High Level Dueling\n- Low Level Dueling is level 30 and below
+PVPTome2Paragraph1	- Life replenish is capped at +30\n- Flat magic and physical damage reduction is capped at +25\n- Slow, Knockback (from items), Absorb, Attackers Take Damage, Life Leech, and Melee Splash are disabled\n- Regenerating charges (e.g. Blink on Enigma) regenerate 200% faster\n- Stun cannot be reapplied and the duration is reduced by 2 frames when hit\n- Passive Elemental and Physical resistance pierce is disabled (debuffs work normally)\n- Open Wounds deals 8%/6%/4% of it's normal damage in Normal/Nightmare/Hell\n- Maximum Resistance is capped at 75%/80%/85% for Normal/Nightmare/Hell\n- Only dueling mana potions (purchased from Akara in the arena) can be used\n- PvP only charms can be purchased from Akara in the arena\n- Type .spec to enter spectator mode\n- There is no level cap for High Level Dueling\n- Low Level Dueling is level 30 and below
 PVPTome2Title2	\gold;Skill Specific Changes
 PVPTome2Paragraph2	- Mind Blast stun duration reduced to 1.5 seconds\n- Mind Blast does not gain radius per cast\n- Smite stun duration reduced to 2.5 seconds\n- Whirlwind dual wield frame penalty removed\n- Whirlwind weapon range capped at 3\n- Charge has normal attack speed frames in melee range\n- Oak Sage does not replenish life\n- Bone Spear capped to 1 projectile\n- Bone Spear hit box size reduced by 33%\n- Lightning hit box size reduced by 33%\n- Holy Bolt capped to 1 projectile
 PVPTome2Paragraph3	- Dodge, Avoid, Evade, Parry, and Weapon block reduced by 50%\n- Healing skills do not heal allies (Holy Bolt, Holy Nova, Holy Light)\n- Movement skills do not name-lock (Whirlwind, Leap, Leap Attack, Charge)\n- Dragon Flight does not auto-aim\n- Fist of the Heavens does not auto-aim or name lock\n- Joust does not auto-aim\n- Battle Cry duration is increased by 5 seconds\n- Double throw does not bounce between targets\n- Meteor explosion radius reduced by 30%
@@ -2691,13 +2643,13 @@ Skywarden	Skywarden
 Achilles Strike	Achilles Strike
 Skorn	Skorn
 Winterthorn	Winterthorn
-ExtraShadow	to Maximum Shadows
+ExtraShadow	Additional Shadow
 Whispering Mirage	Whispering Mirage
 Sigurd's Staunch	Siggard's Staunch
 Loyalty Spear	Loyalty
 Loyalty Bow	Loyalty
 Fenris	Fenris
-ExtraSpiritWolf	to Maximum Spirit Wolves
+ExtraSpiritWolf	Additional Spirit Wolves
 Wildspeaker	Wildspeaker
 ColdDamage	Cold Damage
 VampireForm	Vampire Form
@@ -2844,43 +2796,6 @@ ImperialAdvisor	\gold;Imperial Advisor
 Kamyr	\gold;Kamyr the Usurper
 UrehMiniBoss	\gold;Zayl the Merciful
 UrehBoss	\gold;Gregus Mazi
-NakrulBoss	\gold;Na-Krul
-KyovoshadBoss	\gold;The Tainted Hive
-KyovoshadBossMinion	\gold;Tainted Spawn
-DjinnDarkBoss	\gold;Siren of the Forgotten Vault
-DjinnLightBoss	\gold;Djinn of a Thousand Blades
-FlyingScimitarDjinnBoss	\gold;Ancient Scimitar
-InvaderAmazon	\gold;Corrupted Amazon
-InvaderAssassin	\gold;Corrupted Assassin
-InvaderBarbarian	\gold;Corrupted Barbarian
-InvaderDruid	\gold;Corrupted Druid
-InvaderNecromancer	\gold;Corrupted Necromancer
-InvaderPaladin	\gold;Corrupted Paladin
-InvaderSorceress	\gold;Corrupted Sorceress
-InvaderNecromancerSkeleton	\gold;Corrupted Skeleton
-InvaderNecromancerSkeletonArcher	\gold;Corrupted Skeleton Archer
-ivez	\gold;Corrupted Amazon's Ear
-ivezDesc	Monsters have +200% increased health\nMonsters have +50% increased cast and attack speed\nMonsters have +25% incresaed velocity\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-ivea	\gold;Corrupted Assassin's Ear
-iveaDesc	Monsters have +200% increased health\nMonsters have +10% chance of deadly strike\nMonsters have +120% faster hit recovery\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-iveb	\gold;Corrupted Barbarian's Ear
-ivebDesc	Monsters have +200% increased health\nMonsters have +20% chance of crushing blow\nMonsters have +25% enhanced physical damage\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-ived	\gold;Corrupted Druid's Ear
-ivedDesc	Monsters have +200% increased health\nMonsters have +25% of physical damage as extra fire damage\nPlayers have -5% to all maximum resistances\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-iven	\gold;Corrupted Necromancer's Ear
-ivenDesc	Monsters have +200% increased health\nMonsters have +50% of physical damage as extra poison damage over 5 seconds\nPlayers have -100 drain life\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-ivep	\gold;Corrupted Paladin's Ear
-ivepDesc	Monsters have +200% increased health\nPlayers have -5% physical damage reduction\nMonsters have +50% to attack rating\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-ives	\gold;Corrupted Sorceress's Ear
-ivesDesc	Monsters have +200% increased health\nMonsters have +50% of physical damage as extra lightning damage\nPlayers have -25% to all resistances\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
-Devilkinbrute	Devil Kin Brute
-Satyrlord	Satyr Lord
-Hellbat	Hellbat
-Reaper	Reaper
-Cryptdemon	Crypt Demon
-Fleshthing	Flesh Thing
-Lich	Lich
-Skullwing	Skullwing
 HotkeyAssignStatsShift	Shift: Assign +20
 HotkeyAssignStatsCtrl	Ctrl: Assign +5
 ControllerSkillSelect1	Hover a skill and press a bind to assign
@@ -2900,7 +2815,7 @@ ImperialPalaceBossMap	The Imperial Cellar
 MapBossPuzzlebox	Map boss drops a Larzuk's Puzzlebox
 HelpTextStatHoverBase	Base Stat: 
 HelpTextStatHoverItem	Item Bonus: 
-ModStrMapPlayerPDR	Physical Damage Reduction
+ModStrMapPlayerPDR	Reduced Physical Damage Reduction
 Devious	Devious
 Tricky	Tricky
 of the Archmage	of the Archmage
@@ -2931,7 +2846,7 @@ CurrencyTransmuteTooltip	\dgrey;Left+Shift: Upgrade 150 to 50\n\dgrey;Left+Ctrl:
 Crackleshot	Crackleshot
 Skillld258_PD2	releases a small explosion at each endpoint\nbetween you and target point\nset a spinning blade to patrol
 Skillsd258_PD2	that explodes at each endpoint\nset a spinning blade
-GustCdReductionCast	Reduces gust cooldown by 0.5 seconds on cast
+GustCdReductionCast	Reduces gust cooldown by 0.25 seconds on cast
 skillld81	with increased attack speed\ncurses a monster to force it to attack random targets
 skillsd81	with increased attack speed\ncurse - monster attacks random targets
 Siphoning	Siphoning
@@ -2953,16 +2868,6 @@ of the Warlock	of the Warlock
 of the Eldritch	of the Eldritch
 of Insight	of Insight
 of Focus	of Focus
-Relentless	Relentless
-Rending	Rending
-Ruthless	Ruthless
-Cracking	Cracking
-Shattering	Shattering
-Sundering	Sundering
-of Control	of Control
-of Discipline	of Discipline
-of Momentum	of Momentum
-of Evasion	of Evasion
 of Tranquility	of Tranquility
 Ancient's Foresight	Ancient's Foresight
 Ancient's Scripture	Ancient's Scripture
@@ -2971,11 +2876,3 @@ Echo Quiver	Echo
 CantorUreh	Priest of Rathma
 ZealotUreh	Disciple of Rathma
 joustreductionleorics	Joust Cooldown Reduced By 0.75 Seconds
-SplitThrow	Split Throw
-SplitThrowDesc	returning projectiles deal 30% weapon damage\nprojectiles that return to you\nsplits your throwing weapon creating
-StrProjectiles	Number of projectiles: 
-deadlystrikemastery	+%d Percent Critical Strike Multiplier
-Skillname222	Summon Ravens
-Skillsd222	summon ravens
-Skillan222	Summon Ravens
-StrSpiritOfBarbsMaxDeadly	+1% Maximum Deadly Strike every 4 Base Levels
