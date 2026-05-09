@@ -179,9 +179,11 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	if item.is_tome:
 		cursor.discard_bits(5)
 	cursor.discard_bits(1)
-	
 	if item.is_armor:
-		item.base_defense = cursor.read_bits(11) - 10
+		if item.item_version == D2Item.ItemVersion.PD2_SEASON13:
+			item.base_defense = cursor.read_bits(11) - 300
+		else:
+			item.base_defense = cursor.read_bits(11) - 10
 		item.defense = item.base_defense
 	if item.is_armor or item.is_weapon:
 		item.max_durability = cursor.read_bits(8)
