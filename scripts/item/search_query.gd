@@ -161,7 +161,7 @@ class CompiledQuickFilterQuery:
 				TypeFilter.LARGE_CHARM: return item.base_name == "Large Charm"
 				TypeFilter.GRAND_CHARM: return item.base_name == "Grand Charm"
 				TypeFilter.JEWEL: return item.item_type == "Jewel"
-				TypeFilter.MAP: return item.item_type in ["Map T1", "Map T2", "Map T3"]
+				TypeFilter.MAP: return item.item_type in ["Map T1", "Map T2", "Map T3", "Map T4", "Map T5"]
 			return false
 
 
