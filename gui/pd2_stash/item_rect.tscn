@@ -7,7 +7,7 @@ bg_color = Color(1, 1, 1, 0)
 border_color = Color(0.14478481, 0.14478484, 0.14478472, 1)
 
 [sub_resource type="Gradient" id="Gradient_eaelu"]
-colors = PackedColorArray(0.427493, 0.42749307, 0.42749295, 1, 0.7063026, 0.7063026, 0.7063025, 1)
+colors = PackedColorArray(0.42745098, 0.42745098, 0.42745098, 0.33333334, 0.7058824, 0.7058824, 0.7058824, 0.32941177)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cho05"]
 gradient = SubResource("Gradient_eaelu")
@@ -48,15 +48,25 @@ theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 1
 theme_override_constants/margin_bottom = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1176329987]
+[node name="HighlightColor" type="ColorRect" parent="MarginContainer" unique_id=1288105299]
 unique_name_in_owner = true
-layout_mode = 2
-texture = SubResource("GradientTexture2D_cho05")
-
-[node name="Highlight" type="ColorRect" parent="MarginContainer" unique_id=1288105299]
 visible = false
 layout_mode = 2
 color = Color(1, 1, 1, 0.8235294)
+
+[node name="BackgroundTexture" type="TextureRect" parent="MarginContainer" unique_id=1176329987]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0.5449209, 0.90000004)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_cho05")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1692655947]
+layout_mode = 2
+
+[node name="ItemTexture" type="TextureRect" parent="MarginContainer" unique_id=458451630]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 5
 
 [node name="QuantityLabel" type="Label" parent="MarginContainer" unique_id=665132874]
 unique_name_in_owner = true

@@ -274,10 +274,10 @@ func _build_database() -> void:
 	# -----------------------------
 	# Load Item Codes
 	# -----------------------------
-	weapon_codes = _load_csv_as_dict("txt/Weapons.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "mindam", "maxdam", "2handmindam", "2handmaxdam", "minmisdam", "maxmisdam", "namestr", "2handed"], true)
-	armor_codes = _load_csv_as_dict("txt/Armor.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr"], true)
-	misc_codes = _load_csv_as_dict("txt/Misc.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr"], true)
-	item_types = _load_csv_as_dict("txt/ItemTypes.txt", "Code", ["ItemType", "Equiv1", "Equiv2", "Class"], true)
+	weapon_codes = _load_csv_as_dict("txt/Weapons.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "mindam", "maxdam", "2handmindam", "2handmaxdam", "minmisdam", "maxmisdam", "namestr", "2handed", "invfile", "uniqueinvfile", "setinvfile"], true)
+	armor_codes = _load_csv_as_dict("txt/Armor.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr", "invfile", "uniqueinvfile", "setinvfile"], true)
+	misc_codes = _load_csv_as_dict("txt/Misc.txt", "code", ["name", "type", "normcode", "ubercode", "ultracode", "stackable", "invwidth", "invheight", "reqstr", "reqdex", "levelreq", "namestr", "invfile", "uniqueinvfile", "setinvfile"], true)
+	item_types = _load_csv_as_dict("txt/ItemTypes.txt", "Code", ["ItemType", "Equiv1", "Equiv2", "Class", "InvGfx1", "InvGfx2", "InvGfx3", "InvGfx4", "InvGfx5", "InvGfx6"], true)
 	all_codes = weapon_codes.merged(armor_codes)
 	all_codes.merge(misc_codes)
 	
@@ -288,8 +288,8 @@ func _build_database() -> void:
 	magic_suffix = _load_csv_as_dict("txt/MagicSuffix.txt", "", ["Name", "mod1code", "levelreq"], true)
 	rare_prefix = _load_csv_as_dict("txt/RarePrefix.txt", "", ["name"])
 	rare_suffix = _load_csv_as_dict("txt/RareSuffix.txt", "", ["name"])
-	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "prop9", "prop10", "prop11", "prop12"], true)
-	set_items = _load_csv_as_dict("txt/SetItems.txt", "", ["index", "set", "item", "rarity", "lvl", "lvl req", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8"], true)
+	unique_items = _load_csv_as_dict("txt/UniqueItems.txt", "", ["index", "lvl", "lvl req", "enabled", "rarity", "code", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "prop9", "prop10", "prop11", "prop12", "invfile", "invtransform"], true)
+	set_items = _load_csv_as_dict("txt/SetItems.txt", "", ["index", "set", "item", "rarity", "lvl", "lvl req", "prop1", "prop2", "prop3", "prop4", "prop5", "prop6", "prop7", "prop8", "invfile", "invtransform"], true)
 	runewords = _load_csv_as_dict("txt/Runes.txt", "")
 	gems = _load_csv_as_dict("txt/Gems.txt", "code", [], true)
 	properties = _load_csv_as_dict("txt/Properties.txt", "code", ["code", "stat1", "stat2", "stat3", "stat4"])
@@ -856,6 +856,32 @@ func get_monster_name(monster_id: int) -> String:
 	if monster_table.has(monster_id):
 		return localize(monster_table[monster_id]["NameStr"])
 	return ""
+
+func get_item_invfile(item: D2Item) -> Texture2D:
+	var invfile: String
+	if item.has_multiple_pictures:
+		var picture_id_col := "InvGfx" + str(item.picture_id + 1)
+		var type_code: String = all_codes[item.code_string]["type"]
+		invfile = item_types[type_code][picture_id_col]
+	else:
+		invfile = all_codes[item.code_string]["invfile"]
+	if item.rarity == D2Item.ItemRarity.UNIQUE:
+		var unique_invfile: String = unique_items[item.unique_id]["invfile"]
+		if unique_invfile == "":
+			unique_invfile = all_codes[item.code_string]["uniqueinvfile"]
+		if unique_invfile != "":
+			invfile = unique_invfile
+	elif item.rarity == D2Item.ItemRarity.SET:
+		var set_invfile: String = set_items[item.set_id]["invfile"]
+		if set_invfile == "":
+			set_invfile = all_codes[item.code_string]["setinvfile"]
+		if set_invfile != "":
+			invfile = set_invfile
+	var texture = load("res://assets/item_art/" + invfile + ".png") as Texture2D
+	if not texture:
+		texture = load("res://assets/item_art/devcharm.png") as Texture2D
+	return texture
+
 
 # ============================================================
 # CSV LOADER

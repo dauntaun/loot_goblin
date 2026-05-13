@@ -81,6 +81,7 @@ func add_item_rect(item: D2Item) -> void:
 	equip_map[item.equipped_id].add_child(item_rect)
 	_item_rect_mapping[item] = item_rect
 	item_rect.init_rect(item)
+	item_rect.hide_background_texture()
 	item_rect.item_selected.connect(_on_item_selected)
 
 

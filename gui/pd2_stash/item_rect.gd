@@ -3,39 +3,31 @@ extends Control
 
 signal item_selected(item: D2Item)
 
-#const DEFAULT_MODULATE: Color = Color("ffffffa7")
-#const HIGHLIGHT_MODULATE: Color = Color("000000ff")
 
 @onready var quantity_label: Label = %QuantityLabel
-@onready var texture_rect: TextureRect = %TextureRect
-@onready var highlight_rect: ColorRect = $MarginContainer/Highlight
+@onready var background_texture: TextureRect = %BackgroundTexture
+@onready var item_texture: TextureRect = %ItemTexture
+@onready var highlight_rect: ColorRect = %HighlightColor
 
-#var _color: Color = DEFAULT_MODULATE
 var _item: D2Item
 
 
 func _ready() -> void:
-	#texture_rect.modulate = _color
 	mouse_entered.connect(_show_tooltip)
 	mouse_exited.connect(_hide_tooltip)
 
 
 func init_rect(item: D2Item) -> void:
 	z_index = 1
-	var color: Color = D2Colors.get_item_color(item)
-	color.a = 0.9
-	set_color(color)
 	_item = item
 	if item.is_stackable and item.is_misc and item.item_type not in ["Bolts", "Arrows"]:
 		quantity_label.text = str(item.quantity) + " "
 		quantity_label.show()
 	else:
 		quantity_label.hide()
-
-
-func set_color(color: Color) -> void:
-	#_color = color
-	texture_rect.modulate = color
+	item_texture.texture = TxtDB.get_item_invfile(item)
+	if item.is_ethereal:
+		item_texture.modulate.a = 0.5
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -46,12 +38,14 @@ func _gui_input(event: InputEvent) -> void:
 
 func highlight() -> void:
 	highlight_rect.show()
-	#texture_rect.modulate = HIGHLIGHT_MODULATE
 
 
 func remove_highlight() -> void:
 	highlight_rect.hide()
-	#texture_rect.modulate = _color
+
+
+func hide_background_texture() -> void:
+	background_texture.hide()
 
 
 func _show_tooltip() -> void:
