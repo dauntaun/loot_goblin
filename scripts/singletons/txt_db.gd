@@ -574,6 +574,35 @@ func _build_database() -> void:
 		unique_entry.eth_possible = eth_possible
 		unique_entry.txt_id = unique_id
 		unique_entry.item_name = localize(row["index"])
+		match unique_id: # Setup variants
+			408: # Cyclopean
+				unique_entry.item_name += " (On-Strike)"
+			435:
+				unique_entry.item_name += " (On-Cast)"
+			426: # Akarat
+				unique_entry.item_name += " (On-Cast)"
+			434:
+				unique_entry.item_name += " (On-Strike)"
+			141: # Arm of King Leoric
+				unique_entry.item_name += " (Warrior)"
+			473:
+				unique_entry.item_name += " (Archer)"
+			392: # Facets
+				unique_entry.item_name += " (Light Die)"
+			393:
+				unique_entry.item_name += " (Cold Die)"
+			394:
+				unique_entry.item_name += " (Fire Die)"
+			395:
+				unique_entry.item_name += " (Poison Die)"
+			396:
+				unique_entry.item_name += " (Light Level-Up)"
+			397:
+				unique_entry.item_name += " (Cold Level-Up)"
+			398:
+				unique_entry.item_name += " (Fire Level-Up)"
+			399:
+				unique_entry.item_name += " (Poison Level-Up)"
 		unique_entry.item_qlvl = int(row["lvl"])
 		unique_entries.append(unique_entry)
 	# Sort entries

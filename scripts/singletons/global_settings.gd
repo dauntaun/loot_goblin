@@ -38,7 +38,7 @@ const SETTINGS := {
 
 var version := "0.5.1"
 var debug_mode := false
-var force_update_cache := false
+var force_update_cache := true
 # Setting vars
 var max_backups: int
 var instant_search: bool
