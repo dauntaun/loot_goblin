@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, ARMOR, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET, ETHEREAL, CORRUPT}
+enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, CHEST, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET, ETHEREAL, CORRUPT}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -54,7 +54,7 @@ class CompiledQuickFilterQuery:
 		# Weapon 21 types
 		AXE, CLUB, MACE, HAMMER, SWORD, DAGGER, THROWING_AXE, THROWING_KNIFE, JAVELIN, AMAZON_JAVELIN, SPEAR, AMAZON_SPEAR, POLEARM, BOW, AMAZON_BOW, CROSSBOW, STAFF, WAND, SCEPTER, CLAW, ORB,
 		# Armor 11 types
-		HELM, CIRCLET, ARMOR, SHIELD, GLOVES, BOOTS, BELT, DRUID_HELM, BARBARIAN_HELM, PALADIN_SHIELD, NECROMANCER_SHIELD,
+		HELM, CIRCLET, CHEST, SHIELD, GLOVES, BOOTS, BELT, DRUID_HELM, BARBARIAN_HELM, PALADIN_SHIELD, NECROMANCER_SHIELD,
 		# Misc 9 types
 		RING, AMULET, ARROWS, BOLTS, SMALL_CHARM, LARGE_CHARM, GRAND_CHARM, JEWEL, MAP
 		}
@@ -143,7 +143,7 @@ class CompiledQuickFilterQuery:
 				# Armor
 				TypeFilter.HELM: return item.item_type == "Helm"
 				TypeFilter.CIRCLET: return item.item_type == "Circlet"
-				TypeFilter.ARMOR: return item.item_type == "Armor"
+				TypeFilter.CHEST: return item.item_type == "Chest"
 				TypeFilter.SHIELD: return item.item_type == "Shield"
 				TypeFilter.GLOVES: return item.item_type == "Gloves"
 				TypeFilter.BOOTS: return item.item_type == "Boots"

@@ -4,7 +4,7 @@ extends Node
 var grail_uniques: Dictionary[int, GrailEntry] # by unique_id
 
 var unique_main_categories := ["Weapon", "Armor", "Misc", "Uber"]
-var unique_subcategories := ["Axe 1H", "Axe 2H", "Mace 1H", "Mace 2H", "Sword 1H", "Sword 2H", "Dagger", "Throwing", "Spear", "Polearm", "Bow", "Crossbow", "Staff", "Wand", "Scepter", "Claw", "Orb", "Amazon", "Helm", "Circlet", "Armor", "Shield", "Gloves", "Boots", "Belt", "Druid Helm", "Barbarian Helm", "Paladin Shield", "Necromancer Shield", "Arrows", "Bolts", "Amulet", "Ring", "Charm", "Jewel", "Map", "DClone", "Rathma"]
+var unique_subcategories := ["Axe 1H", "Axe 2H", "Mace 1H", "Mace 2H", "Sword 1H", "Sword 2H", "Dagger", "Throwing", "Spear", "Polearm", "Bow", "Crossbow", "Staff", "Wand", "Scepter", "Claw", "Orb", "Amazon", "Helm", "Circlet", "Chest", "Shield", "Gloves", "Boots", "Belt", "Druid Helm", "Barbarian Helm", "Paladin Shield", "Necromancer Shield", "Arrows", "Bolts", "Amulet", "Ring", "Charm", "Jewel", "Map", "DClone", "Rathma"]
 
 var unique_total_completion: Dictionary
 var unique_completion_by_main_category: Dictionary[String, Dictionary]

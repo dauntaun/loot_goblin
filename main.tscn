@@ -774,7 +774,7 @@ text = "Circlet"
 [node name="Armor3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=670048000]
 layout_mode = 2
 toggle_mode = true
-text = "Armor"
+text = "Chest"
 
 [node name="Armor4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=1229224848]
 layout_mode = 2
@@ -2727,7 +2727,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
 toggle_mode = true
 button_group = SubResource("ButtonGroup_kek77")
-text = "Armor"
+text = "Chest"
 
 [node name="Button4" type="Button" parent="MarginContainer/Stash/MainSelector/GrailView/MarginContainer/GrailSideBar/VBoxContainer/ScrollContainer/GrailTabs/GrailFiltersUnique/VBoxContainer2/ArmorGrail" unique_id=1451058388]
 layout_mode = 2

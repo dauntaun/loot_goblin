@@ -4,7 +4,7 @@ enum ColType {NAME, ETH, BASE, TIER, QLVL, TC}
 
 var categories := ["Weapon", "Armor", "Misc"]
 var weapons := ["Axe 1H", "Axe 2H", "Mace 1H", "Mace 2H", "Sword 1H", "Sword 2H", "Dagger", "Throwing", "Spear", "Polearm", "Bow", "Crossbow", "Staff", "Wand", "Scepter", "Claw", "Orb", "Amazon"]
-var armors := ["Helm", "Circlet", "Armor", "Shield", "Gloves", "Boots", "Belt", "Druid Helm", "Barbarian Helm", "Paladin Shield", "Necromancer Shield"]
+var armors := ["Helm", "Circlet", "Chest", "Shield", "Gloves", "Boots", "Belt", "Druid Helm", "Barbarian Helm", "Paladin Shield", "Necromancer Shield"]
 var misc := ["Arrows", "Bolts", "Amulet", "Ring", "Charm", "Jewel", "Map"]
 var uber := ["DClone", "Rathma"]
 

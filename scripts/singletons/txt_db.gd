@@ -148,6 +148,7 @@ const RENAME_TYPES: Dictionary[String, String] = {
 	"Belt [S]": "Belt",
 	"Crossbow Quiver": "Bolts",
 	"Bow Quiver": "Arrows",
+	"Armor": "Chest",
 }
 
 var all_codes: Dictionary
