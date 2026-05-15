@@ -155,8 +155,8 @@ class CompiledQuickFilterQuery:
 				# Misc
 				TypeFilter.RING: return item.base_name == "Ring"
 				TypeFilter.AMULET: return item.base_name == "Amulet"
-				TypeFilter.ARROWS: return item.item_type == "Bow Quiver"
-				TypeFilter.BOLTS: return item.item_type == "Crossbow Quiver"
+				TypeFilter.ARROWS: return item.item_type == "Arrows"
+				TypeFilter.BOLTS: return item.item_type == "Bolts"
 				TypeFilter.SMALL_CHARM: return item.base_name == "Small Charm"
 				TypeFilter.LARGE_CHARM: return item.base_name == "Large Charm"
 				TypeFilter.GRAND_CHARM: return item.base_name == "Grand Charm"
