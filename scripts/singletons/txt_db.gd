@@ -149,6 +149,12 @@ const RENAME_TYPES: Dictionary[String, String] = {
 	"Crossbow Quiver": "Bolts",
 	"Bow Quiver": "Arrows",
 	"Armor": "Chest",
+	"Any Shield": "Shield",
+	"Paladin Item": "Paladin Shield",
+	"Sorceress Item": "Orb",
+	"Missile": "Quiver",
+	"2H Sword": "Two-Handed Sword",
+	"Thrown Weapon": "Throwing Weapon",
 }
 
 var all_codes: Dictionary
