@@ -23,6 +23,10 @@ var set_total_completion: Dictionary
 var set_completion_by_main_category: Dictionary[String, Dictionary]
 var set_completion_by_subcategory: Dictionary[String, Dictionary]
 
+# ==== Runeword ====
+var grail_runewords: Dictionary[String, RunewordEntry]
+var rw_total_completion: Dictionary
+
 
 func _ready() -> void:
 	for category: String in unique_subcategories:
@@ -36,16 +40,22 @@ func _ready() -> void:
 	for category: String in set_main_categories:
 		set_completion_by_main_category[category] = {"total": 0, "found": 0, "missing": 0, "missing_eth": 0}
 	set_total_completion = {"total": 0, "found": 0, "missing": 0, "missing_eth": 0}
+	
+	rw_total_completion = {"total": 0, "found": 0, "missing": 0}
 
 
 func update_grail() -> void:
 	for item: D2Item in ItemRegistry.item_register.values():
-		if item.rarity == D2Item.ItemRarity.UNIQUE:
-			grail_uniques[item.unique_id].found = true
-			grail_uniques[item.unique_id].found_eth = grail_uniques[item.unique_id].found_eth or item.is_ethereal
-		elif item.rarity == D2Item.ItemRarity.SET:
-			grail_sets[item.set_id].found = true
-			grail_sets[item.set_id].found_eth = grail_sets[item.set_id].found_eth or item.is_ethereal
+		if item.has_runeword:
+			grail_runewords[item.item_name].found = true
+		else:
+			match item.rarity:
+				D2Item.ItemRarity.UNIQUE:
+					grail_uniques[item.unique_id].found = true
+					grail_uniques[item.unique_id].found_eth = grail_uniques[item.unique_id].found_eth or item.is_ethereal
+				D2Item.ItemRarity.SET:
+					grail_sets[item.set_id].found = true
+					grail_sets[item.set_id].found_eth = grail_sets[item.set_id].found_eth or item.is_ethereal
 	
 	for entry: GrailEntry in grail_uniques.values():
 		unique_completion_by_subcategory[entry.subcategory].total += 1
@@ -80,3 +90,10 @@ func update_grail() -> void:
 			set_completion_by_subcategory[entry.subcategory].missing_eth += 1
 			set_completion_by_main_category[entry.main_category].missing_eth += 1
 			set_total_completion.missing_eth += 1
+	
+	for entry: RunewordEntry in grail_runewords.values():
+		rw_total_completion.total += 1
+		if entry.found:
+			rw_total_completion.found += 1
+		else:
+			rw_total_completion.missing += 1

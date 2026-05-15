@@ -233,6 +233,7 @@ func _load_from_cache(cache: CachedTxtDB) -> void:
 	# Grail
 	Grail.grail_uniques = cache.grail_uniques
 	Grail.grail_sets = cache.grail_sets
+	Grail.grail_runewords = cache.grail_runewords
 
 
 func _save_database_cache() -> void:
@@ -271,6 +272,7 @@ func _save_database_cache() -> void:
 	# Grail
 	cache.grail_uniques = Grail.grail_uniques
 	cache.grail_sets = Grail.grail_sets
+	cache.grail_runewords = Grail.grail_runewords
 	# Version
 	cache.version = GlobalSettings.version
 	# Save
@@ -447,16 +449,36 @@ func _build_database() -> void:
 		}
 	
 	# Setup runewords
+	var rw_entries: Array[RunewordEntry]
 	for row_num: int in runewords:
 		var row: Dictionary = runewords[row_num]
-		var rw_name: String = row["Name"]
-		if row["complete"] == "1":
-			var runes: Array[String]
-			for i: int in range(1, 7):
-				var key: String = "Rune%d" % i
-				if row[key] != "":
-					runes.append(row[key])
-			runewords_parsed[rw_name] = runes
+		if row["complete"] != "1":
+			continue
+		var rw_name: String = localize(row["Name"])
+		var runes: Array[String]
+		for i: int in range(1, 7):
+			var key: String = "Rune%d" % i
+			if row[key] != "":
+				runes.append(row[key])
+		runewords_parsed[runes] = rw_name
+		# Setup grail runewords
+		var itypes: Array[String]
+		for i: int in range(1, 7):
+			var key: String = "itype%d" % i
+			var itype: String = row[key]
+			if itype != "":
+				var itype_localized: String = item_types[itype]["ItemType"]
+				itypes.append(itype_localized)
+		var itypes_reduced: String = itypes.reduce(func(accum: String, itype: String) -> String: return accum + "/" + itype)
+		var runes_reduced: String = runes.reduce(func(accum: String, rune: String) -> String: return localize(accum).split(" ")[0] + localize(rune).split(" ")[0])
+		var req_level: int = runes.map(func(rune_code: String) -> int: return get_item_required_level(rune_code)).max()
+		var rw_entry := RunewordEntry.new()
+		rw_entry.rw_name = rw_name
+		rw_entry.req_level = req_level
+		rw_entry.sockets = runes.size()
+		rw_entry.runes = runes_reduced
+		rw_entry.itypes = itypes_reduced
+		rw_entries.append(rw_entry)
 	# Setup grail sets
 	var set_entries: Array[GrailEntry]
 	for set_id: int in set_items:
@@ -612,6 +634,7 @@ func _build_database() -> void:
 				unique_entry.item_name += " (Poison Level-Up)"
 		unique_entry.item_qlvl = int(row["lvl"])
 		unique_entries.append(unique_entry)
+	
 	# Sort entries
 	var tier_order := ["Normal", "Exceptional", "Elite"]
 	var sort_grail_entries := func(a: GrailEntry, b: GrailEntry, main_category_order: Array, subcategory_order: Array) -> bool:
@@ -626,6 +649,11 @@ func _build_database() -> void:
 		if a.item_tc != b.item_tc:
 			return a.item_tc.naturalnocasecmp_to(b.item_tc) < 0
 		return a.item_qlvl < b.item_qlvl
+	var sort_rw_entries := func(a: RunewordEntry, b: RunewordEntry) -> bool:
+		if a.req_level != b.req_level:
+			return a.req_level < b.req_level
+		else:
+			return a.rw_name.naturalnocasecmp_to(b.rw_name) < 0
 	# Sort grail entries
 	unique_entries.sort_custom(sort_grail_entries.bind(Grail.unique_main_categories, Grail.unique_subcategories))
 	var grail_uniques: Dictionary[int, GrailEntry]
@@ -638,6 +666,41 @@ func _build_database() -> void:
 	for set_entry: GrailEntry in set_entries:
 		grail_sets[set_entry.txt_id] = set_entry
 	Grail.grail_sets = grail_sets
+	
+	rw_entries.sort_custom(sort_rw_entries)
+	var grail_runewords: Dictionary[String, RunewordEntry]
+	for rw_entry: RunewordEntry in rw_entries:
+		match rw_entry.rw_name:
+			"Malice":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Throwing Axe", "")
+			"Zephyr":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin", "")
+				rw_entry.itypes = rw_entry.itypes.replace("/Throwing Axe/Throwing Knife", "")
+			"Neophyte":
+				rw_entry.itypes = rw_entry.itypes.replace("/Claw/Claw", "/Claw")
+			"King's Grace":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Throwing Axe", "")
+			"Strength":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Amazon Spear/Throwing Axe/Throwing Knife", "")
+			"Echo":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin", "")
+			"Lawbringer":
+				rw_entry.itypes = rw_entry.itypes.replace("/Throwing Axe", "")
+			"Crescent Moon":
+				rw_entry.itypes = rw_entry.itypes.replace("/Throwing Axe", "")
+			"Venom":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Throwing Axe/Throwing Weapon", "")
+			"Grief":
+				rw_entry.itypes = rw_entry.itypes.replace("/Polearm/Polearm", "/Polearm")
+			"Fury":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Throwing Axe", "")
+			"Plague":
+				rw_entry.itypes = rw_entry.itypes.replace("/Javelin/Throwing Axe/Throwing Weapon", "")
+		if grail_runewords.has(rw_entry.rw_name):
+			grail_runewords[rw_entry.rw_name].itypes += "/" + rw_entry.itypes
+		else:
+			grail_runewords[rw_entry.rw_name] = rw_entry
+	Grail.grail_runewords = grail_runewords
 	
 	# Setup damage ranges
 	for code_string: String in weapon_codes:
@@ -760,10 +823,7 @@ func get_item_set_name(set_id: int) -> String:
 	return localize(set_items[set_id]["index"])
 
 func get_item_runeword_name(rune_codes: Array[String]) -> String:
-	for rw: String in runewords_parsed:
-		if runewords_parsed[rw] == rune_codes:
-			return localize(rw)
-	return "Unknown Runeword"
+	return runewords_parsed.get(rune_codes, "Unknown Runeword")
 
 func get_item_base_name(code_string: String) -> String:
 	return localize(all_codes[code_string]["namestr"])

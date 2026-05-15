@@ -38,3 +38,4 @@ extends Resource
 # For Grail
 @export var grail_uniques: Dictionary[int, GrailEntry]
 @export var grail_sets: Dictionary[int, GrailEntry]
+@export var grail_runewords: Dictionary[String, RunewordEntry]
