@@ -50,6 +50,10 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 func _create_item_panel(item: D2Item) -> void:
 	var tooltip: ItemTooltip = ITEM_TOOLTIP_SCENE.instantiate()
 	var button := Button.new()
+	var vbox := VBoxContainer.new()
+	var texture_rect := TextureRect.new()
+	texture_rect.texture = TxtDB.get_item_invfile(item)
+	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	_item_map[item] = button
 	button.toggle_mode = true
 	button.button_group = _button_group
@@ -59,10 +63,13 @@ func _create_item_panel(item: D2Item) -> void:
 	tooltip.move_child(button, 0)
 	button.toggled.connect(_on_item_tooltip_pressed.bind(item))
 	_container.add_child(tooltip)
+	vbox.add_child(texture_rect)
+	tooltip.add_child(vbox)
+	tooltip.label.reparent(vbox)
 	tooltip.add_theme_stylebox_override("panel", StyleBoxEmpty.new())
 	tooltip.set_compact_tooltip(true)
 	tooltip.update_tooltip(item)
-	tooltip.custom_minimum_size.y = 150
+	tooltip.custom_minimum_size.y = 100
 	tooltip.mouse_filter = Control.MOUSE_FILTER_PASS
 	button.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_ENABLED
 
