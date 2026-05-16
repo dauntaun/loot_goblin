@@ -964,13 +964,13 @@ func get_item_invfile(item: D2Item) -> Texture2D:
 	if item.rarity == D2Item.ItemRarity.UNIQUE:
 		var unique_invfile: String = unique_items[item.unique_id]["invfile"]
 		if unique_invfile == "":
-			unique_invfile = all_codes[item.code_string]["uniqueinvfile"]
+			unique_invfile = all_codes[item.code_string].get("uniqueinvfile", "")
 		if unique_invfile != "":
 			invfile = unique_invfile
 	elif item.rarity == D2Item.ItemRarity.SET:
 		var set_invfile: String = set_items[item.set_id]["invfile"]
 		if set_invfile == "":
-			set_invfile = all_codes[item.code_string]["setinvfile"]
+			set_invfile = all_codes[item.code_string].get("setinvfile", "")
 		if set_invfile != "":
 			invfile = set_invfile
 	var texture = load("res://assets/item_art/" + invfile + ".png") as Texture2D
