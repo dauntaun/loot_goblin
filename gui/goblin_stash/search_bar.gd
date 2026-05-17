@@ -5,9 +5,11 @@ signal query_submitted(query: String)
 
 @export var focus_search_shortcut: Shortcut
 @export var exit_search_shortcut: Shortcut
+@export var keywords_shortcut: Shortcut
 
 @onready var _search_timer: Timer = %SearchTimer
 @onready var _search_info: RichTextLabel = %SearchInfo
+@onready var _keywords: Control = %Keywords
 
 
 func _ready() -> void:
@@ -22,9 +24,13 @@ func _input(event: InputEvent) -> void:
 		grab_focus()
 		select_all()
 		get_viewport().set_input_as_handled()
+	elif keywords_shortcut.matches_event(event) and event.is_pressed() and not event.is_echo():
+		_keywords.visible = not _keywords.visible
+		get_viewport().set_input_as_handled()
 	elif exit_search_shortcut.matches_event(event) or event.is_action_pressed("enter") or event.is_action_pressed("mouse_left") or event.is_action_pressed("mouse_right"):
 		if event.is_action_pressed("enter") and not GlobalSettings.instant_search:
 			_emit_query()
+		_keywords.hide()
 		release_focus()
 	if has_focus():
 		return

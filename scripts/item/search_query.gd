@@ -253,7 +253,8 @@ class CompiledStringQuery:
 		TYPE,
 		BASE,
 		RARITY,
-		SOCKETS,
+		TIER,
+		NUMERIC,
 	}
 
 	var _raw_query: String
@@ -316,39 +317,235 @@ class CompiledStringQuery:
 			item_rarity += " normal"
 		var value: String = parts[1].strip_edges()
 		return item_rarity.contains(value)
-
-	func _matches_socket_filter(item: D2Item, term: String) -> bool:
+	
+	func _matches_tier_filter(item: D2Item, term: String) -> bool:
 		var parts: PackedStringArray = term.split(":", false)
-		var socket_count: int = item.total_sockets
+		var item_tier: String = D2Item.ItemTier.find_key(item.item_tier).to_lower()
 		var value: String = parts[1].strip_edges()
+		return item_tier.contains(value)
 
-		# Range: value = "3-5"
-		if value.contains("-"):
-			var value_range = value.split("-", false)
-			if value_range.size() != 2:
-				return true
-
-			if not value_range[0].is_valid_int() or not value_range[1].is_valid_int():
+	func _matches_numeric_filter(item: D2Item, numeric_expression: NumericExpression) -> bool:
+		match numeric_expression.key:
+			"reqlvl":
+				return NumericExpression.matches(numeric_expression, item.required_level)
+			"reqdex":
+				return NumericExpression.matches(numeric_expression, item.required_dexterity)
+			"reqstr":
+				return NumericExpression.matches(numeric_expression, item.required_strength)
+			"ilvl":
+				return NumericExpression.matches(numeric_expression, item.item_level)
+			"sock":
+				return NumericExpression.matches(numeric_expression, item.total_sockets)
+			"def":
+				return NumericExpression.matches(numeric_expression, item.defense)
+			"dmg":
+				return NumericExpression.matches(numeric_expression, item.average_damage)
+			"res":
+				return NumericExpression.matches(numeric_expression, item.total_res)
+			"fres":
+				return _matches_property(item, numeric_expression, 39)
+			"lres":
+				return _matches_property(item, numeric_expression, 41)
+			"cres":
+				return _matches_property(item, numeric_expression, 43)
+			"pres":
+				return _matches_property(item, numeric_expression, 45)
+			"ares":
+				return _matches_property(item, numeric_expression, 39) and \
+				_matches_property(item, numeric_expression, 41) and \
+				_matches_property(item, numeric_expression, 43) and \
+				_matches_property(item, numeric_expression, 45)
+			"maxfres":
+				return _matches_property(item, numeric_expression, 40)
+			"maxlres":
+				return _matches_property(item, numeric_expression, 42)
+			"maxcres":
+				return _matches_property(item, numeric_expression, 44)
+			"maxpres":
+				return _matches_property(item, numeric_expression, 46)
+			"maxres":
+				return _matches_property(item, numeric_expression, 40) and \
+				_matches_property(item, numeric_expression, 42) and \
+				_matches_property(item, numeric_expression, 44) and \
+				_matches_property(item, numeric_expression, 46)
+			"fabs":
+				return _matches_property(item, numeric_expression, 142)
+			"flatfabs":
+				return _matches_property(item, numeric_expression, 143)
+			"labs":
+				return _matches_property(item, numeric_expression, 144)
+			"flatlabs":
+				return _matches_property(item, numeric_expression, 145)
+			"cabs":
+				return _matches_property(item, numeric_expression, 149)
+			"flatcabs":
+				return _matches_property(item, numeric_expression, 150)
+			"min":
+				return _matches_property(item, numeric_expression, 21)
+			"max":
+				return _matches_property(item, numeric_expression, 22)
+			"dam":
+				return _matches_property(item, numeric_expression, 111)
+			"fmin":
+				return _matches_property(item, numeric_expression, 48)
+			"fmax":
+				return _matches_property(item, numeric_expression, 49)
+			"lmin":
+				return _matches_property(item, numeric_expression, 50)
+			"lmax":
+				return _matches_property(item, numeric_expression, 50)
+			"mmin":
+				return _matches_property(item, numeric_expression, 52)
+			"mmax":
+				return _matches_property(item, numeric_expression, 52)
+			"cmin":
+				return _matches_property(item, numeric_expression, 54)
+			"cmax":
+				return _matches_property(item, numeric_expression, 55)
+			"pmin":
+				return _matches_property(item, numeric_expression, 57)
+			"pmax":
+				return _matches_property(item, numeric_expression, 57)
+			"fpierce":
+				return _matches_property(item, numeric_expression, 333)
+			"lpierce":
+				return _matches_property(item, numeric_expression, 334)
+			"cpierce":
+				return _matches_property(item, numeric_expression, 335)
+			"ppierce":
+				return _matches_property(item, numeric_expression, 336)
+			"phys":
+				return _matches_property(item, numeric_expression, 425)
+			"fdmg":
+				return _matches_property(item, numeric_expression, 329)
+			"ldmg":
+				return _matches_property(item, numeric_expression, 330)
+			"cdmg":
+				return _matches_property(item, numeric_expression, 331)
+			"pdmg":
+				return _matches_property(item, numeric_expression, 332)
+			"mdmg":
+				return _matches_property(item, numeric_expression, 357)
+			"flatpdr":
+				return _matches_property(item, numeric_expression, 34)
+			"mdr":
+				return _matches_property(item, numeric_expression, 35)
+			"pdr":
+				return _matches_property(item, numeric_expression, 36)
+			"fhr":
+				return _matches_property(item, numeric_expression, 99)
+			"fbr":
+				return _matches_property(item, numeric_expression, 102)
+			"frw":
+				return _matches_property(item, numeric_expression, 96)
+			"plr":
+				return _matches_property(item, numeric_expression, 110)
+			"clr":
+				return _matches_property(item, numeric_expression, 109)
+			"ed":
+				return _matches_property(item, numeric_expression, 17)
+			"ias":
+				return _matches_property(item, numeric_expression, 93)
+			"fcr":
+				return _matches_property(item, numeric_expression, 105)
+			"edef":
+				return _matches_property(item, numeric_expression, 16)
+			"life":
+				return _matches_property(item, numeric_expression, 7)
+			"mana":
+				return _matches_property(item, numeric_expression, 9)
+			"maxlife":
+				return _matches_property(item, numeric_expression, 76)
+			"maxmana":
+				return _matches_property(item, numeric_expression, 77)
+			"str":
+				return _matches_property(item, numeric_expression, 0)
+			"eng":
+				return _matches_property(item, numeric_expression, 1)
+			"dex":
+				return _matches_property(item, numeric_expression, 2)
+			"vit":
+				return _matches_property(item, numeric_expression, 3)
+			"all":
+				return _matches_property(item, numeric_expression, 0) and \
+				_matches_property(item, numeric_expression, 1) and \
+				_matches_property(item, numeric_expression, 2) and \
+				_matches_property(item, numeric_expression, 3)
+			"ar":
+				return _matches_property(item, numeric_expression, 19)
+			"arper":
+				return _matches_property(item, numeric_expression, 119)
+			"ds":
+				return _matches_property(item, numeric_expression, 141)
+			"maxds":
+				return _matches_property(item, numeric_expression, 210)
+			"dsm":
+				return _matches_property(item, numeric_expression, 257)
+			"cb":
+				return _matches_property(item, numeric_expression, 136)
+			"cbe":
+				return _matches_property(item, numeric_expression, 268)
+			"cs":
+				return _matches_property(item, numeric_expression, 258)
+			"ow":
+				return _matches_property(item, numeric_expression, 135)
+			"owdmg":
+				return _matches_property(item, numeric_expression, 501)
+			"pierce":
+				return _matches_property(item, numeric_expression, 156)
+			"skills":
+				return _matches_property(item, numeric_expression, 127)
+			"mf":
+				return _matches_property(item, numeric_expression, 80)
+			"gf":
+				return _matches_property(item, numeric_expression, 79)
+			"maek":
+				return _matches_property(item, numeric_expression, 138)
+			"laek":
+				return _matches_property(item, numeric_expression, 86)
+			"xp":
+				return _matches_property(item, numeric_expression, 85)
+			"lifesteal":
+				return _matches_property(item, numeric_expression, 60)
+			"manasteal":
+				return _matches_property(item, numeric_expression, 62)
+			"block":
+				return _matches_property(item, numeric_expression, 20)
+			"regen":
+				return _matches_property(item, numeric_expression, 27)
+			"curse":
+				return _matches_property(item, numeric_expression, 504)
+			"atd":
+				return _matches_property(item, numeric_expression, 78)
+			"atld":
+				return _matches_property(item, numeric_expression, 128)
+			"replife":
+				return _matches_property(item, numeric_expression, 74)
+			"mapmf":
+				return _matches_property(item, numeric_expression, 370)
+			"mapgf":
+				return _matches_property(item, numeric_expression, 371)
+			"mapden":
+				return _matches_property(item, numeric_expression, 372)
+			"mapxp":
+				return _matches_property(item, numeric_expression, 373)
+			"maprar":
+				return _matches_property(item, numeric_expression, 375)
+			"dtm":
+				return _matches_property(item, numeric_expression, 114)
+			_:
 				return false
-
-			var min_sockets := int(value_range[0])
-			var max_sockets := int(value_range[1])
-
-			if min_sockets > max_sockets:
-				return false
-
-			return socket_count >= min_sockets and socket_count <= max_sockets
-
-		# Exact match: value = "4"
-		if value.is_valid_int():
-			return socket_count == int(value)
-
+	
+	func _matches_property(item: D2Item, numeric_expression: NumericExpression, stat_id: int) -> bool:
+		for prop: Dictionary in item.all_properties:
+			if prop.stat_id == stat_id:
+				return NumericExpression.matches(numeric_expression, prop.params[0])
 		return false
-
+	
 	func _compile_single_term(term: String, negated: bool) -> Dictionary:
-		if term.begins_with("s:") or term.begins_with("sockets:"):
-			var term_complete := term.split(":", false).size() > 1
-			return { "kind": TermKind.SOCKETS, "value": term, "negated": negated, "complete": term_complete}
+		var numeric_expression := NumericExpression.parse(term)
+		if numeric_expression.is_valid:
+			return { "kind": TermKind.NUMERIC, "numeric_expression": numeric_expression, "negated": negated, "complete": true}
 		elif term.begins_with("t:") or term.begins_with("type:"):
 			var term_complete := term.split(":", false).size() > 1
 			return { "kind": TermKind.TYPE, "value": term, "negated": negated, "complete": term_complete}
@@ -358,8 +555,11 @@ class CompiledStringQuery:
 		elif term.begins_with("r:") or term.begins_with("rarity:"):
 			var term_complete := term.split(":", false).size() > 1
 			return { "kind": TermKind.RARITY, "value": term, "negated": negated, "complete": term_complete }
-		else:
-			return { "kind": TermKind.TEXT, "value": term, "negated": negated, "complete": true}
+		elif term.begins_with("tier:"):
+			var term_complete := term.split(":", false).size() > 1
+			return { "kind": TermKind.TIER, "value": term, "negated": negated, "complete": term_complete }
+		# Text fallback
+		return { "kind": TermKind.TEXT, "value": term, "negated": negated, "complete": true}
 
 	func _match_compiled_term(item: D2Item, compiled_term: Dictionary) -> bool:
 		if not compiled_term["complete"]:
@@ -375,8 +575,10 @@ class CompiledStringQuery:
 				result = _matches_base_filter(item, compiled_term.value)
 			TermKind.RARITY:
 				result = _matches_rarity_filter(item, compiled_term.value)
-			TermKind.SOCKETS:
-				result = _matches_socket_filter(item, compiled_term.value)
+			TermKind.TIER:
+				result = _matches_tier_filter(item, compiled_term.value)
+			TermKind.NUMERIC:
+				result = _matches_numeric_filter(item, compiled_term.numeric_expression)
 			
 		if compiled_term["negated"]: result = not result
 		return result
@@ -400,3 +602,74 @@ class CompiledStringQuery:
 				return false
 
 		return true
+
+
+class NumericExpression:
+	enum Operator {EQUAL, GREATER, GREATER_EQUAL, LOWER, LOWER_EQUAL, RANGE}
+	
+	var key: String
+	var operator: Operator
+	var value: int
+	var min_value: int
+	var max_value: int
+	
+	var is_valid: bool
+	
+	
+	static func parse(input: String) -> NumericExpression:
+		var expression := NumericExpression.new()
+		input = input.strip_edges()
+		
+		var num_regex := RegEx.create_from_string(r"^([a-zA-Z_][a-zA-Z0-9_]*)\s*(<=|>=|=|<|>|~)\s*((?:-?\d+)|(?:-?\d+\s*-\s*-?\d+))$")
+		var num_result := num_regex.search(input)
+		if num_result:
+			expression.key = num_result.strings[1]
+			match num_result.strings[2]:
+				"<=":
+					expression.operator = Operator.LOWER_EQUAL
+				">=":
+					expression.operator = Operator.GREATER_EQUAL
+				"=":
+					expression.operator = Operator.EQUAL
+				"<":
+					expression.operator = Operator.LOWER
+				">":
+					expression.operator = Operator.GREATER
+				"~":
+					expression.operator = Operator.RANGE
+			if expression.operator == Operator.RANGE:
+				var value_regex := RegEx.create_from_string(r"^(-?\d+)\s*-\s*(-?\d+)$")
+				var value_result := value_regex.search(num_result.strings[3])
+				if value_result:
+					expression.min_value = int(value_result.strings[1])
+					expression.max_value = int(value_result.strings[2])
+					if expression.min_value <= expression.max_value:
+						expression.is_valid = true
+			else:
+				var value_regex := RegEx.create_from_string(r"^(-?\d+)$")
+				var value_result := value_regex.search(num_result.strings[3])
+				if value_result:
+					expression.value = int(value_result.strings[1])
+					expression.is_valid = true
+		else:
+			return expression
+		
+		return expression
+	
+	
+	static func matches(expression: NumericExpression, op_value: int) -> bool:
+		match expression.operator:
+			Operator.EQUAL:
+				return op_value == expression.value
+			Operator.GREATER:
+				return op_value > expression.value
+			Operator.GREATER_EQUAL:
+				return op_value >= expression.value
+			Operator.LOWER:
+				return op_value < expression.value
+			Operator.LOWER_EQUAL:
+				return op_value <= expression.value
+			Operator.RANGE:
+				return op_value >= expression.min_value and op_value <= expression.max_value
+
+		return false

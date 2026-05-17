@@ -98,6 +98,14 @@ keycode = 4194305
 [sub_resource type="Shortcut" id="Shortcut_dg77c"]
 events = [SubResource("InputEventKey_efxa6")]
 
+[sub_resource type="InputEventKey" id="InputEventKey_jq2sk"]
+device = -1
+ctrl_pressed = true
+keycode = 72
+
+[sub_resource type="Shortcut" id="Shortcut_4k2k6"]
+events = [SubResource("InputEventKey_jq2sk")]
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_a6jrf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1u8w0"]
@@ -147,6 +155,27 @@ content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2t1y"]
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 0.8156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cbny"]
+bg_color = Color(0.28957725, 0.22416165, 0.59861827, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnost"]
+bg_color = Color(0.3822566, 0.24846745, 0.36893916, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gngh3"]
+bg_color = Color(0.33346128, 0.3050326, 0.14921242, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0n3wm"]
+bg_color = Color(0.45793247, 0.22804576, 0.1529176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnkbs"]
+bg_color = Color(0.16593763, 0.33759126, 0.31547642, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6a44"]
+bg_color = Color(0.16593763, 0.33759126, 0.31547642, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
@@ -430,27 +459,37 @@ action_mode = 0
 button_group = SubResource("ButtonGroup_2cqfq")
 text = "Grail"
 
-[node name="Views" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1095754745]
+[node name="Control" type="Control" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer" unique_id=1924414344]
 custom_minimum_size = Vector2(0, 38)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Views" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control" unique_id=1095754745]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("11_ycdy4")
 
-[node name="SearchBox" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views" unique_id=601662927]
+[node name="SearchBox" type="HBoxContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views" unique_id=601662927]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=517615347]
+[node name="Label" type="PanelContainer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox" unique_id=517615347]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0rl1p")
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/Label" unique_id=274470479]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox/Label" unique_id=274470479]
 layout_mode = 2
 text = "Search:"
 
-[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=1017487358]
+[node name="SearchBar" type="LineEdit" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox" unique_id=1017487358]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -461,13 +500,14 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_ycdy4")
 script = ExtResource("4_kek77")
 focus_search_shortcut = SubResource("Shortcut_4c57u")
 exit_search_shortcut = SubResource("Shortcut_dg77c")
+keywords_shortcut = SubResource("Shortcut_4k2k6")
 
-[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/SearchBar" unique_id=48378324]
+[node name="SearchTimer" type="Timer" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox/SearchBar" unique_id=48378324]
 unique_name_in_owner = true
 wait_time = 0.08
 one_shot = true
 
-[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/SearchBar" unique_id=1049118652]
+[node name="SearchInfo" type="RichTextLabel" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox/SearchBar" unique_id=1049118652]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -478,11 +518,11 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
 bbcode_enabled = true
-text = "[color=gray]Filter items ([i]Ctrl+F[/i] )"
+text = "[color=gray]Search ([i]Ctrl+F[/i] ) / Keywords ([i]Ctrl+H[/i] )"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TableView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=598375625]
+[node name="TableView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox" unique_id=598375625]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
@@ -496,7 +536,7 @@ icon = ExtResource("4_htxhm")
 icon_alignment = 1
 expand_icon = true
 
-[node name="TileView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox" unique_id=1524196157]
+[node name="TileView" type="Button" parent="MarginContainer/Stash/MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox" unique_id=1524196157]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
@@ -1105,24 +1145,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer" unique_id=2090959109]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=138644182 node_paths=PackedStringArray("switch_buttons", "tab_container")]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer" unique_id=138644182 node_paths=PackedStringArray("switch_buttons", "tab_container")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
 current_tab = 0
 tabs_visible = false
 script = ExtResource("22_1u8w0")
-switch_buttons = [NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TableView"), NodePath("../../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Views/SearchBox/TileView")]
+switch_buttons = [NodePath("../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox/TableView"), NodePath("../../../../../../MarginContainer2/PanelContainer/HBoxContainer/HBoxContainer/Control/Views/SearchBox/TileView")]
 tab_container = NodePath(".")
 
-[node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=2024813567]
-unique_name_in_owner = true
+[node name="Control" type="Control" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer" unique_id=1068438394]
 layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="TreeView" type="Tree" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control" unique_id=2024813567]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 1
@@ -1135,20 +1176,1665 @@ allow_search = false
 hide_root = true
 select_mode = 1
 auto_tooltip = false
-metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=1799834401]
+[node name="Keywords" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control" unique_id=473302934]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(800, 612)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+horizontal_scroll_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords" unique_id=453670690]
+custom_minimum_size = Vector2(768, 612)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2t1y")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer" unique_id=353986801]
+layout_mode = 2
+columns = 3
+
+[node name="VBoxContainer16" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1157368958]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=895192177]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/PanelContainer" unique_id=1539673771]
+layout_mode = 2
+text = "Special terms"
+horizontal_alignment = 1
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=1125307692]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer17" unique_id=996213875]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Combine"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer17" unique_id=1833534493]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer17/HBoxContainer" unique_id=422554144]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cbny")
+text = "[term1]"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer17/HBoxContainer" unique_id=96463571]
+layout_mode = 2
+size_flags_horizontal = 10
+text = " & "
+
+[node name="Keyword4" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer17/HBoxContainer" unique_id=1665377448]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cbny")
+text = "[term2]"
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=363849948]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer18" unique_id=1687506819]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Negate"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer18" unique_id=1478133717]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer18/HBoxContainer" unique_id=653337348]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "!"
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer18/HBoxContainer" unique_id=513134338]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0cbny")
+text = "[term]"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=1300343321]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer12" unique_id=631266804]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Item type"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer12" unique_id=1909395717]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer12/HBoxContainer" unique_id=158946594]
+layout_mode = 2
+size_flags_horizontal = 10
+text = ":type/:t "
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer12/HBoxContainer" unique_id=209167419]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qnost")
+text = "[string]"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=1833436531]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer13" unique_id=1860136583]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Item base"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer13" unique_id=1784296662]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer13/HBoxContainer" unique_id=847151316]
+layout_mode = 2
+size_flags_horizontal = 10
+text = ":base/:b "
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer13/HBoxContainer" unique_id=577873558]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qnost")
+text = "[string]"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=337453867]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer14" unique_id=1800913578]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Item rarity"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer14" unique_id=878594265]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer14/HBoxContainer" unique_id=382397688]
+layout_mode = 2
+size_flags_horizontal = 10
+text = ":rarity/:r "
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer14/HBoxContainer" unique_id=540879822]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qnost")
+text = "[string]"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=2070309399]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer15" unique_id=1917805763]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Item tier"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer15" unique_id=1221001953]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer15/HBoxContainer" unique_id=1849247109]
+layout_mode = 2
+size_flags_horizontal = 10
+text = ":tier "
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer15/HBoxContainer" unique_id=1002838219]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_qnost")
+text = "[string]"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16" unique_id=1284465798]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer16" unique_id=988620281]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Numerical"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer16" unique_id=80351852]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer16/HBoxContainer" unique_id=1825617701]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "[key]"
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer16/HBoxContainer" unique_id=1330584701]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = "[operator]"
+
+[node name="Keyword3" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer16/HBoxContainer16/HBoxContainer" unique_id=97280919]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_wnkbs")
+text = "[value]"
+
+[node name="VBoxContainer15" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=174448471]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=1894566871]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/PanelContainer" unique_id=998292300]
+layout_mode = 2
+text = "Operators"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=436602471]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer12" unique_id=795485385]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Greater"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer12" unique_id=864162087]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer12/HBoxContainer" unique_id=824467605]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = ">"
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer12/HBoxContainer" unique_id=1457660325]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[value]"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=1601501934]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer13" unique_id=47335415]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Less"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer13" unique_id=255296524]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer13/HBoxContainer" unique_id=780864187]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = "<"
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer13/HBoxContainer" unique_id=160397194]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[value]"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=666129680]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer14" unique_id=978314989]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Greater/equal"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer14" unique_id=630956133]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer14/HBoxContainer2" unique_id=1863881145]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = ">="
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer14/HBoxContainer2" unique_id=1872983640]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[value]"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=51292387]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer15" unique_id=1348750137]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Less/equal"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer15" unique_id=1990545625]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer15/HBoxContainer2" unique_id=2142438769]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = "<="
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer15/HBoxContainer2" unique_id=118236114]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[value]"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=216499370]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer16" unique_id=1930143660]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Equal"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer16" unique_id=560414188]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer16/HBoxContainer2" unique_id=142751748]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = "="
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer16/HBoxContainer2" unique_id=1416826911]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[value]"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15" unique_id=484459801]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer17" unique_id=915527369]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Range"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer17" unique_id=1669189686]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer17/HBoxContainer2" unique_id=1989357713]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0n3wm")
+text = "~"
+
+[node name="Keyword2" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer15/HBoxContainer17/HBoxContainer2" unique_id=1966011066]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6a44")
+text = "[min-max]"
+
+[node name="VBoxContainer14" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=317424406]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1806895999]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/PanelContainer" unique_id=1034703522]
+layout_mode = 2
+text = "Misc"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=128206676]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer12" unique_id=671805772]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Item level"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer12" unique_id=1660189172]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ilvl"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1731848391]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer13" unique_id=622844587]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Sockets"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer13" unique_id=199856385]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "sock"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1149000025]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer14" unique_id=383209269]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "All skills"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer14" unique_id=341996067]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "skills"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=2129064640]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer15" unique_id=1654896650]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Magic find"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer15" unique_id=35015168]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mf"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1681393702]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer16" unique_id=1494123555]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Gold find"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer16" unique_id=994329582]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "gf"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1129022974]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer17" unique_id=813338307]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Experience gained"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer17" unique_id=843123730]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "xp"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=501589940]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=2130586159]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/PanelContainer" unique_id=2043701314]
+layout_mode = 2
+text = "Resistances"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=290888828]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer" unique_id=1255976110]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Total"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer" unique_id=895625083]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "res"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=820927035]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer5" unique_id=385055758]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer5" unique_id=1350623388]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fres/maxfres"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=32134224]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer3" unique_id=1217697616]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer3" unique_id=1048810836]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cres/maxcres"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=1253705684]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer2" unique_id=1528187220]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer2" unique_id=1283312150]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "lres/maxlres"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=1009774322]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer4" unique_id=423154815]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Poison"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer4" unique_id=2139630168]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "pres/maxpres"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer" unique_id=1558524627]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer6" unique_id=302506814]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "All"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer/HBoxContainer6" unique_id=1952964524]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ares/maxares"
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1328728713]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=199763876]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/PanelContainer" unique_id=1126001558]
+layout_mode = 2
+text = "Attributes"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=552238614]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer" unique_id=1743426460]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Strength"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer" unique_id=1183083091]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "str"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=1411493564]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer5" unique_id=1919641461]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Dexterity"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer5" unique_id=1067943703]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "dex"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=788412056]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer2" unique_id=46130818]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Energy"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer2" unique_id=1919557822]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "eng"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=1557695270]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer3" unique_id=2045192360]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Vitality"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer3" unique_id=1008629489]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "vit"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=1774533535]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer4" unique_id=225156277]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "All"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer4" unique_id=1938223494]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "all"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=1121691623]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer12" unique_id=2072274948]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Life"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer12" unique_id=307729574]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "life/maxlife"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6" unique_id=900000044]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer13" unique_id=964409876]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Mana"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer6/HBoxContainer13" unique_id=1900464537]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mana/maxmana"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=2033191327]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=409410037]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/PanelContainer" unique_id=1811655465]
+layout_mode = 2
+text = "Damage"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=1676066551]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer" unique_id=1128207009]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Weapon average"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer" unique_id=766395742]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "dmg"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=371412314]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer5" unique_id=354050035]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Physical"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer5" unique_id=1617133571]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "min/max"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=146173517]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer2" unique_id=121974020]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Damage"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer2" unique_id=975233338]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "dam"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=493751160]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer3" unique_id=581082485]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer3" unique_id=309303681]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fmin/fmax"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=1631112098]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer7" unique_id=248308532]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer7" unique_id=616893086]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cmin/cmax"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=970695761]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer9" unique_id=394683638]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer9" unique_id=879939593]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "lmin/lmax"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2" unique_id=1429070654]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer11" unique_id=950390215]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Poison"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer2/HBoxContainer11" unique_id=1916613440]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "pmin/pmax"
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1630371616]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=883620194]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/PanelContainer" unique_id=59692559]
+layout_mode = 2
+text = "Offense related"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1252033273]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer12" unique_id=2119424449]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Enhanced damage"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer12" unique_id=1643397152]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ed"
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=228755857]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer18" unique_id=1802549268]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Attack rating"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer18" unique_id=1899941286]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ar/arper"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1299794536]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer16" unique_id=1363538700]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Crushing blow"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer16" unique_id=196506965]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cb/cbe"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1455987632]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer13" unique_id=2069359558]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Deadly strike"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer13" unique_id=824134263]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ds/maxds/dsm"
+
+[node name="HBoxContainer21" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1721400490]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer21" unique_id=1445076317]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Critical strike"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer21" unique_id=796650373]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cs"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1723447452]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer14" unique_id=1484179658]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Open Wounds"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer14" unique_id=1485986666]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ow/owdmg"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1033130741]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer15" unique_id=660377234]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Enemy physical res"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer15" unique_id=1692158756]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "phys"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1594453353]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer17" unique_id=1869879720]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Chance to pierce"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer17" unique_id=1534752851]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "pierce"
+
+[node name="HBoxContainer19" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=2077600439]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer19" unique_id=746164589]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Attacker takes damage"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer19" unique_id=183384000]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "atd"
+
+[node name="HBoxContainer20" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=1977639927]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer20" unique_id=1145000949]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Attacker takes lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer20" unique_id=1584347045]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "atld"
+
+[node name="VBoxContainer8" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=333368758]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=346943682]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/PanelContainer" unique_id=515360041]
+layout_mode = 2
+text = "Defense related"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=1102157459]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer12" unique_id=1006501662]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Total defense"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer12" unique_id=1890120742]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "def"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=1802337142]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer13" unique_id=586488040]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Enhanced defense"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer13" unique_id=104380809]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "edef"
+
+[node name="HBoxContainer20" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=438416373]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer20" unique_id=997075648]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Block chance"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer20" unique_id=1417208511]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "block"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=816322185]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer14" unique_id=2114482945]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Physical resistance"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer14" unique_id=1695653355]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "pdr"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=1049705280]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer16" unique_id=716960463]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Physical reduction"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer16" unique_id=1615850926]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "flatpdr"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=49572654]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer15" unique_id=150152159]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Magic reduction"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer15" unique_id=1171130118]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mdr"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=555811406]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer17" unique_id=778540954]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Poison length"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer17" unique_id=1405688527]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "plr"
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=813744976]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer18" unique_id=1906489530]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Curse length"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer18" unique_id=1740231770]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "clr"
+
+[node name="HBoxContainer19" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=1932761382]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer19" unique_id=1002156805]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Curse resistance"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer19" unique_id=739099991]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "curse"
+
+[node name="HBoxContainer21" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=2062392984]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer21" unique_id=1963854397]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Replenish life"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer21" unique_id=1741659567]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "replife"
+
+[node name="HBoxContainer22" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=984556192]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer22" unique_id=1715507944]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Damage taken as mana"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer22" unique_id=1018898350]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "dtm"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=714359908]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=1469868092]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/PanelContainer" unique_id=1598000017]
+layout_mode = 2
+text = "Speed related"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=635788678]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer" unique_id=1603225829]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Increased attack speed"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer" unique_id=2083754363]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ias"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=440484303]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer5" unique_id=1587923678]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Faster cast rate"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer5" unique_id=1919068211]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fcr"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=597491283]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer2" unique_id=1420431513]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Faster block rate"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer2" unique_id=1325328336]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fbr"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=561882990]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer3" unique_id=1937317269]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Faster hit recovery"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer3" unique_id=278357123]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fhr"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3" unique_id=725369468]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer7" unique_id=1969483821]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Faster run/walk"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer3/HBoxContainer7" unique_id=231281813]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "frw"
+
+[node name="VBoxContainer10" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=508189357]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=803627363]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/PanelContainer" unique_id=1176651657]
+layout_mode = 2
+text = "Skill damage"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=1398487943]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer12" unique_id=458467462]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer12" unique_id=244744853]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fdmg"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=944848103]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer13" unique_id=2106911024]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer13" unique_id=794157088]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cdmg"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=1634331989]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer14" unique_id=1504564177]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer14" unique_id=2034341773]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ldmg"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=448825311]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer15" unique_id=866566785]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Poison"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer15" unique_id=308230499]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "pdmg"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10" unique_id=175344250]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer16" unique_id=2061238072]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Magic"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer10/HBoxContainer16" unique_id=252097350]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mdmg"
+
+[node name="VBoxContainer11" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1044651939]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11" unique_id=398146277]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/PanelContainer" unique_id=1781669722]
+layout_mode = 2
+text = "Elemental pierce"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11" unique_id=1500390583]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer12" unique_id=304187044]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer12" unique_id=1404876992]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fpierce"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11" unique_id=2112774254]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer13" unique_id=1837890195]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer13" unique_id=207959213]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cpierce"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11" unique_id=1675694353]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer14" unique_id=761847975]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer14" unique_id=936227248]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "lpierce"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11" unique_id=1110565805]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer15" unique_id=1004218255]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Poison"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer11/HBoxContainer15" unique_id=1451818592]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "ppierce"
+
+[node name="VBoxContainer9" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=2102726764]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=603746594]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/PanelContainer" unique_id=1637036077]
+layout_mode = 2
+text = "Absorb"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=646326331]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer12" unique_id=18729867]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire %"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer12" unique_id=1173396682]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "fabs"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=611188647]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer13" unique_id=1224954962]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold %"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer13" unique_id=900344878]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cabs"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=1422317365]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer14" unique_id=533419786]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning %"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer14" unique_id=273807171]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "labs"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=1307621462]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer15" unique_id=234987591]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Fire"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer15" unique_id=375527959]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "flatfabs"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=1658993437]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer16" unique_id=1575755492]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cold"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer16" unique_id=1350665954]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "flatcabs"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9" unique_id=1944278084]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer17" unique_id=1221491379]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Lightning"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer9/HBoxContainer17" unique_id=574704083]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "flatlabs"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=2014274911]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=1715068507]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/PanelContainer" unique_id=1715688541]
+layout_mode = 2
+text = "Map"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=247856456]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer" unique_id=1949381721]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Density"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer" unique_id=1593259452]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mapden"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=577034818]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer5" unique_id=827114508]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Experience"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer5" unique_id=675892801]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mapxp"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=379870957]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer2" unique_id=1727495029]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Magic find"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer2" unique_id=98079798]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mapmf"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=477722062]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer3" unique_id=1834804563]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Gold find"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer3" unique_id=1118483088]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "mapgf"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4" unique_id=222120747]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer7" unique_id=299284825]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Monster rarity"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer4/HBoxContainer7" unique_id=543191473]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "maprar"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1914695288]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5" unique_id=538142632]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/PanelContainer" unique_id=736223362]
+layout_mode = 2
+text = "Requirements"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5" unique_id=1058507971]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer" unique_id=1352549305]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Level"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer" unique_id=101298784]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "reqlvl"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5" unique_id=1995845597]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer2" unique_id=120521656]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Strength"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer2" unique_id=2052459265]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "reqstr"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5" unique_id=1098134881]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer5" unique_id=2113072962]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Dexterity"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer5/HBoxContainer5" unique_id=535271022]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "reqdex"
+
+[node name="VBoxContainer12" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=1961354265]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12" unique_id=1943225764]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_getpj")
+
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/PanelContainer" unique_id=759277260]
+layout_mode = 2
+text = "Leech"
+horizontal_alignment = 1
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12" unique_id=113690362]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer12" unique_id=103164797]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Life stolen"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer12" unique_id=1036590346]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "lifesteal"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12" unique_id=426967231]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer13" unique_id=432529395]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Mana stolen"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer13" unique_id=676175653]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "manasteal"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12" unique_id=142731030]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer14" unique_id=2007786724]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Life after kill"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer14" unique_id=1641088792]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "laek"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12" unique_id=976262659]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer15" unique_id=1678164656]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Mana after kill"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer12/HBoxContainer15" unique_id=1264597865]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "maek"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer" unique_id=1799834401]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer" unique_id=562799037]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/ScrollContainer" unique_id=562799037]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 
-[node name="GridView" type="Container" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer/PanelContainer" unique_id=2117013028]
+[node name="GridView" type="Container" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/ScrollContainer/PanelContainer" unique_id=2117013028]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
@@ -1158,45 +2844,27 @@ script = ExtResource("8_1u8w0")
 minimum_column_width = 300
 metadata/_custom_type_script = "uid://2jh0bl5elah8"
 
-[node name="ScrollContainer2" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer" unique_id=319090182]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer2" unique_id=222009388]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-
-[node name="BoxView" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/TabContainer/ScrollContainer2/PanelContainer" unique_id=1120482911]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer" unique_id=1240700525]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer" unique_id=1240700525]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_getpj")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer" unique_id=28874078]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer" unique_id=28874078]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=943492552]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer" unique_id=943492552]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=669558962]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=669558962]
 layout_mode = 2
 
-[node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946348785]
+[node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946348785]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Page 1 of 1"
 
-[node name="PagePrev" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1888627280]
+[node name="PagePrev" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1888627280]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_xuqvo")
@@ -1206,7 +2874,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_htxhm")
 disabled = true
 text = " < "
 
-[node name="PageNext" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=908406577]
+[node name="PageNext" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=908406577]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qsp4k")
@@ -1216,16 +2884,16 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_b1qrp")
 disabled = true
 text = " > "
 
-[node name="StashSelector" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=2093668573]
+[node name="StashSelector" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=2093668573]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("14_jq2sk")
 
-[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=1682286548]
+[node name="Label" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=1682286548]
 layout_mode = 2
 text = "Stash:"
 
-[node name="StashSelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=2054104419]
+[node name="StashSelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=2054104419]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 1
@@ -1237,14 +2905,14 @@ popup/item_1/id = 1
 popup/item_2/text = "PD2"
 popup/item_2/id = 2
 
-[node name="StashSelectTabs" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=1446699269]
+[node name="StashSelectTabs" type="TabContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=1446699269]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_htxhm")
 current_tab = 0
 tabs_visible = false
 
-[node name="GoblinSelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector/StashSelectTabs" unique_id=47765442]
+[node name="GoblinSelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector/StashSelectTabs" unique_id=47765442]
 unique_name_in_owner = true
 layout_mode = 2
 selected = 0
@@ -1253,7 +2921,7 @@ popup/item_0/text = "All"
 popup/item_0/id = 0
 metadata/_tab_index = 0
 
-[node name="PD2SelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector/StashSelectTabs" unique_id=141177496]
+[node name="PD2SelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector/StashSelectTabs" unique_id=141177496]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -1263,7 +2931,7 @@ popup/item_0/text = "All"
 popup/item_0/id = 0
 metadata/_tab_index = 1
 
-[node name="ItemCount" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=818739865]
+[node name="ItemCount" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=818739865]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10
