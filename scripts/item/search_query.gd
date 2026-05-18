@@ -606,6 +606,12 @@ class CompiledStringQuery:
 				return false
 			if a.complete != b.complete:
 				return false
+			if a.kind == TermKind.NUMERIC and b.kind == TermKind.NUMERIC:
+				if a.numeric_expression.key != b.numeric_expression.key:
+					return false
+				if a.numeric_expression.operator != b.numeric_expression.operator:
+					return false
+			
 			if not _raw_query.begins_with(previous._raw_query):
 				return false
 
