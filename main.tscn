@@ -1589,6 +1589,20 @@ size_flags_horizontal = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
 text = "sock"
 
+[node name="HBoxContainer18" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=783791222]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer18" unique_id=114929745]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ethereal"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14/HBoxContainer18" unique_id=762984641]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "eth"
+
 [node name="HBoxContainer14" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer14" unique_id=1149000025]
 layout_mode = 2
 
@@ -2117,6 +2131,20 @@ size_flags_horizontal = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
 text = "atld"
 
+[node name="HBoxContainer22" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7" unique_id=568892389]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer22" unique_id=584504879]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ignore target Defense"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer7/HBoxContainer22" unique_id=1395900199]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "itd"
+
 [node name="VBoxContainer8" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=333368758]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -2283,6 +2311,34 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
 text = "dtm"
+
+[node name="HBoxContainer23" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=1887580791]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer23" unique_id=2040519733]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Half freeze duration"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer23" unique_id=832703583]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "hfd"
+
+[node name="HBoxContainer24" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8" unique_id=831820446]
+layout_mode = 2
+
+[node name="Prop" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer24" unique_id=1090424684]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cannot be frozen"
+
+[node name="Keyword" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer/VBoxContainer8/HBoxContainer24" unique_id=1853167563]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_gngh3")
+text = "cbf"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/TabContainer/Control/Keywords/PanelContainer/GridContainer" unique_id=714359908]
 layout_mode = 2

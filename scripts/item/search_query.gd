@@ -533,6 +533,14 @@ class CompiledStringQuery:
 				return _matches_property(item, numeric_expression, 375)
 			"dtm":
 				return _matches_property(item, numeric_expression, 114)
+			"hfd":
+				return _matches_property(item, numeric_expression, 118)
+			"cbf":
+				return _matches_property(item, numeric_expression, 153)
+			"itd":
+				return _matches_property(item, numeric_expression, 115)
+			"eth":
+				return item.is_ethereal
 			_:
 				return false
 	
@@ -605,7 +613,113 @@ class CompiledStringQuery:
 
 
 class NumericExpression:
-	enum Operator {EQUAL, GREATER, GREATER_EQUAL, LOWER, LOWER_EQUAL, RANGE}
+	enum Operator {EQUAL, GREATER, GREATER_EQUAL, LOWER, LOWER_EQUAL, RANGE, EXISTS}
+	
+	const VALID_KEYS: Dictionary[String, bool] = {
+		"reqlvl": true,
+		"reqdex": true,
+		"reqstr": true,
+		"ilvl": true,
+		"sock": true,
+		"def": true,
+		"dmg": true,
+		"res": true,
+		"fres": true,
+		"lres": true,
+		"cres": true,
+		"pres": true,
+		"ares": true,
+		"maxfres": true,
+		"maxlres": true,
+		"maxcres": true,
+		"maxpres": true,
+		"maxres": true,
+		"fabs": true,
+		"flatfabs": true,
+		"labs": true,
+		"flatlabs": true,
+		"cabs": true,
+		"flatcabs": true,
+		"min": true,
+		"max": true,
+		"dam": true,
+		"fmin": true,
+		"fmax": true,
+		"lmin": true,
+		"lmax": true,
+		"mmin": true,
+		"mmax": true,
+		"cmin": true,
+		"cmax": true,
+		"pmin": true,
+		"pmax": true,
+		"fpierce": true,
+		"lpierce": true,
+		"cpierce": true,
+		"ppierce": true,
+		"phys": true,
+		"fdmg": true,
+		"ldmg": true,
+		"cdmg": true,
+		"pdmg": true,
+		"mdmg": true,
+		"flatpdr": true,
+		"mdr": true,
+		"pdr": true,
+		"fhr": true,
+		"fbr": true,
+		"frw": true,
+		"plr": true,
+		"clr": true,
+		"ed": true,
+		"ias": true,
+		"fcr": true,
+		"edef": true,
+		"life": true,
+		"mana": true,
+		"maxlife": true,
+		"maxmana": true,
+		"str": true,
+		"eng": true,
+		"dex": true,
+		"vit": true,
+		"all": true,
+		"ar": true,
+		"arper": true,
+		"ds": true,
+		"maxds": true,
+		"dsm": true,
+		"cb": true,
+		"cbe": true,
+		"cs": true,
+		"ow": true,
+		"owdmg": true,
+		"pierce": true,
+		"skills": true,
+		"mf": true,
+		"gf": true,
+		"maek": true,
+		"laek": true,
+		"xp": true,
+		"lifesteal": true,
+		"manasteal": true,
+		"block": true,
+		"regen": true,
+		"curse": true,
+		"atd": true,
+		"atld": true,
+		"replife": true,
+		"mapmf": true,
+		"mapgf": true,
+		"mapden": true,
+		"mapxp": true,
+		"maprar": true,
+		"dtm": true,
+		"hfd": true,
+		"cbf": true,
+		"itd": true,
+		"eth": true,
+	}
 	
 	var key: String
 	var operator: Operator
@@ -620,45 +734,51 @@ class NumericExpression:
 		var expression := NumericExpression.new()
 		input = input.strip_edges()
 		
-		var num_regex := RegEx.create_from_string(r"^([a-zA-Z_][a-zA-Z0-9_]*)\s*(<=|>=|=|<|>|~)\s*((?:-?\d+)|(?:-?\d+\s*-\s*-?\d+))$")
+		var num_regex := RegEx.create_from_string(r"^([a-zA-Z_][a-zA-Z0-9_]*)(?:\s*(<=|>=|=|<|>|~)\s*((?:-?\d+)|(?:-?\d+\s*-\s*-?\d+)))?$")
 		var num_result := num_regex.search(input)
-		if num_result:
-			expression.key = num_result.strings[1]
-			match num_result.strings[2]:
-				"<=":
-					expression.operator = Operator.LOWER_EQUAL
-				">=":
-					expression.operator = Operator.GREATER_EQUAL
-				"=":
-					expression.operator = Operator.EQUAL
-				"<":
-					expression.operator = Operator.LOWER
-				">":
-					expression.operator = Operator.GREATER
-				"~":
-					expression.operator = Operator.RANGE
-			if expression.operator == Operator.RANGE:
-				var value_regex := RegEx.create_from_string(r"^(-?\d+)\s*-\s*(-?\d+)$")
-				var value_result := value_regex.search(num_result.strings[3])
-				if value_result:
-					expression.min_value = int(value_result.strings[1])
-					expression.max_value = int(value_result.strings[2])
-					if expression.min_value <= expression.max_value:
-						expression.is_valid = true
-			else:
-				var value_regex := RegEx.create_from_string(r"^(-?\d+)$")
-				var value_result := value_regex.search(num_result.strings[3])
-				if value_result:
-					expression.value = int(value_result.strings[1])
+		if not num_result:
+			return expression
+		expression.key = num_result.strings[1]
+		if not NumericExpression.VALID_KEYS.has(expression.key):
+			return expression
+		if num_result.strings[2].is_empty():
+			expression.operator = Operator.EXISTS
+			expression.is_valid = true
+			return expression
+		match num_result.strings[2]:
+			"<=":
+				expression.operator = Operator.LOWER_EQUAL
+			">=":
+				expression.operator = Operator.GREATER_EQUAL
+			"=":
+				expression.operator = Operator.EQUAL
+			"<":
+				expression.operator = Operator.LOWER
+			">":
+				expression.operator = Operator.GREATER
+			"~":
+				expression.operator = Operator.RANGE
+		if expression.operator == Operator.RANGE:
+			var value_regex := RegEx.create_from_string(r"^(-?\d+)\s*-\s*(-?\d+)$")
+			var value_result := value_regex.search(num_result.strings[3])
+			if value_result:
+				expression.min_value = int(value_result.strings[1])
+				expression.max_value = int(value_result.strings[2])
+				if expression.min_value <= expression.max_value:
 					expression.is_valid = true
 		else:
-			return expression
-		
+			var value_regex := RegEx.create_from_string(r"^(-?\d+)$")
+			var value_result := value_regex.search(num_result.strings[3])
+			if value_result:
+				expression.value = int(value_result.strings[1])
+				expression.is_valid = true
 		return expression
 	
 	
 	static func matches(expression: NumericExpression, op_value: int) -> bool:
 		match expression.operator:
+			Operator.EXISTS:
+				return true
 			Operator.EQUAL:
 				return op_value == expression.value
 			Operator.GREATER:
