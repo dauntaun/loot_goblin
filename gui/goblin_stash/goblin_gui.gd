@@ -8,7 +8,6 @@ const LIST_MAX_ITEMS_PER_PAGE := 25
 # Main panel
 @onready var tree: Tree = %TreeView
 @onready var tiled_container: MasonryContainer = %GridView
-@onready var list_container: VBoxContainer = %BoxView
 @onready var table_view_button: Button = %TableView
 @onready var tile_view_button: Button = %TileView
 @onready var _search_bar: SearchBar = %SearchBar
