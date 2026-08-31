@@ -1,5 +1,7 @@
 extends Control
 
+@export var enable_debug: bool = false
+
 @onready var settings_gui: GoblinSettingsGUI = %Settings
 @onready var background_color: ColorRect = %BackgroundColor
 
@@ -17,6 +19,8 @@ func _ready():
 	DisplayServer.window_set_min_size(Vector2i(1050, 550))
 	get_window().title = "Loot Goblin" + " " + GlobalSettings.version
 	background_color.color = GlobalSettings.background_color
+	if OS.is_debug_build():
+		GlobalSettings.debug_mode = enable_debug
 	# Init Goblin save
 	var sc_filepath := GlobalSettings.get_sc_goblin_stash_path()
 	if not FileAccess.file_exists(sc_filepath):
