@@ -36,7 +36,7 @@ const SETTINGS := {
 	"load_characters": {"section": PD2_SECTION, "default": true},
 }
 
-var version := "0.6"
+var version: String
 var debug_mode := false
 var force_update_cache := false
 # Setting vars
@@ -63,6 +63,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	version = ProjectSettings.get_setting("application/config/version")
 	if FileAccess.file_exists(CONFIG_FILEPATH):
 		_config_file.load(CONFIG_FILEPATH)
 	else:
