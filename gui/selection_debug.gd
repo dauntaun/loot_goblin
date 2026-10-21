@@ -13,9 +13,13 @@ extends Control
 
 
 func _ready() -> void:
+	GlobalSettings.debug_enabled.connect(show_selection_debug)
 	if not GlobalSettings.debug_mode:
 		hide()
-		return
+
+
+func show_selection_debug() -> void:
+	show()
 	clear_labels()
 	ItemSelection.selection_changed.connect(update_labels)
 	ItemSelection.transfer_mode_changed.connect(update_labels)

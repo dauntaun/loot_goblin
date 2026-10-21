@@ -1,6 +1,7 @@
 extends Node
 
 signal setting_changed(setting: String, value: Variant)
+signal debug_enabled
 signal config_loaded
 signal config_saved
 
@@ -69,6 +70,11 @@ func _ready() -> void:
 	else:
 		save_config()
 	load_config()
+
+
+func enable_debug() -> void:
+	debug_mode = true
+	debug_enabled.emit()
 
 
 func get_shared_stash_path() -> String:
