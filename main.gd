@@ -77,7 +77,6 @@ func _save_all_transfers() -> void:
 		_save_transfers_button.show_warning()
 		OS.alert("Something went wrong when transferring items. Reload Loot Goblin", "Error")
 		return
-	ItemSelection.clear_selection()
 	_save_transfers_button.clear_save_button()
 	# Save
 	for save: BasicSaveFile in saves:
