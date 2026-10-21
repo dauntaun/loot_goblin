@@ -2,6 +2,7 @@ class_name TableItemListController
 extends BasicItemListController
 
 enum ColType {ITEM = 0, TYPE = 4, ETH = 1, CORRUPT = 2, SOCKETS = 3, BASE = 5, DMG = 6, DEF = 7, RES = 8, ILVL = 9, STASH = 10}
+enum Highlight {NONE, HOVER, SELECTED}
 
 const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 	ColType.ITEM: {"col_name": "Item", "sort_key": ItemSorter.SortKey.NAME},
@@ -18,11 +19,20 @@ const COL_NAME_MAP: Dictionary[ColType, Dictionary] = {
 }
 const SORT_COLUMN_HIGHLIGHT: Color = Color(0.808, 0.847, 0.922, 0.027)
 
+const SELECTED_ROW_COLOR := Color("71717198")
+const HOVERED_ROW_COLOR := Color("ffffff12")
+const NORMAL_FONT_COLOR := Color("#b3b3b3")
+const SELECTED_FONT_COLOR := Color("dfdfdf")
+
 var _sort_column: ColType = ColType.ITEM
 var _sort_ascending: bool = true
 var _item_map: Dictionary[D2Item, TreeItem]
 
 var _tree: Tree
+var _hovered_row: TreeItem
+
+var _selection_anchor: TreeItem
+var _selected_rows: Array[TreeItem]
 
 
 func _init(tree: Tree) -> void:
@@ -49,14 +59,37 @@ func _init(tree: Tree) -> void:
 	_tree.set_column_custom_minimum_width(ColType.BASE, 150)
 	_tree.set_column_custom_minimum_width(ColType.STASH, 120)
 	_update_column_titles()
-	_tree.item_selected.connect(_on_item_selected)
-	_tree.mouse_exited.connect(func(): TooltipHandler.hide_tooltip())
+	_tree.mouse_exited.connect(_on_mouse_exited)
 	_tree.gui_input.connect(_gui_input)
 
 
 func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("mouse_left") or Input.is_action_pressed("mouse_right"):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var row: TreeItem = _tree.get_item_at_position(event.position)
+	
+			if row and row.get_parent() == _tree.get_root():
+				_handle_row_selection(row, event)
+				#_tree.accept_event()
+				return
+	
+	elif event is InputEventKey:
+		_tree.accept_event()
+	
+	elif event is InputEventMouseMotion:
+		var new_row = _tree.get_item_at_position(event.position)
+		if _hovered_row != new_row:
+			if _hovered_row:
+				if _selected_rows.has(_hovered_row):
+					_highlight_row(_hovered_row, Highlight.SELECTED)
+				else:
+					_highlight_row(_hovered_row, Highlight.NONE)
+		if new_row:
+			if not _selected_rows.has(new_row):
+				_highlight_row(new_row, Highlight.HOVER)
+		_hovered_row = new_row
+		
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 			TooltipHandler.hide_tooltip()
 		elif GlobalSettings.show_goblin_tooltips:
 			var item: D2Item = get_item_at_mouse_pos(event.position)
@@ -89,6 +122,15 @@ func _on_column_clicked(col_index: int, _mouse_button: int) -> void:
 	sort_requested.emit(sort_key, sort_ascending)
 
 
+func _on_mouse_exited() -> void:
+	TooltipHandler.hide_tooltip()
+	if _hovered_row:
+		if _selected_rows.has(_hovered_row):
+			return
+		else:
+			_highlight_row(_hovered_row, Highlight.NONE)
+
+
 func accept_sort(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
 	_sort_ascending = sort_ascending
 	for col: ColType in COL_NAME_MAP:
@@ -98,11 +140,35 @@ func accept_sort(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> void:
 
 
 func rebuild_display(items: Array[D2Item]) -> void:
+	_selected_rows.clear()
+	_selection_anchor = null
+	_hovered_row = null
+	
 	_tree.clear()
 	_item_map.clear()
 	_tree.create_item() # root
 	for item: D2Item in items:
 		_create_row(item)
+
+
+func clear_selection() -> void:
+	_clear_manual_selection()
+	_prev_selected_items.clear()
+	_selection_anchor = null
+	items_selected.emit(_selected_items)
+
+
+func select_all_items() -> void:
+	_clear_manual_selection()
+	var root := _tree.get_root()
+	if not root:
+		return
+	var rows: Array[TreeItem] = root.get_children()
+	for row: TreeItem in rows:
+		_set_row_selected(row, true)
+	if not rows.is_empty():
+		_selection_anchor = rows[0]
+	_emit_manual_selection()
 
 
 func restore_last_selection(restore_selection: RestoreSelection, restore_fallback := RestoreFallback.NONE) -> void:
@@ -113,9 +179,8 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 				_select_existing_row_by_index(_prev_selected_index)
 				return
 		RestoreSelection.BY_ITEM:
-			if _item_map.has(_prev_selected_item):
-				_item_map[_prev_selected_item].select(0)
-				return
+			_restore_previous_selection()
+			return
 		RestoreSelection.NONE:
 			return
 	# Fallback
@@ -126,11 +191,52 @@ func restore_last_selection(restore_selection: RestoreSelection, restore_fallbac
 			_select_existing_row_by_index(-1)
 
 
+func _restore_previous_selection() -> void:
+	_clear_manual_selection()
+	_selection_anchor = null
+
+	var last_selected_row: TreeItem = null
+
+	for item: D2Item in _prev_selected_items:
+		if not _item_map.has(item):
+			continue
+
+		var row: TreeItem = _item_map[item]
+		_set_row_selected(row, true)
+		last_selected_row = row
+
+	if last_selected_row:
+		_selection_anchor = last_selected_row
+		_prev_selected_index = last_selected_row.get_index()
+
+	_emit_manual_selection()
+
+
 func _select_existing_row_by_index(index: int) -> void:
-	if _tree.get_root().get_child_count() > 0:
-		var row := _tree.get_root().get_child(index)
-		if row:
-			row.select(0)
+	var root := _tree.get_root()
+	if not root:
+		return
+
+	var rows: Array[TreeItem] = root.get_children()
+	if rows.is_empty():
+		return
+
+	# Support negative indices, such as -1 for the last row.
+	if index < 0:
+		index += rows.size()
+
+	if index < 0 or index >= rows.size():
+		return
+
+	var row: TreeItem = rows[index]
+	_clear_manual_selection()
+	_set_row_selected(row, true)
+
+	_selection_anchor = row
+	_save_previous_selection()
+	_prev_selected_index = index
+
+	_emit_manual_selection()
 
 
 func _create_row(item: D2Item) -> void:
@@ -187,12 +293,101 @@ func _apply_sort_column_highlight(row: TreeItem) -> void:
 			row.clear_custom_bg_color(col)
 
 
-func _on_item_selected() -> void:
-	var selected := _tree.get_selected()
-	if selected.get_parent() != _tree.get_root(): # Socketed item
-		selected = selected.get_parent()
-	var item: D2Item = selected.get_metadata(0)
-	_prev_selected_index = selected.get_index()
-	_prev_selected_item = item
+func _highlight_row(row: TreeItem, highlight: Highlight) -> void:
+	var row_color: Color
+	match highlight:
+		Highlight.NONE:
+			row_color = Color.TRANSPARENT
+		Highlight.HOVER:
+			row_color = HOVERED_ROW_COLOR
+		Highlight.SELECTED:
+			row_color = SELECTED_ROW_COLOR
+	var row_font_color: Color = SELECTED_FONT_COLOR if highlight else NORMAL_FONT_COLOR
 	
-	item_selected.emit(item)
+	for col: int in ColType.values():
+		if col == _sort_column:
+			row.set_custom_bg_color(col, row_color.blend(SORT_COLUMN_HIGHLIGHT))
+		else:
+			row.set_custom_bg_color(col, row_color)
+		if col != ColType.ITEM and col != ColType.CORRUPT:
+			row.set_custom_color(col, row_font_color)
+
+
+
+func _handle_row_selection(row: TreeItem, event: InputEventMouseButton) -> void:
+	var ctrl_pressed := event.ctrl_pressed or event.meta_pressed
+	var shift_pressed := event.shift_pressed
+
+	if shift_pressed and _selection_anchor:
+		_select_range(_selection_anchor, row)
+	elif ctrl_pressed:
+		_toggle_row_selection(row)
+		_selection_anchor = row
+	else:
+		_clear_manual_selection()
+		_set_row_selected(row, true)
+		_selection_anchor = row
+
+	_prev_selected_index = row.get_index()
+	_save_previous_selection()
+	_emit_manual_selection()
+
+
+func _save_previous_selection() -> void:
+	_prev_selected_items.clear()
+
+	for selected_row: TreeItem in _selected_rows:
+		var item: D2Item = selected_row.get_metadata(0)
+		if item:
+			_prev_selected_items.append(item)
+
+
+func _toggle_row_selection(row: TreeItem) -> void:
+	var is_selected: bool = _selected_rows.has(row)
+	_set_row_selected(row, not is_selected)
+
+
+func _set_row_selected(row: TreeItem, selected: bool) -> void:
+	if selected:
+		_highlight_row(row, Highlight.SELECTED)
+		if not _selected_rows.has(row):
+			_selected_rows.append(row)
+	else:
+		_highlight_row(row, Highlight.NONE)
+		_selected_rows.erase(row)
+
+
+func _clear_manual_selection() -> void:
+	for row: TreeItem in _selected_rows.duplicate():
+		_set_row_selected(row, false)
+	_selected_rows.clear()
+
+
+func _select_range(anchor: TreeItem, target: TreeItem) -> void:
+	var root := _tree.get_root()
+	var rows: Array[TreeItem] = root.get_children()
+
+	var anchor_index := rows.find(anchor)
+	var target_index := rows.find(target)
+
+	if anchor_index == -1 or target_index == -1:
+		return
+
+	var start_index := mini(anchor_index, target_index)
+	var end_index := maxi(anchor_index, target_index)
+
+	_clear_manual_selection()
+
+	for i: int in range(start_index, end_index + 1):
+		_set_row_selected(rows[i], true)
+
+
+func _emit_manual_selection() -> void:
+	var items: Array[D2Item] = []
+
+	for row: TreeItem in _selected_rows:
+		var item: D2Item = row.get_metadata(0)
+		if item:
+			items.append(item)
+
+	items_selected.emit(items)

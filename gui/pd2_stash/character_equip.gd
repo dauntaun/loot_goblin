@@ -1,7 +1,8 @@
 class_name CharacterEquipGUI
 extends PanelContainer
 
-signal item_selected(item: D2Item)
+
+signal item_rect_clicked(item_rect: ItemRect)
 
 const ITEM_RECT_SCENE = preload("uid://dmcf3j2822imo")
 
@@ -82,7 +83,7 @@ func add_item_rect(item: D2Item) -> void:
 	_item_rect_mapping[item] = item_rect
 	item_rect.init_rect(item)
 	item_rect.hide_background_texture()
-	item_rect.item_selected.connect(_on_item_selected)
+	item_rect.rect_clicked.connect(_relay_item_rect_clicked.bind(item_rect))
 
 
 func remove_item(item: D2Item) -> void:
@@ -91,10 +92,6 @@ func remove_item(item: D2Item) -> void:
 		return
 	_item_rect_mapping[item].queue_free()
 	_item_rect_mapping.erase(item)
-
-
-func select_item(item: D2Item) -> void:
-	_item_rect_mapping[item].select()
 
 
 func _swap_weapons(weapon_set: int) -> void:
@@ -117,6 +114,6 @@ func _clear_equipped_items() -> void:
 			node.queue_free()
 
 
-func _on_item_selected(item: D2Item) -> void:
-	item_selected.emit(item)
+func _relay_item_rect_clicked(item_rect: ItemRect) -> void:
+	item_rect_clicked.emit(item_rect)
 	

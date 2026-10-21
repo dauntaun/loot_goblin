@@ -2,10 +2,13 @@
 class_name StashPageGUI
 extends Control
 
-signal item_selected(item: D2Item)
+
+signal item_rect_clicked(item_rect: ItemRect)
+signal right_clicked_grid
 
 const ITEM_RECT_SCENE = preload("uid://dmcf3j2822imo")
 const MIN_CELL_SIZE := 40
+
 
 @export_range(1, 10) var grid_width: int = 10: 
 	set(new):
@@ -29,6 +32,12 @@ func _ready() -> void:
 	#test_item.inv_height = 2
 	#test_item.inv_width = 1
 	#add_item_rect(test_item)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			right_clicked_grid.emit()
 
 
 func _notification(what):
@@ -126,7 +135,7 @@ func _reset() -> void:
 
 func add_item_rect(item: D2Item) -> void:
 	var item_rect: ItemRect = ITEM_RECT_SCENE.instantiate()
-	item_rect.item_selected.connect(_on_item_selected)
+	item_rect.rect_clicked.connect(_relay_item_rect_clicked.bind(item_rect))
 	# Setup
 	
 	add_child(item_rect)
@@ -151,10 +160,6 @@ func get_item_rect_at_mouse_pos(pos: Vector2) -> ItemRect:
 	return null
 
 
-func select_item(item: D2Item) -> void:
-	_item_rect_mapping[item].select()
-
-
 func remove_item(item: D2Item) -> void:
 	if not _item_rect_mapping.has(item):
 		push_error("Trying to remove a non-existing item in grid")
@@ -163,11 +168,6 @@ func remove_item(item: D2Item) -> void:
 	_item_rect_mapping.erase(item)
 
 
-func _on_item_selected(item: D2Item) -> void:
-	_prev_selected_item = item
-	item_selected.emit(item)
-
-
-func restore_last_selection() -> void:
-	if _item_rect_mapping.has(_prev_selected_item):
-		_item_rect_mapping[_prev_selected_item].item_selected.emit(_prev_selected_item)
+func _relay_item_rect_clicked(item_rect: ItemRect) -> void:
+	item_rect_clicked.emit(item_rect)
+	_prev_selected_item = item_rect._item

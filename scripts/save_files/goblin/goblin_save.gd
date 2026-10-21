@@ -37,7 +37,7 @@ func load_file() -> void:
 		push_error("Unknown main collection")
 		return
 	
-	load_successful= true
+	load_successful = true
 
 
 func save_file(path: String) -> void:

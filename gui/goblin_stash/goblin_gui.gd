@@ -37,6 +37,8 @@ var _tiled_controller: TiledItemListController
 func _ready() -> void:
 	# Setup right click to sort
 	_sort_menu = PopupMenu.new()
+	_sort_menu.add_item("Select All", 99)
+	_sort_menu.add_separator("Sort", 999)
 	_sort_menu.add_radio_check_item("By Name", ItemSorter.SortKey.NAME)
 	_sort_menu.add_radio_check_item("By Ethereal", ItemSorter.SortKey.ETH)
 	_sort_menu.add_radio_check_item("By Corruption", ItemSorter.SortKey.CORRUPT)
@@ -48,17 +50,17 @@ func _ready() -> void:
 	_sort_menu.add_radio_check_item("By Total resistance", ItemSorter.SortKey.RES)
 	_sort_menu.add_radio_check_item("By ilvl", ItemSorter.SortKey.ILVL)
 	_sort_menu.add_separator("")
-	_sort_menu.add_check_item("Ascending")
-	_sort_menu.set_item_checked(ItemSorter.SortKey.NAME, true)
+	_sort_menu.add_check_item("Ascending", 100)
+	_sort_menu.set_item_checked(2, true)
 	_sort_menu.set_item_checked(-1, true)
 	add_child(_sort_menu)
 	_sort_menu.id_pressed.connect(_on_sort_menu_picked)
 	# Setup item list controllers
 	_table_controller = TableItemListController.new(tree)
-	_table_controller.item_selected.connect(_on_item_selected)
+	_table_controller.items_selected.connect(_on_items_selected)
 	_table_controller.sort_requested.connect(_on_sort_requested)
 	_tiled_controller = TiledItemListController.new(tiled_container)
-	_tiled_controller.item_selected.connect(_on_item_selected)
+	_tiled_controller.items_selected.connect(_on_items_selected)
 	_current_itemlist_controller = _table_controller
 	_current_max_items_per_page = TABLE_MAX_ITEMS_PER_PAGE
 	table_view_button.pressed.connect(_switch_itemlist_controller.bind(_table_controller))
@@ -183,19 +185,14 @@ func _clamp_current_page_index() -> void:
 	_current_page = clamp(_current_page, 0, _get_max_page())
 
 
-func _on_items_transferred(from_stash_id: int, to_stash_id: int) -> void:
-	var affects_from := _item_searcher.has_stash_id(from_stash_id)
+func _on_items_transferred(to_stash_id: int) -> void:
+	#var affects_from := _item_searcher.has_stash_id(from_stash_id)
 	var affects_to := _item_searcher.has_stash_id(to_stash_id)
 
-	if affects_from and affects_to:
-		_item_searcher.apply_sort()
-		_refresh_current_page(false)
-
-	elif affects_from:
-		_on_items_retrieved()
-
-	elif affects_to:
+	if affects_to:
 		_on_items_stored()
+	else:
+		_on_items_retrieved()
 
 
 func _on_items_retrieved() -> void:
@@ -218,14 +215,15 @@ func _on_sort_requested(sort_key: ItemSorter.SortKey, sort_ascending: bool) -> v
 	_sort_menu.set_item_checked(-1, sort_ascending)
 	_item_searcher.set_sort(sort_key, sort_ascending)
 	_item_searcher.apply_sort()
-	_table_controller.accept_sort(sort_key, sort_ascending)
 	_current_itemlist_controller.accept_sort(sort_key, sort_ascending)
 	_refresh_current_page()
-	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
+	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
 
 
 func _on_sort_menu_picked(id: int) -> void:
-	if id == 11:
+	if id == 99:
+		_current_itemlist_controller.select_all_items()
+	elif id == 100:
 		var sort_ascending := not _item_searcher.get_sort_ascending()
 		_on_sort_requested(_item_searcher.get_sort_key(), sort_ascending)
 	elif id != _item_searcher.get_sort_key():
@@ -248,18 +246,20 @@ func _refresh_buttons() -> void:
 		_item_count_label.text = "%d items" % item_count
 
 
-func _on_item_selected(item: D2Item) -> void:
+func _on_items_selected(items: Array[D2Item]) -> void:
+	ItemSelection.set_selection(items)
 	if _stash_selector.is_virtual_stash_selected():
-		ItemSelection.set_selection(item, [item])
-	else:
-		ItemSelection.set_selection(item, _items_in_page)
+		return
+	if ItemSelection.get_destination_stash_type() in [StashRegistry.StashType.GOBLIN, StashRegistry.StashType.UNKNOWN]:
+		ItemSelection.set_destination(StashRegistry.StashType.PD2_SHARED)
 
 
-func restore_last_selection() -> void:
-	_table_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)
+func clear_selection() -> void:
+	_current_itemlist_controller.clear_selection()
 
 
 func _switch_itemlist_controller(controller: BasicItemListController) -> void:
+	clear_selection()
 	_current_itemlist_controller = controller
 	if controller is TableItemListController:
 		_current_max_items_per_page = TABLE_MAX_ITEMS_PER_PAGE

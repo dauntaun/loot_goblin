@@ -18,7 +18,7 @@ func _ready() -> void:
 	_transfer_panel.top_level = true
 	add_child(_transfer_panel)
 	
-	ItemSelection.items_transferred.connect(_update_command_labels.unbind(2))
+	ItemSelection.items_transferred.connect(_update_command_labels.unbind(1))
 	ItemSelection.stash_cleared.connect(_update_command_labels)
 	ItemSelection.plugy_imported.connect(_update_command_labels)
 	CommandQueue.queue_undone.connect(_update_command_labels)

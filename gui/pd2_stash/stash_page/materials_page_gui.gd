@@ -117,8 +117,7 @@ var _initialized: bool = false
 
 
 func _ready() -> void:
-	for grid: StashPageGUI in all_grids:
-		grid.item_selected.connect(_on_item_selected)
+	pass
 
 
 func init_materials(materials_page: MaterialsPage) -> void:
@@ -136,7 +135,3 @@ func init_materials(materials_page: MaterialsPage) -> void:
 func reset() -> void:
 	for grid: StashPageGUI in all_grids:
 		grid._reset()
-
-
-func _on_item_selected(_item: D2Item) -> void:
-	pass

@@ -42,5 +42,5 @@ func _change_view(selection: Selection) -> void:
 func _reset_selection(tab: int) -> void:
 	ItemSelection.clear_selection()
 	var current_view := view_tab.get_child(tab)
-	if current_view.has_method("restore_last_selection"):
-		current_view.restore_last_selection()
+	if current_view.has_method("clear_selection"):
+		current_view.clear_selection()

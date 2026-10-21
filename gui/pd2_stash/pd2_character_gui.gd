@@ -1,6 +1,9 @@
 class_name PD2CharacterGUI
 extends Control
 
+signal item_rect_clicked(item_rect: ItemRect)
+signal grid_right_clicked(grid: StashPageGUI)
+
 @onready var character_select: CharacterSelectGUI = %CharacterSelect
 @onready var char_inventory: StashPageGUI = %CharInventory
 @onready var cube_inventory: StashPageGUI = %CubeInventory
@@ -15,11 +18,12 @@ var _merc_view: CharacterStashView
 
 func _ready() -> void:
 	character_select.character_selected.connect(_init_character_inventory)
-	
-	char_inventory.item_selected.connect(_on_item_selected.bind("inventory"))
-	cube_inventory.item_selected.connect(_on_item_selected.bind("cube"))
-	char_equip.item_selected.connect(_on_item_selected.bind("equip"))
-	merc_equip.item_selected.connect(_on_item_selected.bind("merc"))
+	char_inventory.item_rect_clicked.connect(_relay_item_rect_clicked)
+	cube_inventory.item_rect_clicked.connect(_relay_item_rect_clicked)
+	char_inventory.right_clicked_grid.connect(_relay_right_clicked_grid.bind(char_inventory))
+	cube_inventory.right_clicked_grid.connect(_relay_right_clicked_grid.bind(cube_inventory))
+	char_equip.item_rect_clicked.connect(_relay_item_rect_clicked)
+	merc_equip.item_rect_clicked.connect(_relay_item_rect_clicked)
 
 
 func _init_character_inventory(character_id: int) -> void:
@@ -52,24 +56,12 @@ func _init_character_inventory(character_id: int) -> void:
 	_current_character_id = character_id
 
 
-func _on_item_selected(item: D2Item, inventory_case: String) -> void:
-	match inventory_case:
-		"inventory":
-			var bulk_items := _char_view.get_inventory_items()
-			ItemSelection.set_selection(item, bulk_items)
-			char_inventory.select_item(item)
-		"cube":
-			var bulk_items := _char_view.get_cube_items()
-			ItemSelection.set_selection(item, bulk_items)
-			cube_inventory.select_item(item)
-		"equip":
-			var bulk_items := _char_view.get_equipped_items()
-			ItemSelection.set_selection(item, bulk_items)
-			char_equip.select_item(item)
-		"merc":
-			var bulk_items := _merc_view.get_equipped_items()
-			ItemSelection.set_selection(item, bulk_items)
-			merc_equip.select_item(item)
+func _relay_item_rect_clicked(item_rect: ItemRect) -> void:
+	item_rect_clicked.emit(item_rect)
+
+
+func _relay_right_clicked_grid(grid: StashPageGUI) -> void:
+	grid_right_clicked.emit(grid)
 
 
 func _on_item_added_in_char_view(item: D2Item) -> void:

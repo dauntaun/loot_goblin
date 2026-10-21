@@ -86,6 +86,7 @@ func _save_all_transfers() -> void:
 
 func _cancel_all_transfers() -> void:
 	CommandQueue.undo_queue()
+	ItemSelection.clear_selection()
 	_save_transfers_button.clear_save_button()
 
 

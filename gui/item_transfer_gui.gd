@@ -3,9 +3,6 @@ extends Control
 @onready var item_info: ItemTooltip = %ItemInfo
 @onready var transfer_button: Button = %TransferButton
 
-@onready var toggle_single: Button = %ToggleSingle
-@onready var toggle_bulk: Button = %ToggleBulk
-
 # To stash
 @onready var destination_stash_option: OptionButton = %DestinationOption
 # Options
@@ -13,6 +10,7 @@ extends Control
 @onready var page_option: OptionButton = %PageOption
 @onready var character_option: OptionButton = %CharacterOption
 @onready var collection_option: OptionButton = %CollectionOption
+@onready var selected_label: Label = %SelectedLabel
 
 var selected_item: D2Item
 
@@ -23,7 +21,6 @@ var _collection_option_map: Dictionary[int, int] ## option_id -> collection_id
 func _ready() -> void:
 	ItemSelection.destination_changed.connect(_update_destination_labels)
 	ItemSelection.active_page_changed.connect(_update_page_label)
-	ItemSelection.transfer_mode_changed.connect(_update_transfer_button)
 	ItemSelection.active_page_changed.connect(_update_transfer_button.unbind(1))
 	ItemSelection.active_character_changed.connect(_update_transfer_button.unbind(1))
 	ItemSelection.selection_changed.connect(_update_item_info)
@@ -35,8 +32,6 @@ func _ready() -> void:
 	destination_stash_option.item_selected.connect(_change_destination)
 	page_option.item_selected.connect(_change_destination_page)
 	character_option.item_selected.connect(_change_destination_character)
-	toggle_single.pressed.connect(ItemSelection.set_transfer_mode.bind(ItemSelection.TransferMode.SINGLE))
-	toggle_bulk.pressed.connect(ItemSelection.set_transfer_mode.bind(ItemSelection.TransferMode.BULK))
 	
 	_update_transfer_button()
 
@@ -68,30 +63,34 @@ func _update_goblin_options() -> void:
 func _update_item_info() -> void:
 	selected_item = ItemSelection.get_last_selected_item()
 	item_info.update_tooltip(selected_item)
-	
-	toggle_bulk.text = "All (%d)" % ItemSelection.get_bulk_selection().size()
-	
-	#if ItemSelection.is_goblin_selected():
-		#destination_stash_option.set_item_disabled(0, true)
-	#else:
-		#destination_stash_option.set_item_disabled(0, false)
+	var item_count := ItemSelection.get_selected_items().size()
+	transfer_button.text = "Send (%d)" % ItemSelection.get_selected_items().size() if item_count > 1 else "Send"
+	selected_label.text = "Selected (%d)" % item_count if item_count > 1 else "Selected"
 	
 	_update_transfer_button()
 
 
 func _update_transfer_button() -> void:
-	if CommandQueue.is_command_queue_blocked():
-		transfer_button.text = "Pending PlugY import, save first"
-		transfer_button.disabled = true
-	elif ItemSelection.get_selected_items().is_empty():
-		transfer_button.text = "No selection"
-		transfer_button.disabled = true
-	elif ItemSelection.can_transfer_selection():
-		transfer_button.text = "Send"
-		transfer_button.disabled = false
-	else:
-		transfer_button.text = "Cannot send"
-		transfer_button.disabled = true
+	match ItemSelection.can_transfer_selection():
+		ItemSelection.SelectionTransferOutcome.ALLOWED:
+			var item_count := ItemSelection.get_selected_items().size()
+			transfer_button.text = "Send (%d)" % ItemSelection.get_selected_items().size() if item_count > 1 else "Send"
+			transfer_button.disabled = false
+		ItemSelection.SelectionTransferOutcome.QUEUE_BLOCKED:
+			transfer_button.text = "Pending PlugY import, save first"
+			transfer_button.disabled = true
+		ItemSelection.SelectionTransferOutcome.NO_ITEMS:
+			transfer_button.text = "No selection"
+			transfer_button.disabled = true
+		ItemSelection.SelectionTransferOutcome.NO_SPACE:
+			transfer_button.text = "No space"
+			transfer_button.disabled = true
+		ItemSelection.SelectionTransferOutcome.SAME_DESTINATION:
+			transfer_button.text = "Cannot send to same stash"
+			transfer_button.disabled = true
+		_:
+			transfer_button.text = "Cannot send"
+			transfer_button.disabled = true
 
 
 func _update_page_label(new_page: int) -> void:

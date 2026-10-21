@@ -1,13 +1,14 @@
 class_name ItemRect
 extends Control
 
-signal item_selected(item: D2Item)
 
+signal rect_clicked
 
 @onready var quantity_label: Label = %QuantityLabel
 @onready var background_texture: TextureRect = %BackgroundTexture
 @onready var item_texture: TextureRect = %ItemTexture
 @onready var highlight_rect: ColorRect = %HighlightColor
+@onready var highlight_panel: Panel = %HighlightPanel
 
 var _item: D2Item
 
@@ -20,6 +21,10 @@ func _ready() -> void:
 func init_rect(item: D2Item) -> void:
 	z_index = 1
 	_item = item
+	item_texture.custom_maximum_size.x = item.inv_width * 38
+	item_texture.custom_minimum_size.x = item.inv_width * 38
+	item_texture.custom_maximum_size.y = item.inv_height * 38
+	item_texture.custom_minimum_size.y = item.inv_height * 38
 	if item.is_stackable and item.is_misc and item.item_type not in ["Bolts", "Arrows"]:
 		quantity_label.text = str(item.quantity) + " "
 		quantity_label.show()
@@ -33,15 +38,7 @@ func init_rect(item: D2Item) -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			item_selected.emit(_item)
-
-
-func highlight() -> void:
-	highlight_rect.show()
-
-
-func remove_highlight() -> void:
-	highlight_rect.hide()
+			rect_clicked.emit()
 
 
 func hide_background_texture() -> void:
@@ -58,13 +55,13 @@ func _hide_tooltip() -> void:
 
 
 func select() -> void:
-	highlight()
-	if not ItemSelection.selection_changed.is_connected(_on_item_selection_changed):
-		ItemSelection.selection_changed.connect(_on_item_selection_changed, CONNECT_ONE_SHOT)
+	highlight_rect.show()
+	highlight_panel.show()
 
 
-func _on_item_selection_changed() -> void:
-	remove_highlight()
+func deselect() -> void:
+	highlight_rect.hide()
+	highlight_panel.hide()
 
 
 func _exit_tree() -> void:

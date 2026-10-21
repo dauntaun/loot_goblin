@@ -1,6 +1,9 @@
 class_name PD2StashGUI
 extends TabContainer
 
+signal item_rect_clicked(item_rect: ItemRect)
+signal grid_right_clicked(grid: StashPageGUI)
+
 var _initialized_shared: bool
 var _initialized_personal: bool
 var _pd2_pages: PagedStashView
@@ -21,11 +24,13 @@ func _ready() -> void:
 	_personal_page = get_child(1)
 	for i: int in range(2, 11):
 		var stash_page := get_child(i) as StashPageGUI
-		stash_page.item_selected.connect(_on_item_selected_in_shared_stash)
+		stash_page.item_rect_clicked.connect(_relay_item_rect_clicked)
+		stash_page.right_clicked_grid.connect(_relay_right_clicked_grid.bind(stash_page))
 		_shared_pages.append(stash_page)
 	
 	tab_changed.connect(_on_tab_changed)
-	_personal_page.item_selected.connect(_on_item_selected_in_personal_stash)
+	_personal_page.item_rect_clicked.connect(_relay_item_rect_clicked)
+	_personal_page.right_clicked_grid.connect(_relay_right_clicked_grid.bind(_personal_page))
 	StashRegistry.pd2_shared_registered.connect(func() -> void:
 		current_tab = GlobalSettings.pd2_stash_page + 1
 		var materials_page := StashRegistry.get_pd2_shared_save_file().materials_page
@@ -95,38 +100,23 @@ func _on_item_removed_from_shared_stash(item: D2Item) -> void:
 
 
 func _on_item_added_in_personal_stash(item: D2Item) -> void:
-	if item.location_id == D2Item.ItemLocation.STORED and item.store_id == D2Item.StoreLocation.PD2_STASH:
+	if item.location_id == D2Item.ItemLocation.STORED and item.store_id in [D2Item.StoreLocation.PD2_STASH, D2Item.StoreLocation.STASH]:
 		_personal_page.add_item_rect(item)
 
 
 func _on_item_removed_from_personal_stash(item: D2Item) -> void:
-	if item.location_id == D2Item.ItemLocation.STORED and item.store_id == D2Item.StoreLocation.PD2_STASH:
+	if item.location_id == D2Item.ItemLocation.STORED and item.store_id in [D2Item.StoreLocation.PD2_STASH, D2Item.StoreLocation.STASH]:
 		_personal_page.remove_item(item)
 
 
 func _on_tab_changed(tab: int) -> void:
-	ItemSelection.clear_selection()
-	if tab == 1:
-		_personal_page.restore_last_selection()
 	if tab > 1:
 		ItemSelection.set_destination_page_index(tab - 2)
-		_shared_pages[tab - 2].restore_last_selection()
 
 
-func _on_item_selected_in_shared_stash(item: D2Item) -> void:
-	var items_in_page := _pd2_pages.get_items_in_page(current_tab - 2)
-	ItemSelection.set_selection(item, items_in_page)
-	_shared_pages[current_tab - 2].select_item(item)
+func _relay_item_rect_clicked(item_rect: ItemRect) -> void:
+	item_rect_clicked.emit(item_rect)
 
 
-func _on_item_selected_in_personal_stash(item: D2Item) -> void:
-	var items_in_page := _char_view.get_stashed_items()
-	ItemSelection.set_selection(item, items_in_page)
-	_personal_page.select_item(item)
-
-
-func restore_last_selection() -> void:
-	if current_tab == 1:
-		_personal_page.restore_last_selection()
-	elif current_tab > 1:
-		_shared_pages[current_tab - 2].restore_last_selection()
+func _relay_right_clicked_grid(grid: StashPageGUI) -> void:
+	grid_right_clicked.emit(grid)

@@ -28,7 +28,7 @@ func show_item_debug() -> void:
 
 
 func update_labels() -> void:
-	var item := ItemSelection._selected_item
+	var item := ItemSelection.get_last_selected_item()
 	if not item:
 		clear_labels()
 		return

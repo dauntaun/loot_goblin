@@ -114,9 +114,6 @@ func get_involved_save_files() -> Array[BasicSaveFile]:
 	@warning_ignore("unused_parameter")
 	func is_redundant_with(new_command: BasicCommand) -> bool:
 		return false
-	
-	func cleanup() -> void:
-		pass
 
 
 class ImportPlugyCommand extends BasicCommand:
@@ -208,13 +205,12 @@ class ItemTransferCommand extends BasicCommand:
 	
 	func _init(
 		for_item: D2Item,
-		from_stash_id: int,
 	 	to_stash_id: int,
 		placement: ItemPlacement = null) -> void:
 		
 		item = for_item
+		source_stash_id = ItemRegistry.get_item_data_stash_id(item.item_id)
 		source_placement = ItemPlacement.from_item(item) # Snapshot for undo
-		source_stash_id = from_stash_id
 		destination_stash_id = to_stash_id
 		destination_view = StashRegistry.get_stash_view(destination_stash_id)
 		destination_data = StashRegistry.get_stash_data(destination_stash_id)

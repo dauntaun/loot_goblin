@@ -28,6 +28,18 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.13899964, 0.13899967, 0.13899961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg53e"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6590723, 0.10262375, 0.18563667, 1)
+
 [node name="ItemRect" type="Panel" unique_id=1300969932]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -52,7 +64,7 @@ theme_override_constants/margin_bottom = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-color = Color(1, 1, 1, 0.8235294)
+color = Color(0.65012825, 0.6501283, 0.6501282, 1)
 
 [node name="BackgroundTexture" type="TextureRect" parent="MarginContainer" unique_id=1176329987]
 unique_name_in_owner = true
@@ -66,6 +78,8 @@ layout_mode = 2
 [node name="ItemTexture" type="TextureRect" parent="MarginContainer" unique_id=458451630]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 stretch_mode = 5
 
 [node name="QuantityLabel" type="Label" parent="MarginContainer" unique_id=665132874]
@@ -82,3 +96,10 @@ vertical_alignment = 1
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_wbthd")
+
+[node name="HighlightPanel" type="Panel" parent="MarginContainer" unique_id=589092194]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_jg53e")
