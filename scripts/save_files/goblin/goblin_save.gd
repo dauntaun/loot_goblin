@@ -91,7 +91,7 @@ class GoblinCollection:
 	
 	static func from_cursor(cursor: BitCursor) -> GoblinCollection:
 		var start_bit := cursor._bit_pos
-		var collection := GoblinCollection.new(start_bit << 3, cursor._data)
+		var collection := GoblinCollection.new(start_bit >> 3, cursor._data)
 		var collection_header := cursor.read_bits(2 << 3)
 		if collection_header != COLLECTION_HEADER:
 			push_error("Unknown Goblin collection header")
