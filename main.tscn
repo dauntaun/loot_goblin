@@ -354,7 +354,6 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_behavior_recursive = 1
 script = ExtResource("1_ig7tw")
-enable_debug = true
 
 [node name="StashLoader" type="FileDialog" parent="." unique_id=1557473263]
 unique_name_in_owner = true
@@ -3030,6 +3029,7 @@ metadata/_tab_index = 1
 
 [node name="ManageCollections" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector" unique_id=1532611473]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 toggle_mode = true
@@ -3136,6 +3136,7 @@ tab_container = NodePath("../../PD2Stash")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ToggleGroupButton"
+disabled = true
 toggle_mode = true
 action_mode = 0
 button_group = SubResource("ButtonGroup_xuqvo")

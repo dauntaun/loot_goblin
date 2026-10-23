@@ -24,7 +24,7 @@ func load_file() -> void:
 	header = D2SaveHeader.new(data)
 	var cursor := BitCursor.new(data, ITEM_LIST_BYTE_OFFSET << 3)
 	item_list = D2ItemList.new(cursor)
-	materials_page = MaterialsPage.new(data)
+	#materials_page = MaterialsPage.new(data)
 
 
 func save_file(path: String) -> void:
