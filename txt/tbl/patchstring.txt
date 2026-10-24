@@ -1182,7 +1182,7 @@ StartIndexBlock	(DontTranslate) These are hardcoded indexes and should not be mo
 Bnet_AccountExists	Login to projectdiablo2.com Click on your name and go to Settings to create an in-game account
 Bnet_CreateGameDesc	Description (Optional)
 VerifyTransaction9_PD2	Your Mercenary will be replaced. Their equipment will be dropped.
-Charmdes_PD2	Active in Charm Inventory
+Charmdes_PD2	\red;Only Active in Charm Inventory
 Bnet_Bad16DigitKey_Title	Legacy CD Keys Disabled
 Bnet_Bad16DigitKey_Desc1	The game was installed using legacy 16-digit CD keys.
 Bnet_Bad16DigitKey_Desc2	Please log into your Battle.net account or visit battle.net/account/management/claim-code.html to redeem your 16-digit CD keys. And then visit battle.net/support/article/13867 to download and reinstall the game using your new 26-digit keys
@@ -1217,7 +1217,7 @@ HOTKEY_FilterLevel10	Filter Level 10
 HOTKEY_FilterLevel11	Filter Level 11
 HOTKEY_FilterLevel12	Filter Level 12
 HOTKEY_ToggleLootfilter	Toggle Loot Filter
-HOTKEY_GambleRefresh	Gamble Refresh
+HOTKEY_GambleRefresh_DepositAll	Gamble Refresh / Deposit All
 HOTKEY_HoldShowStatRanges	Show Stat Ranges
 HOTKEY_TooltipScreenShot	Tooltip Screen Shot
 HOTKEY_CubeTransmute	Cube Transmute
@@ -1227,7 +1227,7 @@ HOTKEY_Move_Down	Move Down
 HOTKEY_Move_Left	Move Left
 HOTKEY_Move_Right	Move Right
 HOTKEY_Enable_Auto_Attack	Toggle Auto Attack
-HOTKEY_OpenCurrencyTab	Materials Tab
+HOTKEY_OpenCurrencyTab	Runes Tab
 HOTKEY_OpenPersonalTab	Personal Tab
 HOTKEY_OpenPersonalShared1	Shared Tab 1
 HOTKEY_OpenPersonalShared2	Shared Tab 2
@@ -1244,7 +1244,55 @@ PD2_MainMenu_UnableToConnectToBnet	Unable to connect to Project Diablo 2.
 PD2_MainMenu_LoginScreenDescription	To use an existing Project Diablo 2 account, enter the information below and click 'Log In'. Otherwise, click 'Create New Account'.
 PD2_MainMenu_CreateAccountScreenDescription	Create a Project Diablo 2 account on our website https://www.projectdiablo2.com, and set up a Game Account there.
 PhysicalResistanceCharSheet	Physical\nResistance
-Index11245	Just to make it easier to find. This is 11245
+CapsJoinMenu4	ARENA
+CapsJoinMenu5	GUILD
+CapsBnet9	Guilds
+CapsBnet10	ENTER GUILD HALL
+CapsBnet11	INVITE MEMBER
+CapsBnet12	QUIT GUILD
+CapsBnet13	CREATE GUILD
+CapsBnet14	ACCEPT INVITATION
+CapsBnet15	Are you sure that you want to PERMANENTLY LEAVE your guild?
+CapsGuildName	Guild Name
+CapsGuildTag	Guild Tag
+CapsGuildCharName	Character Name
+GuildText1	No current guild invitations
+GuildText2	 has invited you to join their guild.
+Ladder3	GUILD LADDER
+Ladder7	Steeg Gold
+CapsBnetDisbandGuild	DISBAND GUILD
+CapsBnetDisbandConfirm	Are you sure that you want to PERMANENTLY DISBAND your guild? This will REMOVE ALL MEMBERS and DELETE ALL ITEMS in the guild vault
+CapsBnetDeclineInvite	DECLINE INVITATION
+BnetRecreate	RECREATE
+BnetRecreateChar	CHARACTER
+BnetRecreateCharWarn	Recreate this character? All items, levels, and progress will be reset. Guild membership is kept.
+BnetRecreateLadder	Ladder Character
+CapsGuildMembers	MEMBERS
+CapsGuildRemoveMember	REMOVE MEMBER
+CapsGuildRemoveConfirm	Are you sure that you want to remove %S from the guild?
+CapsGuildMOTD	No message of the day has been set
+CapsGuildMOTDEdit	EDIT MOTD
+CapsGuildManage	MANAGE GUILD
+CapsGuildTransfer	TRANSFER OWNERSHIP
+CapsGuildTransferWarn	Are you sure that you want to transfer ownership to %S?
+CapsGuildPromote	PROMOTE MEMBER
+CapsGuildDemote	DEMOTE MEMBER
+SortModeName	Sort: Name
+SortModeLevel	Sort: Level
+SortModeClass	Sort: Class
+SortModeLadder	Sort: Ladder
+SortModeCore	Sort: Core
+SortModeRecent	Sort: Recent
+HOTKEY_OpenUniquesTab	Uniques Tab
+HOTKEY_OpenSetsTab	Sets Tab
+HOTKEY_OpenGemsTab	Gems Tab
+HOTKEY_OpenMapsTab	Maps Tab
+HOTKEY_OpenBossingTab	Ubers Tab
+HOTKEY_OpenMiscTab	Misc Tab
+HOTKEY_ToggleHidePotions	Toggle Hide Potions
+HOTKEY_ToggleAlwaysShowUndiscovered	Force Show Undiscovered
+HOTKEY_ToggleAlwaysShowUnowned	Force Show Unowned
+Index11293	Just to make it easier to find. This is 11293
 EndIndexBlock	(DontTranslate)==================================================
 LabelMiscStart	(DontTranslate)==================================================
 stdDesc	+20% Magic and Gold Find\n+20% Monster Density\n+10% Experience\n \nCube with a map to add Heroic bonuses
@@ -1275,7 +1323,7 @@ scouDesc	to downgrade it to a Normal Map\nCube with a \blue;Magic Map\grey; or \
 upmp	\gold;Cartographer's Orb
 upmpDesc	to create 1 map of the next tier\nCube with 3 maps of the same tier
 fort	\gold;Orb of Fortification
-fortDesc	Monsters have +100% increased health\nMonsters deal +20% damage\n-50% base monster density\nMonsters grant +100% experience\nMonsters have +100% chance to drop extra items\n \nCube with a map to add fortify bonuses
+fortDesc	Monsters have +100% increased health\nMonsters deal +20% damage\n-50% base monster density\nMonsters grant +100% experience\nMonsters have +100% chance to drop additional items\n \nCube with a map to add fortify bonuses
 scrb	\gold;Horadrim Scarab
 scrbDesc	\red;Dangerous Group Content\n\grey;Cube with a Tier 3 map to create a Dungeon
 iwss	\purple;Catalyst Shard\white;
@@ -1400,6 +1448,88 @@ r02	\orange;Eld Rune
 r01	\orange;El Rune
 toaName	Token of Absolution
 toaDesc	Right-click to reset Stat/Skill Points
+LabelGuildStart	(DontTranslate)==================================================
+Steeg Stone	Steeg Stone
+Guild Vault	Guild Vault
+Trophy Case	Trophy Case
+Message Board	Message Board
+strGuildWWWLabel	Guild Website:
+strGuildWWWCopied	Guild website copied to clipboard
+strGuildCharterLabel	Guild Charter:
+strGuildCurrentGoldLabel	Current Gold:
+strGuildNextLevelLabel	Next Tier:
+strGuildNextTier	Tier %d
+strGuildNextTierRewards	Tier %d unlocks:
+strGuildTierRewards2	Guild emblems\nThe Message Board
+strGuildTierRewards3	The Guild Vault (1 tab)
+strGuildTierRewards4	+1 Guild Vault tab\nAnya and Gheed
+strGuildTierRewards5	The Trophy Case\n+1 Guild Vault tab\nMore vendors
+strGuildTierRewards6	+1 Guild Vault tab
+strGuildTierRewards7	+1 Guild Vault tab
+strGuildTierRewards8	+1 Guild Vault tab
+strGuildTierRewards9	+1 Guild Vault tab
+strGuildTierRewards10	+1 Guild Vault tab
+strGuildTierRewards11	+1 Guild Vault tab
+strGuildTierRewards12	The final Guild Vault tab
+strGuildMaxTier	Maximum tier reached
+strGuildMasterLabel	Guild master:
+strGuildPlayerRank	Rank
+strGuildRankTrial	Initiate
+strGuildRankMember	Warrior
+strGuildRankOfficer	Officer
+strGuildRankMaster	Master
+strGuildPlayerName	Name
+strGuildPlayerClass	Class
+strGuildPlayerLevel	Lvl
+strGuildPal	pal
+strGuildSor	sor
+strGuildAma	ama
+strGuildNec	nec
+strGuildBar	bar
+strGuildDru	dru
+strGuildSin	asn
+strGuildRemoveMember	REMOVE MEMBER
+strGuildModifyRank	MODIFY RANK
+strGuildPromote	PROMOTE
+strGuildDemote	DEMOTE
+strGuildCancel	CANCEL
+strGuildConfirm	CONFIRM
+strGuildChangeWebAddress	Click here to change the website
+strGuildChangeInsignia	Click here to change the emblem.
+strGuildUnlockInsignia	Upgrade the guild to Tier 2 to unlock
+strGuildChangeCharter	Click here to change the charter.
+strGuildCurrentGoldPopup	Gold donated to guild
+strGuildNextLevelPopup	Gold needed to upgrade guild
+strGuildDonateGoldPopup	Donate gold to guild
+strGuildDonate	Donate
+strGuildLevelUp1	The Guild Hall has been upgraded to Tier 2! - Guild emblems and the Message Board have been Unlocked!
+strGuildLevelUp2	The Guild Hall has been upgraded to Tier 3! - Guild Shared Vault has been unlocked!
+strGuildLevelUp3	The Guild Hall has been upgraded to Tier 4! - Guild Vendors and an additional Guild Vault Tab have been unlocked!
+strGuildLevelUp4	The Guild Hall has been upgraded to Tier 5! - The Guild Trophy case, an additional Guild Vault Tab and additional Vendors have been unlocked!
+strGuildLevelUp5	The Guild Hall has been upgraded to Tier 6! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp6	The Guild Hall has been upgraded to Tier 7! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp7	The Guild Hall has been upgraded to Tier 8! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp8	The Guild Hall has been upgraded to Tier 9! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp9	The Guild Hall has been upgraded to Tier 10! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp10	The Guild Hall has been upgraded to Tier 11! - The Guild Vault has unlocked an additional Vault Tab
+strGuildLevelUp11	The Guild Hall has been upgraded to the Maximum Tier! - The Guild Vault has unlocked the Final Vault Tab
+strGuildTrophyClear	Clear this slot
+strGuildTrophyClearConfirm	Confirm
+strGuildTrophyAdd	Add item
+strGuildTrophyLock	Lock this slot
+strGuildTrophyUnlock	Unlock this slot
+strGuildTrophyEdit	Edit Trophy Case
+strGuildTrophyEditDone	Done editing
+strGuildVaultTabAccessAll	Everyone
+strGuildVaultTabAccessMember	Warriors and above
+strGuildVaultTabAccessOfficer	Officers and above
+strGuildVaultTabAccessMaster	Guild Master only
+strGuildVaultTabAccessChange	\dgrey;Right click: change tab access\grey;
+strGuildVaultTabAccessLine	Tab %d access:
+strGuildMessageLine	\gold;%s\grey;: %s
+Guild Portal	Guild Portal
+CharTitleEnabled	Character titles enabled
+CharTitleDisabled	Character titles disabled
 LabelSetStart	(DontTranslate)==================================================
 Bul-Kathos' Death Band	Bul-Kathos' Death Band
 Infernal Spire	Infernal Spire
@@ -1684,23 +1814,30 @@ MapAtkCastSpeed	Attack and Cast Speed
 MapAddMonSouls	Map contains Burning Souls
 MapAddMonFetish	Map contains Fetishes
 MapGlobSkirmishMode	\orange;Fortified\white;
-MapMonIncreasedJewelry	chance of dropping additional jewelry and charms
-MapMonIncreasedWeapons	chance of dropping additional weapons
-MapMonIncreasedArmor	chance of dropping additional armor
-MapMonIncreasedCrafting	chance of dropping additional crafting materials
+MapMonIncreasedJewelry	chance to drop additional jewelry and charms
+MapMonIncreasedWeapons	chance to drop additional weapons
+MapMonIncreasedArmor	chance to drop additional armor
+MapMonIncreasedCrafting	chance to drop additional crafting materials
+MapMonIncreasedClassItems	chance to drop additional class-specific items
 MapGlobExtraBoss	Map contains an additional boss
 MapPlayMaxAllRes	to All Maximum Resistances
 MapAddMonShriek	Map contains Minions of Destruction
-MapMonIncreasedCharms	chance of dropping additional charms
-MapMonIncreasedCorrupted	chance of dropping corrupted items
+MapMonIncreasedCharms	chance to drop additional charms
+MapMonIncreasedCorrupted	chance to drop corrupted items
 MapBossSkillers	Map boss drops a skill charm
 MapBossCorruptedUnique	Map boss drops a corrupted unique
 MapBossFacet	Map boss drops a Rainbow Facet
-MapMonIncreasedJewels	chance of dropping additional jewels
+MapMonIncreasedJewels	chance to drop additional jewels
+MapMonIncreasedRanged	chance to drop additional ranged weapons
+MapMonIncreasedMelee	chance to drop additional melee weapons
+MapMonIncreasedHelmBody	chance to drop additional helmets and body armors
+MapMonIncreasedShields	chance to drop additional shields
+MapMonIncreasedAccessories	chance to drop additional accessories
+MapMonIncreasedCaster	chance to drop additional caster weapons
 StrMapLightRadius	reduced light radius
 MapGlobSunderMonsters	Monsters have sundered resistances
 MapGlobDropSockets	Monsters have +%d%% chance to drop socketed items\nMap boss drops socketed uniques
-MapGlobDropBonus	Monsters have +%d%% chance to drop extra items
+MapGlobDropBonus	Monsters have +%d%% chance to drop additional items
 MapGlobBossTreasure	Map boss drops a treasure explosion
 MapGlobDropEthereal	Monsters have +%d%% chance to drop ethereal items\nMap boss drops ethereal uniques
 LabelMapStart	(DontTranslate)==================================================
@@ -1711,6 +1848,7 @@ t13	Bastion Keep Map
 t14	Sanatorium Map
 t15	Royal Crypts Map
 t16	Ruined Cistern Map
+t18	Poisoned Well Map
 t21	Phlegethon Map
 t22	Torajan Jungle Map
 t23	Arreat Battlefield Map
@@ -1719,6 +1857,8 @@ t25	Sewers of Harrogath Map
 t26	Shadows of Westmarch Map
 t27	Demon Road Map
 t28	Skovos Stronghold Map
+t29	Fortress of Aranoch Map
+t2a	Descent from Mount Arreat Map
 t31	River of Blood Map
 t32	Throne of Insanity Map
 t33	Lost Temple Map
@@ -1848,10 +1988,20 @@ DjinnsDomainBossMap	The Wishing Well
 ToDjinnsDomainBossMap	To the Wishing Well
 ToKyovashadMap	To Kyovashad
 KyovashadMap	Kyovashad
+ToGuildHall	To the Guild Hall
+GuildHall	Guild Hall
+ToPoisonedWellMap	To the Poisoned Well
+PoisonedWellMap	The Poisoned Well
 ToLucionArenaMap	To Veiled Realm
 LucionArenaMap	Veiled Realm
 ToLucionVaultMap	To Temple of the Triune
 LucionVaultMap	Temple of the Triune
+ToTombEventMap	To the Bitter Depths
+TombEventMap	The Bitter Depths
+ToDarkTempleMap	To the Fortress of Aranoch
+DarkTempleMap	The Fortress of Aranoch
+ToDescentMap	To the Descent from Mount Arreat
+DescentMap	The Descent from Mount Arreat
 MapEventButcherDesc	Invulnerable. Increases nearby Gold and Magic Find.
 TaintedSunMapEventAltar	Spire of Darkness
 ForceShardAltar	Altar of the Catalyst
@@ -2063,6 +2213,7 @@ ModStr3w_PD2	Damage Taken Gained as Mana when Hit
 ModStre8a_PD2	to Druid Skill Levels
 ModStre8b_PD2	to Assassin Skill Levels
 StrAnniversaryEdition	\orange; %dth Anniversary Edition
+StrSpecialEdition	\orange; Alternative Edition
 LabelSkillsStart	(DontTranslate)==================================================
 Blink	Blink
 BlinkDesc	instantly moves to a destination
@@ -2102,6 +2253,7 @@ StrSkeleArchers	 Skeleton Archers
 StrSkeleArchersShort	Archers: 
 StrSkeleAll	Warriors, Archers, Magi: 
 StrSkeleAllPhys	Warriors: 
+StrMagiDamage	Magi: Damage: 
 DopplezonNew	Decoy
 DopplezonNewSD	fires arrows at nearby enemies\nCreates a duplicate of yourself that
 DopplezonNewLD	fires arrows at nearby enemies\nCreates a duplicate of yourself that
@@ -2274,6 +2426,7 @@ StrPierces	Pierces
 StrBOSAtkSpd	Increases Attack Speed with Base Levels
 StrVelocity	Velocity: 
 StrElemDmg	Elemental Damage: 
+StrElemDmg%	% Elemental Damage
 StrLGOH	 Life Gained On Hit
 StrNecroMagePsn	 Over 0.5 Seconds
 StrBCSkills	Grants an Additional Skill Level every 10 Base Levels
@@ -2339,7 +2492,7 @@ skillan17_PD2	Slow Movement
 skillname19_PD2	Javelin and Spear Mastery
 skillsd19_PD2	passively increases damage and attack speed
 skillld19_PD2	javelin and spear class weapons\nincreases damage and critical hit damage with
-skillld23_PD2	passive - increases your attack rating and lowers target defense
+skillld23_PD2	sharpens your weapons to pierce enemy physical resistances\npassive - increases your attack rating and
 skillld29_PD2	a melee or missile attack when walking or running\npassive - you have a chance to dodge
 skillld37_PD2	and grants passive attack rating\npassive - increases the rate at which you recover mana
 skillxld42_PD2	lowers enemy lightning resistances for a short duration\nof all nearby enemies\ncreates an electrical field that reduces life
@@ -2348,8 +2501,8 @@ skillld46_PD2	while affected you cannot be frozen\nleaving a wall of fire in you
 skillname52_PD2	Enchant Fire
 skillld52_PD2	half efficiency for all allies\nenchants nearby allies weapons with fire damage
 skillan52_PD2	Enchant Fire
-skillsd54_PD2	instantly moves to destination and reduces damage dealt
-skillld54_PD2	and reduces the spell damage you deal for 1 second\ninstantly moves to a destination within your line of sight
+skillsd54_PD2	temporarily reducing damage dealt\ninstantly moves to destination
+skillld54_PD2	reducing the elemental damage you deal for 1 second\ninstantly moves to a destination
 skillld56_PD2	from sources of fire mastery\nmeteor's physical damage benefits \nto crush and incinerate your enemies\nsummons a meteor from the heavens
 skillsd60_PD2	retaliates against ranged and melee attackers
 skillld60_PD2	damages melee attackers if you are hit\nin retaliation against ranged attackers\nincreases defense and discharges a blizzard spike
@@ -2451,8 +2604,8 @@ InventoryLock	Charm Inventory\nLock Equipment &
 StashTabShared	Shared Tab
 StashTabPrivate	Personal Tab
 StashTabCurrency	Materials Tab
-StashGoldAmount	Personal Bank
-SharedStashGoldAmount	Shared Bank
+StashTabCompendium	Compendium
+SearchStash	Search
 NPCRefresh	Refresh
 PlayerDpsDisplay	DPS: %d
 NewHelpTitle	Project Diablo II Help
@@ -2466,12 +2619,9 @@ NewHelpShortcuts7	Ctrl+Right Click
 NewHelpShortcuts8	Move to ground
 NewHelpShortcuts9	Ctrl+Shift+Right Click
 NewHelpShortcuts10	Move to closed cube
-NewHelpShortcuts11	Ctrl+Shift+Left Click
-NewHelpShortcuts12	Toggle stacked/unstacked
 NewHelpShortcuts13	While holding an item on your cursor
 NewHelpShortcuts14	Ctrl+Left Click
-NewHelpShortcuts15	Place 1 stacked item
-NewHelpShortcuts16	Place 1 unstacked item
+NewHelpShortcuts15	Place 1
 NewHelpCharm1	Charm Inventory
 NewHelpCharm2	Charms are only active while they are
 NewHelpCharm3	completely inside of the charm inventory
@@ -2522,6 +2672,7 @@ MapEventNotifyTainted	A faint humming keeps the dark at bay...
 MapEventNotifyVoid	The deafening silence of an alternate dimension calls for you...
 MapEventNotifyGheed	You hear coins being counted nearby...
 MapEventNotifyShard	A mysterious altar vibrates with potential...
+MapEventNotifyTomb	The smell of old books and forgotten treasure lingers...
 MapEventNotifyInvaders	You feel a corrupted presence watching you, as if you're being hunted...
 MapEventNotifyInvadersAmazon	Corrupted Amazon has expressed hostility towards you.
 MapEventNotifyInvadersAssassin	Corrupted Assassin has expressed hostility towards you.
@@ -2702,6 +2853,10 @@ Wildspeaker	Wildspeaker
 ColdDamage	Cold Damage
 VampireForm	Vampire Form
 VampireFormd	 gaining power but casting slower\ntransform into a vampire
+CowForm	Cow Form
+CowFormd	 become the beef
+DeliriumForm	Delirium Form
+DeliriumFormd	 ignoring enemy physical resistances\ntransform into a deadly fetish
 FasterCastRate	% Faster Cast Rate
 StrMagicDamage	Magic Damage: 
 Bonewallplev	Life and Damage per Level
@@ -2800,7 +2955,6 @@ HotkeyItemShiftRight	Shift+Right: Transfer
 HotkeyItemCtrlRight	Ctrl+Right: Drop
 HotkeyItemShiftLeft	Shift+Left: Identify
 HotkeyItemRight	Right: Use
-HotkeyItemCtrlShiftLeft	Ctrl+Shift+Left: Toggle Stacked
 HotkeyItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Cube
 HotkeyItemShopCtrlLeft	Ctrl+Left: Sell
 HotkeyItemShopRight	Right: Buy
@@ -2809,11 +2963,12 @@ HotkeyCurrencyTabItemCtrlShiftLeft	Ctrl+Shift+Left: Transfer 1 to Cube
 HotkeyCurrencyTabItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Stack to Cube
 HotkeyCurrencyTabItemCtrl	Ctrl: Transfer 5
 HotkeyCurrencyTabItemShift	Shift: Transfer stack
+HotkeyStashCubeItemCtrlShiftLeft	Ctrl+Shift+Left: Transfer 1 to Stash
+HotkeyStashCubeItemCtrlShiftRight	Ctrl+Shift+Right: Transfer Stack to Stash
 XboxHotkeyItemShiftRight	LT+X: Transfer
 XboxHotkeyItemCtrlRight	RT+X: Drop
 XboxHotkeyItemShiftLeft	LT+A: Identify
 XboxHotkeyItemRight	X: Use
-XboxHotkeyItemCtrlShiftLeft	RT+LT+A: Toggle Stacked
 XboxHotkeyItemCtrlShiftRight	RT+LT+X: Transfer Cube
 XboxHotkeyItemShopCtrlLeft	RT+A: Sell
 XboxHotkeyItemShopRight	X: Buy
@@ -2826,7 +2981,6 @@ DS4HotkeyItemShiftRight	L2+Square: Transfer
 DS4HotkeyItemCtrlRight	R2+Square: Drop
 DS4HotkeyItemShiftLeft	L2+X: Identify
 DS4HotkeyItemRight	Square: Use
-DS4HotkeyItemCtrlShiftLeft	R2+L2+X: Toggle Stacked
 DS4HotkeyItemCtrlShiftRight	R2+L2+Square: Transfer Cube
 DS4HotkeyItemShopCtrlLeft	R2+X: Sell
 DS4HotkeyItemShopRight	Square: Buy
@@ -2860,19 +3014,19 @@ InvaderSorceress	\gold;Corrupted Sorceress
 InvaderNecromancerSkeleton	\gold;Corrupted Skeleton
 InvaderNecromancerSkeletonArcher	\gold;Corrupted Skeleton Archer
 ivez	\gold;Corrupted Amazon's Ear
-ivezDesc	Monsters have +200% increased health\nMonsters have +50% increased cast and attack speed\nMonsters have +25% incresaed velocity\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivezDesc	Monsters have +100% increased health\nMonsters have +50% increased cast and attack speed\nMonsters have +25% increased velocity\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional ranged weapons\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 ivea	\gold;Corrupted Assassin's Ear
-iveaDesc	Monsters have +200% increased health\nMonsters have +10% chance of deadly strike\nMonsters have +120% faster hit recovery\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+iveaDesc	Monsters have +100% increased health\nMonsters have +10% chance of deadly strike\nMonsters have +120% faster hit recovery\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional melee weapons\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 iveb	\gold;Corrupted Barbarian's Ear
-ivebDesc	Monsters have +200% increased health\nMonsters have +20% chance of crushing blow\nMonsters have +25% enhanced physical damage\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivebDesc	Monsters have +100% increased health\nMonsters have +20% chance of crushing blow\nMonsters have +25% enhanced physical damage\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional helmets and body armors\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 ived	\gold;Corrupted Druid's Ear
-ivedDesc	Monsters have +200% increased health\nMonsters have +25% of physical damage as extra fire damage\nPlayers have -5% to all maximum resistances\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivedDesc	Monsters have +100% increased health\nMonsters have +25% of physical damage as extra fire damage\nPlayers have -5% to all maximum resistances\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional class-specific items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 iven	\gold;Corrupted Necromancer's Ear
-ivenDesc	Monsters have +200% increased health\nMonsters have +50% of physical damage as extra poison damage over 5 seconds\nPlayers have -100 drain life\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivenDesc	Monsters have +100% increased health\nMonsters have +50% of physical damage as extra poison damage over 5 seconds\nPlayers have -100 drain life\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional accessories\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 ivep	\gold;Corrupted Paladin's Ear
-ivepDesc	Monsters have +200% increased health\nPlayers have -5% physical damage reduction\nMonsters have +50% to attack rating\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivepDesc	Monsters have +100% increased health\nPlayers have -5% physical damage reduction\nMonsters have +50% to attack rating\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional shields\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 ives	\gold;Corrupted Sorceress's Ear
-ivesDesc	Monsters have +200% increased health\nMonsters have +50% of physical damage as extra lightning damage\nPlayers have -25% to all resistances\nMonsters have +50% chance to drop extra items\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
+ivesDesc	Monsters have +100% increased health\nMonsters have +50% of physical damage as extra lightning damage\nPlayers have -25% to all resistances\nMonsters have +55% chance to drop additional items\nMonsters have +55% chance to drop additional caster weapons\n+25% monster rarity\n \nCube with a map to add treacherous bonuses
 Devilkinbrute	Devil Kin Brute
 Satyrlord	Satyr Lord
 Hellbat	Hellbat
@@ -2881,6 +3035,9 @@ Cryptdemon	Crypt Demon
 Fleshthing	Flesh Thing
 Lich	Lich
 Skullwing	Skullwing
+StatsCommandKills	\gold;%S\grey;: \red;
+StatsCommandAllChar	All character stats for \gold;%S
+StatsCommandAllAcc	All Account stats for \gold;%S
 HotkeyAssignStatsShift	Shift: Assign +20
 HotkeyAssignStatsCtrl	Ctrl: Assign +5
 ControllerSkillSelect1	Hover a skill and press a bind to assign
@@ -2895,6 +3052,7 @@ ControllerSkillSelect9	Toggle always show loot:
 ControllerSkillSelect10	Give potion to mercenary: 
 ControllerSkillSelect11	Toggle run/walk: 
 ControllerSkillSelect12	Resync: 
+ControllerSkillSelect13	Toggle Auto-Aim: Hover a skill + 
 ToImperialPalaceBoss	To the Imperial Cellar
 ImperialPalaceBossMap	The Imperial Cellar
 MapBossPuzzlebox	Map boss drops a Larzuk's Puzzlebox
@@ -2911,6 +3069,7 @@ StrDodgeCooldown	0.16 Second Cooldown on Successful Dodge
 StrParryCooldown	0.16 Second Cooldown on Successful Parry
 StrEsBaseEfficiency	damage taken from mana is reduced with base levels
 StashSearchHover	Search item names and stats
+CharmOnlySingleUniqueDesc	\red;Only one unique charm of each type allowed
 aqv	Blunt Arrows
 aqv2	Sharp Arrows
 aqv3	Razor Arrows
@@ -2920,14 +3079,14 @@ cqv3	War Bolts
 CrushEfficiency	Crushing Blow Efficiency
 StrShiverBlock	Grants +2% Faster Block Rate per base level
 StrChillingBlock	Grants +1% Block Chance per base level
-StrSkill110	Succesful Block Chance: 
+StrSkill110	Successful Block Chance: 
 Swift	Swift
 Quick	Quick
 Arcane	Arcane
 Mystic	Mystic
 ColdArrowFires	Cold Arrow fires
 AdditionalArrows	additional arrows
-CurrencyTransmuteTooltip	\dgrey;Left+Shift: Upgrade 150 to 50\n\dgrey;Left+Ctrl: Upgrade 15 to 5\n\dgrey;Left: Upgrade 3 to 1\n\grey;Upgrade material
+CurrencyUpgradeTooltip	\dgrey;Left+Shift: Upgrade 150 to 50\n\dgrey;Left+Ctrl: Upgrade 15 to 5\n\dgrey;Left: Upgrade 3 to 1\n\grey;Upgrade material
 Crackleshot	Crackleshot
 Skillld258_PD2	releases a small explosion at each endpoint\nbetween you and target point\nset a spinning blade to patrol
 Skillsd258_PD2	that explodes at each endpoint\nset a spinning blade
@@ -2966,6 +3125,8 @@ of Evasion	of Evasion
 of Tranquility	of Tranquility
 Ancient's Foresight	Ancient's Foresight
 Ancient's Scripture	Ancient's Scripture
+Finesse	Finesse
+Madness	Madness
 Echo Weapon	Echo
 Echo Quiver	Echo
 CantorUreh	Priest of Rathma
@@ -2979,3 +3140,140 @@ Skillname222	Summon Ravens
 Skillsd222	summon ravens
 Skillan222	Summon Ravens
 StrSpiritOfBarbsMaxDeadly	+1% Maximum Deadly Strike every 4 Base Levels
+r01s	\orange;El Rune (old)
+r02s	\orange;Eld Rune (old)
+r03s	\orange;Tir Rune (old)
+r04s	\orange;Nef Rune (old)
+r05s	\orange;Eth Rune (old)
+r06s	\orange;Ith Rune (old)
+r07s	\orange;Tal Rune (old)
+r08s	\orange;Ral Rune (old)
+r09s	\orange;Ort Rune (old)
+r10s	\orange;Thul Rune (old)
+r11s	\orange;Amn Rune (old)
+r12s	\orange;Sol Rune (old)
+r13s	\orange;Shael Rune (old)
+r14s	\orange;Dol Rune (old)
+r15s	\orange;Hel Rune (old)
+r16s	\orange;Io Rune (old)
+r17s	\orange;Lum Rune (old)
+r18s	\orange;Ko Rune (old)
+r19s	\orange;Fal Rune (old)
+r20s	\orange;Lem Rune (old)
+r21s	\orange;Pul Rune (old)
+r22s	\orange;Um Rune (old)
+r23s	\orange;Mal Rune (old)
+r24s	\orange;Ist Rune (old)
+r25s	\orange;Gul Rune (old)
+r26s	\orange;Vex Rune (old)
+r27s	\orange;Ohm Rune (old)
+r28s	\orange;Lo Rune (old)
+r29s	\orange;Sur Rune (old)
+r30s	\orange;Ber Rune (old)
+r31s	\orange;Jah Rune (old)
+r32s	\orange;Cham Rune (old)
+r33s	\orange;Zod Rune (old)
+gzvs	Flawless Amethyst (old)
+gpvs	Perfect Amethyst (old)
+glys	Flawless Topaz (old)
+gpys	Perfect Topaz (old)
+glbs	Flawless Sapphire (old)
+gpbs	Perfect Sapphire (old)
+glgs	Flawless Emerald (old)
+gpgs	Perfect Emerald (old)
+glrs	Flawless Ruby (old)
+gprs	Perfect Ruby (old)
+glws	Flawless Diamond (old)
+gpws	Perfect Diamond (old)
+skls	Flawless Skull (old)
+skzs	Perfect Skull (old)
+StashCategoryStorage	Stash
+StashCategoryUniques	Uniques
+StashCategorySets	Sets
+StashCategoryGems	Gems
+StashCategoryRunes	Runes
+StashCategoryMaps	Maps
+StashCategoryBossing	Ubers
+StashCategoryMisc	Misc
+StashSubCategoryAll	All
+StashSubCategoryHelms	Helms
+StashSubCategoryChests	Chests
+StashSubCategoryShields	Shields
+StashSubCategoryGloves	Gloves
+StashSubCategoryBoots	Boots
+StashSubCategoryBelts	Belts
+StashSubCategoryQuivers	Quivers
+StashSubCategoryAmulets	Amulets
+StashSubCategoryRings	Rings
+StashSubCategoryCharms	Charms
+StashSubCategoryAxes	Axes
+StashSubCategoryMaces	Maces
+StashSubCategorySwords	Swords
+StashSubCategoryDaggers	Daggers
+StashSubCategoryThrowing	Throwing
+StashSubCategorySpears	Spears
+StashSubCategoryPolearms	Polearms
+StashSubCategoryBows	Bows
+StashSubCategoryCrossbows	Crossbows
+StashSubCategoryStaves	Staves
+StashSubCategoryWands	Wands
+StashSubCategoryClaws	Claws
+StashSubCategoryOrbs	Orbs
+StashSubCategorySetCommon	Common
+StashSubCategorySetUncommon	Uncommon
+StashSubCategorySetClass	Class
+StashSubCategoryMapsTier1	Tier 1 Maps
+StashSubCategoryMapsTier2	Tier 2 Maps
+StashSubCategoryMapsTier3	Tier 3 Maps
+CompendiumDeposit	Deposit materials
+ItemDiscoveredChatMsg	New item discovered: 
+CompendiumFilterShowAll	Show All
+CompendiumFilterShowDiscovered	Show Discovered
+CompendiumFilterShowMissing	Show Missing
+CompendiumFilterShowUndiscovered	Show Undiscovered
+CompendiumFilterShowOwned	Show Owned
+CompendiumFilterDiscoveryProgress	Discovery Progress
+CompendiumFilterDiscoveryDesc	your party's Discovery Progress and mark it as found\nIdentify an item in the game it dropped to increase
+CompendiumSecretName	???
+Secret1Hint	\dgrey;discovery completion\nDoes not count towards\grey;\nsuccumb to darkness\n\red;of pure terror\grey;, even the bravest\nOverwhelmed by \red;visions\grey;
+Secret2Hint	\dgrey;discovery completion\nDoes not count towards\grey;\nunholy treasures await\nthe brightest torch suffocates,\nEven in the \dgrey;void\grey;, where
+Secret3Hint	\dgrey;discovery completion\nDoes not count towards\grey;\nhammer can unlock its true power\nphasing erratically. Perhaps a magical\nBlacksmiths speak of a powerful blade
+Secret4Hint	\dgrey;discovery completion\nDoes not count towards\grey;\nsell it to you for the right price\ndaughter, but greed might let him\nA gift meant for his
+StashAffinity	Toggle Stash Affinity
+StashAffinityOn	this tab if enabled\nAutomatically transfer items to\nTab Affinity: Enabled
+StashAffinityScrollHelp	\dgrey;Shift+Scroll: category\n\dgrey;Ctrl+Scroll: sub category\n\dgrey;Scroll: category contents
+StashAffinityOff	this tab if enabled\nAutomatically transfer items to\nTab Affinity: Disabled
+ShadowSkillLevel	Shadow's Skills Level: 
+Skillld269	to it's own when attacking or casting\nthe shadow adds 1/2 of your skill level\n \nyour equipped skills and fights by your side\nsummon a shadow of yourself that mimics
+Skillld280	to it's own when attacking or casting\nthe shadow adds 1/2 of your skill level\n \nto fight by your side\nsummon a powerful shadow of yourself
+Skillld238	gains +100% enhanced damage while enraged\n \nand becomes enraged by eating corpses\nsummon a wolf that pierces physical resistances
+StrSkill76	Chance uninterruptable: 
+MfSkills	Better Chance of Getting Magic Items: 
+StrPhasing	Phasing
+StrPhasingStatDesc	Phasing When Equipped
+Spectral Plate	Spectral Plate
+SkillDescPhasing	Phasing
+StrFireclaw	Firestorm Damage: 
+Smoldering Clasp	Necrotic Clasp
+StrThornsOwChance	 percent chance to apply a second stack of open wounds
+StrThornsOwDesc	grants a percent chance to apply a second stack of open wounds
+StrSkillMaxHpToSelf	 of maximum life taken as damage
+strGuildStorageLocked	Guild storage failed to load and is locked to protect its items. Please create a bug ticket
+of Thawing	of Thawing
+of Frostward	of Frostward
+Devastating	Devastating
+Destructive	Destructive
+Heatwarded	Heatwarded
+Emberlord's	Emberlord's
+Toxinwarded	Toxinwarded
+Plaguemaster's	Plaguemaster's
+Stormwarded	Stormwarded
+Tempestguard's	Tempestguard's
+Frostwarded	Frostwarded
+Winterlord's	Winterlord's
+Vanguard's	Vanguard's
+Immortal's	Immortal's
+ZoltunKulle	\gold;Zoltun Kulle
+DarkTempleBoss	\gold;Son of Rakkis
+PoisonedWellBoss	\gold;Rotting Horror
+DescentBoss	\gold;Tainted Child of Bul-Kathos
