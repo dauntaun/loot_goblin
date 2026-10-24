@@ -43,6 +43,8 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	item.is_personalized = cursor.jump_and_read(1, 1) # 41
 	item.has_runeword = cursor.jump_and_read(1, 1) # 43
 	item.item_version = cursor.jump_and_read(5, 8) as D2Item.ItemVersion # 56
+	if item.item_version not in D2Item.ItemVersion.values():
+		pass
 	item.location_id = cursor.jump_and_read(2, 3) as D2Item.ItemLocation # 61
 	item.equipped_id = cursor.read_bits(4) as D2Item.EquipLocation # 65
 	item.x_coord = cursor.read_bits(4) # 69
@@ -205,6 +207,12 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	var save_add_key := "save_add_s12"
 	var save_param_bits_key := "save_param_bits_s12"
 	if item.item_version == D2Item.ItemVersion.PD2_SEASON13:
+		id_bit_length = 10
+		id_terminator = 1023
+		save_bits_key = "save_bits_s13"
+		save_add_key = "save_add_s13"
+		save_param_bits_key = "save_param_bits_s13"
+	elif item.item_version == D2Item.ItemVersion.PD2_SEASON14:
 		id_bit_length = 10
 		id_terminator = 1023
 		save_bits_key = "save_bits"

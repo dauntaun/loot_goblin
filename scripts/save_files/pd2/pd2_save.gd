@@ -2,8 +2,11 @@ class_name PD2SaveFile
 extends BasicSaveFile
 
 const FILE_SIGNATURE := 0xBB55BB55 # 85,187,85,187
-const FILE_VERSION := 2
-const ITEM_LIST_BYTE_OFFSET: int = 302
+const FILE_VERSION := 3
+const ITEM_LIST_BYTE_OFFSET: int = 860
+# S13 legacy
+const FILE_VERSION_LEGACY := 2
+const ITEM_LIST_BYTE_OFFSET_LEGACY: int = 302
 
 var header: D2SaveHeader
 var materials_page: MaterialsPage
@@ -24,7 +27,7 @@ func load_file() -> void:
 	header = D2SaveHeader.new(data)
 	var cursor := BitCursor.new(data, ITEM_LIST_BYTE_OFFSET << 3)
 	item_list = D2ItemList.new(cursor)
-	#materials_page = MaterialsPage.new(data)
+	materials_page = MaterialsPage.new(data)
 
 
 func save_file(path: String) -> void:

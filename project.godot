@@ -28,8 +28,8 @@ driver/driver="Dummy"
 
 [autoload]
 
-TxtDB="*uid://dqkkh0v3mr34h"
 GlobalSettings="*uid://45at2lcvwp8m"
+TxtDB="*uid://dqkkh0v3mr34h"
 ItemRegistry="*uid://dgvswmueyi1fn"
 StashRegistry="*uid://d0rkkrn84il45"
 ItemSelection="*uid://di02nshq5a7nt"

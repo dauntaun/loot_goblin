@@ -305,7 +305,7 @@ func _build_database() -> void:
 	item_stat_cost = _load_csv_as_dict("txt/ItemStatCost.txt", "", 
 	["Stat", "ID", "Save Bits", "Save Add", "Encode", "Save Param Bits", "CSvBits",
 	"descfunc", "descstrpos", "descstrneg", "descstr2", "descpriority", "op", "fMin", "MinAccr", "descval",
-	"dgrp", "dgrpfunc", "dgrpval", "dgrpstrpos", "dgrpstrneg", "dgrpstr2", "ValShift", "Save Bits S12", "Save Add S12", "Save Param Bits S12"])
+	"dgrp", "dgrpfunc", "dgrpval", "dgrpstrpos", "dgrpstrneg", "dgrpstr2", "ValShift", "Save Bits S12", "Save Add S12", "Save Param Bits S12", "Save Bits S13", "Save Adds S13", "Save Param Bits S13"])
 	
 	# Rename item types
 	for rename: String in RENAME_TYPES:
@@ -446,6 +446,9 @@ func _build_database() -> void:
 		"save_bits_s12": int(raw.get("Save Bits S12", 0)),
 		"save_add_s12": int(raw.get("Save Add S12", 0)),
 		"save_param_bits_s12": int(raw.get("Save Param Bits S12", 0)),
+		"save_bits_s13": int(raw.get("Save Bits S13", 0)),
+		"save_add_s13": int(raw.get("Save Adds S13", 0)),
+		"save_param_bits_s13": int(raw.get("Save Param Bits S13", 0)),
 		}
 	
 	# Setup runewords

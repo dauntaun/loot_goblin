@@ -47,7 +47,7 @@ func init_shared_pages(pd2_pages: PagedStashView, materials_page: MaterialsPage)
 		set("tab_%d/disabled" % i, false)
 	_pd2_pages.item_added.connect(_on_item_added_in_shared_stash)
 	_pd2_pages.item_removed.connect(_on_item_removed_from_shared_stash)
-	#init_materials_page(materials_page)
+	init_materials_page(materials_page)
 	_initialized_shared = true
 
 
