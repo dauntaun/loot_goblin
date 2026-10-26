@@ -879,21 +879,21 @@ func get_item_magic_name(code_string: String, prefix_id: int, suffix_id: int) ->
 	return magic_name
 
 func get_item_rare_name(first_name_id: int, second_name_id: int) -> String:
-	var prefix_str = rare_prefix[first_name_id - rare_suffix.size() - 1]["name"]
+	var prefix_str: String = rare_prefix.get(first_name_id - rare_suffix.size() - 1, {}).get("name", "")
 	prefix_str = localize(prefix_str)
-	var suffix_str = rare_suffix[second_name_id - 1]["name"]
+	var suffix_str: String = rare_suffix.get(second_name_id - 1, {}).get("name", "")
 	suffix_str = localize(suffix_str)
 	return prefix_str + " " + suffix_str.capitalize()
 
 func get_magic_prefix_name(prefix_id: int) -> String:
 	if prefix_id <= 0:
 		return ""
-	return localize(magic_prefix[prefix_id - 1]["Name"])
+	return localize(magic_prefix.get(prefix_id - 1, {}).get("Name", ""))
 
 func get_magic_suffix_name(suffix_id: int) -> String:
 	if suffix_id <= 0:
 		return ""
-	return localize(magic_suffix[suffix_id - 1]["Name"])
+	return localize(magic_suffix.get(suffix_id - 1, {}).get("Name", ""))
 
 
 # ============================================================
