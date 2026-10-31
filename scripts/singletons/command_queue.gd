@@ -195,6 +195,120 @@ class StashClearCommand extends BasicCommand:
 		destination_data = new_command.destination_data
 
 
+class AddCollectionCommand extends BasicCommand:
+	var collection_id: int
+	var collection_name: String
+	
+	
+	func _init(init_name: String) -> void:
+		collection_name = init_name
+	
+	
+	func execute_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		var collection := goblin_save.add_collection(collection_name)
+		collection_id = collection.collection_id
+		destination_data = collection.item_list
+		destination_stash_id = collection.item_list.stash_id
+		StashRegistry.register_collection(collection)
+	
+	
+	func undo_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		goblin_save.delete_collection(collection_id)
+		StashRegistry.unregister_collection(collection_id)
+	
+	
+	func execute_move_data() -> void:
+		pass
+	
+	
+	func validate_move_data() -> bool:
+		return true
+	
+	
+	func is_blocking() -> bool:
+		return false
+
+
+class RenameCollectionCommand extends BasicCommand:
+	var collection_id: int
+	var new_name: String
+	var old_name: String
+	
+	
+	func _init(init_id: int, init_name: String) -> void:
+		collection_id = init_id
+		new_name = init_name
+	
+	
+	func execute_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		var collection := goblin_save.get_collection_from_id(collection_id)
+		old_name = collection.name
+		goblin_save.rename_collection(collection_id, new_name)
+		destination_data = collection.item_list
+		destination_stash_id = collection.item_list.stash_id
+		StashRegistry.reregister_collection_name(collection)
+	
+	
+	func undo_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		var collection := goblin_save.get_collection_from_id(collection_id)
+		goblin_save.rename_collection(collection_id, old_name)
+		StashRegistry.reregister_collection_name(collection)
+	
+	
+	func execute_move_data() -> void:
+		pass
+	
+	
+	func validate_move_data() -> bool:
+		return true
+	
+	
+	func is_blocking() -> bool:
+		return false
+
+
+class DeleteCollectionCommand extends BasicCommand:
+	var collection: GoblinSaveFile.GoblinCollection
+	var index: int
+	var collection_id: int
+	
+	
+	func _init(init_id: int) -> void:
+		collection_id = init_id
+	
+	
+	func execute_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		collection = goblin_save.get_collection_from_id(collection_id)
+		index = goblin_save.collections.find(collection)
+		destination_data = collection.item_list
+		destination_stash_id = collection.item_list.stash_id
+		goblin_save.delete_collection(collection_id)
+		StashRegistry.unregister_collection(collection_id)
+	
+	
+	func undo_move_view() -> void:
+		var goblin_save := StashRegistry.get_goblin_save_file()
+		goblin_save.insert_collection_at_index(collection, index)
+		StashRegistry.register_collection(collection)
+	
+	
+	func execute_move_data() -> void:
+		pass
+	
+	
+	func validate_move_data() -> bool:
+		return true
+	
+	
+	func is_blocking() -> bool:
+		return false
+
+
 class ItemTransferCommand extends BasicCommand:
 	var item: D2Item
 	var source_stash_id: int

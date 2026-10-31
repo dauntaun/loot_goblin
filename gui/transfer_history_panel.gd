@@ -44,6 +44,10 @@ func add_command_label(command: CommandQueue.BasicCommand) -> void:
 		_add_clear_stash_label()
 	elif command is CommandQueue.ImportPlugyCommand:
 		_add_import_label()
+	elif command is CommandQueue.AddCollectionCommand:
+		_add_collection_label()
+	elif command is CommandQueue.RenameCollectionCommand:
+		_rename_collection_label()
 
 
 func _add_transfer_label(command: CommandQueue.ItemTransferCommand) -> void:
@@ -73,6 +77,20 @@ func _add_clear_stash_label() -> void:
 	var label := Label.new()
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	label.text = "Clear stash"
+	add_container.add_child(label)
+
+
+func _add_collection_label() -> void:
+	var label := Label.new()
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.text = "Add collection"
+	add_container.add_child(label)
+
+
+func _rename_collection_label() -> void:
+	var label := Label.new()
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.text = "Rename collection"
 	add_container.add_child(label)
 
 

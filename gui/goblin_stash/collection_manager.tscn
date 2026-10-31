@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bfapiumbw4fmq"]
+
+[ext_resource type="Script" uid="uid://fvxwnrr1bfci" path="res://gui/goblin_stash/collection_manager.gd" id="1_kc4ey"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=2027538059]
+offset_right = 1350.0
+offset_bottom = 880.0
+script = ExtResource("1_kc4ey")
+
+[node name="Tree" type="Tree" parent="." unique_id=333271610]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 2
+column_titles_visible = true
+allow_search = false
+hide_root = true
+select_mode = 1
+auto_tooltip = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=421093419]
+layout_mode = 2
+
+[node name="RenameButton" type="Button" parent="HBoxContainer" unique_id=1279623551]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rename"
+
+[node name="RemoveButton" type="Button" parent="HBoxContainer" unique_id=222333103]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Remove"
+
+[node name="AddButton" type="Button" parent="HBoxContainer" unique_id=1865441936]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "+Add"

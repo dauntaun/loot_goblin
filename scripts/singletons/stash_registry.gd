@@ -5,6 +5,7 @@ signal registration_completed
 signal stash_registered(stash_id: int)
 signal stashes_unregistered
 signal goblin_registered
+signal collections_changed
 signal pd2_shared_registered
 signal characters_registered
 
@@ -51,6 +52,7 @@ func register_goblin_save(save_file: GoblinSaveFile) -> void:
 		_stash_register.erase(stash_id)
 	_collection_register.clear()
 	_collection_stash_ids.clear()
+	_stash_name_map.clear()
 	_goblin_main_stash_id = -1
 	_goblin_save = null
 	# Register
@@ -95,6 +97,36 @@ func register_character_save_files(save_files: Array[D2CharacterSaveFile]) -> vo
 	for save: D2CharacterSaveFile in save_files:
 		_register_character_save_file(save)
 	characters_registered.emit()
+
+
+func register_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
+	_collection_register[collection.collection_id] = {"name": collection.name, "stash_id": collection.item_list.stash_id} 
+	_collection_stash_ids.append(collection.item_list.stash_id)
+	_register_stash(
+		collection.item_list.stash_id,
+		StashType.GOBLIN,
+		collection.item_list,
+		collection.item_list.get_itemlist(),
+		get_goblin_save_file())
+	_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
+	collections_changed.emit()
+
+
+func unregister_collection(collection_id: int) -> void:
+	var collection: Dictionary = _collection_register[collection_id]
+	var stash_id: int = collection.stash_id
+
+	_collection_register.erase(collection_id)
+	_collection_stash_ids.erase(stash_id)
+	_stash_register.erase(stash_id)
+	_stash_name_map.erase(stash_id)
+	collections_changed.emit()
+
+
+func reregister_collection_name(collection: GoblinSaveFile.GoblinCollection) -> void:
+	_collection_register[collection.collection_id].name = collection.name
+	_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
+	collections_changed.emit()
 
 
 func _register_character_save_file(save_file: D2CharacterSaveFile)  -> void:
@@ -168,6 +200,13 @@ func get_goblin_collection_names() -> Array[String]:
 
 func get_goblin_collection_ids() -> Array[int]:
 	return _collection_register.keys()
+
+
+func get_collection_id_from_stash_id(stash_id: int) -> int:
+	for collection_id: int in _collection_register:
+		if _collection_register[collection_id].stash_id == stash_id:
+			return collection_id
+	return -1
 
 
 func get_character_files() -> Array[D2CharacterSaveFile]:

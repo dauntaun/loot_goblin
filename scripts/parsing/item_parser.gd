@@ -43,8 +43,6 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 	item.is_personalized = cursor.jump_and_read(1, 1) # 41
 	item.has_runeword = cursor.jump_and_read(1, 1) # 43
 	item.item_version = cursor.jump_and_read(5, 8) as D2Item.ItemVersion # 56
-	if item.item_version not in D2Item.ItemVersion.values():
-		pass
 	item.location_id = cursor.jump_and_read(2, 3) as D2Item.ItemLocation # 61
 	item.equipped_id = cursor.read_bits(4) as D2Item.EquipLocation # 65
 	item.x_coord = cursor.read_bits(4) # 69

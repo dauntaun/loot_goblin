@@ -23,15 +23,18 @@ func _ready() -> void:
 	ItemSelection.active_page_changed.connect(_update_page_label)
 	ItemSelection.active_page_changed.connect(_update_transfer_button.unbind(1))
 	ItemSelection.active_character_changed.connect(_update_transfer_button.unbind(1))
+	ItemSelection.active_collection_changed.connect(_update_transfer_button.unbind(1))
 	ItemSelection.selection_changed.connect(_update_item_info)
 	
 	StashRegistry.characters_registered.connect(_update_character_options)
 	StashRegistry.goblin_registered.connect(_update_goblin_options)
+	StashRegistry.collections_changed.connect(_update_goblin_options)
 	
 	transfer_button.pressed.connect(ItemSelection.transfer_selection)
 	destination_stash_option.item_selected.connect(_change_destination)
 	page_option.item_selected.connect(_change_destination_page)
 	character_option.item_selected.connect(_change_destination_character)
+	collection_option.item_selected.connect(_change_destination_collection)
 	
 	_update_transfer_button()
 
@@ -128,3 +131,8 @@ func _change_destination_page(option_index: int) -> void:
 func _change_destination_character(option_index: int) -> void:
 	var character_id := _character_option_map[option_index]
 	ItemSelection.set_destination_character(character_id)
+
+
+func _change_destination_collection(option_index: int) -> void:
+	var collection_id := _collection_option_map[option_index]
+	ItemSelection.set_destination_collection(collection_id)

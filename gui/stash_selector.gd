@@ -10,12 +10,14 @@ var _collection_option_map: Dictionary[int, int] ## option_id -> stash_id
 @onready var _stash_select_tabs: TabContainer = %StashSelectTabs
 @onready var _collection_select_option: OptionButton = %GoblinSelectOption
 @onready var _pd2_select_option: OptionButton = %PD2SelectOption
+@onready var _manage_collections: Button = %ManageCollections
 
 
 func _ready() -> void:
 	_stash_select_option.item_selected.connect(_on_stash_selected)
 	_collection_select_option.item_selected.connect(_on_collection_option_selected)
 	_pd2_select_option.item_selected.connect(_on_pd2_option_selected)
+	StashRegistry.collections_changed.connect(_on_collections_changed)
 
 
 func is_virtual_stash_selected() -> bool:
@@ -86,6 +88,7 @@ func _on_stash_selected(option_index: int) -> void:
 			for stash_id: int in StashRegistry.get_all_character_stash_ids():
 				init_stashes.append(StashRegistry.get_stash_view(stash_id))
 			_stash_select_tabs.hide()
+			_manage_collections.hide()
 			stashes_changed.emit(init_stashes)
 		1: # Goblin
 			var init_stashes: Array[BasicStashView]
@@ -97,6 +100,7 @@ func _on_stash_selected(option_index: int) -> void:
 				init_stashes.append(StashRegistry.get_stash_view(stash_id))
 			_stash_select_tabs.current_tab = 0
 			_stash_select_tabs.show()
+			#_manage_collections.show()
 			stashes_changed.emit(init_stashes)
 		2: # PD2
 			var init_stashes: Array[BasicStashView]
@@ -110,6 +114,7 @@ func _on_stash_selected(option_index: int) -> void:
 					init_stashes.append(StashRegistry.get_stash_view(stash_id))
 			_stash_select_tabs.current_tab = 1
 			_stash_select_tabs.show()
+			_manage_collections.hide()
 			stashes_changed.emit(init_stashes)
 
 
@@ -135,3 +140,7 @@ func _on_collection_option_selected(option_index: int) -> void:
 		var stash_id := _collection_option_map[_collection_select_option.selected]
 		init_stashes.append(StashRegistry.get_stash_view(stash_id))
 	stashes_changed.emit(init_stashes)
+
+
+func _on_collections_changed() -> void:
+	update_stash_select_options()
