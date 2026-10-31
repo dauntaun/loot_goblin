@@ -845,7 +845,7 @@ func get_item_required_level_from_affixes(prefix_ids: Array[int], suffix_ids: Ar
 	for prefix_id: int in prefix_ids:
 		if prefix_id == 0:
 			continue
-		var required_level := int(magic_prefix[prefix_id - 1].get("levelreq", 0))
+		var required_level := int(magic_prefix.get(prefix_id - 1, {}).get("levelreq", 0))
 		if required_level > max_required_level:
 			max_required_level = required_level
 		if prefix_id == 451:
