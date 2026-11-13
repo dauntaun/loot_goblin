@@ -231,7 +231,7 @@ static func _format_property(params: Array, stat: Dictionary) -> String:
 			return "Stat By Time (not implemented)"
 
 		19: # Sprintf num / Enhanced damage
-			return string % value
+			return string.replace("%d%%", "%d%").replace("%d", str(value))
 
 		20: # Minus percent
 			var value_string: String = "%d%%" % (value * -1)
