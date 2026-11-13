@@ -185,18 +185,18 @@ const MATERIALS_BYTE_MAP: Dictionary[int, String] = { # 82-276
 	222: "lucc", #talisman of transgression
 	224: "lucd", #flesh of malic
 	# ===== Potions =====
-	#226: "rvs", #rejuv ???
-	#228: "rvl", #full rejuv ???
+	#226: "ubtm", #rejuv -> pandemonium
+	#228: "uba", #full rejuv -> ancients
 	# ===== Craft mats =====
-	230: "imrn", #demonic cube
+	#230: "dcma", #demonic cube -> vision of terror
 	232: "jewf", #jewel fragments
-	234: "cwss", #twss
+	#234: "luca", #twss -> shadow of hatred
 	236: "rvs", #rejuv NEW
 	238: "rvl", #full rejuv NEW
-	#240: "lpp", #ppiece ???
+	240: "imrn", #ppiece -> demonic cube
 	# ===== Essences =====
 	242: "jewf", #jewel fragments NEW
-	#244: "ceh", #yellow ???
+	244: "cwss", #yellow -> twss
 	246: "wss", #wss NEW
 	248: "lbox", #pbox NEW
 	# ===== Map mats =====
