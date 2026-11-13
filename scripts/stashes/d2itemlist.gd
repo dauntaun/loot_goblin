@@ -7,6 +7,7 @@ signal bytes_shifted(delta: int, from_offset: int)
 static var stash_id_counter := 0
 
 var stash_id: int
+var init_successful: bool
 var _data: PackedByteArray
 var _start_byte: int
 var _end_byte: int
@@ -18,6 +19,7 @@ var _parsed_item_count: int
 func _init(cursor: BitCursor) -> void:
 	_data = cursor._data # cursor at JM item list header
 	if _data.is_empty():
+		init_successful = true
 		return
 	if _data.decode_u16(cursor._bit_pos>>3) != ItemParser.ITEM_SIGNATURE:
 		push_error("Invalid item list header")
@@ -29,6 +31,8 @@ func _init(cursor: BitCursor) -> void:
 	stash_id_counter += 1
 	_items = ItemParser.parse_item_list_at_cursor(cursor, _parsed_item_count, self)
 	_end_byte = cursor._bit_pos >> 3
+	if not _items.has(null):
+		init_successful = true
 
 
 func get_items() -> Array[D2Item]:

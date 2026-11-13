@@ -62,7 +62,6 @@ func load_file() -> void:
 	if data.decode_u32(0) != FILE_SIGNATURE:
 		push_error("Unknown character save header")
 		return
-	load_successful = true
 	character_id = character_id_counter
 	character_id_counter += 1
 	
@@ -80,6 +79,7 @@ func load_file() -> void:
 	character_level = data.decode_u8(LEVEL_BYTE_OFFSET)
 	var merc_id := data.decode_u32(MERCENARY_ID_OFFSET)
 	has_mercenary = merc_id != 0
+	load_successful = true
 	read_item_lists()
 
 
@@ -118,15 +118,20 @@ func read_item_lists() -> void:
 	# Skip skill section
 	if not data.decode_u16(cursor._bit_pos>>3) == SKILLS_SIGNATURE:
 		push_error("Unknown skills signature")
+		load_successful = false
 		return
 	cursor.discard_bits(32 << 3)
 	# Cursor is now at item list
 	cursor.discard_bits(3 << 3) # No idea why we have to discard 3 bytes
 	item_list = D2ItemList.new(cursor)
+	if not item_list.init_successful:
+		load_successful = false
+		return
 	item_list.bytes_shifted.connect(_update_item_list_offsets)
 	# Cursor is now at fake corpse item list
 	if not data.decode_u16(cursor._bit_pos>>3) == ItemParser.ITEM_SIGNATURE:
 		push_error("Unknown corpse itemlist signature")
+		load_successful = false
 		return
 	cursor.discard_bits(2 << 3)
 	var corpse_items_present: bool = data.decode_u16(cursor._bit_pos>>3) == 1
@@ -134,14 +139,21 @@ func read_item_lists() -> void:
 	if corpse_items_present:
 		cursor.discard_bits(12 << 3)
 		corpse_item_list = D2ItemList.new(cursor)
+		if not corpse_item_list.init_successful:
+			load_successful = false
+			return
 		corpse_item_list.bytes_shifted.connect(_update_item_list_offsets)
 	# Cursor is now at merc items
 	if not data.decode_u16(cursor._bit_pos>>3) == MERC_SIGNATURE:
 		push_error("Unknown merc signature")
+		load_successful = false
 		return
 	cursor.discard_bits(2 << 3)
 	if has_mercenary:
 		merc_item_list = D2ItemList.new(cursor)
+		if not merc_item_list.init_successful:
+			load_successful = false
+			return
 
 
 func _update_item_list_offsets(delta: int, from_offset: int) -> void:

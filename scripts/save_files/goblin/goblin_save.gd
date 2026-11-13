@@ -31,6 +31,8 @@ func load_file() -> void:
 	var cursor := BitCursor.new(data, MAIN_COLLECTION_START_BYTE_OFFSET << 3)
 	for i: int in collections_count:
 		var collection := GoblinCollection.from_cursor(cursor)
+		if not collection.item_list.init_successful:
+			return
 		collections.append(collection)
 		collection.item_list.bytes_shifted.connect(_update_collection_offsets)
 	

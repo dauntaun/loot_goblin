@@ -29,17 +29,20 @@ func load_file() -> void:
 	else:
 		push_error("Unknown PlugY file header")
 		return
-	load_successful = true
 	# Parse stash pages
 	var cursor := BitCursor.new(data, begin_byte << 3)
 	while true:
-		if not cursor.can_read(2 << 3):
+		if not cursor.can_read(16):
+			load_successful = true
 			return
 		elif cursor._data.decode_u16(cursor._bit_pos>>3) == STASH_PAGE_SIGNATURE:
 			var plugy_page := PlugyStashPage.new(cursor)
+			if not plugy_page.item_list.init_successful:
+				return
 			stash_pages.append(plugy_page)
 		else:
 			return
+	load_successful = true
 
 
 func save_file(_path: String) -> void:

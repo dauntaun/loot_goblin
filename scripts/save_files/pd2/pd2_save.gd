@@ -22,12 +22,15 @@ func load_file() -> void:
 	if file_version != FILE_VERSION:
 		push_error("Unknown PD2 file version")
 		return
-	load_successful = true
 	
 	header = D2SaveHeader.new(data)
 	var cursor := BitCursor.new(data, ITEM_LIST_BYTE_OFFSET << 3)
 	item_list = D2ItemList.new(cursor)
+	if not item_list.init_successful:
+		return
 	materials_page = MaterialsPage.new(data)
+	
+	load_successful = true
 
 
 func save_file(path: String) -> void:
