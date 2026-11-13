@@ -52,6 +52,9 @@ func _init_character_inventory(character_id: int) -> void:
 		_merc_view = merc_stash_view
 		var merc_items := merc_stash_view.get_equipped_items()
 		merc_equip.init_equipped_items(merc_items)
+	else:
+		_merc_view = null
+		merc_equip.init_equipped_items([])
 	
 	_current_character_id = character_id
 
