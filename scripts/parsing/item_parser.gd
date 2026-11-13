@@ -180,7 +180,7 @@ static func _parse_item_at_cursor(cursor: BitCursor, list_start_byte: int) -> D2
 		cursor.discard_bits(5)
 	cursor.discard_bits(1)
 	if item.is_armor:
-		if item.item_version == D2Item.ItemVersion.PD2_SEASON13:
+		if item.item_version == D2Item.ItemVersion.PD2_SEASON13 or item.item_version == D2Item.ItemVersion.PD2_SEASON14:
 			item.base_defense = cursor.read_bits(11) - 300
 		else:
 			item.base_defense = cursor.read_bits(11) - 10
