@@ -6,19 +6,35 @@ const MAX_TRANSFER_LABELS := 20
 @onready var add_container: VBoxContainer = %AddContainer
 @onready var save_container: VBoxContainer = %SaveContainer
 
+var _update_scheduled: bool
+
 
 func _ready() -> void:
 	clear_command_labels()
 
 
-func update_command_labels(commands: Array[CommandQueue.BasicCommand]) -> void:
+func update_command_labels() -> void:
+	if _update_scheduled:
+		return
+
+	_update_scheduled = true
+	_rebuild_command_labels.call_deferred()
+
+
+func _rebuild_command_labels() -> void:
+	_update_scheduled = false
 	clear_command_labels()
+	
+	var commands := CommandQueue.get_command_queue()
+
 	# Annotate commands
 	for i: int in mini(commands.size(), MAX_TRANSFER_LABELS):
 		add_command_label(commands[i])
+
 	var diff := commands.size() - MAX_TRANSFER_LABELS
 	if diff > 0:
 		_add_overflow_label(diff)
+
 	# Annotate save files
 	for file: BasicSaveFile in CommandQueue.get_involved_save_files():
 		var filename := file.load_path.get_file()
