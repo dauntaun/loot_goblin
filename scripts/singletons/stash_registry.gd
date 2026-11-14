@@ -241,7 +241,10 @@ func get_pd2_shared_save_file() -> PD2SaveFile:
 
 
 func get_goblin_stash_id(collection_id: int) -> int:
-	return _collection_register[collection_id].stash_id
+	if _collection_register.has(collection_id):
+		return _collection_register[collection_id].stash_id
+	else:
+		return -1
 
 
 func get_stash_type(stash_id: int) -> StashType:
