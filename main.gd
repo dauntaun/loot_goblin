@@ -154,7 +154,7 @@ func _init_pd2_folder(dir: String) -> void:
 func _init_stash_file(path: String) -> void:
 	print("loading file " + path)
 	if path.ends_with(".gstash"):
-		for stash_id: int in StashRegistry.get_goblin_collection_ids():
+		for stash_id: int in StashRegistry.get_goblin_stash_ids():
 			ItemRegistry.unregister_items_from_stash(stash_id)
 		_init_goblin_stash_file(path)
 		StashRegistry.complete_registration()

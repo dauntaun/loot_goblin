@@ -189,6 +189,13 @@ func get_goblin_collection_ids() -> Array[int]:
 	return _collection_ids
 
 
+func get_goblin_stash_ids() -> Array[int]:
+	var stash_ids: Array[int]
+	for collection: GoblinSaveFile.GoblinCollection in _collection_register.values():
+		stash_ids.append(collection.item_list.stash_id)
+	return stash_ids
+
+
 func get_collection_id_from_stash_id(stash_id: int) -> int:
 	for collection_id: int in _collection_register:
 		if _collection_register[collection_id].item_list.stash_id == stash_id:
