@@ -393,11 +393,11 @@ class CompiledStringQuery:
 			"lmin":
 				return _matches_property(item, numeric_expression, 50)
 			"lmax":
-				return _matches_property(item, numeric_expression, 50)
+				return _matches_property(item, numeric_expression, 51)
 			"mmin":
 				return _matches_property(item, numeric_expression, 52)
 			"mmax":
-				return _matches_property(item, numeric_expression, 52)
+				return _matches_property(item, numeric_expression, 53)
 			"cmin":
 				return _matches_property(item, numeric_expression, 54)
 			"cmax":
@@ -541,6 +541,26 @@ class CompiledStringQuery:
 				return _matches_property(item, numeric_expression, 115)
 			"eth":
 				return item.is_ethereal
+			"minmax":
+				return _matches_property_pseudo(item, numeric_expression, [21, 22])
+			"fminmax":
+				return _matches_property_pseudo(item, numeric_expression, [48, 49])
+			"cminmax":
+				return _matches_property_pseudo(item, numeric_expression, [54, 55])
+			"lminmax":
+				return _matches_property_pseudo(item, numeric_expression, [50, 51])
+			"pminmax":
+				return _matches_property_pseudo(item, numeric_expression, [57, 58])
+			"mminmax":
+				return _matches_property_pseudo(item, numeric_expression, [52, 53])
+			"emin":
+				return _matches_property_pseudo(item, numeric_expression, [48, 54, 50])
+			"emax":
+				return _matches_property_pseudo(item, numeric_expression, [49, 55, 51])
+			"eminmax":
+				return _matches_property_pseudo(item, numeric_expression, [48, 49, 50, 51, 54, 55])
+			"stats":
+				return _matches_property_pseudo(item, numeric_expression, [0, 1, 2, 3])
 			_:
 				return false
 	
@@ -549,6 +569,13 @@ class CompiledStringQuery:
 			if prop.stat_id == stat_id:
 				return NumericExpression.matches(numeric_expression, prop.params[0])
 		return false
+	
+	func _matches_property_pseudo(item: D2Item, numeirc_expression: NumericExpression, stat_ids: Array[int]) -> bool:
+		var value_sum := 0
+		for prop: Dictionary in item.all_properties:
+			if prop.stat_id in stat_ids:
+				value_sum += prop.params[0]
+		return NumericExpression.matches(numeirc_expression, value_sum)
 	
 	func _compile_single_term(term: String, negated: bool) -> Dictionary:
 		var numeric_expression := NumericExpression.parse(term)
@@ -725,6 +752,16 @@ class NumericExpression:
 		"cbf": true,
 		"itd": true,
 		"eth": true,
+		"minmax": true,
+		"stats": true,
+		"fminmax": true,
+		"cminmax": true,
+		"lminmax": true,
+		"pminmax": true,
+		"mminmax": true,
+		"emin": true,
+		"emax": true,
+		"eminmax": true,
 	}
 	
 	var key: String
