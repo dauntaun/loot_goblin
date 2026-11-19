@@ -17,8 +17,9 @@ func _ready() -> void:
 
 
 func _switch_tab_to_index(_toggled: bool, index: int) -> void:
-	tab_container.current_tab = index
-	tab_switched.emit(index)
+	if index < tab_container.get_tab_count():
+		tab_container.current_tab = index
+		tab_switched.emit(index)
 
 
 func _sync_tab_to_button(tab: int) -> void:
