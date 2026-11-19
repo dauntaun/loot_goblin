@@ -37,6 +37,7 @@ func _ready() -> void:
 	collection_option.item_selected.connect(_change_destination_collection)
 	
 	_update_transfer_button()
+	_update_destination_labels(ItemSelection.get_destination_stash_type())
 
 
 func _update_character_options() -> void:
@@ -54,13 +55,13 @@ func _update_character_options() -> void:
 
 func _update_goblin_options() -> void:
 	collection_option.clear()
-	var names := StashRegistry.get_goblin_collection_names()
-	var ids := StashRegistry.get_goblin_collection_ids()
-	for i: int in ids.size():
-		collection_option.add_item(names[i])
-		_collection_option_map[i] = ids[i]
+	var collection_ids := StashRegistry.get_goblin_collection_ids()
+	for i: int in collection_ids.size():
+		var collection := StashRegistry.get_goblin_collection(collection_ids[i])
+		collection_option.add_item(collection.name)
+		_collection_option_map[i] = collection_ids[i]
 	if ItemSelection.get_destination_collection_id() == -1:
-		ItemSelection.set_destination_collection(ids[0])
+		ItemSelection.set_destination_collection(collection_ids[0])
 
 
 func _update_item_info() -> void:

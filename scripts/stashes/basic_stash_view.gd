@@ -49,6 +49,10 @@ func get_items() -> Array[D2Item]:
 	return _items
 
 
+func get_item_count() -> int:
+	return _items.size()
+
+
 func import_items(items: Array[D2Item]) -> void:
 	_items.append_array(items)
 	for item: D2Item in items:

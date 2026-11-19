@@ -67,12 +67,12 @@ func update_stash_select_options() -> void:
 	_collection_select_option.clear()
 	_collection_option_map.clear()
 	
-	var collection_names := StashRegistry.get_goblin_collection_names()
-	var collection_ids := StashRegistry.get_all_collection_stash_ids()
+	var collection_ids := StashRegistry.get_goblin_collection_ids()
 	_collection_select_option.add_item("All")
 	for i: int in collection_ids.size():
-		_collection_select_option.add_item(collection_names[i])
-		_collection_option_map[_collection_select_option.item_count - 1] = collection_ids[i]
+		var collection := StashRegistry.get_goblin_collection(collection_ids[i])
+		_collection_select_option.add_item(collection.name)
+		_collection_option_map[_collection_select_option.item_count - 1] = collection.item_list.stash_id
 
 
 func _on_stash_selected(option_index: int) -> void:
@@ -100,7 +100,7 @@ func _on_stash_selected(option_index: int) -> void:
 				init_stashes.append(StashRegistry.get_stash_view(stash_id))
 			_stash_select_tabs.current_tab = 0
 			_stash_select_tabs.show()
-			#_manage_collections.show()
+			_manage_collections.show()
 			stashes_changed.emit(init_stashes)
 		2: # PD2
 			var init_stashes: Array[BasicStashView]
@@ -143,4 +143,4 @@ func _on_collection_option_selected(option_index: int) -> void:
 
 
 func _on_collections_changed() -> void:
-	update_stash_select_options()
+	select_default()

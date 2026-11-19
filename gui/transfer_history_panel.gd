@@ -49,7 +49,7 @@ func _rebuild_command_labels() -> void:
 func _add_overflow_label(diff: int) -> void:
 	var label := Label.new()
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	label.text = "... and %d more items" % diff if diff > 1 else "... and 1 more item"
+	label.text = "... and %d more changes" % diff if diff > 1 else "... and 1 more change"
 	add_container.add_child(label)
 
 
@@ -61,9 +61,13 @@ func add_command_label(command: CommandQueue.BasicCommand) -> void:
 	elif command is CommandQueue.ImportPlugyCommand:
 		_add_import_label()
 	elif command is CommandQueue.AddCollectionCommand:
-		_add_collection_label()
+		_add_collection_label(command.collection_name)
 	elif command is CommandQueue.RenameCollectionCommand:
-		_rename_collection_label()
+		_rename_collection_label(command.new_name)
+	elif command is CommandQueue.DeleteCollectionCommand:
+		_delete_collection_label(command.collection.name)
+	elif command is CommandQueue.MoveCollectionCommand:
+		_move_collection_label(command.collection.name)
 
 
 func _add_transfer_label(command: CommandQueue.ItemTransferCommand) -> void:
@@ -76,7 +80,7 @@ func _add_transfer_label(command: CommandQueue.ItemTransferCommand) -> void:
 	hbox.add_child(item_label)
 	var transfer_label := Label.new()
 	transfer_label.text = _get_stash_name(command.source_stash_id) + "->"
-	transfer_label.text += _get_stash_name(command.destination_stash_id)
+	transfer_label.text += _get_stash_name(command.destination_data.stash_id)
 	hbox.add_child(transfer_label)
 	add_container.add_child(hbox)
 	
@@ -96,18 +100,68 @@ func _add_clear_stash_label() -> void:
 	add_container.add_child(label)
 
 
-func _add_collection_label() -> void:
+func _add_collection_label(collection_name: String) -> void:
+	var hbox := HBoxContainer.new()
 	var label := Label.new()
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	label.text = "Add collection"
-	add_container.add_child(label)
+	hbox.add_child(label)
+	var name_label := Label.new()
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	name_label.text = collection_name
+	hbox.add_child(name_label)
+	add_container.add_child(hbox)
 
 
-func _rename_collection_label() -> void:
+func _rename_collection_label(collection_name: String) -> void:
+	var hbox := HBoxContainer.new()
 	var label := Label.new()
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	label.text = "Rename collection"
-	add_container.add_child(label)
+	hbox.add_child(label)
+	var name_label := Label.new()
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	name_label.text = collection_name
+	hbox.add_child(name_label)
+	add_container.add_child(hbox)
+
+
+func _delete_collection_label(collection_name: String) -> void:
+	var hbox := HBoxContainer.new()
+	var label := Label.new()
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	label.text = "Delete collection"
+	hbox.add_child(label)
+	var name_label := Label.new()
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	name_label.text = collection_name
+	hbox.add_child(name_label)
+	add_container.add_child(hbox)
+
+
+func _move_collection_label(collection_name: String) -> void:
+	var hbox := HBoxContainer.new()
+	var label := Label.new()
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	#label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	label.text = "Move collection"
+	hbox.add_child(label)
+	var name_label := Label.new()
+	name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	name_label.text = collection_name
+	hbox.add_child(name_label)
+	add_container.add_child(hbox)
 
 
 func clear_command_labels() -> void:

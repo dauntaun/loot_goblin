@@ -70,31 +70,20 @@ func write_header() -> void:
 	collections.append(main)
 
 
-func add_collection(name: String) -> GoblinCollection:
-	var start_byte := data.size()
-	data.resize(start_byte + 74)
-	var collection := GoblinCollection.new(start_byte, data)
-	collection.name = name
-	collection.write_headers()
-	collection.init_item_list()
-	
+func append_collection(collection: GoblinCollection) -> void:
+	collection._start_byte = data.size()
+	collection.item_list._start_byte = data.size() + GoblinCollection.ITEM_LIST_BYTE_OFFSET
+	data.append_array(collection._data)
+	collection._data = data
+	collection.item_list._data = data
+	collection.item_list._end_byte = data.size()
 	collections.append(collection)
 	collection.item_list.bytes_shifted.connect(_update_collection_offsets)
-	return collection
 
 
-func insert_collection_at_index(collection: GoblinCollection, index: int) -> void:
-	pass
-
-
-func rename_collection(collection_id: int, new_name: String) -> void:
-	var collection := get_collection_from_id(collection_id)
-	collection.name = new_name
-	collection.write_name()
-
-
-func delete_collection(collection_id: int) -> void:
-	var collection := get_collection_from_id(collection_id)
+func delete_collection(collection: GoblinCollection) -> void:
+	if not collections.has(collection):
+		return
 	var start_byte := collection._start_byte
 	var length := collection.item_list.get_end_byte() - start_byte
 	BitFieldIO.remove_section(data, start_byte, length)
@@ -103,19 +92,50 @@ func delete_collection(collection_id: int) -> void:
 	_update_collection_offsets(-length, start_byte)
 
 
+func reorder_collection(collection: GoblinCollection, new_index: int) -> void:
+	if not collections.has(collection) or new_index > collections.size() or new_index == 0:
+		return
+	var old_index := collections.find(collection)
+	if old_index == new_index:
+		return
+	
+	var start_byte := collection._start_byte
+	var end_byte := collection.item_list.get_end_byte()
+	var section := data.slice(start_byte, end_byte)
+
+	BitFieldIO.remove_section(data, start_byte, end_byte - start_byte)
+
+	var new_start_byte := collections[new_index]._start_byte
+	BitFieldIO.insert_section(data, new_start_byte, section)
+
+	collections.remove_at(old_index)
+	collections.insert(new_index, collection)
+
+	_rebuild_collection_offsets()
+
+
+func _rebuild_collection_offsets() -> void:
+	var offset := MAIN_COLLECTION_START_BYTE_OFFSET
+
+	for collection: GoblinCollection in collections:
+		var length := collection.item_list.get_end_byte() - collection._start_byte
+
+		collection._start_byte = offset
+		collection.item_list._start_byte = offset + GoblinCollection.ITEM_LIST_BYTE_OFFSET
+		collection.item_list._end_byte = offset + length
+
+		collection._data = data
+		collection.item_list._data = data
+
+		offset += length
+
+
 func _update_collection_offsets(delta: int, from_offset: int) -> void:
 	for collection: GoblinCollection in collections:
 		if collection._start_byte > from_offset:
 			collection._start_byte += delta
 			collection.item_list._start_byte += delta
 			collection.item_list._end_byte += delta
-
-
-func get_collection_from_id(collection_id: int) -> GoblinCollection:
-	for collection: GoblinCollection in collections:
-		if collection.collection_id == collection_id:
-			return collection
-	return null
 
 
 class GoblinCollection: # 74 bytes

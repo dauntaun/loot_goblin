@@ -27,7 +27,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1214943238]
 layout_mode = 2
-text = "Sent items"
+text = "Changes"
 horizontal_alignment = 1
 
 [node name="AddContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1208896013]

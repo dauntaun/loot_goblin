@@ -31,6 +31,20 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Remove"
 
+[node name="MoveUpButton" type="Button" parent="HBoxContainer" unique_id=848355729]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "⬆"
+
+[node name="MoveDownButton" type="Button" parent="HBoxContainer" unique_id=1739704599]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "⬇"
+
 [node name="AddButton" type="Button" parent="HBoxContainer" unique_id=1865441936]
 unique_name_in_owner = true
 layout_mode = 2

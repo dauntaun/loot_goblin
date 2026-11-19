@@ -17,11 +17,11 @@ var _pd2_shared_stash_id := -1
 var _pd2_shared_save: PD2SaveFile
 var _goblin_main_stash_id := -1
 var _goblin_save: GoblinSaveFile
+var _collection_register: Dictionary[int, GoblinSaveFile.GoblinCollection] ## collection_id -> collection
+var _collection_ids: Array[int]
 var _character_register: Dictionary[int, Dictionary] # {"name": String, "char_stash": stash_id, "merc_stash": stash_id}
-var _collection_register: Dictionary[int, Dictionary] # {"name": String, "stash": stash_id}
 var _stash_name_map: Dictionary[int, String] ## stash_id -> stash name
 var _character_stash_ids: Array[int]
-var _collection_stash_ids: Array[int]
 
 
 func complete_registration() -> void:
@@ -42,7 +42,7 @@ func unregister_all_stashes() -> void:
 	_collection_register.clear()
 	_stash_name_map.clear()
 	_character_stash_ids.clear()
-	_collection_stash_ids.clear()
+	_collection_ids.clear()
 	stashes_unregistered.emit()
 
 
@@ -51,7 +51,7 @@ func register_goblin_save(save_file: GoblinSaveFile) -> void:
 	for stash_id: int in get_goblin_collection_ids():
 		_stash_register.erase(stash_id)
 	_collection_register.clear()
-	_collection_stash_ids.clear()
+	_collection_ids.clear()
 	_stash_name_map.clear()
 	_goblin_main_stash_id = -1
 	_goblin_save = null
@@ -59,8 +59,8 @@ func register_goblin_save(save_file: GoblinSaveFile) -> void:
 	for collection: GoblinSaveFile.GoblinCollection in save_file.collections:
 		if collection.name == "Main":
 			_goblin_main_stash_id = collection.item_list.stash_id
-		_collection_register[collection.collection_id] = {"name": collection.name, "stash_id": collection.item_list.stash_id} 
-		_collection_stash_ids.append(collection.item_list.stash_id)
+		_collection_register[collection.collection_id] = collection
+		_collection_ids.append(collection.collection_id)
 		_register_stash(
 			collection.item_list.stash_id,
 			StashType.GOBLIN,
@@ -86,7 +86,6 @@ func register_pd2_shared_save(save_file: PD2SaveFile) -> void:
 	pd2_shared_registered.emit()
 
 
-
 func register_character_save_files(save_files: Array[D2CharacterSaveFile]) -> void:
 	# Unregister
 	for stash_id: int in get_all_character_stash_ids():
@@ -99,9 +98,9 @@ func register_character_save_files(save_files: Array[D2CharacterSaveFile]) -> vo
 	characters_registered.emit()
 
 
-func register_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
-	_collection_register[collection.collection_id] = {"name": collection.name, "stash_id": collection.item_list.stash_id} 
-	_collection_stash_ids.append(collection.item_list.stash_id)
+func register_new_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
+	_collection_register[collection.collection_id] = collection
+	_collection_ids.append(collection.collection_id)
 	_register_stash(
 		collection.item_list.stash_id,
 		StashType.GOBLIN,
@@ -112,21 +111,24 @@ func register_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
 	collections_changed.emit()
 
 
-func unregister_collection(collection_id: int) -> void:
-	var collection: Dictionary = _collection_register[collection_id]
-	var stash_id: int = collection.stash_id
+func unregister_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
+	var stash_id := collection.item_list.stash_id
 
-	_collection_register.erase(collection_id)
-	_collection_stash_ids.erase(stash_id)
+	_collection_register.erase(collection.collection_id)
+	_collection_ids.erase(collection.collection_id)
 	_stash_register.erase(stash_id)
 	_stash_name_map.erase(stash_id)
 	collections_changed.emit()
 
 
 func reregister_collection_name(collection: GoblinSaveFile.GoblinCollection) -> void:
-	_collection_register[collection.collection_id].name = collection.name
 	_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
 	collections_changed.emit()
+
+
+func reregister_collection_index(collection: GoblinSaveFile.GoblinCollection, new_index: int) -> void:
+	_collection_ids.erase(collection.collection_id)
+	_collection_ids.insert(new_index, collection.collection_id)
 
 
 func _register_character_save_file(save_file: D2CharacterSaveFile)  -> void:
@@ -183,28 +185,21 @@ func get_all_character_stash_ids() -> Array[int]:
 	return _character_stash_ids
 
 
-func get_all_collection_stash_ids() -> Array[int]:
-	return _collection_stash_ids
-
-
 func get_mercenary_stash_id(character_id: int) -> int:
 	return _character_register[character_id].merc_stash
 
 
-func get_goblin_collection_names() -> Array[String]:
-	var names: Array[String]
-	for collection: Dictionary in _collection_register.values():
-		names.append(collection.name)
-	return names
+func get_goblin_collection(collection_id: int) -> GoblinSaveFile.GoblinCollection:
+	return _collection_register[collection_id]
 
 
 func get_goblin_collection_ids() -> Array[int]:
-	return _collection_register.keys()
+	return _collection_ids
 
 
 func get_collection_id_from_stash_id(stash_id: int) -> int:
 	for collection_id: int in _collection_register:
-		if _collection_register[collection_id].stash_id == stash_id:
+		if _collection_register[collection_id].item_list.stash_id == stash_id:
 			return collection_id
 	return -1
 
@@ -242,7 +237,7 @@ func get_pd2_shared_save_file() -> PD2SaveFile:
 
 func get_goblin_stash_id(collection_id: int) -> int:
 	if _collection_register.has(collection_id):
-		return _collection_register[collection_id].stash_id
+		return _collection_register[collection_id].item_list.stash_id
 	else:
 		return -1
 

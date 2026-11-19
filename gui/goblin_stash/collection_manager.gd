@@ -7,14 +7,20 @@ var _pending_rename: bool
 @onready var _rename_button: Button = %RenameButton
 @onready var _remove_button: Button = %RemoveButton
 @onready var _add_button: Button = %AddButton
+@onready var _move_up_button: Button = %MoveUpButton
+@onready var _move_down_button: Button = %MoveDownButton
 
 
 func _ready() -> void:
 	_rename_button.disabled = true
 	_remove_button.disabled = true
+	_move_up_button.disabled = true
+	_move_down_button.disabled = true
 	_rename_button.pressed.connect(_rename_selected_collection)
 	_add_button.pressed.connect(_add_new_collection)
 	_remove_button.pressed.connect(_remove_collection)
+	_move_up_button.pressed.connect(_move_collection_up)
+	_move_down_button.pressed.connect(_move_collection_down)
 	
 	_tree.set_column_title(0, "Collection")
 	_tree.set_column_title(1, "Items")
@@ -26,17 +32,16 @@ func _ready() -> void:
 
 
 func refresh() -> void:
-	var collection_ids := StashRegistry.get_all_collection_stash_ids()
-	var collection_names := StashRegistry.get_goblin_collection_names()
+	var collection_ids := StashRegistry.get_goblin_collection_ids()
 	_tree.clear()
 	_tree.create_item() # Root
-	for i: int in collection_ids.size():
-		var collection_data := StashRegistry.get_stash_data(collection_ids[i])
-		var collection_name := collection_names[i]
+	for collection_id: int in collection_ids:
+		var collection := StashRegistry.get_goblin_collection(collection_id)
 		var row := _tree.create_item()
-		row.set_text(0, collection_name)
-		row.set_text(1, str(collection_data.get_item_count()))
-		row.set_metadata(0, collection_ids[i])
+		row.set_text(0, collection.name)
+		var stash_view := StashRegistry.get_stash_view(collection.item_list.stash_id)
+		row.set_text(1, str(stash_view.get_item_count()))
+		row.set_metadata(0, collection_id)
 
 
 func _add_new_collection() -> void:
@@ -76,9 +81,17 @@ func _on_collection_renamed() -> void:
 
 func _on_item_selected() -> void:
 	var row := _tree.get_selected()
+	var item_count := 0
+	if row.get_metadata(0):
+		var collection_id: int = row.get_metadata(0)
+		var collection := StashRegistry.get_goblin_collection(collection_id)
+		var stash_view := StashRegistry.get_stash_view(collection.item_list.stash_id)
+		item_count = stash_view.get_item_count()
 	var main_index := row.get_index() == 0
 	_rename_button.disabled = main_index
-	_remove_button.disabled = main_index
+	_remove_button.disabled = main_index or item_count > 0
+	_move_up_button.disabled = main_index or row.get_index() == 1
+	_move_down_button.disabled = main_index or row.get_index() == _tree.get_root().get_child_count() - 1
 
 
 func _remove_collection() -> void:
@@ -89,3 +102,25 @@ func _remove_collection() -> void:
 	row.free()
 	_rename_button.disabled = true
 	_remove_button.disabled = true
+	_move_up_button.disabled = true
+	_move_down_button.disabled = true
+
+
+func _move_collection_up() -> void:
+	var row := _tree.get_selected()
+	var collection_id: int = row.get_metadata(0)
+	var index := row.get_index()
+	var move_collection_record := CommandQueue.MoveCollectionCommand.new(collection_id, index - 1)
+	CommandQueue.record_command(move_collection_record)
+	refresh()
+	_tree.set_selected(_tree.get_root().get_child(index - 1), 0)
+
+
+func _move_collection_down() -> void:
+	var row := _tree.get_selected()
+	var collection_id: int = row.get_metadata(0)
+	var index := row.get_index()
+	var move_collection_record := CommandQueue.MoveCollectionCommand.new(collection_id, index + 1)
+	CommandQueue.record_command(move_collection_record)
+	refresh()
+	_tree.set_selected(_tree.get_root().get_child(index + 1), 0)
