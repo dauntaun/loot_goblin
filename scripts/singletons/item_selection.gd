@@ -22,6 +22,7 @@ var _destination_stash_type: StashRegistry.StashType
 var _destination_page_index := 8
 var _destination_collection_id := -1
 var _destination_character_id := -1
+var _destination_stash_id := -1
 
 
 func set_selection(items: Array[D2Item]) -> void:
@@ -40,6 +41,7 @@ func clear_selection() -> void:
 
 
 func clear_destination() -> void:
+	_destination_stash_id = -1
 	_destination_collection_id = -1
 	_destination_character_id = -1
 	_destination_stash_type = StashRegistry.StashType.UNKNOWN
@@ -66,25 +68,15 @@ func set_destination_page_index(page_index: int) -> void:
 func set_destination_character(character_id: int) -> void:
 	if _destination_character_id != character_id:
 		_destination_character_id = character_id
+		_update_destination_stash_id()
 		active_character_changed.emit(character_id)
 
 
 func set_destination_collection(collection_id: int) -> void:
 	if _destination_collection_id != collection_id:
 		_destination_collection_id = collection_id
+		_update_destination_stash_id()
 		active_collection_changed.emit(collection_id)
-
-
-func get_destination_stash_id() -> int:
-	match _destination_stash_type:
-		StashRegistry.StashType.GOBLIN:
-			return StashRegistry.get_goblin_stash_id(_destination_collection_id)
-		StashRegistry.StashType.PD2_SHARED:
-			return StashRegistry.get_pd2_shared_stash_id()
-		StashRegistry.StashType.PD2_PERSONAL:
-			return StashRegistry.get_character_stash_id(_destination_character_id)
-		_:
-			return -1
 
 
 func get_destination_stash_type() -> StashRegistry.StashType:
@@ -103,9 +95,14 @@ func get_destination_collection_id() -> int:
 	return _destination_collection_id
 
 
+func get_destination_stash_id() -> int:
+	return _destination_stash_id
+
+
 func set_destination(stash_type: StashRegistry.StashType) -> void:
 	if _destination_stash_type != stash_type:
 		_destination_stash_type = stash_type
+		_update_destination_stash_id()
 		destination_changed.emit(stash_type)
 
 # ===== ItemTransfer =====
@@ -131,27 +128,25 @@ func transfer_selection() -> void:
 
 
 func transfer_items() -> void:
-	var destination_stash_id := get_destination_stash_id()
-	var stash_view := StashRegistry.get_stash_view(destination_stash_id)
+	var stash_view := StashRegistry.get_stash_view(_destination_stash_id)
 	
 	for item: D2Item in get_selected_items().duplicate():
 		var placement := stash_view.get_placement(item, _destination_page_index)
-		var transfer_record := CommandQueue.ItemTransferCommand.new(item, destination_stash_id, placement)
+		var transfer_record := CommandQueue.ItemTransferCommand.new(item, _destination_stash_id, placement)
 		CommandQueue.record_command(transfer_record)
 	
 	clear_selection()
-	items_transferred.emit(destination_stash_id)
+	items_transferred.emit(_destination_stash_id)
 
 
 func can_transfer_selection() -> SelectionTransferOutcome:
-	var destination_stash_id := get_destination_stash_id()
 	var selected_items := get_selected_items()
-	if not StashRegistry.has_stash(destination_stash_id) \
+	if not StashRegistry.has_stash(_destination_stash_id) \
 		or selected_items.is_empty():
 			return SelectionTransferOutcome.NO_ITEMS
 	if CommandQueue.is_command_queue_blocked():
 		return SelectionTransferOutcome.QUEUE_BLOCKED
-	var destination_view := StashRegistry.get_stash_view(destination_stash_id)
+	var destination_view := StashRegistry.get_stash_view(_destination_stash_id)
 	if not destination_view.can_add_items(selected_items, _destination_page_index, D2Item.ItemLocation.STORED, D2Item.StoreLocation.STASH):
 		return SelectionTransferOutcome.NO_SPACE
 	for item: D2Item in selected_items:
@@ -183,3 +178,15 @@ func import_plugy_items(item_lists: Array[D2ItemList]) -> void:
 	CommandQueue.record_command(import_command)
 	clear_selection()
 	plugy_imported.emit()
+
+
+func _update_destination_stash_id() -> void:
+	match _destination_stash_type:
+			StashRegistry.StashType.GOBLIN:
+				_destination_stash_id = StashRegistry.get_goblin_stash_id(_destination_collection_id)
+			StashRegistry.StashType.PD2_SHARED:
+				_destination_stash_id = StashRegistry.get_pd2_shared_stash_id()
+			StashRegistry.StashType.PD2_PERSONAL:
+				_destination_stash_id = StashRegistry.get_character_stash_id(_destination_character_id)
+			_:
+				_destination_stash_id = -1
