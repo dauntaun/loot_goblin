@@ -200,6 +200,8 @@ bg_color = Color(0.16593763, 0.33759126, 0.31547642, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6a44"]
 bg_color = Color(0.16593763, 0.33759126, 0.31547642, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htxhm"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuqvo"]
 content_margin_left = 4.0
 content_margin_right = 4.0
@@ -239,8 +241,6 @@ bg_color = Color(0.225, 0.225, 0.225, 0.6)
 content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htxhm"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_h8e4i"]
 
@@ -3002,34 +3002,6 @@ theme_override_constants/margin_right = 8
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=669558962]
-layout_mode = 2
-
-[node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946348785]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Page 1 of 1"
-
-[node name="PagePrev" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1888627280]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_xuqvo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kq58d")
-theme_override_styles/hover = SubResource("StyleBoxFlat_seu75")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_htxhm")
-disabled = true
-text = " < "
-
-[node name="PageNext" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=908406577]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_qsp4k")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jq2sk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ok6jj")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_b1qrp")
-disabled = true
-text = " > "
-
 [node name="StashSelector" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=2093668573]
 unique_name_in_owner = true
 layout_mode = 2
@@ -3087,10 +3059,39 @@ text = "+"
 expand_icon = true
 script = ExtResource("15_0rl1p")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=669558962]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PageLabel" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1946348785]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Page 1 of 1"
+
+[node name="PagePrev" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=1888627280]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xuqvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kq58d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_seu75")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_htxhm")
+disabled = true
+text = " < "
+
+[node name="PageNext" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=908406577]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qsp4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jq2sk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ok6jj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_b1qrp")
+disabled = true
+text = " > "
+
 [node name="ItemCount" type="Label" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=818739865]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 size_flags_vertical = 1
 text = "Items: 0"
 horizontal_alignment = 1

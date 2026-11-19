@@ -241,7 +241,7 @@ func _refresh_buttons() -> void:
 	var start := _current_page * _current_max_items_per_page
 	var end: int = min(start + _current_max_items_per_page, item_count)
 	if max_page > 0:
-		_item_count_label.text = "(%d to %d) of %d items" % [start + 1, end, item_count]
+		_item_count_label.text = "%d items" % item_count
 	else:
 		_item_count_label.text = "%d items" % item_count
 
