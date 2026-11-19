@@ -7,6 +7,8 @@ var _sort_grid: StashPageGUI
 
 @onready var _PD2_stash_GUI: PD2StashGUI = %PD2Stash
 @onready var _PD2_character_GUI: PD2CharacterGUI = %PD2Character
+@onready var _stash_tab_container: TabContainer = %StashTabContainer
+@onready var _cube: PanelContainer = %Cube
 
 
 func _ready() -> void:
@@ -14,6 +16,7 @@ func _ready() -> void:
 	_PD2_stash_GUI.grid_right_clicked.connect(_on_grid_right_clicked)
 	_PD2_character_GUI.item_rect_clicked.connect(_on_item_rect_clicked)
 	_PD2_character_GUI.grid_right_clicked.connect(_on_grid_right_clicked)
+	_stash_tab_container.tab_changed.connect(_toggle_cube_inventory)
 	# Setup right click to sort
 	_sort_menu = PopupMenu.new()
 	_sort_menu.add_item("Select All", 99)
@@ -101,3 +104,10 @@ func _on_grid_right_clicked(grid: StashPageGUI) -> void:
 	_sort_grid = grid
 	_sort_menu.position = get_global_mouse_position()
 	_sort_menu.popup()
+
+
+func _toggle_cube_inventory(tab: int) -> void:
+	if tab > 0 and tab < 6:
+		_cube.show()
+	else:
+		_cube.hide()

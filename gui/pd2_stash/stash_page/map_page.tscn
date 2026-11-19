@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bqy3ti2nyo75g"]
+
+[ext_resource type="Script" uid="uid://glk25qi4trwk" path="res://gui/pd2_stash/stash_page/material_stash_page.gd" id="1_4tcev"]
+[ext_resource type="PackedScene" uid="uid://cqpmew5ljytmu" path="res://gui/pd2_stash/stash_page/stash_page_gui.tscn" id="1_wx4dr"]
+
+[node name="M" type="PanelContainer" unique_id=1102498369 node_paths=PackedStringArray("grids")]
+custom_minimum_size = Vector2(400, 300)
+offset_right = 400.0
+offset_bottom = 300.0
+script = ExtResource("1_4tcev")
+grids = [NodePath("Runes/TabContainer/1"), NodePath("Runes/TabContainer/2"), NodePath("Runes/TabContainer/3"), NodePath("Runes/MapMats")]
+metadata/_tab_index = 0
+
+[node name="Runes" type="VBoxContainer" parent="." unique_id=1954505364]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Runes" unique_id=1797341669]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Runes" unique_id=1595800440]
+layout_mode = 2
+size_flags_horizontal = 4
+tab_alignment = 1
+current_tab = 0
+
+[node name="1" parent="Runes/TabContainer" unique_id=515020742 instance=ExtResource("1_wx4dr")]
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 9
+grid_height = 2
+metadata/_tab_index = 0
+
+[node name="2" parent="Runes/TabContainer" unique_id=663658176 instance=ExtResource("1_wx4dr")]
+visible = false
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 9
+grid_height = 2
+metadata/_tab_index = 1
+
+[node name="3" parent="Runes/TabContainer" unique_id=2009335882 instance=ExtResource("1_wx4dr")]
+visible = false
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 9
+grid_height = 2
+metadata/_tab_index = 2
+
+[node name="MapMats" parent="Runes" unique_id=1956286883 instance=ExtResource("1_wx4dr")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 7
+grid_height = 3

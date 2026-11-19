@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://fbg4utw6nya3"]
+
+[ext_resource type="Script" uid="uid://glk25qi4trwk" path="res://gui/pd2_stash/stash_page/material_stash_page.gd" id="1_tmqe7"]
+[ext_resource type="PackedScene" uid="uid://cqpmew5ljytmu" path="res://gui/pd2_stash/stash_page/stash_page_gui.tscn" id="1_uxmgm"]
+
+[node name="M" type="PanelContainer" unique_id=1102498369 node_paths=PackedStringArray("grids")]
+custom_minimum_size = Vector2(400, 300)
+offset_right = 400.0
+offset_bottom = 300.0
+script = ExtResource("1_tmqe7")
+grids = [NodePath("Runes/HBoxContainer/VBoxContainer/Up"), NodePath("Runes/HBoxContainer/VBoxContainer/Down"), NodePath("Runes/HBoxContainer/Right")]
+metadata/_tab_index = 0
+
+[node name="Runes" type="VBoxContainer" parent="." unique_id=1954505364]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Runes" unique_id=1797341669]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Runes" unique_id=1390447508]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Runes/HBoxContainer" unique_id=1361913557]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Up" parent="Runes/HBoxContainer/VBoxContainer" unique_id=515020742 instance=ExtResource("1_uxmgm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+grid_width = 3
+grid_height = 3
+
+[node name="Down" parent="Runes/HBoxContainer/VBoxContainer" unique_id=462566145 instance=ExtResource("1_uxmgm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+grid_width = 1
+grid_height = 1
+
+[node name="Right" parent="Runes/HBoxContainer" unique_id=1956286883 instance=ExtResource("1_uxmgm")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+grid_width = 4
+grid_height = 4

@@ -1,163 +1,56 @@
 class_name MaterialsPage
 
-const MATERIALS_BYTE_MAP_LEGACY: Dictionary[int, String] = { # 82-276
-	# ===== Runes =====
-	82: "r01s", #el
-	84: "r02s", #eld
-	86: "r03s", #tir
-	88: "r04s", #nef
-	90: "r05s", #eth
-	92: "r06s", #ith
-	94: "r07s", #tal
-	96: "r08s", #ral
-	98: "r09s", #ort
-	100: "r10s", #thul
-	102: "r11s", #amn
-	104: "r12s", #sol
-	106: "r13s", #shael
-	108: "r14s", #dol
-	110: "r15s", #hel
-	112: "r16s", #io
-	114: "r17s", #lum
-	116: "r18s", #ko
-	118: "r19s", #fal
-	120: "r20s", #lem
-	122: "r21s", #pul
-	124: "r22s", #um
-	126: "r23s", #mal
-	128: "r24s", #ist
-	130: "r25s", #gul
-	132: "r26s", #vex
-	134: "r27s", #ohm
-	136: "r28s", #lo
-	138: "r29s", #sur
-	140: "r30s", #ber
-	142: "r31s", #jah
-	144: "r32s", #cham
-	146: "r33s", #zod
-	# ===== Gems =====
-	148: "glys", #flawless topaz
-	150: "glws", #flawless diamond
-	152: "gzvs", #flawless amethyst
-	154: "glbs", #flawless sapphire
-	156: "glgs", #flawless emerald
-	158: "glrs", #flawless ruby
-	160: "skls", #flawless skull
-	162: "gpys", #perfect topaz
-	164: "gpws", #perfect diamond
-	166: "gpvs", #perfect amethyst
-	168: "gpbs", #perfect sapphire
-	170: "gpgs", #pefect emerald
-	172: "gprs", #perfect ruby
-	174: "skzs", #perect skull
-	176: "crfu", #bounty craft
-	178: "crfp", #brilliant craft
-	180: "crfc", #caster craft
-	182: "crfh", #hitpower craft
-	184: "crfs", #safety craft
-	186: "crfb", #blood craft
-	188: "crfv", #vampiric craft
-	# ===== Organs =====
-	190: "pk1", #key1
-	192: "pk2", #key2
-	194: "pk3", #key3
-	196: "mbr", #brain
-	198: "bey", #eye
-	200: "dhn", #horn
-	202: "ubaa", #T1 sigil
-	204: "ubab", #T2 sigil
-	206: "ubac", #T3 sigil
-	208: "dcbl", #PDE
-	210: "dcso", #PES
-	212: "dcho", #black soulstone
-	214: "rtmo", #jawbone
-	216: "rtmv", #splinter
-	218: "cm2f", #hellfire ash
-	220: "lucb", #demonic insignia
-	222: "lucc", #talisman of transgression
-	224: "lucd", #flesh of malic
-	# ===== Potions =====
-	226: "rvs", #rejuv
-	228: "rvl", #full rejuv
-	# ===== Craft mats =====
-	230: "imrn", #demonic cube
-	232: "jewf", #jewel fragments
-	234: "cwss", #twss
-	236: "wss", #wss
-	238: "lbox", #pbox
-	240: "lpp", #ppiece
-	# ===== Essences =====
-	242: "tes", #blue
-	244: "ceh", #yellow
-	246: "bet", #red
-	248: "fed", #green
-	# ===== Map mats =====
-	250: "std", #standard
-	252: "iwss", #catalyst
-	254: "upmp", #cartographer
-	256: "irma", #infused arcane
-	258: "urma", #infused angelic
-	260: "irra", #infused zakarum
-	262: "rrra", #infused horadric
-	264: "scrb", #scarab
-	266: "fort", #fortify
-	268: "scou", #destruction
-	270: "imma", #arcane
-	272: "upma", #angelic
-	274: "imra", #zakarum
-	276: "rera", #horadric
-}
 
 const MATERIALS_BYTE_MAP: Dictionary[int, String] = { # 82-276
 	# ===== Runes =====
-	82: "r01s", #el
-	84: "r02s", #eld
-	86: "r03s", #tir
-	88: "r04s", #nef
-	90: "r05s", #eth
-	92: "r06s", #ith
-	94: "r07s", #tal
-	96: "r08s", #ral
-	98: "r09s", #ort
-	100: "r10s", #thul
-	102: "r11s", #amn
-	104: "r12s", #sol
-	106: "r13s", #shael
-	108: "r14s", #dol
-	110: "r15s", #hel
-	112: "r16s", #io
-	114: "r17s", #lum
-	116: "r18s", #ko
-	118: "r19s", #fal
-	120: "r20s", #lem
-	122: "r21s", #pul
-	124: "r22s", #um
-	126: "r23s", #mal
-	128: "r24s", #ist
-	130: "r25s", #gul
-	132: "r26s", #vex
-	134: "r27s", #ohm
-	136: "r28s", #lo
-	138: "r29s", #sur
-	140: "r30s", #ber
-	142: "r31s", #jah
-	144: "r32s", #cham
-	146: "r33s", #zod
+	82: "r01", #el
+	84: "r02", #eld
+	86: "r03", #tir
+	88: "r04", #nef
+	90: "r05", #eth
+	92: "r06", #ith
+	94: "r07", #tal
+	96: "r08", #ral
+	98: "r09", #ort
+	100: "r10", #thul
+	102: "r11", #amn
+	104: "r12", #sol
+	106: "r13", #shael
+	108: "r14", #dol
+	110: "r15", #hel
+	112: "r16", #io
+	114: "r17", #lum
+	116: "r18", #ko
+	118: "r19", #fal
+	120: "r20", #lem
+	122: "r21", #pul
+	124: "r22", #um
+	126: "r23", #mal
+	128: "r24", #ist
+	130: "r25", #gul
+	132: "r26", #vex
+	134: "r27", #ohm
+	136: "r28", #lo
+	138: "r29", #sur
+	140: "r30", #ber
+	142: "r31", #jah
+	144: "r32", #cham
+	146: "r33", #zod
 	# ===== Gems =====
-	148: "glys", #flawless topaz
-	150: "glws", #flawless diamond
-	152: "gzvs", #flawless amethyst
-	154: "glbs", #flawless sapphire
-	156: "glgs", #flawless emerald
-	158: "glrs", #flawless ruby
-	160: "skls", #flawless skull
-	162: "gpys", #perfect topaz
-	164: "gpws", #perfect diamond
-	166: "gpvs", #perfect amethyst
-	168: "gpbs", #perfect sapphire
-	170: "gpgs", #pefect emerald
-	172: "gprs", #perfect ruby
-	174: "skzs", #perect skull
+	148: "gly", #flawless topaz
+	150: "glw", #flawless diamond
+	152: "gzv", #flawless amethyst
+	154: "glb", #flawless sapphire
+	156: "glg", #flawless emerald
+	158: "glr", #flawless ruby
+	160: "skl", #flawless skull
+	162: "gpy", #perfect topaz
+	164: "gpw", #perfect diamond
+	166: "gpv", #perfect amethyst
+	168: "gpb", #perfect sapphire
+	170: "gpg", #pefect emerald
+	172: "gpr", #perfect ruby
+	174: "skz", #perect skull
 	176: "crfu", #bounty craft
 	178: "crfp", #brilliant craft
 	180: "crfc", #caster craft
@@ -165,7 +58,7 @@ const MATERIALS_BYTE_MAP: Dictionary[int, String] = { # 82-276
 	184: "crfs", #safety craft
 	186: "crfb", #blood craft
 	188: "crfv", #vampiric craft
-	# ===== Organs =====
+	# ===== Ubers =====
 	190: "pk1", #key1
 	192: "pk2", #key2
 	194: "pk3", #key3
@@ -184,27 +77,25 @@ const MATERIALS_BYTE_MAP: Dictionary[int, String] = { # 82-276
 	220: "lucb", #demonic insignia
 	222: "lucc", #talisman of transgression
 	224: "lucd", #flesh of malic
-	# ===== Potions =====
-	#226: "ubtm", #rejuv -> pandemonium
-	#228: "uba", #full rejuv -> ancients
-	# ===== Craft mats =====
-	#230: "dcma", #demonic cube -> vision of terror
-	232: "jewf", #jewel fragments
-	#234: "luca", #twss -> shadow of hatred
-	236: "rvs", #rejuv NEW
-	238: "rvl", #full rejuv NEW
-	240: "imrn", #ppiece -> demonic cube
-	# ===== Essences =====
-	242: "jewf", #jewel fragments NEW
-	244: "cwss", #yellow -> twss
-	246: "wss", #wss NEW
-	248: "lbox", #pbox NEW
-	# ===== Map mats =====
+	226: "ubtm", #pandemonium
+	228: "uba", #ancients
+	230: "dcma", #vision of terror
+	232: "rtma", #voidstone
+	234: "luca", #shadow of hatred
+	# ===== Misc =====
+	236: "rvs", #rejuv
+	238: "rvl", #full rejuv
+	240: "imrn", #demonic cube
+	242: "jewf", #jewel fragments
+	244: "cwss", #twss
+	246: "wss", #wss
+	248: "lbox", #pbox
 	250: "lpp", #ppiece
 	252: "tes", #blue
 	254: "ceh", #yellow
 	256: "bet", #red
 	258: "fed", #green
+	# ===== Map mats =====
 	260: "std", #standard
 	262: "iwss", #catalyst
 	264: "upmp", #cartographer
@@ -219,15 +110,87 @@ const MATERIALS_BYTE_MAP: Dictionary[int, String] = { # 82-276
 	282: "upma", #angelic
 	284: "imra", #zakarum
 	286: "rera", #horadric
+	288: "ivea", #ass
+	290: "ivez", #ama
+	292: "iveb", #bar
+	294: "ived", #dru
+	296: "iven", #nec
+	298: "ivep", #pal
+	300: "ives", #sor
+	# ===== Misc 2 =====
+	302: "toa", #token
+	304: "llmr", #mirror
+	306: "lsvl", #vial
+	# ===== Maps =====
+	#t1
+	312: "t11", #viz-jun
+	314: "t21", #phleg
+	316: "t22", #torajan
+	318: "t24", #tomb
+	320: "t33", #lost
+	322: "t34", #ancestral
+	324: "t36", #fall
+	326: "t26", #shadows
+	#t2
+	328: "t12", #horazon
+	330: "t25", #sewers
+	332: "t32", #throne
+	334: "t37", #pandemonium
+	336: "t38", #canyon
+	338: "t14", #sanatorium
+	340: "t16", #ruined
+	342: "t3a", #ashen
+	344: "t17", #halls
+	#t3
+	346: "t13", #bastion
+	348: "t23", #arreat
+	350: "t31", #river
+	352: "t35", #blood
+	354: "t39", #market
+	356: "t15", #royal
+	358: "t28", #skovos
+	360: "t27", #demon
+	362: "t3b", #kyovashad
+	#new
+	364: "t29", #fortress
+	366: "t18", #poisoned
+	368: "t2a", #descent
+	# ===== Gems 2 =====
+	432: "gcy", #chipped topaz
+	434: "gcw", #chipped diamond
+	436: "gcv", #chipped amethyst
+	438: "gcb", #chipped sapphire
+	440: "gcg", #chipped emerald
+	442: "gcr", #chipped ruby
+	444: "skc", #chipped skull
+	446: "gfy", #flawed topaz
+	448: "gfw", #flawed diamond
+	450: "gfv", #flawed amethyst
+	452: "gfb", #flawed sapphire
+	454: "gfg", #flawed emerald
+	456: "gfr", #flawed ruby
+	458: "skf", #flawed skull
+	460: "gsy", #topaz
+	462: "gsw", #diamond
+	464: "gsv", #amethyst
+	466: "gsb", #sapphire
+	468: "gsg", #emerald
+	470: "gsr", #ruby
+	472: "sku", #skull
 }
+
+const SHARED_GOLD_BYTE_OFFSET := 308
+const SHARED_GOLD_BYTE_LENGTH := 4
 
 var _data: PackedByteArray
 
 var _materials: Array[D2Item]
+var _shared_gold: int
 
 
 func _init(data: PackedByteArray) -> void:
 	_data = data
+	_shared_gold = _data.decode_u32(SHARED_GOLD_BYTE_OFFSET)
 	for byte_offset: int in MATERIALS_BYTE_MAP:
 		var item_quantity := _data.decode_u16(byte_offset)
 		if item_quantity > 0:

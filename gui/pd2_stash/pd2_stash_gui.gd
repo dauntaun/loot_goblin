@@ -10,19 +10,17 @@ var _pd2_pages: PagedStashView
 var _char_view: CharacterStashView
 var _item_page_map: Dictionary[D2Item, int]
 
-var _materials_page: MaterialsPageGUI # index 0
-var _personal_page: StashPageGUI # index 1
+var _personal_page: StashPageGUI # index 0
 var _personal_view: CharacterStashView
-var _shared_pages: Array[StashPageGUI] # indeces 2-11
+var _shared_pages: Array[StashPageGUI] # indeces 1-10
 
 
 func _ready() -> void:
 	for i: int in get_tab_count():
 		set("tab_%d/disabled" % i, true)
 	
-	_materials_page = get_child(0)
-	_personal_page = get_child(1)
-	for i: int in range(2, 11):
+	_personal_page = get_child(0)
+	for i: int in range(1, 10):
 		var stash_page := get_child(i) as StashPageGUI
 		stash_page.item_rect_clicked.connect(_relay_item_rect_clicked)
 		stash_page.right_clicked_grid.connect(_relay_right_clicked_grid.bind(stash_page))
@@ -31,14 +29,13 @@ func _ready() -> void:
 	tab_changed.connect(_on_tab_changed)
 	_personal_page.item_rect_clicked.connect(_relay_item_rect_clicked)
 	_personal_page.right_clicked_grid.connect(_relay_right_clicked_grid.bind(_personal_page))
-	StashRegistry.pd2_shared_registered.connect(func() -> void:
-		current_tab = GlobalSettings.pd2_stash_page + 1
-		var materials_page := StashRegistry.get_pd2_shared_save_file().materials_page
-		var pd2_pages := StashRegistry.get_stash_view(StashRegistry.get_pd2_shared_stash_id())
-		init_shared_pages(pd2_pages, materials_page))
+	StashRegistry.pd2_shared_registered.connect(init_shared_pages)
 
 
-func init_shared_pages(pd2_pages: PagedStashView, materials_page: MaterialsPage) -> void:
+func init_shared_pages() -> void:
+	current_tab = GlobalSettings.pd2_stash_page
+	var pd2_pages := StashRegistry.get_stash_view(StashRegistry.get_pd2_shared_stash_id())
+	
 	if _initialized_shared:
 		cleanup_shared_connections()
 	_pd2_pages = pd2_pages
@@ -47,7 +44,6 @@ func init_shared_pages(pd2_pages: PagedStashView, materials_page: MaterialsPage)
 		set("tab_%d/disabled" % i, false)
 	_pd2_pages.item_added.connect(_on_item_added_in_shared_stash)
 	_pd2_pages.item_removed.connect(_on_item_removed_from_shared_stash)
-	init_materials_page(materials_page)
 	_initialized_shared = true
 
 
@@ -59,11 +55,6 @@ func cleanup_shared_connections() -> void:
 func cleanup_personal_connections() -> void:
 	_personal_view.item_added.disconnect(_on_item_added_in_personal_stash)
 	_personal_view.item_removed.disconnect(_on_item_removed_from_personal_stash)
-
-
-func init_materials_page(materials_page: MaterialsPage) -> void:
-	set("tab_0/disabled", false)
-	_materials_page.init_materials(materials_page)
 
 
 func init_personal_page(stash_view: CharacterStashView) -> void:

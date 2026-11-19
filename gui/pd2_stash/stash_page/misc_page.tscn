@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://sbw7ntr8k03k"]
+
+[ext_resource type="Script" uid="uid://glk25qi4trwk" path="res://gui/pd2_stash/stash_page/material_stash_page.gd" id="1_r5red"]
+[ext_resource type="PackedScene" uid="uid://cqpmew5ljytmu" path="res://gui/pd2_stash/stash_page/stash_page_gui.tscn" id="1_xa3vw"]
+
+[node name="M" type="PanelContainer" unique_id=1102498369 node_paths=PackedStringArray("grids")]
+custom_minimum_size = Vector2(400, 300)
+offset_right = 400.0
+offset_bottom = 300.0
+script = ExtResource("1_r5red")
+grids = [NodePath("Runes/HBoxContainer/UpperMisc"), NodePath("Runes/HBoxContainer/MiddleMisc"), NodePath("Runes/HBoxContainer/LowerMisc")]
+metadata/_tab_index = 0
+
+[node name="Runes" type="VBoxContainer" parent="." unique_id=1954505364]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Runes" unique_id=1797341669]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Runes" unique_id=6221333]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="UpperMisc" parent="Runes/HBoxContainer" unique_id=515020742 instance=ExtResource("1_xa3vw")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 5
+grid_height = 2
+
+[node name="MiddleMisc" parent="Runes/HBoxContainer" unique_id=165601088 instance=ExtResource("1_xa3vw")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 5
+grid_height = 1
+
+[node name="LowerMisc" parent="Runes/HBoxContainer" unique_id=1956286883 instance=ExtResource("1_xa3vw")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 2
+grid_height = 1

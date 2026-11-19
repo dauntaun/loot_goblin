@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b4hx6qv4ya5yf"]
+
+[ext_resource type="Script" uid="uid://glk25qi4trwk" path="res://gui/pd2_stash/stash_page/material_stash_page.gd" id="1_3lus7"]
+[ext_resource type="PackedScene" uid="uid://cqpmew5ljytmu" path="res://gui/pd2_stash/stash_page/stash_page_gui.tscn" id="1_24qsl"]
+
+[node name="M" type="PanelContainer" unique_id=1102498369 node_paths=PackedStringArray("grids")]
+custom_minimum_size = Vector2(400, 300)
+offset_right = 400.0
+offset_bottom = 300.0
+script = ExtResource("1_3lus7")
+grids = [NodePath("Runes/UpperRunes"), NodePath("Runes/LowerRunes")]
+metadata/_tab_index = 0
+
+[node name="Runes" type="VBoxContainer" parent="." unique_id=1954505364]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="Runes" unique_id=1797341669]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="UpperRunes" parent="Runes" unique_id=515020742 instance=ExtResource("1_24qsl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 9
+grid_height = 3
+
+[node name="LowerRunes" parent="Runes" unique_id=165601088 instance=ExtResource("1_24qsl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+grid_width = 6
+grid_height = 1
