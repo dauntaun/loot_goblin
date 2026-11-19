@@ -83,9 +83,6 @@ func _update_selection() -> void:
 			selected_items.append(item_rect._item)
 
 	ItemSelection.set_selection(selected_items)
-	
-	if ItemSelection.get_destination_stash_type() in [StashRegistry.StashType.PD2_SHARED, StashRegistry.StashType.PD2_PERSONAL, StashRegistry.StashType.UNKNOWN]:
-		ItemSelection.set_destination(StashRegistry.StashType.GOBLIN)
 
 
 func _on_sort_menu_picked(id: int) -> void:
