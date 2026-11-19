@@ -30,6 +30,7 @@ func _ready() -> void:
 	pd2_view_button.pressed.connect(_change_view.bind(Selection.PD2))
 	grail_view_button.pressed.connect(_change_view.bind(Selection.GRAIL))
 	view_tab.tab_changed.connect(_reset_selection)
+	StashRegistry.registration_completed.connect(set_destination_with_current_view)
 
 
 func _change_view(selection: Selection) -> void:
@@ -37,6 +38,14 @@ func _change_view(selection: Selection) -> void:
 	main_tab.current_tab = selection_map[selection].main_tab
 	view_tab.current_tab = selection_map[selection].get("view_tab", 0)
 	search_box.visible = selection == Selection.GOBLIN
+	set_destination_with_current_view()
+
+
+func set_destination_with_current_view() -> void:
+	if current_selection == Selection.GOBLIN:
+		ItemSelection.set_destination(StashRegistry.StashType.PD2_SHARED)
+	elif current_selection == Selection.PD2:
+		ItemSelection.set_destination(StashRegistry.StashType.GOBLIN)
 
 
 func _reset_selection(tab: int) -> void:

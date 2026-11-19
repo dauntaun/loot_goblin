@@ -248,10 +248,6 @@ func _refresh_buttons() -> void:
 
 func _on_items_selected(items: Array[D2Item]) -> void:
 	ItemSelection.set_selection(items)
-	if _stash_selector.is_virtual_stash_selected():
-		return
-	if ItemSelection.get_destination_stash_type() in [StashRegistry.StashType.GOBLIN, StashRegistry.StashType.UNKNOWN]:
-		ItemSelection.set_destination(StashRegistry.StashType.PD2_SHARED)
 
 
 func clear_selection() -> void:
