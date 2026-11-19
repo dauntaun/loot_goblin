@@ -20,16 +20,11 @@ var _goblin_save: GoblinSaveFile
 var _collection_register: Dictionary[int, GoblinSaveFile.GoblinCollection] ## collection_id -> collection
 var _collection_ids: Array[int]
 var _character_register: Dictionary[int, Dictionary] # {"name": String, "char_stash": stash_id, "merc_stash": stash_id}
-var _stash_name_map: Dictionary[int, String] ## stash_id -> stash name
 var _character_stash_ids: Array[int]
 
 
 func complete_registration() -> void:
 	registration_completed.emit()
-
-
-func get_stash_name(stash_id: int) -> String:
-	return _stash_name_map[stash_id]
 
 
 func unregister_all_stashes() -> void:
@@ -40,7 +35,6 @@ func unregister_all_stashes() -> void:
 	_stash_register.clear()
 	_character_register.clear()
 	_collection_register.clear()
-	_stash_name_map.clear()
 	_character_stash_ids.clear()
 	_collection_ids.clear()
 	stashes_unregistered.emit()
@@ -52,7 +46,6 @@ func register_goblin_save(save_file: GoblinSaveFile) -> void:
 		_stash_register.erase(stash_id)
 	_collection_register.clear()
 	_collection_ids.clear()
-	_stash_name_map.clear()
 	_goblin_main_stash_id = -1
 	_goblin_save = null
 	# Register
@@ -66,8 +59,8 @@ func register_goblin_save(save_file: GoblinSaveFile) -> void:
 			StashType.GOBLIN,
 			collection.item_list,
 			collection.item_list.get_itemlist(),
-			save_file)
-		_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
+			save_file,
+			"Goblin" + "/" + collection.name)
 	_goblin_save = save_file
 	goblin_registered.emit()
 
@@ -79,10 +72,9 @@ func register_pd2_shared_save(save_file: PD2SaveFile) -> void:
 	_pd2_shared_save = null
 	# Register
 	var stash_id := save_file.item_list.stash_id
-	_register_stash(stash_id, StashType.PD2_SHARED, save_file.item_list, save_file.item_list.get_pd2pages(), save_file)
+	_register_stash(stash_id, StashType.PD2_SHARED, save_file.item_list, save_file.item_list.get_pd2pages(), save_file, "PD2 Shared")
 	_pd2_shared_stash_id = stash_id
 	_pd2_shared_save = save_file
-	_stash_name_map[stash_id] = "PD2 Shared"
 	pd2_shared_registered.emit()
 
 
@@ -106,8 +98,8 @@ func register_new_collection(collection: GoblinSaveFile.GoblinCollection) -> voi
 		StashType.GOBLIN,
 		collection.item_list,
 		collection.item_list.get_itemlist(),
-		get_goblin_save_file())
-	_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
+		get_goblin_save_file(),
+		"Goblin" + "/" + collection.name)
 	collections_changed.emit()
 
 
@@ -117,12 +109,11 @@ func unregister_collection(collection: GoblinSaveFile.GoblinCollection) -> void:
 	_collection_register.erase(collection.collection_id)
 	_collection_ids.erase(collection.collection_id)
 	_stash_register.erase(stash_id)
-	_stash_name_map.erase(stash_id)
 	collections_changed.emit()
 
 
 func reregister_collection_name(collection: GoblinSaveFile.GoblinCollection) -> void:
-	_stash_name_map[collection.item_list.stash_id] = "Goblin" + "/" + collection.name
+	_stash_register[collection.item_list.stash_id]["name"] = "Goblin" + "/" + collection.name
 	collections_changed.emit()
 
 
@@ -141,9 +132,9 @@ func _register_character_save_file(save_file: D2CharacterSaveFile)  -> void:
 		StashType.PD2_PERSONAL,
 		save_file.item_list,
 		save_file.item_list.get_char_view(),
-		save_file
+		save_file,
+		save_file.character_name
 	)
-	_stash_name_map[save_file.item_list.stash_id] = save_file.character_name
 	_character_stash_ids.append(save_file.item_list.stash_id)
 	if save_file.has_mercenary:
 		_register_stash(
@@ -151,9 +142,9 @@ func _register_character_save_file(save_file: D2CharacterSaveFile)  -> void:
 			StashType.PD2_PERSONAL,
 			save_file.merc_item_list,
 			save_file.merc_item_list.get_char_view(),
-			save_file
+			save_file,
+			save_file.character_name + "/" + "Merc"
 		)
-		_stash_name_map[save_file.merc_item_list.stash_id] = save_file.character_name + "/" + "Merc"
 		_character_stash_ids.append(save_file.merc_item_list.stash_id)
 
 
@@ -162,9 +153,10 @@ func _register_stash(
 		type: StashType,
 		data: D2ItemList,
 		view: BasicStashView,
-		save_file: BasicSaveFile) -> void:
+		save_file: BasicSaveFile,
+		stash_name: String) -> void:
 	
-	_stash_register[stash_id] = {"type": type, "data": data, "view": view, "save": save_file}
+	_stash_register[stash_id] = {"type": type, "data": data, "view": view, "save": save_file, "name": stash_name}
 	stash_registered.emit(stash_id)
 
 
@@ -259,3 +251,7 @@ func get_stash_view(stash_id: int) -> BasicStashView:
 
 func get_stash_save(stash_id: int) -> BasicSaveFile:
 	return _stash_register[stash_id].save
+
+
+func get_stash_name(stash_id: int) -> String:
+	return _stash_register[stash_id]["name"]

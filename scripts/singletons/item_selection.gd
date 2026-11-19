@@ -157,15 +157,17 @@ func can_transfer_selection() -> SelectionTransferOutcome:
 	for item: D2Item in selected_items:
 		var stash_id := ItemRegistry.get_item_data_stash_id(item.item_id)
 		var stash_type := StashRegistry.get_stash_type(stash_id)
-		if stash_type == StashRegistry.StashType.PD2_SHARED and _destination_stash_type == stash_type:
-			if item.equipped_id == _destination_page_index + 1:
-				return SelectionTransferOutcome.SAME_DESTINATION
-		elif stash_type == StashRegistry.StashType.PD2_PERSONAL and _destination_stash_type == stash_type:
-			return SelectionTransferOutcome.SAME_DESTINATION
-		elif stash_type == StashRegistry.StashType.GOBLIN and _destination_stash_type == stash_type:
-			var collection_id := StashRegistry.get_collection_id_from_stash_id(stash_id)
-			if _destination_collection_id == collection_id:
-				return SelectionTransferOutcome.SAME_DESTINATION
+		if _destination_stash_type == stash_type:
+			match stash_type:
+				StashRegistry.StashType.PD2_SHARED:
+					if item.equipped_id == _destination_page_index + 1:
+						return SelectionTransferOutcome.SAME_DESTINATION
+				StashRegistry.StashType.PD2_PERSONAL:
+					return SelectionTransferOutcome.SAME_DESTINATION
+				StashRegistry.StashType.GOBLIN:
+					var collection_id := StashRegistry.get_collection_id_from_stash_id(stash_id)
+					if _destination_collection_id == collection_id:
+						return SelectionTransferOutcome.SAME_DESTINATION
 	return SelectionTransferOutcome.ALLOWED
 
 
