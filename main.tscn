@@ -3032,8 +3032,11 @@ tabs_visible = false
 
 [node name="GoblinSelectOption" type="OptionButton" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/StashSelector/StashSelectTabs" unique_id=47765442]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+text_overrun_behavior = 3
 selected = 0
+fit_to_longest_item = false
 item_count = 1
 popup/item_0/text = "All"
 popup/item_0/id = 0
