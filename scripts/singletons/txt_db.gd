@@ -978,9 +978,9 @@ func get_item_invfile(item: D2Item) -> Texture2D:
 			set_invfile = all_codes[item.code_string].get("setinvfile", "")
 		if set_invfile != "":
 			invfile = set_invfile
-	var texture = load("res://assets/item_art/" + invfile + ".png") as Texture2D
+	var texture: Texture2D = load("res://assets/item_art/" + invfile + ".png")
 	if not texture:
-		texture = load("res://assets/item_art/devcharm.png") as Texture2D
+		texture = load("res://assets/item_art/devcharm.png")
 	return texture
 
 
