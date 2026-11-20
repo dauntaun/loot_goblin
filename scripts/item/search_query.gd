@@ -363,7 +363,7 @@ class CompiledStringQuery:
 				return _matches_property(item, numeric_expression, 44)
 			"maxpres":
 				return _matches_property(item, numeric_expression, 46)
-			"maxres":
+			"maxares":
 				return _matches_property(item, numeric_expression, 40) and \
 				_matches_property(item, numeric_expression, 42) and \
 				_matches_property(item, numeric_expression, 44) and \
@@ -666,7 +666,7 @@ class NumericExpression:
 		"maxlres": true,
 		"maxcres": true,
 		"maxpres": true,
-		"maxres": true,
+		"maxares": true,
 		"fabs": true,
 		"flatfabs": true,
 		"labs": true,
