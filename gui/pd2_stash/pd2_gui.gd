@@ -92,9 +92,6 @@ func _on_sort_menu_picked(id: int) -> void:
 			item_rect.select()
 		_selected_item_rects = _sort_grid._item_rect_mapping.values()
 		ItemSelection.set_selection(_sort_grid._item_rect_mapping.keys())
-		
-		if ItemSelection.get_destination_stash_type() in [StashRegistry.StashType.PD2_SHARED, StashRegistry.StashType.PD2_PERSONAL, StashRegistry.StashType.UNKNOWN]:
-			ItemSelection.set_destination(StashRegistry.StashType.GOBLIN)
 
 
 func _on_grid_right_clicked(grid: StashPageGUI) -> void:
