@@ -106,6 +106,8 @@ func _create_item_panel(item: D2Item) -> void:
 	var vbox := VBoxContainer.new()
 	var texture_rect := TextureRect.new()
 	texture_rect.texture = TxtDB.get_item_invfile(item)
+	if item.is_ethereal:
+		texture_rect.modulate.a = 0.5
 	texture_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
 	_item_map[item] = button
 	button.toggle_mode = true
