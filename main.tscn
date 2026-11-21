@@ -242,7 +242,7 @@ content_margin_left = 4.0
 content_margin_right = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.3)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_h8e4i"]
+[sub_resource type="ButtonGroup" id="ButtonGroup_pjyto"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_c4sjg"]
 
@@ -361,7 +361,6 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_behavior_recursive = 1
 script = ExtResource("1_ig7tw")
-enable_debug = true
 
 [node name="StashLoader" type="FileDialog" parent="." unique_id=1557473263]
 unique_name_in_owner = true
@@ -703,239 +702,356 @@ layout_mode = 2
 folded = true
 title = "Weapon"
 
-[node name="QuickWeapon" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon" unique_id=780554693]
+[node name="QuickWeapon" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon" unique_id=1081392048]
 visible = false
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
+columns = 3
 
 [node name="Weapon" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1917234161]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Axe"
 toggle_mode = true
 text = "Axe"
+text_overrun_behavior = 1
 
 [node name="Weapon2" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=705524349]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Club"
 toggle_mode = true
 text = "Club"
+text_overrun_behavior = 1
 
 [node name="Weapon3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=491423025]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Mace"
 toggle_mode = true
 text = "Mace"
+text_overrun_behavior = 1
 
 [node name="Weapon4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=264853303]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Hammer"
 toggle_mode = true
 text = "Hammer"
+text_overrun_behavior = 1
 
 [node name="Weapon5" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=604777968]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Sword"
 toggle_mode = true
 text = "Sword"
+text_overrun_behavior = 1
 
 [node name="Weapon6" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=694645242]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Dagger"
 toggle_mode = true
 text = "Dagger"
+text_overrun_behavior = 1
 
 [node name="Weapon7" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1036371648]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Throwing Axe"
 toggle_mode = true
-text = "Throwing Axe"
+text = "TAxe"
+text_overrun_behavior = 1
 
 [node name="Weapon8" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1388741889]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Throwing Knife"
 toggle_mode = true
-text = "Throwing Knife"
+text = "TKnife"
+text_overrun_behavior = 1
 
 [node name="Weapon9" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=536898339]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Javelin"
 toggle_mode = true
-text = "Javelin"
+text = "Jave"
+text_overrun_behavior = 1
 
 [node name="Weapon21" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=2145706294]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Amazon Javelin"
 toggle_mode = true
-text = "Amazon Javelin"
+text = "AJavelin"
+text_overrun_behavior = 1
 
 [node name="Weapon10" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1435762472]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Spear"
 toggle_mode = true
 text = "Spear"
+text_overrun_behavior = 1
 
 [node name="Weapon20" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1441395305]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Amazon Spear"
 toggle_mode = true
-text = "Amazon Spear"
+text = "ASpear"
+text_overrun_behavior = 1
 
 [node name="Weapon11" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=2044107916]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Polearm"
 toggle_mode = true
 text = "Polearm"
+text_overrun_behavior = 1
 
 [node name="Weapon12" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=865872725]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Bow"
 toggle_mode = true
 text = "Bow"
+text_overrun_behavior = 1
 
 [node name="Weapon19" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=329073994]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Amazon Bow"
 toggle_mode = true
-text = "Amazon Bow"
+text = "ABow"
+text_overrun_behavior = 1
 
 [node name="Weapon13" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1677190801]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Crossbow"
 toggle_mode = true
 text = "Crossbow"
+text_overrun_behavior = 1
 
 [node name="Weapon14" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=95292717]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Staff"
 toggle_mode = true
 text = "Staff"
+text_overrun_behavior = 1
 
 [node name="Weapon15" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=66940389]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Wand"
 toggle_mode = true
 text = "Wand"
+text_overrun_behavior = 1
 
 [node name="Weapon16" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1546411264]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Scepter"
 toggle_mode = true
 text = "Scepter"
+text_overrun_behavior = 1
 
 [node name="Weapon17" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1076638652]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Claw"
 toggle_mode = true
 text = "Claw"
+text_overrun_behavior = 1
 
 [node name="Weapon18" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Weapon/QuickWeapon" unique_id=1099675444]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Orb"
 toggle_mode = true
 text = "Orb"
+text_overrun_behavior = 1
 
 [node name="Armor" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=985517534]
 layout_mode = 2
 folded = true
 title = "Armor"
 
-[node name="QuickArmor" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor" unique_id=779444912]
+[node name="QuickArmor" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor" unique_id=1756436240]
 visible = false
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
+columns = 3
 
 [node name="Armor" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=2074038007]
+custom_minimum_size = Vector2(49, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Helm"
 toggle_mode = true
 text = "Helm"
+text_overrun_behavior = 1
 
 [node name="Armor2" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=53089160]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Circlet"
 toggle_mode = true
-text = "Circlet"
+text = "Circ"
+text_overrun_behavior = 1
 
 [node name="Armor3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=670048000]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Chest"
 toggle_mode = true
 text = "Chest"
+text_overrun_behavior = 1
 
 [node name="Armor4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=1229224848]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Shield"
 toggle_mode = true
 text = "Shield"
+text_overrun_behavior = 1
 
 [node name="Armor5" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=103236793]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Gloves"
 toggle_mode = true
 text = "Gloves"
+text_overrun_behavior = 1
 
 [node name="Armor6" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=260372359]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Boots"
 toggle_mode = true
 text = "Boots"
+text_overrun_behavior = 1
 
 [node name="Armor7" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=897368507]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Belt"
 toggle_mode = true
 text = "Belt"
+text_overrun_behavior = 1
 
 [node name="Armor8" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=1150857103]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Druid Helm"
 toggle_mode = true
 text = "Druid Helm"
+text_overrun_behavior = 1
 
 [node name="Armor9" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=632835428]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Barbarian Helm"
 toggle_mode = true
 text = "Barbarian Helm"
+text_overrun_behavior = 1
 
 [node name="Armor10" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=1393555655]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Paladin Shield"
 toggle_mode = true
 text = "Paladin Shield"
+text_overrun_behavior = 1
 
 [node name="Armor11" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Armor/QuickArmor" unique_id=98568720]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Necromancer Shield"
 toggle_mode = true
 text = "Necro Shield"
+text_overrun_behavior = 1
 
 [node name="Misc" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=137569968]
 layout_mode = 2
 folded = true
 title = "Misc"
 
-[node name="QuickMisc" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc" unique_id=1882296097]
+[node name="QuickMisc" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc" unique_id=160481913]
 visible = false
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
+columns = 3
 
 [node name="Misc" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=970821712]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 text = "Ring"
+text_overrun_behavior = 1
 
 [node name="Misc2" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=678975309]
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
 text = "Amulet"
+text_overrun_behavior = 1
 expand_icon = true
 
 [node name="Misc3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1189798918]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Arrows"
+text = "Jewel"
+text_overrun_behavior = 1
 
 [node name="Misc4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1999686331]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Bolts"
+text = "Arrows"
+text_overrun_behavior = 1
 
 [node name="Misc5" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=2127994008]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Small Charm"
+text = "Bolts"
+text_overrun_behavior = 1
 
 [node name="Misc6" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=2009641991]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Large Charm"
+text = "Maps"
+text_overrun_behavior = 1
 
 [node name="Misc7" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1393103220]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Grand Charm"
+text = "Small Charm"
+text_overrun_behavior = 1
 
 [node name="Misc8" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1156508217]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Jewel"
+text = "Large Charm"
+text_overrun_behavior = 1
 
 [node name="Misc9" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1867995591]
 layout_mode = 2
+size_flags_horizontal = 3
 toggle_mode = true
-text = "Map"
+text = "Grand Charm"
+text_overrun_behavior = 1
 
 [node name="Size" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=987325822]
 layout_mode = 2
@@ -3146,7 +3262,7 @@ script = ExtResource("7_yaehf")
 
 [node name="Button3" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2GUI/VBoxContainer/PanelContainer/MarginContainer/ScrollContainer/CharacterSelect" unique_id=1186643183 instance=ExtResource("7_2cqfq")]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_h8e4i")
+button_group = SubResource("ButtonGroup_pjyto")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/PD2GUI" unique_id=661458001]
 layout_mode = 2
