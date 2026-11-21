@@ -754,7 +754,7 @@ Infectious	751	100	1	1	42		42				20	201	extra-pois		3	3											mcha										
 Scintillating	752	100	1	1	42		42				20	201	extra-magi		3	3											mcha														0
 Visceral	753	104	1	3	75		69				10	105	dmg%		301	400									1	blac	weap							staf	wand	orb					0
 Divine	754	100	1	1	45		37				10	142	att-undead		326	450	dmg-undead		276	350						lgld	miss														0
-Celestial	755	104	1	3	55		41				10	123	att-demon		301	400	dmg-demon		201	300					1	dgld	weap														0
+Celestial	755	104	1	3	55		41				10	123	att-demon		301	400	dmg-demon		201	300					1	dgld	weap							staf	wand	orb					0
 Grandmaster's	756	101	1	1	69		61				40	111	att		251	300	dmg%		151	200					1	dgld	miss														0
 Supporting	757	1	1	1	25		18				20	105	dmg%		10	20											tors	shld													0
 Reinforcing	758	1	1	1	35		28				20	105	dmg%		20	40											tors	shld													0
