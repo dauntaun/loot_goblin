@@ -141,6 +141,9 @@ allow_unpress = true
 [sub_resource type="ButtonGroup" id="ButtonGroup_kq58d"]
 allow_unpress = true
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_h8e4i"]
+allow_unpress = true
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jrf"]
 content_margin_left = 4.0
 content_margin_right = 4.0
@@ -683,6 +686,7 @@ filters = {
 "ethereal": NodePath("VBoxContainer/Ethereal/QuickEth"),
 "misc": NodePath("VBoxContainer/Misc/QuickMisc"),
 "rarity": NodePath("VBoxContainer/Rarity/QuickRarity"),
+"runeword": NodePath("VBoxContainer/Runeword/QuickRuneword"),
 "size": NodePath("VBoxContainer/Size/QuickSize"),
 "sockets": NodePath("VBoxContainer/Sockets/QuickSockets"),
 "tier": NodePath("VBoxContainer/Tier/QuickTier"),
@@ -991,6 +995,7 @@ columns = 3
 [node name="Misc" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=970821712]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Ring"
 toggle_mode = true
 text = "Ring"
 text_overrun_behavior = 1
@@ -999,6 +1004,7 @@ text_overrun_behavior = 1
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Amulet"
 toggle_mode = true
 text = "Amulet"
 text_overrun_behavior = 1
@@ -1007,6 +1013,7 @@ expand_icon = true
 [node name="Misc3" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1189798918]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Jewel"
 toggle_mode = true
 text = "Jewel"
 text_overrun_behavior = 1
@@ -1014,6 +1021,7 @@ text_overrun_behavior = 1
 [node name="Misc4" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1999686331]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Arrows"
 toggle_mode = true
 text = "Arrows"
 text_overrun_behavior = 1
@@ -1021,6 +1029,7 @@ text_overrun_behavior = 1
 [node name="Misc5" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=2127994008]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Bolts"
 toggle_mode = true
 text = "Bolts"
 text_overrun_behavior = 1
@@ -1028,6 +1037,7 @@ text_overrun_behavior = 1
 [node name="Misc6" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=2009641991]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Map"
 toggle_mode = true
 text = "Maps"
 text_overrun_behavior = 1
@@ -1035,6 +1045,7 @@ text_overrun_behavior = 1
 [node name="Misc7" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1393103220]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Small Charm"
 toggle_mode = true
 text = "Small Charm"
 text_overrun_behavior = 1
@@ -1042,6 +1053,7 @@ text_overrun_behavior = 1
 [node name="Misc8" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1156508217]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Large Charm"
 toggle_mode = true
 text = "Large Charm"
 text_overrun_behavior = 1
@@ -1049,6 +1061,7 @@ text_overrun_behavior = 1
 [node name="Misc9" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Misc/QuickMisc" unique_id=1867995591]
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Grand Charm"
 toggle_mode = true
 text = "Grand Charm"
 text_overrun_behavior = 1
@@ -1082,81 +1095,101 @@ text = "2H"
 layout_mode = 2
 title = "Rarity"
 
-[node name="QuickRarity" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity" unique_id=79253710]
+[node name="QuickRarity" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity" unique_id=104236342]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
-
-[node name="Runeword" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1957405655]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
-theme_override_colors/font_pressed_color = Color(0.5372549, 0.5372549, 0.5372549, 1)
-toggle_mode = true
-text = "Runeword"
+columns = 3
 
 [node name="Normal" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1400942263]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Normal"
 toggle_mode = true
 text = "Normal"
+text_overrun_behavior = 1
 
 [node name="Magic" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1157887645]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Magic"
 theme_override_colors/font_color = Color(0.25490198, 0.4117647, 0.88235295, 1)
 theme_override_colors/font_pressed_color = Color(0.25490198, 0.4117647, 0.88235295, 1)
 toggle_mode = true
 text = "Magic"
+text_overrun_behavior = 1
 
 [node name="Rare" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1566293851]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Rare"
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
 toggle_mode = true
 text = "Rare"
+text_overrun_behavior = 1
 
 [node name="Crafted" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1799083107]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Crafted"
 theme_override_colors/font_color = Color(1, 0.54901963, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.54901963, 0, 1)
 toggle_mode = true
 text = "Crafted"
+text_overrun_behavior = 1
 
 [node name="Unique" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1550505184]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Unique"
 theme_override_colors/font_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
 theme_override_colors/font_pressed_color = Color(0.78039217, 0.7019608, 0.46666667, 1)
 toggle_mode = true
 text = "Unique"
+text_overrun_behavior = 1
 
 [node name="Set" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Rarity/QuickRarity" unique_id=1253271930]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Set"
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 toggle_mode = true
 text = "Set"
+text_overrun_behavior = 1
 
 [node name="Tier" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=1675068109]
 layout_mode = 2
 title = "Tier"
 
-[node name="QuickTier" type="VBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Tier" unique_id=1275055367]
+[node name="QuickTier" type="GridContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Tier" unique_id=769394182]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
-theme_override_constants/separation = 2
+columns = 3
 
 [node name="Normal" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Tier/QuickTier" unique_id=2059311681]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Normal"
 toggle_mode = true
 text = "Normal"
+text_overrun_behavior = 1
 
 [node name="Exceptional" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Tier/QuickTier" unique_id=2072816647]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Exceptional"
 toggle_mode = true
 text = "Exceptional"
+text_overrun_behavior = 1
 
 [node name="Elite" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Tier/QuickTier" unique_id=98879382]
 layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Elite"
 toggle_mode = true
 text = "Elite"
+text_overrun_behavior = 1
 
 [node name="Corrupted" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=1920965972]
 layout_mode = 2
@@ -1207,6 +1240,29 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_seu75")
 text = "No"
 
+[node name="Runeword" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=1504170191]
+layout_mode = 2
+title = "Runeword"
+
+[node name="QuickRuneword" type="HBoxContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Runeword" unique_id=2005155042]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="yes" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Runeword/QuickRuneword" unique_id=1363433490]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_h8e4i")
+text = "Yes"
+
+[node name="no" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Runeword/QuickRuneword" unique_id=1993739575]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_h8e4i")
+text = "No"
+
 [node name="Sockets" type="FoldableContainer" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer" unique_id=1386752003]
 layout_mode = 2
 title = "Sockets"
@@ -1216,7 +1272,7 @@ custom_minimum_size = Vector2(110, 35)
 layout_mode = 2
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
-columns = 3
+columns = 4
 
 [node name="Socketed" type="Button" parent="MarginContainer/Stash/MainSelector/MainView/ViewSelector/GoblinStash/VBoxContainer2/PanelContainer/LeftBar/QuickFilters/VBoxContainer/Sockets/QuickSockets" unique_id=1958808146]
 layout_mode = 2

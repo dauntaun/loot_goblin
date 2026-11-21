@@ -129,6 +129,8 @@ func _on_quick_filters_changed(quick_filter: String, values: Array[int]) -> void
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.ETHEREAL, values)
 		"corrupted":
 			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.CORRUPT, values)
+		"runeword":
+			_item_searcher.set_quick_filters(ItemSearchQuery.QuickFilter.RUNEWORD, values)
 	
 	_reset_page_and_refresh_filters()
 	_current_itemlist_controller.restore_last_selection(BasicItemListController.RestoreSelection.BY_ITEM)

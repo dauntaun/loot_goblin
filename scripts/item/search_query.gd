@@ -1,6 +1,6 @@
 class_name ItemSearchQuery
 
-enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, CHEST, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET, ETHEREAL, CORRUPT}
+enum QuickFilter {TYPE, WEAPON, WEAPON_SIZE, WEAPON_TYPE, CHEST, MISC, CLASS, RARITY, TIER, PROPERTY, SOCKET, ETHEREAL, CORRUPT, RUNEWORD}
 
 # Quick filter query
 var _quickfilter_query := CompiledQuickFilterQuery.new()
@@ -60,13 +60,14 @@ class CompiledQuickFilterQuery:
 		}
 	enum WeaponSizeFilter {ONE_HANDED, TWO_HANDED}
 	enum WeaponTypeFilter {MELEE, MISSILE, THROWING}
-	enum RarityFilter {RUNEWORD, NORMAL, MAGIC, RARE, CRAFTED, UNIQUE, SET}
+	enum RarityFilter {NORMAL, MAGIC, RARE, CRAFTED, UNIQUE, SET}
 	enum TierFilter {NORMAL, EXCEPTIONAL, ELITE}
 	enum ClassFilter {NON_CLASS, AMAZON, ASSASSIN, BARBARIAN, DRUID, PALADIN, SORCERESS, NECROMANCER}
 	enum PropertyFilter {ETHEREAL, CORRUPTED}
 	enum SocketFilter {NONE, ONE, TWO, THREE, FOUR, FIVE, SIX}
 	enum EtherealFilter {YES, NO}
 	enum CorruptedFilter {YES, NO}
+	enum RunewordFilter {YES, NO}
 	
 	var _active_filters: Dictionary[QuickFilter, Array] # Array[int]
 
@@ -113,6 +114,8 @@ class CompiledQuickFilterQuery:
 				return _item_matches_ethereal
 			QuickFilter.CORRUPT:
 				return _item_matches_corrupted
+			QuickFilter.RUNEWORD:
+				return _item_matches_runeword
 		return func() -> void: pass
 
 
@@ -197,7 +200,6 @@ class CompiledQuickFilterQuery:
 		match rarity:
 			RarityFilter.NORMAL: return item.rarity in \
 			[D2Item.ItemRarity.NORMAL, D2Item.ItemRarity.INFERIOR, D2Item.ItemRarity.SUPERIOR] and not item.has_runeword
-			RarityFilter.RUNEWORD: return item.has_runeword
 			RarityFilter.MAGIC: return item.rarity == D2Item.ItemRarity.MAGIC
 			RarityFilter.RARE: return item.rarity == D2Item.ItemRarity.RARE
 			RarityFilter.CRAFTED: return item.rarity == D2Item.ItemRarity.CRAFTED
@@ -244,6 +246,13 @@ class CompiledQuickFilterQuery:
 		match corrupt:
 			CorruptedFilter.YES: return item.is_corrupted
 			CorruptedFilter.NO: return not item.is_corrupted
+		return false
+	
+	
+	func _item_matches_runeword(item: D2Item, runeword: RunewordFilter) -> bool:
+		match runeword:
+			RunewordFilter.YES: return item.has_runeword
+			RunewordFilter.NO: return not item.has_runeword
 		return false
 
 
